@@ -1,0 +1,24 @@
+
+#ASHead {
+    font-size: 80px;
+}
+
+#welcomeText {
+    font-size: 24px;
+}
+
+
+#mainDiv {
+    display: flex;
+    padding: 0px;
+}
+
+#midCol {
+    width: 70%;
+    z-index: 1;
+}
+
+#leftCol,
+#rightCol {
+    width: 15%;
+}

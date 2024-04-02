@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnaraScape.Web", "AnaraScape.Web\AnaraScape.Web.csproj", "{FEF44B30-129B-4BD7-A848-04178CCE54C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09F127A7-F65E-4D4D-B9BA-11904189DB69}
+	EndGlobalSection
+EndGlobal
