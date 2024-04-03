@@ -1,24 +1,27 @@
-
 #ASHead {
     font-size: 80px;
 }
 
-#welcomeText {
+.welcomeText {
     font-size: 24px;
 }
 
-
 #mainDiv {
-    display: flex;
     padding: 0px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-#midCol {
-    width: 70%;
-    z-index: 1;
+.picContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-#leftCol,
-#rightCol {
-    width: 15%;
+.pic {
+    max-width: 350px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10%;
 }
