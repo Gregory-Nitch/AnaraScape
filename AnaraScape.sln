@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnaraScape.Web", "AnaraScape.Web\AnaraScape.Web.csproj", "{FEF44B30-129B-4BD7-A848-04178CCE54C6}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AnaraScapeDB", "AnaraScapeDB\AnaraScapeDB.sqlproj", "{66BC9A5D-F980-4945-9B43-00F6BCD967F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E15A3A69-C5FC-4F2D-BC14-AFC6FA238C4E}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4350647E-47F5-4A0F-A029-9B925A179793}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnaraScapeTools", "AnaraScapeTools\AnaraScapeTools.csproj", "{7231524C-E694-4A6F-B0C1-721057314F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnaraScapeWeb", "AnaraScapeWeb\AnaraScapeWeb.csproj", "{BF44EFB9-9425-4520-ADBD-BF372F42CB28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +23,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FEF44B30-129B-4BD7-A848-04178CCE54C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4350647E-47F5-4A0F-A029-9B925A179793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4350647E-47F5-4A0F-A029-9B925A179793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4350647E-47F5-4A0F-A029-9B925A179793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4350647E-47F5-4A0F-A029-9B925A179793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7231524C-E694-4A6F-B0C1-721057314F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7231524C-E694-4A6F-B0C1-721057314F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7231524C-E694-4A6F-B0C1-721057314F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7231524C-E694-4A6F-B0C1-721057314F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF44EFB9-9425-4520-ADBD-BF372F42CB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF44EFB9-9425-4520-ADBD-BF372F42CB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF44EFB9-9425-4520-ADBD-BF372F42CB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF44EFB9-9425-4520-ADBD-BF372F42CB28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

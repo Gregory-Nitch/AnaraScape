@@ -11,7 +11,10 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- C# Migration to Blazor Server
+- C# Migration to Blazor Server 
+    - Scafold Site
+    - loadtiles command
+    - start on mapstacks
 
 - Revisit XHR & Request HTTP codes (From django version todos)
 
@@ -47,7 +50,7 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 
 ## Build & Dependencies
- Build: .NET 6.0
+ Build: .NET 8.0
 
 ### Dependencies:
 
