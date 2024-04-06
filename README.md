@@ -26,7 +26,7 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
     - Ability to save location of the party on world map
 
-    - Ability to calcualte the distance of travel using the world map (party can travel along route as the date advances)
+    - Ability to calculate the distance of travel using the world map (party can travel along route as the date advances)
 
 2. PC tracking for DMs
 
@@ -54,7 +54,8 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ### Dependencies:
 
-- To be Added 
+ bootstrap 5.3.3
+ bootstrap-icons 1.11.3
 
 ## Resources 
 
