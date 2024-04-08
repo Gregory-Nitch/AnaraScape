@@ -4,38 +4,45 @@
 
 using AnaraScapeTools;
 
-CommandRegister register = new();
-
-string? cmd = "";
-Console.WriteLine("Entering AnaraScape Tooling: Enter 'EXIT' to exit program...");
-while (cmd != "EXIT")
+internal class Program
 {
-    Console.Write("||> ");
-    cmd = Console.ReadLine();
-    Console.WriteLine();
 
-    switch (cmd)
+
+
+    private static void Main(string[] args)
     {
-        case "":
-        // Fall through...
-        case "help":
-            register.Commands["help"].Job();
-            Console.WriteLine("\nReturned to main...");
-            break;
+        CommandRegister register = new();
 
+        string? cmd = "";
+        Console.WriteLine("Entering AnaraScape Tooling: Enter 'EXIT' to exit program...");
+        while (cmd != "EXIT")
+        {
+            Console.Write("||> ");
+            cmd = Console.ReadLine();
+            Console.WriteLine();
 
-        case "loadtiles":
-            register.Commands[cmd].Job();
-            Console.WriteLine("\nReturned to main...");
-            break;
+            switch (cmd)
+            {
+                case "":
+                // Fall through...
+                case "help":
+                    register.Commands["help"].Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
 
-        case "EXIT":
-            Console.WriteLine("Exiting...");
-            break;
+                case "loadtiles":
+                    register.Commands[cmd].Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
 
-        default:
-            Console.WriteLine("Invalid Command...\n");
-            break;
+                case "EXIT":
+                    Console.WriteLine("Exiting...");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Command...\n");
+                    break;
+            }
+        }
     }
-
 }
