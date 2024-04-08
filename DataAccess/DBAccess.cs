@@ -4,15 +4,19 @@
  */
 
 using Dapper;
+using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace DataAccess;
 
-public class DBAccess : IDBAccess
+public class DBAccess(IConfiguration config) : IDBAccess
 {
-    public List<T> QueryDB<T, U>(string sqlStatement, U parameters, string connString, bool isStoredProcedure = false)
+    private readonly IConfiguration _config = config;
+
+    public List<T> QueryDB<T, U>(string sqlStatement, U parameters, string connStringName, bool isStoredProcedure = false)
     {
+        string connString = _config.GetConnectionString(connStringName);
         CommandType commandType = CommandType.Text;
 
         if (isStoredProcedure)
@@ -24,8 +28,9 @@ public class DBAccess : IDBAccess
         return connection.Query<T>(sqlStatement, parameters, commandType: commandType).ToList();
     }
 
-    public void WriteToDB<T>(string sqlStatement, T parameters, string connString, bool isStoredProcedure = false)
+    public void WriteToDB<T>(string sqlStatement, T parameters, string connStringName, bool isStoredProcedure = false)
     {
+        string connString = _config.GetConnectionString(connStringName);
         CommandType commandType = CommandType.Text;
 
         if (isStoredProcedure)
@@ -36,5 +41,4 @@ public class DBAccess : IDBAccess
         using IDbConnection connection = new SqlConnection(connString);
         connection.Execute(sqlStatement, parameters, commandType: commandType);
     }
-
 }

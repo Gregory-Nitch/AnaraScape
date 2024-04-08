@@ -58,6 +58,7 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
  bootstrap 5.3.3
  bootstrap-icons 1.11.3
+ Dapper 2.1.35
 
 ## Resources 
 

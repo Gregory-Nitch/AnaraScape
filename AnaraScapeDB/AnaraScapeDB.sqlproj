@@ -72,4 +72,7 @@
       <Link>NavMenu.razor</Link>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="AnaraScapeDB.refactorlog" />
+  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿
 
 
+using DataAccess;
 using DataAccess.Models;
 
 /**
@@ -14,7 +15,14 @@ namespace AnaraScapeTools.Commands;
 
 public class LoadTiles : IToolCommand
 {
-    public string Name { get; } = "loadtiles";
+
+    private readonly ICrud Crud;
+
+    public LoadTiles(ICrud Crud)
+    {
+        this.Crud = Crud;
+    }
+
     public void Job()
     {
         string[] images = Directory.GetFileSystemEntries("./TileStaging"); // Same directory as EXE
@@ -39,6 +47,7 @@ public class LoadTiles : IToolCommand
             // Validate|sanitize data before entering to database
             style = style.ToLower();
 
+            connections.Sort();
             bool connectionsFailed = false;
             foreach (var c in connections)
             {
@@ -79,15 +88,11 @@ public class LoadTiles : IToolCommand
             tiles.Add(tile);
         }
 
-        // TODO add to db
-
-
-
-
         Console.WriteLine($"\n\n--- Added Tiles = {tiles.Count} ---");
         foreach (var tile in tiles)
         {
             Console.WriteLine($"{tile.Filename}");
+            Crud.InsertTile(tile);
         }
 
         if (failures.Count > 0)
