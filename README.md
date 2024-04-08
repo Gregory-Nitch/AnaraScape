@@ -11,12 +11,14 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- C# Migration to Blazor Server 
-    - Scafold Site
+- DungeonTileModel
     - loadtiles command
-    - start on mapstacks
 
-- Revisit XHR & Request HTTP codes (From django version todos)
+- MapDesigner Class
+    - Design to string
+    - design to id matrix
+
+- Connect toolbar prototype to map generator & MapDesigner
 
 - See item 3 in `Future Additions`
 

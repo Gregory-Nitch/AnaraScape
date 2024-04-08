@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
 }
 
+.bi {
+    font-size: 30px;
+    padding: 10px;
+    vertical-align: -.125em;
+}
+
 h1:focus {
     outline: none;
 }
