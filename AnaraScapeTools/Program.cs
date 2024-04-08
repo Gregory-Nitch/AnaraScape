@@ -20,6 +20,13 @@ while (cmd != "EXIT")
         // Fall through...
         case "help":
             register.Commands["help"].Job();
+            Console.WriteLine("\nReturned to main...");
+            break;
+
+
+        case "loadtiles":
+            register.Commands[cmd].Job();
+            Console.WriteLine("\nReturned to main...");
             break;
 
         case "EXIT":

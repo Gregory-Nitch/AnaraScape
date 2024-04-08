@@ -4,19 +4,18 @@
 
 namespace DataAccess.Models;
 
-public class DungeonTileModel(int Id,
-                              string TileName,
-                              string Style,
-                              List<string> Connections,
-                              bool IsEntrance,
-                              string IsStairs,
-                              string FileName)
+public class DungeonTileModel(string tileName,
+                              string style,
+                              List<string> connections,
+                              bool isEntrance,
+                              string isStairs,
+                              string filename)
 {
-    public int Id { get; set; } = Id;
-    public string TileName { get; set; } = TileName;
-    public string Style { get; set; } = Style;
-    public List<string> Connections { get; set; } = Connections;
-    public bool IsEntrance { get; set; } = IsEntrance;
-    public string IsStairs { get; set; } = IsStairs;
-    public string FileName { get; set; } = FileName;
+    public int Id { get; set; }
+    public string TileName { get; set; } = tileName;
+    public string Style { get; set; } = style;
+    public List<string> Connections { get; set; } = connections;
+    public bool IsEntrance { get; set; } = isEntrance;
+    public string IsStairs { get; set; } = isStairs;
+    public string Filename { get; set; } = filename;
 }

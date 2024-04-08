@@ -8,7 +8,769 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="TileStaging\" />
+    <None Remove="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^T3,T4,B3,B4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^T3,T4,B3,B4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^4WayInter^name!^^style^Fort^style!^^conns^T3,T4,B3,B4,L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4,T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,T3,T4,^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,B3,B4,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,T3,T4,L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^B3,B4,T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4,T3,T4,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R1,R2,R3,R4,R5,R6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,R3,R4,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L3,L4,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6WalkwayInter^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Walkway^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^6x6Walkway^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^B3,B4,T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^B3,B4,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,B3,B4,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,T3,T4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^R3,R4,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^R3,R4,T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^T3,T4,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^T3,T4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^B3,B4,T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^B3,B4,T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,B3,B4,T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,T3,T4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^R3,R4,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^R3,R4,T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^T3,T4,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^T3,T4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^B3,B4,T0,T1,T2,T3,T4,T5,T6,T7,L0,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,B0,B1,B2,B3,B4,B5,B6,B7,T3,T4,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,L7,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,B7,L3,L4,R0,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,T3,T4,B0,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B3,B4,L0,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,B7,L3,L4,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,L3,L4,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B3,B4,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L3,L4,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B3,B4,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,B0,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,B0,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,T7,L0,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,B7,R0,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^B3,B4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^B3,B4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^Empty^name!^^style^Fort^style!^^conns^E^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,B7,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StraightHall^name!^^style^Fort^style!^^conns^L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+    <None Remove="TileStaging\^name^StraightHall^name!^^style^Fort^style!^^conns^T3,T4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^T3,T4,B3,B4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^T3,T4,B3,B4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^3WayInter^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^4WayInter^name!^^style^Fort^style!^^conns^T3,T4,B3,B4,L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4,T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,T3,T4,^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,B3,B4,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,T3,T4,L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6,T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6AlcoveEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Alcove^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^B3,B4,T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4,T3,T4,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Room^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R1,R2,R3,R4,R5,R6,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,R3,R4,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L3,L4,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R3,R4,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6WalkwayInter^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Walkway^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^6x6Walkway^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^B3,B4,T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^B3,B4,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,B3,B4,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^L3,L4,T3,T4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^R3,R4,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^R3,R4,T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^T3,T4,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^T3,T4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntryInnerCorner^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^B3,B4,R3,R4,T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^B3,B4,T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^B3,B4,T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,B3,B4,T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^L3,L4,T3,T4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^R3,R4,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^R3,R4,T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^T3,T4,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^T3,T4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerEntry^name!^^style^Fort^style!^^conns^T3,T4,R3,R4,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7CornerInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x7Corner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^B3,B4,T0,T1,T2,T3,T4,T5,T6,T7,L0,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,B0,B1,B2,B3,B4,B5,B6,B7,T3,T4,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,L7,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,B7,L3,L4,R0,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,T3,T4,B0,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B3,B4,L0,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,B7,L3,L4,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,L3,L4,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerEntry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B3,B4,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,T3,T4,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L3,L4,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2Entry^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B3,B4,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCornerx2^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,B0,B1,B2,B3,B4,B5,B6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,L0,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8WallInnerCorner^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^L1,L2,L3,L4,L5,L6,L7,B0,B1,B2,B3,B4,B5,B6,B7,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,L7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,T7,L0,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^7x8Wall^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,B7,R0,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^B3,B4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^B3,B4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^T3,T4,L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^Corner^name!^^style^Fort^style!^^conns^T3,T4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^DeadEnd^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^Empty^name!^^style^Fort^style!^^conns^E^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^EnterTop^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^True^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T0,T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,L0,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B0,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,L7,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,B1,B2,B3,B4,B5,B6,B7,L1,L2,L3,L4,L5,L6,R1,R2,R3,R4,R5,R6,R7^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^InnerCornerFloor^name!^^style^Fort^style!^^conns^T1,T2,T3,T4,T5,T6,T7,B1,B2,B3,B4,B5,B6,L1,L2,L3,L4,L5,L6,R0,R1,R2,R3,R4,R5,R6^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsDown^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^Down^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^B3,B4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^L3,L4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^R3,R4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StairsUp^name!^^style^Fort^style!^^conns^T3,T4^conns!^^ent^False^ent!^^stair^Up^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StraightHall^name!^^style^Fort^style!^^conns^L3,L4,R3,R4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TileStaging\^name^StraightHall^name!^^style^Fort^style!^^conns^T3,T4,B3,B4^conns!^^ent^False^ent!^^stair^False^stair!^.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
