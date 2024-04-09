@@ -11,8 +11,11 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- DungeonTileModel
-    - DELETE-ALL-tiles command
+- Anara Tools
+    - design command + optional parameter?
+
+- AnaraDB
+    - Stored procedure to get list of tiles based on style
 
 - MapDesigner Class
     - Design to string
