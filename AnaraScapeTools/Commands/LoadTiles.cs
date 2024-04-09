@@ -13,15 +13,10 @@ using DataAccess.Models;
  */
 namespace AnaraScapeTools.Commands;
 
-public class LoadTiles : IToolCommand
+public class LoadTiles(ICrud crud) : IToolCommand
 {
 
-    private readonly ICrud Crud;
-
-    public LoadTiles(ICrud Crud)
-    {
-        this.Crud = Crud;
-    }
+    private readonly ICrud _Crud = crud;
 
     public void Job()
     {
@@ -92,7 +87,7 @@ public class LoadTiles : IToolCommand
         foreach (var tile in tiles)
         {
             Console.WriteLine($"{tile.Filename}");
-            Crud.InsertTile(tile);
+            _Crud.InsertTile(tile);
         }
 
         if (failures.Count > 0)

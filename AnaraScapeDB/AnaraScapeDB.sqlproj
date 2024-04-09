@@ -65,6 +65,7 @@
     <Build Include="MapGenerator\Tables\DungeonTiles.sql" />
     <Build Include="MapGenerator\Stored Procedures\spDungeonTiles_InsertTile.sql" />
     <Build Include="Schemas\MapGenSchema.sql" />
+    <Build Include="MapGenerator\Stored Procedures\spDungeonTiles_DeleteAllTiles.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AnaraScapeDB_Dev.publish.xml" />

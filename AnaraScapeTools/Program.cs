@@ -37,6 +37,7 @@ internal class Program
             Console.Write("||> ");
             cmd = Console.ReadLine();
             Console.WriteLine();
+            var crud = ServiceProvider.GetService<ICrud>();
 
             switch (cmd)
             {
@@ -49,9 +50,14 @@ internal class Program
                     break;
 
                 case "load-tiles":
-                    var crud = ServiceProvider.GetService<ICrud>();
                     LoadTiles loadTiles = new(crud);
                     loadTiles.Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
+
+                case "DELETE-ALL-tiles":
+                    DeleteAllTiles deleteTiles = new(crud);
+                    deleteTiles.Job();
                     Console.WriteLine("\nReturned to main...");
                     break;
 
@@ -60,7 +66,7 @@ internal class Program
                     break;
 
                 default:
-                    Console.WriteLine("Invalid Command...\n");
+                    Console.WriteLine("Command not found, try 'help' for a list of commands...\n");
                     break;
             }
         }
