@@ -55,6 +55,12 @@ internal class Program
                     Console.WriteLine("\nReturned to main...");
                     break;
 
+                case "design-maps":
+                    DesignMaps designMaps = new(crud);
+                    designMaps.Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
+
                 case "DELETE-ALL-tiles":
                     DeleteAllTiles deleteTiles = new(crud);
                     deleteTiles.Job();
