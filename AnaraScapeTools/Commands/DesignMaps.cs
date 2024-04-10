@@ -102,13 +102,13 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
         for (int i = 0; i < quantity; i++)
         {
-            MapDesigner designer = new(height,
+            MapDesigner design = new(height,
                                        width,
                                        MapTraits["style"],
                                        MapTraits["level"],
                                        needsStairs,
                                        tiles);
-            // TODO design to string here
+            design.ToString();
         }
     }
 }
