@@ -11,7 +11,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	INSERT INTO [MapGenerator].[DungeonTiles]
-	(TileName, Style, Connections, IsEntrance, IsStairs, Filename)
+	([TileName], [Style], [Connections], [IsEntrance], [IsStairs], [Filename])
 	VALUES (
 	@TileName, 
 	@Style, 

@@ -37,4 +37,12 @@ public class Crud(IDBAccess db) : ICrud
                       ConnStringName,
                       true);
     }
+
+    public List<DungeonTileModel> GetAllTiles()
+    {
+        return _db.QueryDB<DungeonTileModel, dynamic>("MapGenerator.spDungeonTiles_GetAllTiles",
+                                               new { },
+                                               ConnStringName,
+                                               true);
+    }
 }

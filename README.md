@@ -12,10 +12,7 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 ## Current Tasks
 
 - Anara Tools
-    - design command + optional parameter?
-
-- AnaraDB
-    - Stored procedure to get list of tiles based on style
+    - Add map design to string call to tools
 
 - MapDesigner Class
     - Design to string

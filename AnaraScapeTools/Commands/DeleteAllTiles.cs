@@ -10,11 +10,11 @@ namespace AnaraScapeTools.Commands;
 public class DeleteAllTiles(ICrud crud) : IToolCommand
 {
 
-    private readonly ICrud _Crud = crud;
+    private readonly ICrud _crud = crud;
 
     public void Job()
     {
-        _Crud.DeleteAllTiles();
+        _crud.DeleteAllTiles();
         Console.WriteLine("\n\n--- DELETED ALL tiles from DB! ---");
     }
 }

@@ -5,7 +5,7 @@ CREATE PROCEDURE [MapGenerator].[spDungeonTiles_DeleteAllTiles]
 AS
 BEGIN
 
-DELETE FROM [MapGenerator].[DungeonTiles];
+	DELETE FROM [MapGenerator].[DungeonTiles];
 
 END
 

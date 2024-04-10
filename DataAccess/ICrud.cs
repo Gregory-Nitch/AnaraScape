@@ -6,5 +6,6 @@ namespace DataAccess
     {
         void InsertTile(DungeonTileModel tile);
         void DeleteAllTiles();
+        public List<DungeonTileModel> GetAllTiles();
     }
 }

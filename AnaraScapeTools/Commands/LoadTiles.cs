@@ -16,7 +16,7 @@ namespace AnaraScapeTools.Commands;
 public class LoadTiles(ICrud crud) : IToolCommand
 {
 
-    private readonly ICrud _Crud = crud;
+    private readonly ICrud _crud = crud;
 
     public void Job()
     {
@@ -87,7 +87,7 @@ public class LoadTiles(ICrud crud) : IToolCommand
         foreach (var tile in tiles)
         {
             Console.WriteLine($"{tile.Filename}");
-            _Crud.InsertTile(tile);
+            _crud.InsertTile(tile);
         }
 
         if (failures.Count > 0)
