@@ -1,4 +1,6 @@
-﻿namespace MapDesign;
+﻿
+
+namespace MapDesign;
 
 public class QueueFrontier
 {

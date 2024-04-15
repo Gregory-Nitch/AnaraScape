@@ -85,7 +85,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
             Console.WriteLine("Error: quantity request must exceed 1...");
         }
 
-        if (bool.TryParse(MapTraits["needsStairs"], out bool needsStairs))
+        if (!bool.TryParse(MapTraits["needsStairs"], out bool needsStairs))
         {
             Console.WriteLine("Error: invalid needs stairs entry...");
             hasError = true;
@@ -97,8 +97,14 @@ public class DesignMaps(ICrud crud) : IToolCommand
             return;
         }
 
-        List<DungeonTileModel> tiles = _crud.GetAllTiles()
+        List<StoredDungeonTileModel> storedTiles = _crud.GetAllTiles()
                                        .Where(t => t.Style == MapTraits["style"]).ToList();
+
+        List<DungeonTileModel> tiles = [];
+        foreach (var tile in storedTiles)
+        {
+            tiles.Add(new DungeonTileModel(tile));
+        }
 
         for (int i = 0; i < quantity; i++)
         {
@@ -108,7 +114,12 @@ public class DesignMaps(ICrud crud) : IToolCommand
                                        MapTraits["level"],
                                        needsStairs,
                                        tiles);
-            design.ToString();
+
+            design.Generate();
+
+            Console.WriteLine();
+            Console.WriteLine(design.ToString());
+            Console.WriteLine();
         }
     }
 }

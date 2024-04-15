@@ -21,7 +21,7 @@ public class LoadTiles(ICrud crud) : IToolCommand
     public void Job()
     {
         string[] images = Directory.GetFileSystemEntries("./TileStaging"); // Same directory as EXE
-        List<DungeonTileModel> tiles = [];
+        List<LoadingDungeonTileModel> tiles = [];
         List<string> failures = [];
 
         for (int i = 0; i < images.Length; i++)
@@ -71,10 +71,10 @@ public class LoadTiles(ICrud crud) : IToolCommand
                 continue;
             }
 
-            DungeonTileModel tile = new(
+            LoadingDungeonTileModel tile = new(
                 name,
                 style,
-                connections,
+                string.Join(',', connections),
                 isEntrance,
                 isStairs,
                 image // Filename

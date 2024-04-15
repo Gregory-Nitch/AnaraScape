@@ -1,4 +1,7 @@
-﻿namespace MapDesign;
+﻿
+
+
+namespace MapDesign;
 
 public class AStar
 {

@@ -11,16 +11,14 @@ public class Crud(IDBAccess db) : ICrud
 
     private readonly IDBAccess _db = db;
 
-    public void InsertTile(DungeonTileModel tile)
+    public void InsertTile(LoadingDungeonTileModel tile)
     {
-        string Connections = string.Join(",", tile.Connections);
-
         _db.WriteToDB("MapGenerator.spDungeonTiles_InsertTile",
                        new
                        {
                            tile.TileName,
                            tile.Style,
-                           Connections,
+                           tile.Connections,
                            tile.IsEntrance,
                            tile.IsStairs,
                            tile.Filename,
@@ -38,9 +36,9 @@ public class Crud(IDBAccess db) : ICrud
                       true);
     }
 
-    public List<DungeonTileModel> GetAllTiles()
+    public List<StoredDungeonTileModel> GetAllTiles()
     {
-        return _db.QueryDB<DungeonTileModel, dynamic>("MapGenerator.spDungeonTiles_GetAllTiles",
+        return _db.QueryDB<StoredDungeonTileModel, dynamic>("MapGenerator.spDungeonTiles_GetAllTiles",
                                                new { },
                                                ConnStringName,
                                                true);

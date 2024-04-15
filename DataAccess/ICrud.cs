@@ -4,8 +4,8 @@ namespace DataAccess
 {
     public interface ICrud
     {
-        void InsertTile(DungeonTileModel tile);
+        void InsertTile(LoadingDungeonTileModel tile);
         void DeleteAllTiles();
-        public List<DungeonTileModel> GetAllTiles();
+        public List<StoredDungeonTileModel> GetAllTiles();
     }
 }
