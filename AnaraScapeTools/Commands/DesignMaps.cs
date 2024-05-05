@@ -20,7 +20,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
     {
         Console.WriteLine("\nPlease enter the height, width, style, level, and stairs " +
             "value for the requested map separated by commas or hit enter for the default" +
-            "(same as below example.\nSyntax: height,width,style,level,needsStairs,quantity" +
+            "(same as below example.)\n\tSyntax: height,width,style,level,needsStairs,quantity" +
             " | Example: 3,3,fort,top,true,3");
 
         Console.Write("||> ");
@@ -106,6 +106,8 @@ public class DesignMaps(ICrud crud) : IToolCommand
             tiles.Add(new DungeonTileModel(tile));
         }
 
+        Console.WriteLine("\nBeginning map generation...");
+
         for (int i = 0; i < quantity; i++)
         {
             MapDesigner design = new(height,
@@ -117,7 +119,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
             design.Generate();
 
-            Console.WriteLine();
+            Console.WriteLine($"\nMap Number = {i + 1}");
             Console.WriteLine(design.ToString());
             Console.WriteLine();
         }

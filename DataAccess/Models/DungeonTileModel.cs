@@ -9,7 +9,7 @@ public class DungeonTileModel(StoredDungeonTileModel storedTile)
     public int Id { get; set; } = storedTile.Id;
     public string TileName { get; set; } = storedTile.TileName;
     public string Style { get; set; } = storedTile.Style;
-    public List<string> Connections { get; set; } = [.. storedTile.Connections.Split(',')];
+    public SortedSet<string> Connections { get; set; } = [.. storedTile.Connections.Split(',')];
     public bool IsEntrance { get; set; } = storedTile.IsEntrance;
     public string IsStairs { get; set; } = storedTile.IsStairs;
     public string Filename { get; set; } = storedTile.Filename;

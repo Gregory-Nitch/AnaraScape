@@ -23,11 +23,11 @@ public class MapDesigner(int height, int width, string style, string level, bool
     private readonly List<DungeonTileModel> DBTiles = DBTiles;
 
     // Represents each section of the map and its current connections *3D*
-    private List<List<List<string>>> ConnectionMatrix { get; } = [];
+    private List<List<SortedSet<string>>> ConnectionMatrix { get; } = [];
     // Represents sections in the map that should be protected from random seeding
-    private HashSet<(int row, int col)> SafetyBuffer = [];
+    private SortedSet<(int row, int col)> SafetyBuffer = [];
     // Represent sections chosen to have a random tile placed in it
-    private HashSet<(int row, int col)> SeededSections = [];
+    private SortedSet<(int row, int col)> SeededSections = [];
     private int RequiredSeeds = 0;
 
     // Represents Entry point & stairs into the dungeon, -1 indicates not used/assigned
@@ -37,10 +37,6 @@ public class MapDesigner(int height, int width, string style, string level, bool
 
     /* Edges and corners require special handling */
     private Dictionary<string, List<(int row, int col)>> Edges = [];
-    private (int row, int col) TopLeftCorner { get; } = (0, 0);
-    private (int row, int col) BottomLeftCorner { get; } = (height - 1, 0);
-    private (int row, int col) TopRightCorner { get; } = (0, width - 1);
-    private (int row, int col) BottomRightCorner { get; } = (height - 1, width - 1);
 
     /* Outputs */
     // Represents each tile id that can fill the connection matrix above *3D*
@@ -50,6 +46,12 @@ public class MapDesigner(int height, int width, string style, string level, bool
     // Holds the associated filename for the output matrixes
     public Dictionary<int, string> ImageMap { get; } = [];
 
+
+    /// <summary>
+    /// Returns the map design as string, providing all the details needed to verify
+    /// designs.
+    /// </summary>
+    /// <returns>String representation of the map</returns>
     public override string ToString()
     {
         StringBuilder builder = new();
@@ -127,6 +129,9 @@ public class MapDesigner(int height, int width, string style, string level, bool
         return builder.ToString();
     }
 
+    /// <summary>
+    /// Called to generate a map design from the given parameters to the class constructor.
+    /// </summary>
     public void Generate()
     {
         PrepareMatrixes();
@@ -135,23 +140,51 @@ public class MapDesigner(int height, int width, string style, string level, bool
 
         DefineEntryPoints();
 
+        (int row, int col) mapStart;
+        if (Level == "top")
+        {
+            mapStart = Entrance;
+        }
+        else
+        {
+            mapStart = StairsUp;
+        }
 
+        // Validate that the exit can be reached if there is one (fails map designs early)
+        // Route is also added to SafetyBuffer by AStar
+        if (NeedsStairs && !AStar(mapStart, StairsDown, true))
+        {
+            // Invalid design found
+            throw new MapDesignException($"Error: Tile (row : {StairsDown.row}, col : {StairsDown.col}) " +
+                $"could not be reached from Map Start (row : {mapStart.row}, col : {mapStart.col}). " +
+                $"Printing map design...\n{this}");
+        }
 
-        // Start of Seeding TODO <- remove
+        // Increase SafetyBuffer around entrances (helps prevent unreachable tiles)
+        IncreaseBuffer(mapStart);
+        if (NeedsStairs)
+        {
+            IncreaseBuffer(StairsDown);
+        }
+
+        // Add seeded sections to improve randomness
         if (Height + Width > 5)
         {
             RequiredSeeds = Height + Width - 5;
         }
     }
 
+    /// <summary>
+    /// Prepares the matrixes used to generate map designs.
+    /// </summary>
     private void PrepareMatrixes()
     {
         for (int i = 0; i < Height; i++)
         {
-            List<List<string>> row = [];
+            List<SortedSet<string>> row = [];
             for (int j = 0; j < Width; j++)
             {
-                List<string> col = ["N"];
+                SortedSet<string> col = ["N"];
                 row.Add(col);
             }
             ConnectionMatrix.Add(row);
@@ -179,6 +212,9 @@ public class MapDesigner(int height, int width, string style, string level, bool
         }
     }
 
+    /// <summary>
+    /// Defines edges of the map for future use.
+    /// </summary>
     private void DefineEdges()
     {
         Edges["top"] = [];
@@ -199,6 +235,9 @@ public class MapDesigner(int height, int width, string style, string level, bool
         }
     }
 
+    /// <summary>
+    /// Defines the entry points for the map (ground level/stairs up/stairs down)
+    /// </summary>
     private void DefineEntryPoints()
     {
         if (Level == "top")
@@ -241,13 +280,21 @@ public class MapDesigner(int height, int width, string style, string level, bool
         }
     }
 
+    /// <summary>
+    /// Defines the connections for any given section of the map.
+    /// </summary>
+    /// <param name="section">Location on the map to set connections for.</param>
+    /// <param name="isEntrance">Determines if the method should treat the location as an entrance.</param>
+    /// <param name="isStairs">Determines if the method should treat the location as a set of stairs and of what type.
+    /// Valid entries are "up", "down", "false".</param>
     private void SetStackConnections((int row, int col) section,
                                      bool isEntrance = false,
                                      string isStairs = "false")
     {
-        List<string> validConnections = [];
-        List<string> requiredConnections = [];
+        SortedSet<string> validConnections = [];
+        SortedSet<string> requiredConnections = [];
 
+        // Location is a stairs up or entrance on an edge or corner.
         if (isEntrance || (isStairs == "up" &&
             (Edges["top"].Contains(section) ||
             Edges["bottom"].Contains(section) ||
@@ -256,59 +303,606 @@ public class MapDesigner(int height, int width, string style, string level, bool
         {
             if (Edges["top"].Contains(section))
             {
-                validConnections.AddRange(MapConstants.BOTTOM_CONNECTIONS);
+                validConnections.UnionWith(MapConstants.BOTTOM_CONNECTIONS);
             }
             if (Edges["bottom"].Contains(section))
             {
-                validConnections.AddRange(MapConstants.TOP_CONNECTIONS);
+                validConnections.UnionWith(MapConstants.TOP_CONNECTIONS);
             }
             if (Edges["left"].Contains(section))
             {
-                validConnections.AddRange(MapConstants.RIGHT_CONNECTIONS);
+                validConnections.UnionWith(MapConstants.RIGHT_CONNECTIONS);
             }
             if (Edges["right"].Contains(section))
             {
-                validConnections.AddRange(MapConstants.LEFT_CONNECTIONS);
+                validConnections.UnionWith(MapConstants.LEFT_CONNECTIONS);
             }
         }
 
+        // Location is a stair up location but it is not on the edge.
         else if (isStairs == "up")
         {
-            validConnections.AddRange(MapConstants.BOTTOM_CONNECTIONS);
-            validConnections.AddRange(MapConstants.TOP_CONNECTIONS);
-            validConnections.AddRange(MapConstants.RIGHT_CONNECTIONS);
-            validConnections.AddRange(MapConstants.LEFT_CONNECTIONS);
+            validConnections.UnionWith(MapConstants.BOTTOM_CONNECTIONS);
+            validConnections.UnionWith(MapConstants.TOP_CONNECTIONS);
+            validConnections.UnionWith(MapConstants.RIGHT_CONNECTIONS);
+            validConnections.UnionWith(MapConstants.LEFT_CONNECTIONS);
         }
 
+        // Otherwise it is a stairs down or regular section.
         else
         {
             GetNeighboringConnections(section, validConnections, requiredConnections);
         }
-        validConnections.Sort();
-        requiredConnections.Sort();
 
-        GetFinalConnectionState(validConnections, requiredConnections, isEntrance, isStairs);
-
-        ConnectionMatrix[section.row][section.col].AddRange(validConnections);
+        ConnectionMatrix[section.row][section.col] = GetFinalConnectionState(validConnections,
+                                                                             requiredConnections,
+                                                                             isEntrance,
+                                                                             isStairs);
     }
 
+    /// <summary>
+    /// Adds the required sections to the safety buffer used to prevent map design flaws.
+    /// </summary>
+    /// <param name="section">Section to protect.</param>
     private void AddToSafetyBuffer((int row, int col) section)
     {
-        throw new NotImplementedException();
+        (int row, int col) = section;
+        SortedSet<string> sectionConnections = ConnectionMatrix[row][col];
+
+        // If section is in corner, use of First() to only get connection direction in the map
+        if (section == (0, 0)) // Top left
+        {
+            if (sectionConnections.First().Contains('R'))
+            {
+                SafetyBuffer.Add((row, col + 1));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                SafetyBuffer.Add((row + 1, col));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            return;
+        }
+        else if (section == (0, Width - 1)) // Top right
+        {
+            if (sectionConnections.First().Contains('L'))
+            {
+                SafetyBuffer.Add((row, col - 1));
+                SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                SafetyBuffer.Add((row + 1, col));
+                SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            return;
+        }
+        else if (section == (Height - 1, 0)) // Bottom left
+        {
+            if (sectionConnections.First().Contains('R'))
+            {
+                SafetyBuffer.Add((row, col + 1));
+                SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('T'))
+            {
+                SafetyBuffer.Add((row - 1, col));
+                SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            return;
+        }
+        else if (section == (Height - 1, Width - 1)) // Bottom right
+        {
+            if (sectionConnections.First().Contains('L'))
+            {
+                SafetyBuffer.Add((row, col - 1));
+                SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('T'))
+            {
+                SafetyBuffer.Add((row - 1, col));
+                SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            return;
+        }
+
+        // Else if a section is on an edge
+        if (Edges["top"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('B'))
+            {
+                SafetyBuffer.Add((row + 1, col - 1));
+                SafetyBuffer.Add((row + 1, col));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                SafetyBuffer.Add((row, col - 1));
+                SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                SafetyBuffer.Add((row, col + 1));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+        }
+        else if (Edges["bottom"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                SafetyBuffer.Add((row - 1, col - 1));
+                SafetyBuffer.Add((row - 1, col));
+                SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                SafetyBuffer.Add((row, col - 1));
+                SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                SafetyBuffer.Add((row, col + 1));
+                SafetyBuffer.Add((row - 1, col + 1));
+            }
+        }
+        else if (Edges["left"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                SafetyBuffer.Add((row - 1, col));
+                SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                SafetyBuffer.Add((row + 1, col));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                SafetyBuffer.Add((row - 1, col + 1));
+                SafetyBuffer.Add((row, col + 1));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+        }
+        else if (Edges["right"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                SafetyBuffer.Add((row - 1, col));
+                SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                SafetyBuffer.Add((row + 1, col));
+                SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                SafetyBuffer.Add((row - 1, col - 1));
+                SafetyBuffer.Add((row, col - 1));
+                SafetyBuffer.Add((row + 1, col - 1));
+            }
+        }
+        // Not on an edge and requires full safe zone
+        else
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                SafetyBuffer.Add((row - 1, col - 1));
+                SafetyBuffer.Add((row - 1, col));
+                SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                SafetyBuffer.Add((row + 1, col - 1));
+                SafetyBuffer.Add((row + 1, col));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                SafetyBuffer.Add((row - 1, col - 1));
+                SafetyBuffer.Add((row, col - 1));
+                SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                SafetyBuffer.Add((row - 1, col + 1));
+                SafetyBuffer.Add((row, col + 1));
+                SafetyBuffer.Add((row + 1, col + 1));
+            }
+        }
     }
 
+    /// <summary>
+    /// Looks at the neighboring connections of the map and adds or removes connections from the passed valid
+    /// connections if use of those connections are valid or would produce a flaw in map design.
+    /// </summary>
+    /// <param name="section">Section to prune connections from.</param>
+    /// <param name="validConnections">Connection set to prune connections from.</param>
     private void GetNeighboringConnections((int row, int col) section,
-                                           List<string> validConnections,
-                                           List<string> requiredConnections)
+                                           SortedSet<string> validConnections,
+                                           SortedSet<string> requiredConnections)
     {
-        throw new NotImplementedException();
+        // Set neighbors
+        (int row, int col) indexUp = (section.row - 1, section.col);
+        (int row, int col) indexDown = (section.row + 1, section.col);
+        (int row, int col) indexLeft = (section.row, section.col - 1);
+        (int row, int col) indexRight = (section.row, section.col + 1);
+        (int row, int col) indexDownAndRight = (section.row + 1, section.col + 1);
+        List<(int row, int col)> neighbors =
+        [
+            indexUp,
+            indexDown,
+            indexLeft,
+            indexRight,
+            indexDownAndRight
+        ];
+
+        foreach (var neighbor in neighbors)
+        {
+            // Skip neighbors outside of the map
+            if (neighbor.row > Height - 1
+                || neighbor.row < 0
+                || neighbor.col > Width - 1
+                || neighbor.col < 0)
+            {
+                continue;
+            }
+
+            SortedSet<string> incomingConnections = ConnectionMatrix[neighbor.row][neighbor.col];
+
+            // If incoming connection == "N" all connections are valid in that direction
+            if (incomingConnections.First() == "N")
+            {
+                if (neighbor == indexUp)
+                {
+                    validConnections.UnionWith(MapConstants.TOP_CONNECTIONS);
+                }
+                else if (neighbor == indexDown)
+                {
+                    validConnections.UnionWith(MapConstants.BOTTOM_CONNECTIONS);
+                }
+                else if (neighbor == indexLeft)
+                {
+                    validConnections.UnionWith(MapConstants.LEFT_CONNECTIONS);
+                }
+                else if (neighbor == indexRight)
+                {
+                    validConnections.UnionWith(MapConstants.RIGHT_CONNECTIONS);
+                }
+            }
+
+            // If incoming connection == "E" tile no connections are valid (empty tile)
+            else if (incomingConnections.First() == "E")
+            {
+                // If tile is down and right remove B7 and R7 if in valid connections, prevents large room tiles
+                if (neighbor == indexDownAndRight)
+                {
+                    validConnections.Remove("B7");
+                    validConnections.Remove("R7");
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            // Handle down and right index separately
+            else if (neighbor == indexDownAndRight)
+            {
+                // If it is a large tile with a top left connection add the required bottom right connections
+                if (incomingConnections.Contains("T0") && incomingConnections.Contains("L0"))
+                {
+                    requiredConnections.Add("B7");
+                    requiredConnections.Add("R7");
+                }
+                // Else remove bottom right connections from valid connections
+                else
+                {
+                    validConnections.Remove("B7");
+                    validConnections.Remove("R7");
+                }
+            }
+
+            // Else for each incoming connection add the mating connection to required connections
+            foreach (var connection in incomingConnections)
+            {
+                // But only if the connection is in the direction of the current section
+                if (neighbor == indexUp && connection.Contains('B'))
+                {
+                    requiredConnections.Add(MapConstants.MATING_CONNECTIONS[connection]);
+                }
+                else if (neighbor == indexDown && connection.Contains('T'))
+                {
+                    requiredConnections.Add(MapConstants.MATING_CONNECTIONS[connection]);
+                }
+                else if (neighbor == indexLeft && connection.Contains('R'))
+                {
+                    requiredConnections.Add(MapConstants.MATING_CONNECTIONS[connection]);
+                }
+                else if (neighbor == indexRight && connection.Contains('L'))
+                {
+                    requiredConnections.Add(MapConstants.MATING_CONNECTIONS[connection]);
+                }
+            }
+        }
+
     }
 
-    private void GetFinalConnectionState(List<string> validConnections,
-                                         List<string> requiredConnections,
+    /// <summary>
+    /// Used to assign the final connection state of any given map section.
+    /// </summary>
+    /// <param name="validConnections">The valid connections determined available to the section.</param>
+    /// <param name="requiredConnections">The required connections determined for the section.</param>
+    /// <param name="isEntrance">Determines if the method should treat the location as an entrance.</param>
+    /// <param name="isStairs">Determines if the method should treat the locations as stairs. Valid
+    /// inputs are "up", "down", "false".</param>
+    private SortedSet<string> GetFinalConnectionState(SortedSet<string> validConnections,
+                                         SortedSet<string> requiredConnections,
                                          bool isEntrance,
                                          string isStairs)
     {
-        throw new NotImplementedException();
+        List<DungeonTileModel> matchedTiles = [];
+
+        foreach (var tile in DBTiles)
+        {
+            // If there are required connections and not all are met then continue to next tile.
+            // Filter tiles that do not meet the entrance and stair requirements
+            if ((requiredConnections.Count != 0 && !requiredConnections.IsSubsetOf(tile.Connections)) ||
+                    tile.IsEntrance != isEntrance || tile.IsStairs != isStairs)
+            {
+                continue;
+            }
+
+            // No requirements, not entrance, not stairs means empty tile "E" is valid
+            else if (requiredConnections.Count == 0
+                     && isEntrance == false
+                     && isStairs == "false"
+                     && tile.Connections.FirstOrDefault() == "E")
+            {
+                // Pad 5 empty tiles for added randomness to maps
+                for (int i = 0; i < 5; i++)
+                {
+                    matchedTiles.Add(tile);
+                }
+            }
+
+            bool tileMatches = true;// Switches to false if a connection is missing
+            // If all connection requirements are met add tile to matched tiles
+            foreach (var connection in tile.Connections)
+            {
+                if (!validConnections.Contains(connection) && !requiredConnections.Contains(connection))
+                {
+                    tileMatches = false;
+                    break;
+                }
+            }
+
+            if (tileMatches)
+            {
+                matchedTiles.Add(tile);
+            }
+        }
+
+        DungeonTileModel chosenTile = matchedTiles.ElementAt(_Random.Next(matchedTiles.Count));
+        return chosenTile.Connections;
+    }
+
+    /// <summary>
+    /// A* search algorithm for validating map designs, false return == invalid design.
+    /// </summary>
+    /// <param name="start">Starting node for A* search</param>
+    /// <param name="target">Target node for A* search</param>
+    /// <param name="protectRoute">If true all nodes on route to the target will be added to the SafetyBuffer</param>
+    /// <returns>bool: can reach the target = true, cannot = false</returns>
+    private bool AStar((int row, int col) start, (int row, int col) target, bool protectRoute = false)
+    {
+        HashSet<(int row, int col)> explored = [];
+        HashSet<Node> frontier = [];
+        Node startNode = new(start, null, 0, target);
+        bool solved = false;
+        frontier.Add(startNode);
+
+        // Until a route to the exit has been found search for exit
+        while (!solved)
+        {
+            // Frontier is empty, there is not route to the target (invalid design)
+            Node? node = frontier.FirstOrDefault();
+            if (node == null)
+            {
+                return false;
+            }
+            frontier.Remove(node);
+
+            // If current state == target solution has been found (valid design)
+            if (node.State == target)
+            {
+                // If needed add route to SafetyBuffer (entrance/stairs up to stairs down)
+                if (protectRoute)
+                {
+                    HashSet<(int row, int col)> route = [];
+                    while (node.Parent != null)
+                    {
+                        route.Add(node.State);
+                        node = node.Parent;
+                    }
+
+                    foreach (var section in route)
+                    {
+                        SafetyBuffer.Add(section);
+                    }
+                }
+
+                return true;
+            }
+
+            // Otherwise continue exploring
+            explored.Add(node.State);
+            foreach (var candidate in AStarNeighbors(node, target))
+            {
+                if (!explored.Contains(candidate.State) && !frontier.Any(n => n.State == candidate.State))
+                {
+                    frontier.Add(candidate);
+                }
+            }
+
+            frontier = [.. frontier.OrderBy(n => n.Cost)];
+        }
+
+        // Should be unreachable, while loop will return false when frontier is exhausted
+        return false;
+    }
+
+    /// <summary>
+    /// Gets the neighboring valid nodes (has connections) and returns the set ordered by lowest cost.
+    /// </summary>
+    /// <param name="state">Current state to get neighbors for</param>
+    /// <param name="cost">Cost of current state</param>
+    /// <returns>HashSet of type Node that is ordered by cost ascending</returns>
+    /// <exception cref="NotImplementedException"></exception>
+    private HashSet<Node> AStarNeighbors(Node currentNode, (int row, int col) target)
+    {
+        (int row, int col) = currentNode.State;
+        SortedSet<string> stateConnections = ConnectionMatrix[row][col];
+        HashSet<Node> neighbors = [
+            new Node((row - 1, col), currentNode, currentNode.Cost + 1, target), // Up
+            new Node((row + 1, col), currentNode, currentNode.Cost + 1, target), // Down
+            new Node((row, col - 1), currentNode, currentNode.Cost + 1, target), // Left
+            new Node((row, col + 1), currentNode, currentNode.Cost + 1, target) // Down
+            ];
+
+        neighbors = [.. neighbors.OrderBy(n => n.Cost)];
+
+        // Filter neighbors out of bounds
+        foreach (var neighbor in neighbors)
+        {
+            (int nRow, int nCol) = neighbor.State;
+            if (nRow < 0 || nRow > Height - 1 || nCol < 0 || nCol > Width - 1)
+            {
+                neighbors.Remove(neighbor);
+            }
+        }
+
+        // If current state is a null tile, return all neighbors
+        if (stateConnections.First() == "N")
+        {
+            return neighbors;
+        }
+
+        // Filter by outbound connections of the current state
+        if (!stateConnections.Any(c => c.Contains('T'))) // Up needs T connections
+        {
+            neighbors.RemoveWhere(n => n.State == (row - 1, col));
+        }
+        if (!stateConnections.Any(c => c.Contains('B'))) // Down needs B connections
+        {
+            neighbors.RemoveWhere(n => n.State == (row + 1, col));
+        }
+        if (!stateConnections.Any(c => c.Contains('L'))) // Left needs L connections
+        {
+            neighbors.RemoveWhere(n => n.State == (row, col - 1));
+        }
+        if (!stateConnections.Any(c => c.Contains('R'))) // Right needs R connections
+        {
+            neighbors.RemoveWhere(n => n.State == (row, col + 1));
+        }
+
+        //Filter by inbound connections of neighbors
+        foreach (var neighbor in neighbors)
+        {
+            (int nRow, int nCol) = neighbor.State;
+            SortedSet<string> neighborConnections = ConnectionMatrix[nRow][nCol];
+
+            // If neighbor is currently null then it is considered valid to enter
+            if (neighborConnections.Contains("N"))
+            {
+                continue;
+            }
+
+            // Tile up needs bottom connections
+            if (row - 1 == nRow && !neighborConnections.Any(c => c.Contains('B')))
+            {
+                neighbors.Remove(neighbor);
+            }
+
+            // Tile down needs top connections
+            else if (row + 1 == nRow && !neighborConnections.Any(c => c.Contains('T')))
+            {
+                neighbors.Remove(neighbor);
+            }
+
+            // Tile left needs right connections
+            else if (col - 1 == nCol && !neighborConnections.Any(c => c.Contains('R')))
+            {
+                neighbors.Remove(neighbor);
+            }
+
+            // Tile right needs left connections
+            else if (col + 1 == nCol && !neighborConnections.Any(c => c.Contains('L')))
+            {
+                neighbors.Remove(neighbor);
+            }
+
+            // Tile is "E" empty no valid connections
+            else
+            {
+                neighbors.Remove(neighbor);
+            }
+        }
+
+        return neighbors;
+    }
+
+    /// <summary>
+    /// Increases the SafetyBuffer around the provided section, helps prevent invalid map designs during
+    /// seeding and random tile selection. Adjacent tiles are also added to the buffer.
+    /// </summary>
+    /// <param name="section">The section to protect</param>
+    private void IncreaseBuffer((int row, int col) section)
+    {
+        (int row, int col) = section;
+        List<(int row, int col)> neighborsToAdd = [
+            (row-1, col-1),// Starting clockwise from top left neighbor
+            (row-1, col),
+            (row-1, col+1),
+            (row, col+1),
+            (row+1, col+1),
+            (row+1, col),
+            (row+1, col-1),
+            (row, col-1)
+            ];
+
+        foreach (var neighbor in neighborsToAdd)
+        {
+            (int nRow, int nCol) = neighbor;
+            // Filter out of bounds neighbors
+            if (nRow < 0 || nRow > Height - 1 || nCol < 0 || nCol > Width - 1)
+            {
+                continue;
+            }
+            // Otherwise add to buffer
+            SafetyBuffer.Add(neighbor);
+        }
+
     }
 }
