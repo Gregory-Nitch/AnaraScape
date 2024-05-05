@@ -172,6 +172,11 @@ public class MapDesigner(int height, int width, string style, string level, bool
         {
             RequiredSeeds = Height + Width - 5;
         }
+        for (int i = 0; i < RequiredSeeds; i++)
+        {
+            SeedSection();
+        }
+
     }
 
     /// <summary>
@@ -659,8 +664,8 @@ public class MapDesigner(int height, int width, string style, string level, bool
     /// inputs are "up", "down", "false".</param>
     private SortedSet<string> GetFinalConnectionState(SortedSet<string> validConnections,
                                          SortedSet<string> requiredConnections,
-                                         bool isEntrance,
-                                         string isStairs)
+                                         bool isEntrance = false,
+                                         string isStairs = "false")
     {
         List<DungeonTileModel> matchedTiles = [];
 
@@ -904,5 +909,42 @@ public class MapDesigner(int height, int width, string style, string level, bool
             SafetyBuffer.Add(neighbor);
         }
 
+    }
+
+    /// <summary>
+    /// Randomly choose a section outside of the SafetyBuffer and assigns it connections
+    /// regardless of what tiles are around it, then adds areas around the seeded section
+    /// to the SafetyBuffer (Helps prevent unreachable tiles). Will abort if it cannot
+    /// find a section outside of the entry buffer after 10 tries.
+    /// </summary>
+    private void SeedSection()
+    {
+        SortedSet<string> validConnections = [];
+        SortedSet<string> requiredConnections = [];
+        // Initial random section
+        (int row, int col) seed = (_Random.Next(Height), _Random.Next(Width));
+        int failures = 0;
+
+        // Ensure section is not in SafetyBuffer, SeededSections, is an entrance, is a stair
+        while (SafetyBuffer.Contains(seed)
+            || SeededSections.Contains(seed)
+            || Entrance == seed
+            || StairsUp == seed
+            || StairsDown == seed)
+        {
+            seed = (_Random.Next(Height), _Random.Next(Width));
+            failures++;
+            if (failures > 9)
+            {
+                return;// Could not find a safe section to seed randomly
+            }
+        }
+
+        SeededSections.Add(seed);
+        IncreaseBuffer(seed);
+        GetNeighboringConnections(seed, validConnections, requiredConnections);
+        ConnectionMatrix[seed.row][seed.col] = GetFinalConnectionState(validConnections,
+                                                                     requiredConnections
+                                                                     );
     }
 }
