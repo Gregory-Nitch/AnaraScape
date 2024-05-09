@@ -111,7 +111,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
         for (int i = 0; i < quantity; i++)
         {
-            MapDesigner design = new(height,
+            DataAccess.MapDesign design = new(height,
                                        width,
                                        MapTraits["style"],
                                        MapTraits["level"],

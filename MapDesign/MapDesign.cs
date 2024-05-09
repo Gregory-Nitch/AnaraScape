@@ -17,7 +17,7 @@ namespace DataAccess;
 /// <param name="level">Level of the dungeon, changes algorithm behavior</param>
 /// <param name="needsStairs">If true will place stairs leading down to next level</param>
 /// <param name="DBTiles">Tiles from the database (accepts NOT filtered by style lists)</param>
-public class MapDesigner(int height, int width, string style, string level, bool needsStairs, List<DungeonTileModel> DBTiles)
+public class MapDesign(int height, int width, string style, string level, bool needsStairs, List<DungeonTileModel> DBTiles)
 {
     public int Height { get; } = height;
     public int Width { get; } = width;

@@ -11,14 +11,9 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- Anara Tools
-    - Add map design to string call to tools
+- Connect toolbar prototype to MapDesign
 
-- MapDesigner Class
-    - Design to string
-    - design to id matrix
-
-- Connect toolbar prototype to map generator & MapDesigner
+- Setup HTML canvas & AJAX for new design request
 
 - See item 3 in `Future Additions`
 
