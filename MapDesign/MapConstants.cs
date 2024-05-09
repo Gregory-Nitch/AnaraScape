@@ -1,6 +1,6 @@
 ﻿
 
-namespace MapDesign;
+namespace MapDesignLibrary;
 
 /// <summary>
 /// Contains all of the constants for the MapDesigner class.

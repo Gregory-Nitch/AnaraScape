@@ -1,10 +1,9 @@
 ﻿
 
 using DataAccess.Models;
-using MapDesign;
 using System.Text;
 
-namespace DataAccess;
+namespace MapDesignLibrary;
 
 /// <summary>
 /// This class does all the random generation for map creation, but is not persisted in any data store.
@@ -28,7 +27,7 @@ public class MapDesign(int height, int width, string style, string level, bool n
     private Random _Random { get; set; } = new Random();
 
     // All tiles in DB that matched passed style, ie 'fort' etc...
-    private readonly List<DungeonTileModel> DBTiles = DBTiles.Where(t => t.Style == style).ToList();
+    private readonly List<DungeonTileModel> DBTiles = DBTiles;
 
     // Represents each section of the map and its current connections *3D*
     private List<List<SortedSet<string>>> ConnectionMatrix { get; } = [];

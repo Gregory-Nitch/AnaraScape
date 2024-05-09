@@ -1,10 +1,19 @@
+
+
 using AnaraScapeWeb.Components;
+using DataAccess;
+using DataAccess.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddTransient<IDBAccess, DBAccess>();
+builder.Services.AddTransient<ICrud, Crud>();
+builder.Services.AddSingleton<DungeonTileCache>();
 
 var app = builder.Build();
 

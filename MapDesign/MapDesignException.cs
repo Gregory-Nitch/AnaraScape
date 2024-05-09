@@ -1,6 +1,6 @@
 ﻿
 
-namespace MapDesign;
+namespace MapDesignLibrary;
 
 /// <summary>
 /// Exception thrown when a MapDesigner class has been found to reach an invalid map state, 

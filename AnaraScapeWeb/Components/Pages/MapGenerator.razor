@@ -1,6 +1,30 @@
 ﻿@page "/mapgenerator"
+@using DataAccess.Models
+@using MapDesignLibrary
 @layout Layout.GenLayout
 @rendermode InteractiveServer
 
+@inject DungeonTileCache tileCache
+
+
 <PageTitle>Map Generator</PageTitle>
 
+
+@code {
+
+    private MapDesign? mapDesign;
+
+    /// <summary>
+    /// Generate a basic design from the Tile Cache on page load.
+    /// </summary>
+    /// <returns>Creates a map design state of a basic type</returns>
+    protected override async void OnInitialized()
+    {
+        List<DungeonTileModel> tiles = tileCache.DBTiles.Where(t => t.Style == "fort").ToList();
+        mapDesign = new(3,3,"fort","top",false, tiles);
+        mapDesign.Generate();
+    }
+
+
+
+}

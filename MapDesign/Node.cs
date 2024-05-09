@@ -1,6 +1,6 @@
 ﻿
 
-namespace MapDesign;
+namespace MapDesignLibrary;
 
 /// <summary>
 /// Defines a node or a section in the map, use by AStar method to validate maps.

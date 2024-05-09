@@ -3,6 +3,7 @@
 
 using DataAccess;
 using DataAccess.Models;
+using MapDesignLibrary;
 
 
 namespace AnaraScapeTools.Commands;
@@ -111,12 +112,12 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
         for (int i = 0; i < quantity; i++)
         {
-            DataAccess.MapDesign design = new(height,
-                                       width,
-                                       MapTraits["style"],
-                                       MapTraits["level"],
-                                       needsStairs,
-                                       tiles);
+            MapDesign design = new(height,
+                                   width,
+                                   MapTraits["style"],
+                                   MapTraits["level"],
+                                   needsStairs,
+                                   tiles);
 
             design.Generate();
 
