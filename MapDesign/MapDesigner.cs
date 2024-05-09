@@ -4,11 +4,19 @@ using DataAccess.Models;
 using MapDesign;
 using System.Text;
 
-/**
- * This class does all the random generation for map creation, but is not persisted in any data store
- */
 namespace DataAccess;
 
+/// <summary>
+/// This class does all the random generation for map creation, but is not persisted in any data store.
+/// Upon calling Generate a map design is produced, then the design information can be retrieved from
+/// the public class attributes (TileMatrix, DisplayMatrix, ImageMap, Height, Width, etc.)
+/// </summary>
+/// <param name="height">Height of the map</param>
+/// <param name="width">Width of the map</param>
+/// <param name="style">Style of the map</param>
+/// <param name="level">Level of the dungeon, changes algorithm behavior</param>
+/// <param name="needsStairs">If true will place stairs leading down to next level</param>
+/// <param name="DBTiles">Tiles from the database (accepts NOT filtered by style lists)</param>
 public class MapDesigner(int height, int width, string style, string level, bool needsStairs, List<DungeonTileModel> DBTiles)
 {
     public int Height { get; } = height;
@@ -20,7 +28,7 @@ public class MapDesigner(int height, int width, string style, string level, bool
     private Random _Random { get; set; } = new Random();
 
     // All tiles in DB that matched passed style, ie 'fort' etc...
-    private readonly List<DungeonTileModel> DBTiles = DBTiles;
+    private readonly List<DungeonTileModel> DBTiles = DBTiles.Where(t => t.Style == style).ToList();
 
     // Represents each section of the map and its current connections *3D*
     private List<List<SortedSet<string>>> ConnectionMatrix { get; } = [];
@@ -132,6 +140,7 @@ public class MapDesigner(int height, int width, string style, string level, bool
     /// <summary>
     /// Called to generate a map design from the given parameters to the class constructor.
     /// </summary>
+    /// <exception cref="MapDesignException">Thrown if map start cannot reach map exit (if needed)</exception>
     public void Generate()
     {
         PrepareMatrixes();
@@ -177,6 +186,17 @@ public class MapDesigner(int height, int width, string style, string level, bool
             SeedSection();
         }
 
+        // Complete the random design
+        RandomDesign();
+
+        // Verify that every section of the map can be reached from the entrance
+        ValidateDesign(mapStart);
+
+        // Add all valid tile ids to the TileMatrix
+        FillTileMatrix();
+
+        // Set the starting display tiles
+        RandomizeDisplayMatrix();
     }
 
     /// <summary>
@@ -869,7 +889,7 @@ public class MapDesigner(int height, int width, string style, string level, bool
             }
 
             // Tile is "E" empty no valid connections
-            else
+            else if (neighborConnections.First() == "E")
             {
                 neighbors.Remove(neighbor);
             }
@@ -946,5 +966,215 @@ public class MapDesigner(int height, int width, string style, string level, bool
         ConnectionMatrix[seed.row][seed.col] = GetFinalConnectionState(validConnections,
                                                                      requiredConnections
                                                                      );
+    }
+
+    /// <summary>
+    /// Fills in the remaining sections with randomly connected and chosen tiles.
+    /// </summary>
+    private void RandomDesign()
+    {
+        for (int row = 0; row < Height; row++)
+        {
+            for (int col = 0; col < Width; col++)
+            {
+                if (ConnectionMatrix[row][col].First() == "N")
+                {
+                    SortedSet<string> validConnections = [];
+                    SortedSet<string> requiredConnections = [];
+                    (int row, int col) section = (row, col);
+                    GetNeighboringConnections(section, validConnections, requiredConnections);
+                    validConnections = RandomDesignQuery(validConnections, requiredConnections);
+                    ConnectionMatrix[row][col] = validConnections;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Queries the database to return tile connection that connect in every direction
+    /// listed in valid connections but forces connections to required connections.
+    /// </summary>
+    /// <param name="validConnections">Connections the section can have</param>
+    /// <param name="requiredConnections">Connections the section must have</param>
+    private SortedSet<string> RandomDesignQuery(SortedSet<string> validConnections, SortedSet<string> requiredConnections)
+    {
+        bool needTop = false;
+        bool needBottom = false;
+        bool needRight = false;
+        bool needLeft = false;
+
+        // Check valid connections for required directions to connect all tiles
+        if (validConnections.Any(c => c.Contains('T')))
+        {
+            needTop = true;
+        }
+        if (validConnections.Any(c => c.Contains('B')))
+        {
+            needBottom = true;
+        }
+        if (validConnections.Any(c => c.Contains('L')))
+        {
+            needLeft = true;
+        }
+        if (validConnections.Any(c => c.Contains('R')))
+        {
+            needRight = true;
+        }
+
+        List<DungeonTileModel> dbRegularTiles = DBTiles.Where(t => t.IsEntrance == false && t.IsStairs == "false").ToList();
+
+        List<DungeonTileModel> matchedTiles = [];
+
+        foreach (var tile in dbRegularTiles)
+        {
+            SortedSet<string> tileConnections = tile.Connections;
+
+            // If section has required connections that are not met by the tile continue to the next
+            if (requiredConnections.Count != 0 && !requiredConnections.IsSubsetOf(tileConnections))
+            {
+                continue;
+            }
+
+            // If a direction is required but not contained in tile connections continue to the next
+            if (needTop && !tileConnections.Any(c => c.Contains('T')))
+            {
+                continue;
+            }
+            if (needBottom && !tileConnections.Any(c => c.Contains('B')))
+            {
+                continue;
+            }
+            if (needLeft && !tileConnections.Any(c => c.Contains('L')))
+            {
+                continue;
+            }
+            if (needRight && !tileConnections.Any(c => c.Contains('R')))
+            {
+                continue;
+            }
+
+            bool tileMatches = true;// Switches to false if a connection is missing
+            // If all connection requirements are met add tile to matched tiles
+            foreach (var connection in tile.Connections)
+            {
+                if (!validConnections.Contains(connection) && !requiredConnections.Contains(connection))
+                {
+                    tileMatches = false;
+                    break;
+                }
+            }
+
+            if (tileMatches)
+            {
+                matchedTiles.Add(tile);
+            }
+        }
+
+        if (matchedTiles.Count > 0)
+        {
+            DungeonTileModel chosenTile = matchedTiles.ElementAt(_Random.Next(matchedTiles.Count));
+            return chosenTile.Connections;
+        }
+        // If there are no valid tiles place an empty tile
+        else
+        {
+            return ["E"];
+        }
+    }
+
+    /// <summary>
+    /// Ensures that every tile on the map is reachable from the entrance, but skips "E" empty tiles
+    /// and iterations that have the entrance as the target.
+    /// </summary>
+    /// <param name="mapStart">Entrance for the current map</param>
+    /// <exception cref="MapDesignException">Thrown if unreachable tile found</exception>
+    private void ValidateDesign((int row, int col) mapStart)
+    {
+        for (int row = 0; row < Height; row++)
+        {
+            for (int col = 0; col < Width; col++)
+            {
+                // Skip start and empty target tiles
+                if ((row, col) == mapStart || ConnectionMatrix[row][col].First() == "E")
+                {
+                    continue;
+                }
+
+                // If AStar fails raise map design exception
+                if (!AStar(mapStart, (row, col)))
+                {
+                    throw new MapDesignException($"Error: Tile (row : {row}, col : {col}) " +
+                $"could not be reached from Map Start (row : {mapStart.row}, col : {mapStart.col}). " +
+                $"Printing map design...\n{this}");
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Fills the TileMatrix with all valid tile ids based on connections listed in the
+    /// ConnectionMatrix and inputs their respective Id and Filename into the ImageMap
+    /// by iterating over every map section.
+    /// </summary>
+    private void FillTileMatrix()
+    {
+        for (int row = 0; row < Height; row++)
+        {
+            for (int col = 0; col < Width; col++)
+            {
+                SortedSet<string> requiredConnections = ConnectionMatrix[row][col];
+                List<DungeonTileModel> validTiles = [];
+
+                // Filter tiles by connections and settings
+                if ((row, col) == Entrance)
+                {
+                    validTiles = DBTiles.Where(t => t.IsEntrance == true && t.Connections
+                                        .SequenceEqual(requiredConnections))
+                                        .ToList();
+                }
+                else if ((row, col) == StairsUp)
+                {
+                    validTiles = DBTiles.Where(t => t.IsStairs == "up" && t.Connections
+                                        .SequenceEqual(requiredConnections))
+                                        .ToList();
+                }
+                else if ((row, col) == StairsDown)
+                {
+                    validTiles = DBTiles.Where(t => t.IsStairs == "down" && t.Connections
+                                        .SequenceEqual(requiredConnections))
+                                        .ToList();
+                }
+                else
+                {
+                    validTiles = DBTiles.Where(t => t.IsEntrance == false && t.IsStairs == "false" && t.Connections
+                                        .SequenceEqual(requiredConnections))
+                                        .ToList();
+                }
+
+                // Add all valid ids and images to TileMatrix and ImageMap
+                List<int> validIds = [];
+                foreach (var tile in validTiles)
+                {
+                    TileMatrix[row][col].Add(tile.Id);
+                    ImageMap.TryAdd(tile.Id, tile.Filename);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Randomly picks a tile id from each tile in the TileMatrix and puts it in
+    /// the DisplayMatrix.
+    /// </summary>
+    private void RandomizeDisplayMatrix()
+    {
+        for (int row = 0; row < Height; row++)
+        {
+            for (int col = 0; col < Width; col++)
+            {
+                int randomId = TileMatrix[row][col].ElementAt(_Random.Next(TileMatrix[row][col].Count));
+                DisplayMatrix[row][col] = randomId;
+            }
+        }
     }
 }

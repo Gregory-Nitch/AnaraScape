@@ -4,12 +4,14 @@
 using DataAccess;
 using DataAccess.Models;
 
-/**
- * Command to call the map designer from the MapDesigner Class library for testing
- * Has optional parameters for number of generations and map traits
- */
+
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// Command to call the map designer from the MapDesigner Class library for testing.
+/// Has optional parameters for number of generations and map traits
+/// </summary>
+/// <param name="crud">ICrud interface used to call stored procedures on the database</param>
 public class DesignMaps(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;
@@ -97,8 +99,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
             return;
         }
 
-        List<StoredDungeonTileModel> storedTiles = _crud.GetAllTiles()
-                                       .Where(t => t.Style == MapTraits["style"]).ToList();
+        List<StoredDungeonTileModel> storedTiles = [.. _crud.GetAllTiles()];
 
         List<DungeonTileModel> tiles = [];
         foreach (var tile in storedTiles)

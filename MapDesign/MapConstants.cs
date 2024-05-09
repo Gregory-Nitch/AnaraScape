@@ -1,10 +1,10 @@
-﻿/**
- * Contains all of the constants for the MapDesigner class.
- */
-
+﻿
 
 namespace MapDesign;
 
+/// <summary>
+/// Contains all of the constants for the MapDesigner class.
+/// </summary>
 internal static class MapConstants
 {
 
