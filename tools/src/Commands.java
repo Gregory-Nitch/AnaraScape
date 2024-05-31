@@ -1,9 +1,11 @@
+
 import java.io.File;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.Scanner;
 
 public abstract class Commands {
 
@@ -28,6 +30,9 @@ public abstract class Commands {
      * Loads all tiles in the 'tilestaging' folder the the database.
      * Tile naming convention =
      * name^style^connections(c,c,c)^entrance(t/f)^stairs(u/d/f)
+     * 
+     * @param dbProps properties loaded from xml settings
+     * @param tileDir directory containing tiles to load (tilestaging)
      */
     public static void loadTiles(final Map<String, String> dbProps, final String tileDir) {
         String url = dbProps.get("dbUrl");
@@ -63,10 +68,38 @@ public abstract class Commands {
         // TODO
     }
 
+    /**
+     * DELETES ALL tiles from the database, requires confirmation message.
+     * 
+     * @param dbProps properties loaded from xml settings
+     */
     public static void deleteAllTiles(Map<String, String> dbProps) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("This command will DELETE ALL tiles from the database," +
+                " type 'DELETE' to confirm:");
+        System.out.print("> ");
+        String confirmString = scan.nextLine();
+
+        if (!"DELETE".equals(confirmString)) {
+            System.out.println("Improper response aborting delete!");
+            return;
+        }
+
         String url = dbProps.get("dbUrl");
         String user = dbProps.get("dbUser");
         String pass = dbProps.get("dbPassword");
-        // TODO
+
+        String storedProcedure = "{call delete_all_tiles()}";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+                CallableStatement cs = conn.prepareCall(storedProcedure);) {
+            cs.execute();
+            System.out.println("All dungeon tiles deleted...");
+        } catch (SQLException e) {
+            System.out.println("ERROR: database connection / batch failure!");
+            e.printStackTrace();
+        }
     }
 }
