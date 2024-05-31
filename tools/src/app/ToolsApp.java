@@ -1,4 +1,9 @@
+
+package app;
+
 import java.util.Map;
+import config.XMLConfigLoader;
+import commands.Commands;
 
 public class ToolsApp {
 
@@ -11,7 +16,7 @@ public class ToolsApp {
 
         switch (args[0]) {
             case "-design-maps":
-                Commands.designMaps(args[1]);
+                Commands.designMaps(dbProps, args[1].split(","));
                 break;
 
             case "-load-tiles":
