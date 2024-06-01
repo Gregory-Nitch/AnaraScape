@@ -6,14 +6,14 @@ import java.util.SortedSet;
 
 public class MapDesign {
 
-    private ArrayList<ArrayList<ArrayList<String>>> connectionMatrix;
-    private SortedSet<int[]> seededSections;
-    private SortedSet<int[]> safetyBuffer;
+    ArrayList<ArrayList<ArrayList<String>>> connectionMatrix;
+    SortedSet<int[]> seededSections;
+    SortedSet<int[]> safetyBuffer;
 
     // Main outputs
-    private ArrayList<ArrayList<Integer>> displayMatrix;
-    private ArrayList<ArrayList<ArrayList<Integer>>> validIdMatrix;
-    private HashMap<Integer, String> imageMap = new HashMap<>();
+    ArrayList<ArrayList<Integer>> displayMatrix;
+    ArrayList<ArrayList<ArrayList<Integer>>> validIdMatrix;
+    HashMap<Integer, String> imageMap = new HashMap<>();
 
     @Override
     public String toString() {
