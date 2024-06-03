@@ -22,6 +22,11 @@ public class MapCoordinate implements Comparable<MapCoordinate> {
     }
 
     @Override
+    public String toString() {
+        return "(" + this.row + ", " + this.column + ")";
+    }
+
+    @Override
     public int compareTo(MapCoordinate other) {
 
         if (this.column > other.column ||
