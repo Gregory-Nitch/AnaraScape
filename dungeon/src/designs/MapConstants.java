@@ -4,10 +4,21 @@ package designs;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This abstract class contains constants for maps such as lists of connections
+ * and key values for edges.
+ */
 abstract class MapConstants {
 
+        /**
+         * Private constructor, so that a class object cannot be made.
+         * 
+         * @throws IllegalStateException this class only contains constants and should
+         *                               not allow instances to be made
+         */
         private MapConstants() {
-
+                throw new IllegalStateException(
+                                "The MapConstant class should not have class instances");
         }
 
         static final int EMPTY_TILE_FREQ = 5;
