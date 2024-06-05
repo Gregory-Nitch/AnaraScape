@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import designs.MapDesign;
@@ -128,10 +130,13 @@ public abstract class Commands {
             resultSet = cs.getResultSet();
 
             while (resultSet.next()) {
+                ArrayList<String> connections = new ArrayList<>(
+                        Arrays.asList(resultSet.getString("connections").split(",")));
+
                 DungeonTile tile = new DungeonTile(
                         resultSet.getString("name"),
                         resultSet.getString("style"),
-                        resultSet.getString("connections").split(","),
+                        connections,
                         resultSet.getBoolean("is_entrance"),
                         resultSet.getString("is_stairs"),
                         resultSet.getString("filename"));
