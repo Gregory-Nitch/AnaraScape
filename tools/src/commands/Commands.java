@@ -9,15 +9,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import designs.MapDesign;
 import designs.MapDesigner;
 import models.DungeonTile;
 
+/**
+ * This class holds the logic for the application CLI toolset.
+ */
 public abstract class Commands {
 
+    /**
+     * Private constructor to prevent class instances.
+     */
     private Commands() {
         throw new IllegalStateException("Commands is  a utility class!");
     }

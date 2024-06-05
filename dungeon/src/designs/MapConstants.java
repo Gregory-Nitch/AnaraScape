@@ -17,8 +17,8 @@ abstract class MapConstants {
          *                               not allow instances to be made
          */
         private MapConstants() {
-                throw new IllegalStateException(
-                                "The MapConstant class should not have class instances");
+                throw new IllegalStateException("The MapConstant class cannot " +
+                                " have class instances created");
         }
 
         static final int EMPTY_TILE_FREQ = 5;

@@ -5,6 +5,9 @@ import java.util.Map;
 import config.XMLConfigLoader;
 import commands.Commands;
 
+/**
+ * This class runs the CLI tools for the application
+ */
 public class ToolsApp {
 
     private static final String CONFIG_FILE = "./tools/settings.xml";

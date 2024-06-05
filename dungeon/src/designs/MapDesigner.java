@@ -10,6 +10,9 @@ import exceptions.NoTilesMatchedException;
 import models.DungeonTile;
 import models.MapCoordinate;
 
+/**
+ * Class used to generate MapDesign class instances.
+ */
 public class MapDesigner {
 
     private short height;
@@ -20,6 +23,21 @@ public class MapDesigner {
     private MapDesign design;
     private Random random = new Random();
 
+    /**
+     * Constructs a designer with the given parameters as design requirements,
+     * multiple designs can be genereted from one instance. However, if there are
+     * new design requirements than a new class instance will need to be constructed
+     * and passed those requirements. NOTE: the DungeonTile ArrayList should already
+     * be filtered by dungeon style.
+     * 
+     * @param height    requested height of output designs
+     * @param width     requested width of output designs
+     * @param level     requested level of output designs
+     * @param hasStairs stairs going down to next level requested in design
+     *                  (true/false)
+     * @param tiles     list of dungeon tiles filtered by style to be used when
+     *                  building the design
+     */
     public MapDesigner(
             short height,
             short width,
@@ -47,6 +65,13 @@ public class MapDesigner {
         this.TILES = tiles;
     }
 
+    /**
+     * Produces a MapDesign based on the set requirements of the designer. To obtain
+     * design information use the get methods for the intance's displayMatrix,
+     * validIdMatrix and imageMap.
+     * 
+     * @return a MapDesign randomly generated and validated
+     */
     public MapDesign generate() {
 
         design = new MapDesign();
@@ -64,6 +89,10 @@ public class MapDesigner {
         return design;
     }
 
+    /**
+     * Prepares all the containers used to construct the map design, some are empty
+     * others have special invalid values inserted ("N"/0)
+     */
     private void initializeDataSets() {
 
         ArrayList<MapCoordinate> topEdge = new ArrayList<>();
@@ -102,6 +131,14 @@ public class MapDesigner {
         }
     }
 
+    /**
+     * Defines the entrypoints of the dungeon based on level and if stairs have been
+     * requested.
+     * 
+     * @throws NoTilesMatchedException no tile can be found that matches the
+     *                                 connection and state requirements, the design
+     *                                 cannot progress
+     */
     private void defineEntryPoints() throws NoTilesMatchedException {
 
         String isStairs = "";
@@ -141,6 +178,17 @@ public class MapDesigner {
         }
     }
 
+    /**
+     * Builds the connections for the passed coordinate based on coordinate state
+     * and neighbooring connections.
+     * 
+     * @param coordinate coordinate to build connections for
+     * @param isEntrance if coordinate should be an entrance tile
+     * @param isStairs   if coordinate should be a stair tile
+     * @throws NoTilesMatchedException no tile can be found that matches the
+     *                                 connection and state requirements, the design
+     *                                 cannot continue
+     */
     private void buildConnectionsForCoordinate(final MapCoordinate coordinate,
             boolean isEntrance,
             String isStairs)
@@ -189,6 +237,13 @@ public class MapDesigner {
                 .addAll(validConnectionSet);
     }
 
+    /**
+     * Sets valid and required connections based on neighbooring coordinate states.
+     * 
+     * @param coordinate            coordinate to filter connections for
+     * @param validConnectionSet    permitted connections for the coordinate
+     * @param requiredConnectionSet required connections for the coordinate
+     */
     private void filterConnectionsByNeighboors(final MapCoordinate coordinate,
             TreeSet<String> validConnectionSet,
             TreeSet<String> requiredConnectionSet) {
@@ -262,6 +317,19 @@ public class MapDesigner {
         }
     }
 
+    /**
+     * Sets the final connection state of a coordinate based on valid connections,
+     * required connections and available DungeonTiles. The resulting final
+     * connection set is stored in validConnectionSet.
+     * 
+     * @param coordinate            coordinate to get connections for
+     * @param validConnectionSet    permitted connections for coordinate
+     * @param requiredConnectionSet required connections for coordinate
+     * @param isEntrance            required entrance state of the coordinate
+     * @param isStairs              required stair state of the coordinate
+     * @throws NoTilesMatchedException no tiles have been found to match the passed
+     *                                 requirements, the design cannot continue
+     */
     private void queryTileSetForFinalConnections(final MapCoordinate coordinate,
             TreeSet<String> validConnectionSet,
             TreeSet<String> requiredConnectionSet,
@@ -306,6 +374,13 @@ public class MapDesigner {
         }
     }
 
+    /**
+     * Surrounds the passed coordinate with a saftey buffer preventing any seeded or
+     * stairs down tiles from being placed at those coordinates. This prevents
+     * design failures where there are unreachable tiles.
+     * 
+     * @param coordinate coordinate to surround with a buffer
+     */
     private void protectCoordinateWithSafteyBuffer(final MapCoordinate coordinate) {
 
         short row = coordinate.getRow();
