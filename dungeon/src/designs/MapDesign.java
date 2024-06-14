@@ -9,11 +9,6 @@ import java.util.TreeSet;
 
 import models.MapCoordinate;
 
-/**
- * This class represents a dungeon map design made to create a map image for
- * users. Main outputs used are the display matrix, valid id matrix, and image
- * map.
- */
 public class MapDesign {
 
     ArrayList<ArrayList<TreeSet<String>>> connectionMatrix = new ArrayList<>();
@@ -29,32 +24,15 @@ public class MapDesign {
     ArrayList<ArrayList<HashSet<Integer>>> validIdMatrix = new ArrayList<>();
     HashMap<Integer, String> imageMap = new HashMap<>();
 
-    /**
-     * Returns the display matrix of the map design.
-     * 
-     * @return a 2d ArrayList of the tile ids choosen to be initialy displayed
-     */
-    public ArrayList<ArrayList<Integer>> getDisplayMatrix() {
+    public List<ArrayList<Integer>> getDisplayMatrix() {
         return displayMatrix;
     }
 
-    /**
-     * Returns the 3d array/set container which holds the set of ids for each
-     * coordinate in the map design.
-     * 
-     * @return 3d ArrayList of ArrayList of HashSet of ids (Integer)
-     */
-    public ArrayList<ArrayList<HashSet<Integer>>> getValidIdMatrix() {
+    public List<ArrayList<HashSet<Integer>>> getValidIdMatrix() {
         return validIdMatrix;
     }
 
-    /**
-     * Returns the map of ids to images for the map, used for display to user and
-     * image merging.
-     * 
-     * @return HashMap of ids(key) and image filenames(value)
-     */
-    public HashMap<Integer, String> getImageMap() {
+    public Map<Integer, String> getImageMap() {
         return imageMap;
     }
 

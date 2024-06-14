@@ -4,8 +4,12 @@ package designs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
 import java.util.TreeSet;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+
 import exceptions.NoTilesMatchedException;
 import models.DungeonTile;
 import models.MapCoordinate;
@@ -307,28 +311,43 @@ public class MapDesigner {
     }
 
     private void protectCoordinateWithSafteyBuffer(final MapCoordinate coordinate) {
-
         short row = coordinate.getRow();
         short column = coordinate.getColumn();
-        MapCoordinate[] coordinates = new MapCoordinate[] {
-                coordinate,
-                new MapCoordinate((short) (row - 1), column),
-                new MapCoordinate((short) (row - 1), (short) (column + 1)),
-                new MapCoordinate(row, (short) (column + 1)),
-                new MapCoordinate((short) (row + 1), (short) (column + 1)),
-                new MapCoordinate((short) (row + 1), column),
-                new MapCoordinate((short) (row + 1), (short) (column - 1)),
-                new MapCoordinate(row, (short) (column - 1)),
-                new MapCoordinate((short) (row - 1), (short) (column - 1)),
-        };
+        TreeSet<String> connections = design.connectionMatrix.get(row).get(column);
 
-        for (MapCoordinate c : coordinates) {
-            if (c.getRow() >= 0 &&
-                    c.getRow() < height &&
-                    c.getColumn() >= 0 &&
-                    c.getColumn() < width) {
-                design.safetyBuffer.add(c);
+        if (design.edgeMap.get("top").contains(coordinate) &&
+                design.edgeMap.get("left").contains(coordinate)) {
+
+            if (connections.first().contains("R")) {
+                design.safetyBuffer.add(new MapCoordinate(row, (short) (column + 1)));
             }
+            if (connections.first().contains("B")) {
+                design.safetyBuffer.add(new MapCoordinate((short) (row + 1), column));
+            }
+
+            design.safetyBuffer.add(new MapCoordinate((short) (row + 1), (short) (column + 1)));
+            return;
+
+        } else if (design.edgeMap.get("top").contains(coordinate) &&
+                design.edgeMap.get("right").contains(coordinate)) {
+
+            if (connections.first().contains("L")) {
+                design.safetyBuffer.add(new MapCoordinate(row, (short) (column - 1)));
+            }
+            if (connections.first().contains("B")) {
+                design.safetyBuffer.add(new MapCoordinate((short) (row + 1), column));
+            }
+
+            design.safetyBuffer.add(new MapCoordinate((short) (row + 1), (short) (column - 1)));
+            return;
+
+        } else if (design.edgeMap.get("bottom").contains(coordinate) &&
+                design.edgeMap.get("left").contains(coordinate)) {
+
+        } else if (design.edgeMap.get("bottom").contains(coordinate) &&
+                design.edgeMap.get("right").contains(coordinate)) {
+
         }
+
     }
 }
