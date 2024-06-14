@@ -93,7 +93,7 @@ public class MapDesign {
         }
 
         if (stairsDown != null) {
-            builder.append("\nStairs Up: (row,col)");
+            builder.append("\nStairs Down: (row,col)");
             builder.append(stairsDown.toString());
         }
 
