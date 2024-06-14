@@ -25,6 +25,3 @@ replay_pid*
 
 # VSCode
 .vscode
-
-# !!!-SECRETS-!!!
-settings.xml

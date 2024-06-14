@@ -47,6 +47,6 @@ Java 21
 
 ### Dependencies:
 
-mysql-connector-j-8.4.0
+
 
 ## Resources 
