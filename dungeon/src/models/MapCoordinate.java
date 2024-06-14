@@ -1,58 +1,27 @@
 
 package models;
 
-/**
- * This class represents sections of the map to be worked upon by the
- * MapDesigner
- */
 public class MapCoordinate implements Comparable<MapCoordinate> {
     private short column;
     private short row;
 
-    /**
-     * Constructs a MapCoordintate that represents a section of the map based on the
-     * passed parameters
-     * 
-     * @param row    row(y) of the coordinate
-     * @param column column(x) of the coordinate
-     */
     public MapCoordinate(short row, short column) {
         this.row = row;
         this.column = column;
     }
 
-    /**
-     * Gets the coordinate's column(x)
-     * 
-     * @return the coorindate's column
-     */
     public short getColumn() {
         return column;
     }
 
-    /**
-     * Gets the coordinate's row(y)
-     * 
-     * @return the coordinate's row
-     */
     public short getRow() {
         return row;
     }
 
-    /**
-     * Sets the coordinate's column(x)
-     * 
-     * @param column new column for the coordinate
-     */
     public void setColumn(short column) {
         this.column = column;
     }
 
-    /**
-     * Sets the coordinate's row(y)
-     * 
-     * @param row new row for the coordinate
-     */
     public void setRow(short row) {
         this.row = row;
     }

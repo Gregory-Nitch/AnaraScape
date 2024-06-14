@@ -3,6 +3,8 @@ package designs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 
 import models.MapCoordinate;
@@ -15,8 +17,8 @@ import models.MapCoordinate;
 public class MapDesign {
 
     ArrayList<ArrayList<TreeSet<String>>> connectionMatrix = new ArrayList<>();
-    HashSet<MapCoordinate> seededSections = new HashSet<>();
-    HashSet<MapCoordinate> safetyBuffer = new HashSet<>();
+    TreeSet<MapCoordinate> seededSections = new TreeSet<>();
+    TreeSet<MapCoordinate> safetyBuffer = new TreeSet<>();
     HashMap<String, ArrayList<MapCoordinate>> edgeMap = new HashMap<>();
     MapCoordinate entrance;
     MapCoordinate stairsDown;
@@ -37,7 +39,7 @@ public class MapDesign {
     }
 
     /**
-     * Returns the 3d array/set container which holds the set of valid ids for each
+     * Returns the 3d array/set container which holds the set of ids for each
      * coordinate in the map design.
      * 
      * @return 3d ArrayList of ArrayList of HashSet of ids (Integer)
