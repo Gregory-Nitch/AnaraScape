@@ -1,0 +1,168 @@
+﻿@rendermode InteractiveServer
+
+<div id="toolbar-container">
+
+    <form id="toolbar" class="collapse navbar-collapse">
+        
+        <div id="tools">
+    
+            <div id="style-col">
+    
+                <div id="styles" class="btn-group" role="group" aria-label="Style button group">
+
+                    <button type="button" class="btn btn-dark">@Style</button>
+                    <div class="btn-group" role="group">
+                        <button id="style-drop-group" type="button" class="btn btn-dark dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+
+                        <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="style-drop-group">
+                            <button type="button" class="dropdown-item" 
+                            onclick="@(() => SetStyle("fort"))" >Fort</button>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div id="levels" class="btn-group-vertical" role="group" aria-label="Level radio toggle button group">
+
+                    <input type="radio" class="btn-check" name="btnradio" id="top-level-radio" 
+                    autocomplete="off" checked="@IsTop" @onclick="@(() => SetLevel("top"))">
+                    <label class="btn btn-dark" for="top-level-radio">Top Level</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="middle-level-radio" 
+                    autocomplete="off" checked="@IsMiddle" @onclick="@(() => SetLevel("middle"))">
+                    <label class="btn btn-dark" for="middle-level-radio">Middle Level</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="bottom-level-radio" 
+                    autocomplete="off" checked="@IsBottom" @onclick="@(() => SetLevel("bottom"))">
+                    <label class="btn btn-dark" for="bottom-level-radio">Bottom Level</label>
+
+                    <input type="checkbox" class="btn-check" id="stairs-down-check" autocomplete="off" 
+                    checked="@HasStairs" disabled="@CannotHaveStairs" @onchange="@(() => ToggleStairs())">
+                    <label class="btn btn-dark" for="stairs-down-check">Stairs Down</label>
+
+                </div>
+    
+            </div>
+    
+            <div id="size-col">
+
+                <div class="size-row">
+                    <label for="height" class="form-label text-light">Height = <span id="height-display">
+                        @Height</span></label>
+                    <input type="range" class="form-range" min="2" max="20" step="1" value="3"
+                    @oninput="@((e) => ChangeHeight(e))">
+                </div>
+
+                <div class="size-row">
+                    <label for="width" class="form-label text-light">Width = <span id="width-display">
+                        @Width</span></label>
+                    <input type="range" class="form-range" min="2" max="20" step="1" id="width" value="3"
+                    @oninput="@((e) => ChangeWidth(e))">
+                </div>
+
+            </div>
+    
+            <div id="button-col">
+
+                <button type="button" class="btn btn-success">
+                    <i class="bi bi-pencil-square"></i>Generate!
+                </button>
+
+                <button type="button" class="btn btn-primary">
+                    <i class="bi bi-download"></i>Download!</button>
+
+                <a type="button" class="btn btn-danger" href="">
+                    <i class="bi bi-sun-fill"></i>AnaraScape Home</a>
+
+            </div>
+    
+        </div>
+    
+        <div id="tool-instructions">
+
+            <p class="instruction text-secondary">
+                Controls:
+            </p>
+            <p class="instruction text-secondary">
+                Left click tiles that highlight when your mouse is over them to switch to a new tile. 
+                Hold right click and drag to move around the map.
+            </p>
+            <p class="instruction text-secondary">
+                Hold right click and drag to move around the map.
+            </p>
+            <p class="instruction text-secondary">
+                Use your mouse wheel to zoom in and out.
+            </p>
+
+        </div>
+    </form>
+    
+    <div id="toggler-div">
+        <button id="toolbar-toggler" type="button" class="btn btn-outline-danger py-0"
+                data-bs-toggle="collapse" data-bs-target="#toolbar">
+            <i class="bi bi-grip-horizontal"></i>
+        </button>
+    </div>
+
+</div>
+
+@code {
+
+    public string Style { private set; get; } = "fort";
+    public string Level { private set; get; } = "top";
+    public bool IsTop { private set; get; } = true;
+    public bool IsMiddle { private set; get; } = false;
+    public bool IsBottom { private set; get; } = false;
+    public bool HasStairs { private set; get; } = false;
+    public bool CannotHaveStairs { private set; get; } = false;
+    public int Height { private set; get; } = 3;
+    public int Width { private set; get; } = 3;
+
+    private void SetStyle(string style) {
+        Style = style;
+    }
+
+    private void SetLevel(string level) {
+        Level = level;
+        if (level == "top")
+        {
+            CannotHaveStairs = false;
+        } 
+        else if (level == "middle")
+        {
+            CannotHaveStairs = false;
+        }
+        else if (level == "bottom")
+        {
+            CannotHaveStairs = true;
+
+            ToggleStairs();
+        }
+
+    }
+
+    private void ToggleStairs()
+    {
+        if (CannotHaveStairs)
+        {
+            HasStairs = false;
+        }
+        else
+        {
+            HasStairs = !HasStairs;
+        }
+    }
+
+    private void ChangeHeight(ChangeEventArgs e)
+    {
+        int.TryParse(e.Value!.ToString(), out int num);
+        Height = num;
+    }
+
+    private void ChangeWidth(ChangeEventArgs e)
+    {
+        int.TryParse(e.Value!.ToString(), out int num);
+        Width = num;
+    }
+}

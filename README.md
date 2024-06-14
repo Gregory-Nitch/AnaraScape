@@ -7,11 +7,15 @@ More features to come!
 
 ## Samples
 
-Pictures on the way (Currently working on the Java migration)
+Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- Java Migration
+- Connect toolbar prototype to MapDesign
+
+- Setup HTML canvas & AJAX for new design request
+
+- See item 3 in `Future Additions`
 
 # Future Additions
 
@@ -43,10 +47,14 @@ Pictures on the way (Currently working on the Java migration)
 
 
 ## Build & Dependencies
-Java 21
+ Build: .NET 8.0
 
 ### Dependencies:
 
-
+ - bootstrap 5.3.3
+ - bootstrap-icons 1.11.3
+ - Dapper 2.1.35
 
 ## Resources 
+
+https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0&utm_source=aspnet-start-page&utm_campaign=vside
