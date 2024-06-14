@@ -1,7 +1,8 @@
 
 package designs;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import models.DungeonTile;
 
 public class MapDesigner {
@@ -10,7 +11,7 @@ public class MapDesigner {
     private short width;
     private String level;
     private boolean hasStairs;
-    private final ArrayList<DungeonTile> TILES;
+    private final List<DungeonTile> TILES;
     private MapDesign design;
 
     public MapDesigner(
@@ -18,7 +19,7 @@ public class MapDesigner {
             short width,
             String level,
             boolean hasStairs,
-            ArrayList<DungeonTile> tiles) {
+            List<DungeonTile> tiles) {
 
         this.height = height;
         this.width = width;
