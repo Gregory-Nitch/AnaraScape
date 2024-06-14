@@ -20,7 +20,7 @@ public class LoadTiles(ICrud crud) : IToolCommand
 
     public void Job()
     {
-        string[] images = Directory.GetFileSystemEntries("./TileStaging"); // Same directory as EXE
+        string[] images = Directory.GetFileSystemEntries("./TileStaging"); // Root of tools folder
         List<LoadingDungeonTileModel> tiles = [];
         List<string> failures = [];
 
