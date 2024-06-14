@@ -5,11 +5,6 @@ public class MapCoordinate implements Comparable<MapCoordinate> {
     private short column;
     private short row;
 
-    public MapCoordinate(short row, short column) {
-        this.row = row;
-        this.column = column;
-    }
-
     public short getColumn() {
         return column;
     }

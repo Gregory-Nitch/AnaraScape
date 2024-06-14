@@ -2,35 +2,30 @@ package designs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
-import java.util.TreeSet;
-
 import models.MapCoordinate;
 
 public class MapDesign {
 
-    ArrayList<ArrayList<SortedSet<String>>> connectionMatrix = new ArrayList<>();
-    SortedSet<MapCoordinate> seededSections = new TreeSet<>();
-    SortedSet<MapCoordinate> safetyBuffer = new TreeSet<>();
-    HashMap<String, HashSet<MapCoordinate>> edgeMap = new HashMap<>();
-    MapCoordinate entrance;
-    MapCoordinate stairsDown;
-    MapCoordinate stairsUp;
-    int requiredSeeds;
+    private ArrayList<ArrayList<ArrayList<String>>> connectionMatrix;
+    private SortedSet<MapCoordinate> seededSections;
+    private SortedSet<MapCoordinate> safetyBuffer;
+    private MapCoordinate entrance;
+    private MapCoordinate stairsDown;
+    private MapCoordinate stairsUp;
 
     // Main outputs
-    ArrayList<ArrayList<Integer>> displayMatrix = new ArrayList<>();
-    ArrayList<ArrayList<HashSet<Integer>>> validIdMatrix = new ArrayList<>();
+    ArrayList<ArrayList<Integer>> displayMatrix;
+    ArrayList<ArrayList<ArrayList<Integer>>> validIdMatrix;
     HashMap<Integer, String> imageMap = new HashMap<>();
 
     public List<ArrayList<Integer>> getDisplayMatrix() {
         return displayMatrix;
     }
 
-    public List<ArrayList<HashSet<Integer>>> getValidIdMatrix() {
+    public List<ArrayList<ArrayList<Integer>>> getValidIdMatrix() {
         return validIdMatrix;
     }
 
@@ -43,9 +38,9 @@ public class MapDesign {
         StringBuilder builder = new StringBuilder();
 
         builder.append("----Connection Matrix----\n");
-        for (ArrayList<SortedSet<String>> row : connectionMatrix) {
+        for (ArrayList<ArrayList<String>> row : connectionMatrix) {
             builder.append("[");
-            for (SortedSet<String> col : row) {
+            for (ArrayList<String> col : row) {
                 builder.append("[");
                 for (String connection : col) {
                     builder.append(connection);
@@ -95,9 +90,9 @@ public class MapDesign {
         }
 
         builder.append("\n\n----Valid ID Matrix----\n");
-        for (ArrayList<HashSet<Integer>> row : validIdMatrix) {
+        for (ArrayList<ArrayList<Integer>> row : validIdMatrix) {
             builder.append("[");
-            for (HashSet<Integer> col : row) {
+            for (ArrayList<Integer> col : row) {
                 builder.append("[");
                 for (Integer id : col) {
                     builder.append(id);
