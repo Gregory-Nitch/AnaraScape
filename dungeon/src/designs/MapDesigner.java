@@ -105,17 +105,15 @@ public class MapDesigner {
             ArrayList<Integer> displayRowArray = new ArrayList<>();
             ArrayList<HashSet<Integer>> validIdRowArray = new ArrayList<>();
             leftEdge.add(new MapCoordinate((short) row, (short) 0));
-            rightEdge.add(new MapCoordinate((short) row, (short) (width - 1)));
+            rightEdge.add(new MapCoordinate((short) row, width));
 
             for (int col = 0; col < width; col++) {
                 connectionRowArray.add(new TreeSet<>());
                 connectionRowArray.get(col).add("N");
                 displayRowArray.add(0);
                 validIdRowArray.add(new HashSet<>());
-                if (row == 0) {// prevents unnecessary entries to the edge mep
-                    topEdge.add(new MapCoordinate((short) 0, (short) col));
-                    bottomEdge.add(new MapCoordinate((short) (height - 1), (short) col));
-                }
+                topEdge.add(new MapCoordinate((short) 0, (short) col));
+                bottomEdge.add(new MapCoordinate(height, (short) col));
             }
 
             design.connectionMatrix.add(connectionRowArray);
@@ -160,9 +158,9 @@ public class MapDesigner {
         }
 
         buildConnectionsForCoordinate(design.entrance, true, isStairs);
-        protectCoordinateWithSafteyBuffer(design.entrance);
 
         if (hasStairs) {
+            protectCoordinateWithSafteyBuffer(design.entrance);
             isStairs = "down";
 
             int row = random.nextInt(height);
@@ -235,7 +233,6 @@ public class MapDesigner {
                 isEntrance,
                 isStairs);
 
-        design.connectionMatrix.get(coordinate.getRow()).get(coordinate.getColumn()).clear();
         design.connectionMatrix.get(coordinate.getRow()).get(coordinate.getColumn())
                 .addAll(validConnectionSet);
     }
@@ -371,7 +368,7 @@ public class MapDesigner {
                     requiredConnectionSet.toString());
 
         } else {
-            DungeonTile randomTile = matchedTiles.get(random.nextInt(matchedTiles.size()));
+            DungeonTile randomTile = matchedTiles.get(random.nextInt(height));
             validConnectionSet.clear();
             validConnectionSet.addAll(randomTile.getConnections());
         }
