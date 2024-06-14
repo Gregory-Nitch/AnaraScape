@@ -1,13 +1,11 @@
 
 package models;
 
-import java.util.ArrayList;
-
 public class DungeonTile {
 
     private String name;
     private String style;
-    private ArrayList<String> connections;
+    private String[] connections;
     private boolean isEntrance;
     private String isStairs;
     private String filename;
@@ -15,7 +13,7 @@ public class DungeonTile {
     public DungeonTile(
             String name,
             String style,
-            ArrayList<String> connections,
+            String[] connections,
             boolean isEntrance,
             String isStairs,
             String filename) {
@@ -36,7 +34,7 @@ public class DungeonTile {
         return style;
     }
 
-    public ArrayList<String> getConnections() {
+    public String[] getConnections() {
         return connections;
     }
 
@@ -51,20 +49,4 @@ public class DungeonTile {
     public String getFilename() {
         return filename;
     }
-
-    public static ArrayList<DungeonTile> filter(ArrayList<DungeonTile> originalList,
-            boolean isEntrance,
-            String isStairs) {
-
-        ArrayList<DungeonTile> filteredList = new ArrayList<>();
-
-        for (DungeonTile tile : originalList) {
-            if (tile.isEntrance == isEntrance && tile.isStairs.equals(isStairs)) {
-                filteredList.add(tile);
-            }
-        }
-
-        return filteredList;
-    }
-
 }

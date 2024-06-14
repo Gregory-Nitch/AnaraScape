@@ -5,18 +5,20 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 import models.MapCoordinate;
 
 public class MapDesign {
 
-    ArrayList<ArrayList<TreeSet<String>>> connectionMatrix = new ArrayList<>();
-    TreeSet<MapCoordinate> seededSections = new TreeSet<>();
-    TreeSet<MapCoordinate> safetyBuffer = new TreeSet<>();
-    HashMap<String, ArrayList<MapCoordinate>> edgeMap = new HashMap<>();
+    ArrayList<ArrayList<SortedSet<String>>> connectionMatrix = new ArrayList<>();
+    SortedSet<MapCoordinate> seededSections = new TreeSet<>();
+    SortedSet<MapCoordinate> safetyBuffer = new TreeSet<>();
+    HashMap<String, HashSet<MapCoordinate>> edgeMap = new HashMap<>();
     MapCoordinate entrance;
     MapCoordinate stairsDown;
+    MapCoordinate stairsUp;
     int requiredSeeds;
 
     // Main outputs
@@ -41,9 +43,9 @@ public class MapDesign {
         StringBuilder builder = new StringBuilder();
 
         builder.append("----Connection Matrix----\n");
-        for (ArrayList<TreeSet<String>> row : connectionMatrix) {
+        for (ArrayList<SortedSet<String>> row : connectionMatrix) {
             builder.append("[");
-            for (TreeSet<String> col : row) {
+            for (SortedSet<String> col : row) {
                 builder.append("[");
                 for (String connection : col) {
                     builder.append(connection);
@@ -72,8 +74,13 @@ public class MapDesign {
             builder.append(entrance.toString());
         }
 
-        if (stairsDown != null) {
+        if (stairsUp != null) {
             builder.append("\nStairs Up: (row,col)");
+            builder.append(stairsUp.toString());
+        }
+
+        if (stairsDown != null) {
+            builder.append("\nStairs Down: (row,col)");
             builder.append(stairsDown.toString());
         }
 
