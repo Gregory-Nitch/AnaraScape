@@ -110,17 +110,16 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
         Console.WriteLine("\nBeginning map generation...");
 
+        MapDesigner designer = new(height,
+                               width,
+                               MapTraits["style"],
+                               MapTraits["level"],
+                               needsStairs,
+                               tiles);
+
         for (int i = 0; i < quantity; i++)
         {
-            MapDesign design = new(height,
-                                   width,
-                                   MapTraits["style"],
-                                   MapTraits["level"],
-                                   needsStairs,
-                                   tiles);
-
-            design.Generate();
-
+            MapDesign design = designer.Generate();
             Console.WriteLine($"\nMap Number = {i + 1}");
             Console.WriteLine(design.ToString());
             Console.WriteLine();

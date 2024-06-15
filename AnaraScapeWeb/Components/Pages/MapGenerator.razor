@@ -12,7 +12,7 @@
 
 @code {
 
-    private MapDesign? mapDesign;
+    private MapDesigner? mapDesigner;
 
     /// <summary>
     /// Generate a basic design from the Tile Cache on page load.
@@ -21,8 +21,8 @@
     protected override async void OnInitialized()
     {
         List<DungeonTileModel> tiles = tileCache.DBTiles.Where(t => t.Style == "fort").ToList();
-        mapDesign = new(3,3,"fort","top",false, tiles);
-        mapDesign.Generate();
+        mapDesigner = new(3, 3, "fort", "top", false, tiles);
+        MapDesign design = mapDesigner.Generate();
     }
 
 
