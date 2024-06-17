@@ -31,6 +31,9 @@ public class MapDesigner(int height,
 
     // All tiles in DB that matched passed style, ie 'fort' etc...
     private readonly List<DungeonTileModel> DBTiles = DBTiles;
+    private readonly DungeonTileModel EmptyTile = DBTiles
+                                                  .Where(x => x.Connections.First() == "E")
+                                                  .First();
 
     // Design to be worked on, instance created in 'Generate()'
     private MapDesign Design;
@@ -683,6 +686,13 @@ public class MapDesigner(int height,
     private SortedSet<string> RandomDesignQuery(SortedSet<string> validConnections,
                                                 SortedSet<string> requiredConnections)
     {
+        // If there are no connections for this tile set it as empty 'E'
+        if (validConnections.Count == 0 && requiredConnections.Count == 0)
+        {
+            DungeonTileModel emptyTile = DBTiles.Where(x => x.Connections.First() == "E").First();
+            return emptyTile.Connections;
+        }
+
         bool needTop = false;
         bool needBottom = false;
         bool needRight = false;
@@ -760,7 +770,6 @@ public class MapDesigner(int height,
             DungeonTileModel chosenTile = matchedTiles.ElementAt(_Random.Next(matchedTiles.Count));
             return chosenTile.Connections;
         }
-        // If there are no valid tiles place an empty tile
         else
         {
             // No valid tile found = invalid design
