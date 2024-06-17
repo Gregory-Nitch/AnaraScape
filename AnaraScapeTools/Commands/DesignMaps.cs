@@ -1,8 +1,7 @@
 ﻿
-
-
 using DataAccess;
 using DataAccess.Models;
+using Library59.ImageProcessing;
 using MapDesignLibrary;
 
 
@@ -16,47 +15,50 @@ namespace AnaraScapeTools.Commands;
 public class DesignMaps(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;
+    private readonly int TILE_SIZE = 2048;
 
-    private Dictionary<string, string> MapTraits = [];
+    private Dictionary<string, string> RequestOptions = [];
 
-    private void GetTraits()
+    private void GetCommandOptions()
     {
         Console.WriteLine("\nPlease enter the height, width, style, level, and stairs " +
             "value for the requested map separated by commas or hit enter for the default" +
             "(same as below example.)\n\tSyntax: height,width,style,level,needsStairs,quantity" +
-            " | Example: 3,3,fort,top,true,3");
+            ",saveDesigns | Example: 3,3,fort,top,true,3,false");
 
         Console.Write("||> ");
-        string? traitString = Console.ReadLine();
+        string? requestString = Console.ReadLine();
 
-        if (string.IsNullOrWhiteSpace(traitString))
+        if (string.IsNullOrWhiteSpace(requestString))
         {
-            MapTraits["height"] = "3";
-            MapTraits["width"] = "3";
-            MapTraits["style"] = "fort";
-            MapTraits["level"] = "top";
-            MapTraits["needsStairs"] = "true";
-            MapTraits["quantity"] = "1";
+            RequestOptions["height"] = "3";
+            RequestOptions["width"] = "3";
+            RequestOptions["style"] = "fort";
+            RequestOptions["level"] = "top";
+            RequestOptions["needsStairs"] = "true";
+            RequestOptions["quantity"] = "3";
+            RequestOptions["saveDesigns"] = "false";
             return;
         }
 
-        string[] traitArray = traitString.Split(',');
+        string[] requestArray = requestString.Split(',');
 
-        MapTraits["height"] = traitArray[0];
-        MapTraits["width"] = traitArray[1];
-        MapTraits["style"] = traitArray[2];
-        MapTraits["level"] = traitArray[3];
-        MapTraits["needsStairs"] = traitArray[4];
-        MapTraits["quantity"] = traitArray[5];
+        RequestOptions["height"] = requestArray[0];
+        RequestOptions["width"] = requestArray[1];
+        RequestOptions["style"] = requestArray[2];
+        RequestOptions["level"] = requestArray[3];
+        RequestOptions["needsStairs"] = requestArray[4];
+        RequestOptions["quantity"] = requestArray[5];
+        RequestOptions["saveDesigns"] = requestArray[6];
     }
 
     public void Job()
     {
-        GetTraits();
+        GetCommandOptions();
 
         bool hasError = false;
 
-        if (!int.TryParse(MapTraits["height"], out int height))
+        if (!int.TryParse(RequestOptions["height"], out int height))
         {
             Console.WriteLine("Error: invalid height entry...");
             hasError = true;
@@ -67,7 +69,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
             hasError = true;
         }
 
-        if (!int.TryParse(MapTraits["width"], out int width))
+        if (!int.TryParse(RequestOptions["width"], out int width))
         {
             Console.WriteLine("Error: invalid width entry...");
             hasError = true;
@@ -78,7 +80,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
             hasError = true;
         }
 
-        if (!int.TryParse(MapTraits["quantity"], out int quantity))
+        if (!int.TryParse(RequestOptions["quantity"], out int quantity))
         {
             Console.WriteLine("Error: invalid quantity request...");
             hasError = true;
@@ -88,9 +90,15 @@ public class DesignMaps(ICrud crud) : IToolCommand
             Console.WriteLine("Error: quantity request must exceed 1...");
         }
 
-        if (!bool.TryParse(MapTraits["needsStairs"], out bool needsStairs))
+        if (!bool.TryParse(RequestOptions["needsStairs"], out bool needsStairs))
         {
             Console.WriteLine("Error: invalid needs stairs entry...");
+            hasError = true;
+        }
+
+        if (!bool.TryParse(RequestOptions["saveDesigns"], out bool requestedSave))
+        {
+            Console.WriteLine("Error: invalid save request entry...");
             hasError = true;
         }
 
@@ -112,8 +120,8 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
         MapDesigner designer = new(height,
                                width,
-                               MapTraits["style"],
-                               MapTraits["level"],
+                               RequestOptions["style"],
+                               RequestOptions["level"],
                                needsStairs,
                                tiles);
 
@@ -123,6 +131,34 @@ public class DesignMaps(ICrud crud) : IToolCommand
             Console.WriteLine($"\nMap Number = {i + 1}");
             Console.WriteLine(design.ToString());
             Console.WriteLine();
+
+            if (requestedSave)
+            {
+                string outFilename = $"TestMapNum{i + 1}.png";
+                string mergedTestMapsDir = "./TestMaps/";
+                string tilesDir = "./TileStaging/";
+                Task.Run(() =>
+                {
+                    List<List<string>> filesToMerge = [];
+                    foreach (var idRow in design.DisplayMatrix)
+                    {
+                        List<string> fileRow = [];
+                        foreach (var id in idRow)
+                        {
+                            fileRow.Add(design.ImageMap[id]);
+                        }
+                        filesToMerge.Add(fileRow);
+                    }
+
+                    JpegMerger.MergeFrom2DListAndSaveToPng(filesToMerge,
+                                                      tilesDir,
+                                                      TILE_SIZE,
+                                                      TILE_SIZE,
+                                                      outFilename,
+                                                      mergedTestMapsDir);
+                    return;
+                });
+            }
         }
     }
 }

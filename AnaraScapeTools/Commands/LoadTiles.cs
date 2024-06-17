@@ -1,6 +1,4 @@
 ﻿
-
-
 using DataAccess;
 using DataAccess.Models;
 
@@ -20,7 +18,7 @@ public class LoadTiles(ICrud crud) : IToolCommand
 
     public void Job()
     {
-        string[] images = Directory.GetFileSystemEntries("./TileStaging"); // Root of tools folder
+        string[] images = Directory.GetFileSystemEntries("./TileStaging"); // In exe directory
         List<LoadingDungeonTileModel> tiles = [];
         List<string> failures = [];
 
@@ -77,7 +75,7 @@ public class LoadTiles(ICrud crud) : IToolCommand
                 string.Join(',', connections),
                 isEntrance,
                 isStairs,
-                image // Filename
+                image + ".jpg" // Filename readded ext for file saving
                 );
 
             tiles.Add(tile);
