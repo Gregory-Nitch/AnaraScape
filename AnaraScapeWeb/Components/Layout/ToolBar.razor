@@ -1,4 +1,9 @@
-﻿@rendermode InteractiveServer
+﻿@using DataAccess.Models
+@using MapDesignLibrary
+
+@inject DungeonTileCache TileCache
+
+@rendermode InteractiveServer
 
 <div id="toolbar-container">
 
@@ -10,7 +15,7 @@
     
                 <div id="styles" class="btn-group" role="group" aria-label="Style button group">
 
-                    <button type="button" class="btn btn-dark">@Style</button>
+                    <button type="button" class="btn btn-dark">Style</button>
                     <div class="btn-group" role="group">
                         <button id="style-drop-group" type="button" class="btn btn-dark dropdown-toggle"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
@@ -38,7 +43,7 @@
                     <label class="btn btn-dark" for="bottom-level-radio">Bottom Level</label>
 
                     <input type="checkbox" class="btn-check" id="stairs-down-check" autocomplete="off" 
-                    checked="@HasStairs" disabled="@CannotHaveStairs" @onchange="@(() => ToggleStairs())">
+                    checked="@HasStairs" disabled="@StairButtonDisabled" @onchange="@(() => ToggleStairs())">
                     <label class="btn btn-dark" for="stairs-down-check">Stairs Down</label>
 
                 </div>
@@ -50,7 +55,7 @@
                 <div class="size-row">
                     <label for="height" class="form-label text-light">Height = <span id="height-display">
                         @Height</span></label>
-                    <input type="range" class="form-range" min="2" max="20" step="1" value="3"
+                    <input type="range" class="form-range" min="2" max="20" step="1" value="@Height"
                     @oninput="@((e) => ChangeHeight(e))">
                 </div>
 
@@ -65,7 +70,7 @@
     
             <div id="button-col">
 
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" @onclick="OnGenerateReq">
                     <i class="bi bi-pencil-square"></i>Generate!
                 </button>
 
@@ -108,16 +113,24 @@
 </div>
 
 @code {
+    private int Height { set; get; } = 3;
+    private int Width { set; get; } = 3;
+    private string Style { set; get; } = "fort";
+    private string Level { set; get; } = "top";
+    private bool HasStairs { set; get; } = false;
 
-    public string Style { private set; get; } = "fort";
-    public string Level { private set; get; } = "top";
-    public bool IsTop { private set; get; } = true;
-    public bool IsMiddle { private set; get; } = false;
-    public bool IsBottom { private set; get; } = false;
-    public bool HasStairs { private set; get; } = false;
-    public bool CannotHaveStairs { private set; get; } = false;
-    public int Height { private set; get; } = 3;
-    public int Width { private set; get; } = 3;
+    [Parameter]
+    public EventCallback<MapDesigner> OnGenerate { set; get; }
+
+    private bool IsTop { set; get; } = true;
+    private bool IsMiddle { set; get; } = false;
+    private bool IsBottom { set; get; } = false;
+    private bool StairButtonDisabled { set; get; } = false;
+
+    private Task OnGenerateReq()
+    {
+        return OnGenerate.InvokeAsync(new(Height, Width, Style, Level, HasStairs, TileCache.DBTiles));
+    }
 
     private void SetStyle(string style) {
         Style = style;
@@ -127,28 +140,23 @@
         Level = level;
         if (level == "top")
         {
-            CannotHaveStairs = false;
+            StairButtonDisabled = false;
         } 
         else if (level == "middle")
         {
-            CannotHaveStairs = false;
+            StairButtonDisabled = true;
+            HasStairs = true;
         }
         else if (level == "bottom")
         {
-            CannotHaveStairs = true;
-
-            ToggleStairs();
+            StairButtonDisabled = true;
+            HasStairs = false;
         }
-
     }
 
     private void ToggleStairs()
     {
-        if (CannotHaveStairs)
-        {
-            HasStairs = false;
-        }
-        else
+        if (!StairButtonDisabled)
         {
             HasStairs = !HasStairs;
         }

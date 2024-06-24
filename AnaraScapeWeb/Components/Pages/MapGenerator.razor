@@ -1,30 +1,98 @@
-﻿@page "/mapgenerator"
+﻿
+@page "/map-generator"
+
+@using AnaraScapeWeb.Components.Layout
 @using DataAccess.Models
 @using MapDesignLibrary
-@layout Layout.GenLayout
+
+
+@implements IDisposable
+
+@inject DungeonTileCache TileCache
+@inject IJSRuntime JS
+
 @rendermode InteractiveServer
 
-@inject DungeonTileCache tileCache
-
+@layout Layout.GenLayout
 
 <PageTitle>Map Generator</PageTitle>
+
+<ToolBar OnGenerate="GenNewDesign"/>
+
+<div id="mapWrapper" oncontextmenu="event.preventDefault();">
+   
+    @if (MapDesign != null)
+    {
+    <div id="mapOverlay">
+        @for(int i = 0, sectionId = 1; i < MapDesign.DisplayMatrix.Count(); i++){ 
+            string rowId = $"tileRow{i+1}";
+            <div class="mapRow" id=@rowId>
+                @for (int j = 0; j < MapDesign.DisplayMatrix[0].Count(); j++)
+                {
+                    if (MapDesign.TileMatrix[i][j].Count() == 1)
+                    {
+                        <div class="reqCol" id=@sectionId></div>
+                    }
+                    else
+                    {
+                        <div class="column" id=@sectionId></div>
+                    }
+                    sectionId++;
+                }
+            </div>
+        }
+        </div>
+    }
+    else
+    {
+        GenBaseDesign();
+    }
+
+    <canvas id="mapCanvas"></canvas>
+</div>
 
 
 @code {
 
-    private MapDesigner? mapDesigner;
+    private DotNetObjectReference<MapGenerator>? BCompRef;
+    private MapDesigner? MapDesigner;
+    private MapDesign? MapDesign;
 
-    /// <summary>
-    /// Generate a basic design from the Tile Cache on page load.
-    /// </summary>
-    /// <returns>Creates a map design state of a basic type</returns>
-    protected override async void OnInitialized()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        List<DungeonTileModel> tiles = tileCache.DBTiles.Where(t => t.Style == "fort").ToList();
-        mapDesigner = new(3, 3, "fort", "top", false, tiles);
-        MapDesign design = mapDesigner.Generate();
+        if (firstRender)
+        {
+            BCompRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("DotNetRef.getBCompReference", BCompRef);
+        }
+        if (MapDesign != null)
+        {
+            await JS.InvokeVoidAsync("DotNetRef.requestMapDesign");
+        }
     }
 
+    private void GenBaseDesign()
+    {
+        MapDesigner = new(3, 3, "fort", "top", false, TileCache.DBTiles);
+        MapDesign = MapDesigner.Generate();
+        StateHasChanged();
+    }
 
+    private void GenNewDesign(MapDesigner newDesigner)
+    {
+        MapDesigner = newDesigner;
+        MapDesign = MapDesigner.Generate();
+        StateHasChanged();
+    }
 
+    public void Dispose()
+    {
+        BCompRef?.Dispose();
+    }
+
+    [JSInvokable]
+    public Task<MapDesign> SendDesignAsync()
+    {
+        return Task.FromResult(MapDesign!);
+    }
 }

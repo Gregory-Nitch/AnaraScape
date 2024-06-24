@@ -13,7 +13,7 @@ namespace MapDesignLibrary;
 /// <param name="style">Style of the map</param>
 /// <param name="level">Level of the dungeon, changes algorithm behavior</param>
 /// <param name="needsStairs">If true will place stairs leading down to next level</param>
-/// <param name="DBTiles">Tiles from the database (accepts NOT filtered by style lists)</param>
+/// <param name="DBTiles">Tiles from the database (NOT filtered)</param>
 public class MapDesigner(int height,
                        int width,
                        string style,
@@ -30,7 +30,7 @@ public class MapDesigner(int height,
     private Random _Random { get; set; } = new Random();
 
     // All tiles in DB that matched passed style, ie 'fort' etc...
-    private readonly List<DungeonTileModel> DBTiles = DBTiles;
+    private readonly List<DungeonTileModel> DBTiles = DBTiles.Where(t => t.Style == style).ToList();
     private readonly DungeonTileModel EmptyTile = DBTiles
                                                   .Where(x => x.Connections.First() == "E")
                                                   .First();
@@ -142,10 +142,7 @@ public class MapDesigner(int height,
             string edge = Design.Edges.Keys.ElementAt(_Random.Next(Design.Edges.Count));
             Design.Entrance = Design.Edges[edge].ElementAt(_Random.Next(Design.Edges[edge].Count));
             SetStackConnections(Design.Entrance, true);
-            if (NeedsStairs)
-            {
-                ProtectWithSafetyBuffer(Design.Entrance);
-            }
+            ProtectWithSafetyBuffer(Design.Entrance);
         }
         else if (Level == "middle" || Level == "bottom")
         {
@@ -153,10 +150,7 @@ public class MapDesigner(int height,
             int col = _Random.Next(Width);
             Design.StairsUp = (row, col);
             SetStackConnections(Design.StairsUp, isStairs: "up");
-            if (NeedsStairs)
-            {
-                ProtectWithSafetyBuffer(Design.StairsUp);
-            }
+            ProtectWithSafetyBuffer(Design.StairsUp);
         }
 
         if (NeedsStairs)
@@ -802,7 +796,7 @@ public class MapDesigner(int height,
                 {
                     throw new MapDesignException($"Error: Tile (row : {row}, col : {col}) " +
                 $"could not be reached from Map Start (row : {mapStart.row}, col : {mapStart.col})." +
-                $" Printing map design...\n{this}");
+                $" Printing map design...\n{Design}");
                 }
             }
         }
