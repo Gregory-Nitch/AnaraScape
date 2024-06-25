@@ -42,7 +42,8 @@ public class MapDesigner(int height,
     /// <summary>
     /// Called to generate a map design from the given parameters to the class constructor.
     /// </summary>
-    /// <exception cref="MapDesignException">Thrown if map start cannot reach map exit (if needed)</exception>
+    /// <exception cref="MapDesignException">Thrown if map start cannot reach map exit (if needed)
+    /// </exception>
     public MapDesign Generate()
     {
         Design = new();
@@ -60,6 +61,7 @@ public class MapDesigner(int height,
         {
             mapStart = Design.StairsUp;
         }
+        ProtectWithSafetyBuffer(mapStart);
 
         // Validate that the exit can be reached if there is one (fails map designs early)
         // Route is also added to SafetyBuffer by AStar
@@ -142,7 +144,7 @@ public class MapDesigner(int height,
             string edge = Design.Edges.Keys.ElementAt(_Random.Next(Design.Edges.Count));
             Design.Entrance = Design.Edges[edge].ElementAt(_Random.Next(Design.Edges[edge].Count));
             SetStackConnections(Design.Entrance, true);
-            ProtectWithSafetyBuffer(Design.Entrance);
+            AddEntranceSafetyBuffer(Design.Entrance);
         }
         else if (Level == "middle" || Level == "bottom")
         {
@@ -150,7 +152,7 @@ public class MapDesigner(int height,
             int col = _Random.Next(Width);
             Design.StairsUp = (row, col);
             SetStackConnections(Design.StairsUp, isStairs: "up");
-            ProtectWithSafetyBuffer(Design.StairsUp);
+            AddEntranceSafetyBuffer(Design.StairsUp);
         }
 
         if (NeedsStairs)
@@ -168,6 +170,199 @@ public class MapDesigner(int height,
             Design.StairsDown = (row, col);
             SetStackConnections(Design.StairsDown, isStairs: "down");
             ProtectWithSafetyBuffer(Design.StairsDown);
+        }
+    }
+
+    /// <summary>
+    /// Adds the required sections around the entrance section to prevent map design flaws.
+    /// </summary>
+    /// <param name="section">Entrance section to protect.</param>
+    private void AddEntranceSafetyBuffer((int row, int col) section)
+    {
+        (int row, int col) = section;
+        SortedSet<string> sectionConnections = Design.ConnectionMatrix[row][col];
+
+        // If section is in corner, use of First() to only get connection direction in the map
+        if (section == (0, 0)) // Top left
+        {
+            if (sectionConnections.First().Contains('R'))
+            {
+                Design.SafetyBuffer.Add((row, col + 1));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                Design.SafetyBuffer.Add((row + 1, col));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            return;
+        }
+        else if (section == (0, Width - 1)) // Top right
+        {
+            if (sectionConnections.First().Contains('L'))
+            {
+                Design.SafetyBuffer.Add((row, col - 1));
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                Design.SafetyBuffer.Add((row + 1, col));
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            return;
+        }
+        else if (section == (Height - 1, 0)) // Bottom left
+        {
+            if (sectionConnections.First().Contains('R'))
+            {
+                Design.SafetyBuffer.Add((row, col + 1));
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('T'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col));
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            return;
+        }
+        else if (section == (Height - 1, Width - 1)) // Bottom right
+        {
+            if (sectionConnections.First().Contains('L'))
+            {
+                Design.SafetyBuffer.Add((row, col - 1));
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('T'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col));
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            return;
+        }
+
+        // Else if a section is on an edge
+        if (Design.Edges["top"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('B'))
+            {
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+                Design.SafetyBuffer.Add((row + 1, col));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                Design.SafetyBuffer.Add((row, col - 1));
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                Design.SafetyBuffer.Add((row, col + 1));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+        }
+        else if (Design.Edges["bottom"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+                Design.SafetyBuffer.Add((row - 1, col));
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                Design.SafetyBuffer.Add((row, col - 1));
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                Design.SafetyBuffer.Add((row, col + 1));
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+            }
+        }
+        else if (Design.Edges["left"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col));
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                Design.SafetyBuffer.Add((row + 1, col));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+                Design.SafetyBuffer.Add((row, col + 1));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+        }
+        else if (Design.Edges["right"].Contains(section))
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col));
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                Design.SafetyBuffer.Add((row + 1, col));
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+                Design.SafetyBuffer.Add((row, col - 1));
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+            }
+        }
+        // Not on an edge and requires full safe zone
+        else
+        {
+            if (sectionConnections.First().Contains('T'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+                Design.SafetyBuffer.Add((row - 1, col));
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('B'))
+            {
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+                Design.SafetyBuffer.Add((row + 1, col));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
+
+            else if (sectionConnections.First().Contains('L'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col - 1));
+                Design.SafetyBuffer.Add((row, col - 1));
+                Design.SafetyBuffer.Add((row + 1, col - 1));
+            }
+
+            else if (sectionConnections.First().Contains('R'))
+            {
+                Design.SafetyBuffer.Add((row - 1, col + 1));
+                Design.SafetyBuffer.Add((row, col + 1));
+                Design.SafetyBuffer.Add((row + 1, col + 1));
+            }
         }
     }
 
