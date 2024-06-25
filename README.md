@@ -11,9 +11,9 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- Connect toolbar prototype to MapDesign
+- Fix bug in map designing where stairs cannot be placed due to safety buffer
 
-- Setup HTML canvas & AJAX for new design request
+- Allow Map Generator toolbar interactivity during large map download requests (or implement a spinner).
 
 - See item 3 in `Future Additions`
 

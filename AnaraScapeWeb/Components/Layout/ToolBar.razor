@@ -3,8 +3,6 @@
 
 @inject DungeonTileCache TileCache
 
-@rendermode InteractiveServer
-
 <div id="toolbar-container">
 
     <form id="toolbar" class="collapse navbar-collapse">
@@ -62,7 +60,7 @@
                 <div class="size-row">
                     <label for="width" class="form-label text-light">Width = <span id="width-display">
                         @Width</span></label>
-                    <input type="range" class="form-range" min="2" max="20" step="1" id="width" value="3"
+                    <input type="range" class="form-range" min="2" max="20" step="1" id="width" value="@Width"
                     @oninput="@((e) => ChangeWidth(e))">
                 </div>
 
@@ -74,7 +72,7 @@
                     <i class="bi bi-pencil-square"></i>Generate!
                 </button>
 
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn btn-primary" @onclick="OnDownloadClicked">
                     <i class="bi bi-download"></i>Download!</button>
 
                 <a type="button" class="btn btn-danger" href="">
@@ -121,6 +119,8 @@
 
     [Parameter]
     public EventCallback<MapDesigner> OnGenerate { set; get; }
+    [Parameter]
+    public EventCallback OnDownload { set; get; }
 
     private bool IsTop { set; get; } = true;
     private bool IsMiddle { set; get; } = false;
@@ -129,7 +129,17 @@
 
     private Task OnGenerateReq()
     {
-        return OnGenerate.InvokeAsync(new(Height, Width, Style, Level, HasStairs, TileCache.DBTiles));
+        return OnGenerate.InvokeAsync(new(Height, 
+                                          Width, 
+                                          Style, 
+                                          Level, 
+                                          HasStairs, 
+                                          TileCache.DBTiles));
+    }
+
+    private Task OnDownloadClicked()
+    {
+        return OnDownload.InvokeAsync();
     }
 
     private void SetStyle(string style) {

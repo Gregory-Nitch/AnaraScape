@@ -38,6 +38,50 @@ class DotNetRef {
                 drawMap();
             });
     };
+
+    static requestMapDownload = () => {
+        // Create temp canvas for drawing
+        let tmpCanvas = document.createElement("canvas");
+        let tmpCvsContext = tmpCanvas.getContext("2d");
+        tmpCanvas.width = BASE_TILE_SIZE * mapWidth;
+        tmpCanvas.height = BASE_TILE_SIZE * mapHeight;
+
+        // Draw current rendered map to it
+        let tmpX = 0;
+        let tmpY = 0;
+        for (const row of displayMatrix) {
+            for (const tileId of row) {
+                tmpCvsContext.drawImage(renderingTiles[tileId], tmpX, tmpY);
+                tmpX += BASE_TILE_SIZE;
+            }
+            tmpX = 0;
+            tmpY += BASE_TILE_SIZE;
+        }
+
+        // Create blob and download
+        tmpCanvas.toBlob( async (blob) => {
+
+            // If blob is null its too big for the browser
+            if (blob == null) {
+                await DotNetRef.ref.invokeMethodAsync("SendImageBlobAsync", displayMatrix).then(blobFromServer => {
+                    blob = new Blob([blobFromServer], { type: "image/png" });
+                });
+            } 
+
+            let link = await document.createElement("a");
+            link.href = await window.URL.createObjectURL(blob);
+            link.download = await "AnaraScape-Dungeon-" + mapWidth + "x" + mapHeight;
+            link.style.display = await "none";
+            await document.body.appendChild(link);
+            link.click();
+
+            // Remove added elements
+            await URL.revokeObjectURL(link.href);
+            link.remove();
+            tmpCanvas.remove();
+
+        }, "image/png");
+    };
 }
 
 window.DotNetRef = DotNetRef;

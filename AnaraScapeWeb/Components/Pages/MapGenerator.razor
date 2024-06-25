@@ -4,6 +4,8 @@
 @using AnaraScapeWeb.Components.Layout
 @using DataAccess.Models
 @using MapDesignLibrary
+@using Library59.ImageProcessing
+@using SkiaSharp
 
 
 @implements IDisposable
@@ -17,7 +19,7 @@
 
 <PageTitle>Map Generator</PageTitle>
 
-<ToolBar OnGenerate="GenNewDesign"/>
+<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload"/>
 
 <div id="mapWrapper" oncontextmenu="event.preventDefault();">
    
@@ -57,6 +59,9 @@
     private DotNetObjectReference<MapGenerator>? BCompRef;
     private MapDesigner? MapDesigner;
     private MapDesign? MapDesign;
+    private MapDesign? previousDesign; // Used to stop re-rendering after a download request
+    private readonly int BASE_TILE_SIZE = 2048;
+    private bool shouldRender; 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -71,8 +76,12 @@
         }
     }
 
+    // Need to control rendering for request download events
+    protected override bool ShouldRender() => shouldRender;
+
     private void GenBaseDesign()
     {
+        shouldRender = true;
         MapDesigner = new(3, 3, "fort", "top", false, TileCache.DBTiles);
         MapDesign = MapDesigner.Generate();
         StateHasChanged();
@@ -80,9 +89,17 @@
 
     private void GenNewDesign(MapDesigner newDesigner)
     {
+        shouldRender = true;
         MapDesigner = newDesigner;
+        previousDesign = MapDesign;
         MapDesign = MapDesigner.Generate();
         StateHasChanged();
+    }
+
+    private async void RequestDownload()
+    {
+        shouldRender = false;
+        await JS.InvokeVoidAsync("DotNetRef.requestMapDownload");
     }
 
     public void Dispose()
@@ -94,5 +111,33 @@
     public Task<MapDesign> SendDesignAsync()
     {
         return Task.FromResult(MapDesign!);
+    }
+
+    [JSInvokable]
+    public Task<byte[]> SendImageBlobAsync(int[][] displayMatFromJS)
+    {
+        // Place image paths in 2d list for processing
+        List<List<string>> imagePathMatrix = [];
+        foreach(int[] row in displayMatFromJS)
+        {
+            List<string> imgRow = [];
+            foreach (int id in row)
+            {
+                imgRow.Add(MapDesign!.ImageMap[id]);
+            }
+            imagePathMatrix.Add(imgRow);
+        }
+
+        string tileImgDir =  Directory.GetCurrentDirectory() + "\\wwwroot\\static\\Tiles\\";
+        SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix, 
+                                                     tileImgDir, 
+                                                     BASE_TILE_SIZE, 
+                                                     BASE_TILE_SIZE);
+        using (var stream = new MemoryStream())
+        {
+            bitMap.Encode(stream, SKEncodedImageFormat.Png, 100);
+            bitMap.Dispose();
+            return Task.FromResult(stream.ToArray());
+        }
     }
 }
