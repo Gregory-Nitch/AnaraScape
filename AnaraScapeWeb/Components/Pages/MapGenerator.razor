@@ -19,38 +19,41 @@
 
 <PageTitle>Map Generator</PageTitle>
 
-<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload"/>
+<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" />
+<ProcessingOverlay/>
 
 <div id="mapWrapper" oncontextmenu="event.preventDefault();">
-   
-    @if (MapDesign != null)
-    {
+
     <div id="mapOverlay">
-        @for(int i = 0, sectionId = 1; i < MapDesign.DisplayMatrix.Count(); i++){ 
-            string rowId = $"tileRow{i+1}";
-            <div class="mapRow" id=@rowId>
-                @for (int j = 0; j < MapDesign.DisplayMatrix[0].Count(); j++)
-                {
-                    if (MapDesign.TileMatrix[i][j].Count() == 1)
+        @if (MapDesign != null)
+        {
+            @for (int i = 0, sectionId = 1; i < MapDesign.DisplayMatrix.Count(); i++)
+            {
+                string rowId = $"tileRow{i + 1}";
+                <div class="mapRow" id=@rowId>
+                    @for (int j = 0; j < MapDesign.DisplayMatrix[0].Count(); j++)
                     {
-                        <div class="reqCol" id=@sectionId></div>
+                        if (MapDesign.TileMatrix[i][j].Count() == 1)
+                        {
+                            <div class="reqCol" id=@sectionId></div>
+                        }
+                        else
+                        {
+                            <div class="column" id=@sectionId></div>
+                        }
+                        sectionId++;
                     }
-                    else
-                    {
-                        <div class="column" id=@sectionId></div>
-                    }
-                    sectionId++;
-                }
-            </div>
+                </div>
+            }
         }
-        </div>
-    }
-    else
-    {
-        GenBaseDesign();
-    }
+        else
+        {
+            GenBaseDesign();
+        }
+    </div>
 
     <canvas id="mapCanvas"></canvas>
+
 </div>
 
 
@@ -61,7 +64,8 @@
     private MapDesign? MapDesign;
     private MapDesign? previousDesign; // Used to stop re-rendering after a download request
     private readonly int BASE_TILE_SIZE = 2048;
-    private bool shouldRender; 
+    private bool shouldRender;
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -118,7 +122,7 @@
     {
         // Place image paths in 2d list for processing
         List<List<string>> imagePathMatrix = [];
-        foreach(int[] row in displayMatFromJS)
+        foreach (int[] row in displayMatFromJS)
         {
             List<string> imgRow = [];
             foreach (int id in row)
@@ -128,11 +132,11 @@
             imagePathMatrix.Add(imgRow);
         }
 
-        string tileImgDir =  Directory.GetCurrentDirectory() + "\\wwwroot\\static\\Tiles\\";
-        SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix, 
-                                                     tileImgDir, 
-                                                     BASE_TILE_SIZE, 
-                                                     BASE_TILE_SIZE);
+        string tileImgDir = Directory.GetCurrentDirectory() + "\\wwwroot\\static\\Tiles\\";
+        SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix,
+        tileImgDir,
+        BASE_TILE_SIZE,
+        BASE_TILE_SIZE);
         using (var stream = new MemoryStream())
         {
             bitMap.Encode(stream, SKEncodedImageFormat.Png, 100);

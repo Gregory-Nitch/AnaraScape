@@ -27,13 +27,10 @@ public class MapDesigner(int height,
     public string Level { get; } = level;
     public bool NeedsStairs { get; } = needsStairs;
 
-    private Random _Random { get; set; } = new Random();
+    private readonly Random _Random = new();
 
     // All tiles in DB that matched passed style, ie 'fort' etc...
     private readonly List<DungeonTileModel> DBTiles = DBTiles.Where(t => t.Style == style).ToList();
-    private readonly DungeonTileModel EmptyTile = DBTiles
-                                                  .Where(x => x.Connections.First() == "E")
-                                                  .First();
 
     // Design to be worked on, instance created in 'Generate()'
     private MapDesign Design;

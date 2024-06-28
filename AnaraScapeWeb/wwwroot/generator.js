@@ -9,6 +9,7 @@ class DotNetRef {
 
     // Gets map Design data from server
     static requestMapDesign = () => {
+        this.displayProcessingOverlay(true, "Loading...");
         DotNetRef.ref.invokeMethodAsync("SendDesignAsync")
             .then(mapDesign => {
                 displayMatrix = [];
@@ -36,10 +37,13 @@ class DotNetRef {
                 addMapWrapperEvents();
                 initMap();
                 drawMap();
+                this.confirmImagesLoaded();
             });
     };
 
     static requestMapDownload = () => {
+        this.displayProcessingOverlay(true, "Downloading...");
+
         // Create temp canvas for drawing
         let tmpCanvas = document.createElement("canvas");
         let tmpCvsContext = tmpCanvas.getContext("2d");
@@ -79,8 +83,37 @@ class DotNetRef {
             await URL.revokeObjectURL(link.href);
             link.remove();
             tmpCanvas.remove();
-
+            this.displayProcessingOverlay(false, "");
         }, "image/png");
+    };
+
+    static displayProcessingOverlay = (needToDisplay, msg) => {
+        let procDiv = document.getElementById("processing-overlay-div");
+        let procMsg = document.getElementById("processing-message");
+        if (needToDisplay) {
+            procDiv.style.display = "flex";
+            procMsg.innerHTML = msg;
+        } else {
+            procDiv.style.display = "none";
+        }
+    };
+
+    static confirmImagesLoaded = () => {
+        Promise.all(Array.from(document.images).map(img => {
+            if (img.complete) {
+                return Promise.resolve(img.naturalHeight !== 0);
+            }
+            return new Promise(resolve => {
+                img.addEventListener("load", () => resolve(true));
+                img.addEventListener("error", () => resolve(false));
+            });
+        })).then(results => {
+            if (results.every(result => result)) {
+                this.displayProcessingOverlay(false, "");
+            } else {
+                this.displayProcessingOverlay(true, "ERR!!!");
+            }
+        })
     };
 }
 

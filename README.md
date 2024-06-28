@@ -11,10 +11,6 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
-- Allow Map Generator toolbar interactivity during large map download requests (or implement a spinner).
-
-- See item 3 in `Future Additions`
-
 # Future Additions
 
 1. World map with integrated calendar
@@ -30,10 +26,6 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
     - Shows Backstory etc.
 
 3. Map generator add ons
-
-    - progress bars for downloads and loading
-
-    - Move all image merging to client if possible
 
 4. NPC database for DMs
 
