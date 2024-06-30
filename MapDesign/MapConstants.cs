@@ -7,7 +7,7 @@ namespace MapDesignLibrary;
 internal static class MapConstants
 {
 
-    public static readonly int TILE_SIZE = 2048;
+    public static readonly int TILE_SIZE = 512;
 
     public static readonly string[] TOP_CONNECTIONS =
     [

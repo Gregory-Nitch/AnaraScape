@@ -63,14 +63,14 @@ class DotNetRef {
         }
 
         // Create blob and download
-        tmpCanvas.toBlob( async (blob) => {
+        tmpCanvas.toBlob(async (blob) => {
 
             // If blob is null its too big for the browser
             if (blob == null) {
                 await DotNetRef.ref.invokeMethodAsync("SendImageBlobAsync", displayMatrix).then(blobFromServer => {
                     blob = new Blob([blobFromServer], { type: "image/png" });
                 });
-            } 
+            }
 
             let link = await document.createElement("a");
             link.href = await window.URL.createObjectURL(blob);
@@ -128,7 +128,7 @@ let mapHeight;
 // Setup canvas, div overlay "mapOverlay"
 const MAX_ZOOM = 1;
 const ZOOM_SENS = 0.0001;
-const BASE_TILE_SIZE = 2048;
+const BASE_TILE_SIZE = 512;
 let MIN_ZOOM;// Not a constant but should only be changed at map init
 let mapCanvas;
 let canvasContext;
@@ -245,7 +245,7 @@ function setStartingZoom() {
         mapScaler = mapHeight;
     }
 
-    /* Calcualte the starting zoom value for the canvas -> zoom = winScaler / (mapScaler * 2048)
+    /* Calcualte the starting zoom value for the canvas -> zoom = winScaler / (mapScaler * 512)
      This will set the zoom so that every portion of the generated map is visable at the start. 
      .25 gives starting padding around map and mapOverlay*/
     zoom = winScaler / ((mapScaler + .25) * BASE_TILE_SIZE);

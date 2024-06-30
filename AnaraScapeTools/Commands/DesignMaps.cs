@@ -15,7 +15,7 @@ namespace AnaraScapeTools.Commands;
 public class DesignMaps(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;
-    private readonly int TILE_SIZE = 2048;
+    private readonly int TILE_SIZE = 512;
 
     private Dictionary<string, string> RequestOptions = [];
 

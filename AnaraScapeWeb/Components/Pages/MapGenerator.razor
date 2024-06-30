@@ -1,5 +1,4 @@
-﻿
-@page "/map-generator"
+﻿@page "/map-generator"
 
 @using AnaraScapeWeb.Components.Layout
 @using DataAccess.Models
@@ -20,7 +19,7 @@
 <PageTitle>Map Generator</PageTitle>
 
 <ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" />
-<ProcessingOverlay/>
+<ProcessingOverlay />
 
 <div id="mapWrapper" oncontextmenu="event.preventDefault();">
 
@@ -63,7 +62,7 @@
     private MapDesigner? MapDesigner;
     private MapDesign? MapDesign;
     private MapDesign? previousDesign; // Used to stop re-rendering after a download request
-    private readonly int BASE_TILE_SIZE = 2048;
+    private readonly int BASE_TILE_SIZE = 512;
     private bool shouldRender;
 
 
