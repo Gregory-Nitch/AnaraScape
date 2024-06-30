@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 internal class Program
 {
-    public static ServiceProvider ServiceProvider;
+    public static ServiceProvider? ServiceProvider;
 
     private static void StartConfig()
     {
@@ -37,7 +37,7 @@ internal class Program
             Console.Write("||> ");
             cmd = Console.ReadLine();
             Console.WriteLine();
-            var crud = ServiceProvider.GetService<ICrud>();
+            var crud = ServiceProvider!.GetService<ICrud>()!;
 
             switch (cmd)
             {
@@ -52,6 +52,12 @@ internal class Program
                 case "load-tiles":
                     LoadTiles loadTiles = new(crud);
                     loadTiles.Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
+
+                case "resize-tiles":
+                    ResizeTiles resizeTiles = new();
+                    resizeTiles.Job();
                     Console.WriteLine("\nReturned to main...");
                     break;
 

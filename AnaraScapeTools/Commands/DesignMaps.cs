@@ -134,8 +134,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
 
             if (requestedSave)
             {
-                string outFilename = $"TestMapNum{i + 1}.png";
-                string mergedTestMapsDir = "./TestMaps/";
+                string outPath = $"./TestMaps/TestMapNum{i + 1}.png";
                 string tilesDir = "./TileStaging/";
                 Task.Run(() =>
                 {
@@ -154,8 +153,7 @@ public class DesignMaps(ICrud crud) : IToolCommand
                                                       tilesDir,
                                                       TILE_SIZE,
                                                       TILE_SIZE,
-                                                      outFilename,
-                                                      mergedTestMapsDir);
+                                                      outPath);
                     return;
                 });
             }
