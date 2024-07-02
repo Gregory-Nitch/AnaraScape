@@ -126,8 +126,8 @@ let imageMap;
 let mapWidth;
 let mapHeight;
 // Setup canvas, div overlay "mapOverlay"
-const MAX_ZOOM = 1;
-const ZOOM_SENS = 0.0001;
+const MAX_ZOOM = 2;
+const ZOOM_SENS = 0.00005;
 const BASE_TILE_SIZE = 512;
 let MIN_ZOOM;// Not a constant but should only be changed at map init
 let mapCanvas;
