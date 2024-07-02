@@ -1,0 +1,17 @@
+<div id="construction-overlay-div">
+    <div id="construction-text-container">
+        <p class="message text-danger">Opps! Sorry, this page is still under construction!</p>
+        <i id="warning-icon" class="bi bi-exclamation-triangle text-danger"></i>
+        <div id="icon-container">
+            <i class="bi bi-hammer text-danger"></i>
+            <i class="bi bi-tools text-danger"></i>
+            <i class="bi bi-wrench-adjustable text-danger"></i>
+        </div>
+        <p class="message text-danger">@FlavorMessage</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string FlavorMessage { set; get; } = "Flavoring should have gone here...";
+}

@@ -1,0 +1,26 @@
+#construction-overlay-div {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+#construction-text-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.bi {
+    font-size: 5rem;
+}
+
+#warning-icon {
+    font-size: 7rem;
+}

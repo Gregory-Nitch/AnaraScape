@@ -11,6 +11,9 @@ Pictures on the way (Currently working on the C# ASP.NET migration)
 
 ## Current Tasks
 
+- Tweek zooming in map generator
+- Logging
+
 # Future Additions
 
 1. World map with integrated calendar

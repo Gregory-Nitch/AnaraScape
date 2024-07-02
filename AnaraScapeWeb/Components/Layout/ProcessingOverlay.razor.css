@@ -1,12 +1,11 @@
-
 #processing-overlay-div {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: black;
-    opacity: .8;
+    background: rgba(0, 0, 0, .8);
     z-index: 4;
     display: flex;
+    justify-content: center;
 }
 
 #processing-text-container {
