@@ -20,7 +20,7 @@
 
 <PageTitle>Map Generator</PageTitle>
 
-<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" />
+<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" OnGenError="ShowError" ToolBarErrMsg="@GenErrMsg"/>
 <ProcessingOverlay />
 
 <div id="mapWrapper" oncontextmenu="event.preventDefault();">
@@ -63,9 +63,9 @@
     private DotNetObjectReference<MapGenerator>? BCompRef;
     private MapDesigner? MapDesigner;
     private MapDesign? MapDesign;
-    private MapDesign? previousDesign; // Used to stop re-rendering after a download request
     private readonly int BASE_TILE_SIZE = 512;
     private bool shouldRender;
+    private readonly string GenErrMsg = "Oops! There was an error generating a design, we'll look into! Try again?";
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -87,8 +87,19 @@
     private void GenBaseDesign()
     {
         shouldRender = true;
-        MapDesigner = new(3, 3, "fort", "top", false, TileCache.DBTiles);
-        MapDesign = MapDesigner.Generate();
+
+        try
+        {
+            MapDesigner = new(3, 3, "fort", "top", false, TileCache.DBTiles);
+            MapDesign = MapDesigner.Generate();
+        }
+        catch (MapDesignException ex)
+        {
+            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
+            ShowError(GenErrMsg);
+        }
+
+
         StateHasChanged();
     }
 
@@ -96,8 +107,17 @@
     {
         shouldRender = true;
         MapDesigner = newDesigner;
-        previousDesign = MapDesign;
-        MapDesign = MapDesigner.Generate();
+
+        try
+        {
+            MapDesign = MapDesigner.Generate();
+        }
+        catch (MapDesignException ex)
+        {
+            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
+            ShowError(GenErrMsg);
+        }
+
         StateHasChanged();
     }
 
@@ -127,7 +147,7 @@
     public Task<byte[]> SendImageBlobAsync(int[][] displayMatFromJS)
     {
         crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Information, "Client requested image merging"));
-       
+
         // Place image paths in 2d list for processing
         List<List<string>> imagePathMatrix = [];
         foreach (int[] row in displayMatFromJS)
@@ -140,6 +160,7 @@
             imagePathMatrix.Add(imgRow);
         }
 
+        // TODO Try Catch here?
         string tileImgDir = Directory.GetCurrentDirectory() + "\\wwwroot\\static\\Tiles\\";
         SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix,
         tileImgDir,
@@ -151,5 +172,10 @@
             bitMap.Dispose();
             return Task.FromResult(stream.ToArray());
         }
+    }
+
+    private void ShowError(string errMsg)
+    {
+        throw new NotImplementedException("Yo!!! TODO this thing!");
     }
 }

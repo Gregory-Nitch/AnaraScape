@@ -8,29 +8,72 @@ namespace MapDesignLibrary;
 /// store. Upon calling Generate a MapDesign is produced, then the design information can be
 /// retrieved from the class attributes (TileMatrix, DisplayMatrix, ImageMap, etc.)
 /// </summary>
-/// <param name="height">Height of the map</param>
-/// <param name="width">Width of the map</param>
-/// <param name="style">Style of the map</param>
-/// <param name="level">Level of the dungeon, changes algorithm behavior</param>
-/// <param name="needsStairs">If true will place stairs leading down to next level</param>
-/// <param name="DBTiles">Tiles from the database (NOT filtered)</param>
-public class MapDesigner(int height,
+public class MapDesigner
+{
+    private static readonly string[] ValidStyles = ["fort"];
+    private static readonly string[] ValidLevels = ["top", "middile", "bottom"];
+
+    /// <summary>
+    /// Designers must have height && width <= 20 || >= 2, valid style, level and stair settings,
+    /// along with a valid List of DungeonTileModels.
+    /// </summary>
+    /// <param name="height">Height of the map</param>
+    /// <param name="width">Width of the map</param>
+    /// <param name="style">Style of the map</param>
+    /// <param name="level">Level of the dungeon, changes algorithm behavior</param>
+    /// <param name="needsStairs">If true will place stairs leading down to next level</param>
+    /// <param name="DBTiles">Tiles from the database (NOT filtered)</param>
+    /// <exception cref="MapDesignException">Thrown with invaild constuctor parameters</exception>
+    public MapDesigner(int height,
                        int width,
                        string style,
                        string level,
                        bool needsStairs,
                        List<DungeonTileModel> DBTiles)
-{
-    public int Height { get; } = height;
-    public int Width { get; } = width;
-    public string Style { get; } = style;
-    public string Level { get; } = level;
-    public bool NeedsStairs { get; } = needsStairs;
+    {
+        if (height < 2 || height > 20)
+        {
+            throw new MapDesignException($"ERR: invalid MapDesigner height of: {height}...");
+        }
+        if (width < 2 || width > 20)
+        { 
+            throw new MapDesignException($"ERR: invalid MapDesigner width of: {width}..."); 
+        }
+        if (!ValidStyles.Contains(style))
+        { 
+            throw new MapDesignException($"ERR: invalid MapDesigner style of: {style}...");
+        }
+        if (!ValidLevels.Contains(level))
+        {
+            throw new MapDesignException($"ERR: invalid MapDesigner level of: {level}...");
+        }
+        if (needsStairs && (level != "top" || level != "middle"))
+        {
+            throw new MapDesignException($"ERR: invalid stair down state of: level={level} && needsStairs={needsStairs}...");
+        }
+        if (DBTiles == null || DBTiles.Count == 0)
+        {
+            throw new MapDesignException($"ERR: no tiles were passed to the designer...");
+        }
 
-    private readonly Random _Random = new();
+        Height = height;
+        Width = width;
+        Level = level;
+        Style = style;
+        NeedsStairs = needsStairs;
+        this.DBTiles = DBTiles.Where(t => t.Style == style).ToList();
+        _Random = new Random();
+    }
+
+    public int Height { get; }
+    public int Width { get; }
+    public string Style { get; }
+    public string Level { get; }
+    public bool NeedsStairs { get; }
+    private readonly Random _Random;
 
     // All tiles in DB that matched passed style, ie 'fort' etc...
-    private readonly List<DungeonTileModel> DBTiles = DBTiles.Where(t => t.Style == style).ToList();
+    private readonly List<DungeonTileModel> DBTiles;
 
     // Design to be worked on, instance created in 'Generate()'
     private MapDesign Design;
@@ -39,8 +82,8 @@ public class MapDesigner(int height,
     /// <summary>
     /// Called to generate a map design from the given parameters to the class constructor.
     /// </summary>
-    /// <exception cref="MapDesignException">Thrown if map start cannot reach map exit (if needed)
-    /// </exception>
+    /// <exception cref="MapDesignException">Thrown if map start cannot reach map exit (if needed) 
+    /// or if a valid tile could not be found for a section</exception>
     public MapDesign Generate()
     {
         Design = new();

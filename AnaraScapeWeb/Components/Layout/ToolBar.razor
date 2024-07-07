@@ -1,7 +1,9 @@
-﻿@using DataAccess.Models
+﻿@using DataAccess
+@using DataAccess.Models
 @using MapDesignLibrary
 
 @inject DungeonTileCache TileCache
+@inject ICrud crud
 
 <div id="toolbar-container">
 
@@ -121,6 +123,10 @@
     public EventCallback<MapDesigner> OnGenerate { set; get; }
     [Parameter]
     public EventCallback OnDownload { set; get; }
+    [Parameter]
+    public EventCallback<string> OnGenError { set; get; }
+    [Parameter]
+    public string ToolBarErrMsg { set; get; } = "Opps! An error occured! Try again?";
 
     private bool IsTop { set; get; } = true;
     private bool IsMiddle { set; get; } = false;
@@ -129,12 +135,20 @@
 
     private Task OnGenerateReq()
     {
-        return OnGenerate.InvokeAsync(new(Height, 
-                                          Width, 
-                                          Style, 
-                                          Level, 
-                                          HasStairs, 
-                                          TileCache.DBTiles));
+        try
+        {
+            return OnGenerate.InvokeAsync(new(Height,
+                                  Width,
+                                  Style,
+                                  Level,
+                                  HasStairs,
+                                  TileCache.DBTiles));
+        }
+        catch (MapDesignException ex)
+        {
+            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
+            return OnGenError.InvokeAsync(ToolBarErrMsg);
+        }
     }
 
     private Task OnDownloadClicked()
