@@ -19,6 +19,7 @@ public class Help : IToolCommand
         builder.AppendLine("load-tiles - loads all tiles in the staging folder to the database\n\n");
         builder.AppendLine("resize-tiles - resizes all tiles to the given scale (0.1 - 0.9)\n\n");
         builder.AppendLine("design-maps - designs a requested amount of maps according to parameters\n\n");
+        builder.AppendLine("get-logs - gets logs from the database based on parameters\n\n");
         builder.AppendLine("DELETE-ALL-tiles - DELETES ALL tiles from the database: ALL TILES WILL BE DELETED!\n\n");
 
         Console.WriteLine(builder.ToString());

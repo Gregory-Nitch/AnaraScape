@@ -67,6 +67,12 @@ internal class Program
                     Console.WriteLine("\nReturned to main...");
                     break;
 
+                case "get-logs":
+                    GetLogs getLogs = new(crud);
+                    getLogs.Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
+
                 case "DELETE-ALL-tiles":
                     DeleteAllTiles deleteTiles = new(crud);
                     deleteTiles.Job();

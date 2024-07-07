@@ -1,4 +1,5 @@
-﻿using DataAccess.Models;
+﻿
+using DataAccess.Models;
 
 /**
  * Performs CRUD operations for the map generator features
@@ -42,5 +43,42 @@ public class Crud(IDBAccess db) : ICrud
                                                new { },
                                                ConnStringName,
                                                true);
+    }
+
+    public void InsertLogEvent(LogEvent evt)
+    {
+        _db.WriteToDB("Logging.spLogEvents_InsertEvent", evt, ConnStringName, true);
+    }
+
+    public List<LogEvent> GetAllLogEvents()
+    {
+        return _db.QueryDB<LogEvent, dynamic>("Logging.spLogEvents_GetAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+    }
+
+    public List<LogEvent> GetLogsAfter(DateTime date)
+    {
+        return _db.QueryDB<LogEvent, dynamic>("Logging.spLogEvents_GetAfter",
+                                              new { date },
+                                              ConnStringName,
+                                              true);
+    }
+
+    public List<LogEvent> GetLogsBefore(DateTime date)
+    {
+        return _db.QueryDB<LogEvent, dynamic>("Logging.spLogEvents_GetBefore",
+                                              new { date },
+                                              ConnStringName,
+                                              true);
+    }
+
+    public List<LogEvent> GetLogsInRange(DateTime beginDate, DateTime endDate)
+    {
+        return _db.QueryDB<LogEvent, dynamic>("Logging.spLogEvents_GetRange",
+                                              new { beginDate, endDate },
+                                              ConnStringName,
+                                              true);
     }
 }
