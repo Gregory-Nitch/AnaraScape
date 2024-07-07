@@ -7,7 +7,9 @@ More features to come!
 
 ## Samples
 
-Pictures on the way (Currently working on the C# ASP.NET migration)
+![Map Sample1](.\AnaraScapeWeb\wwwroot\static\anaraSample1.png)
+![Map Sample2](.\AnaraScapeWeb\wwwroot\static\anaraSample2.png)
+![Map Sample3](.\AnaraScapeWeb\wwwroot\static\anaraSample3.png)
 
 ## Current Tasks
 

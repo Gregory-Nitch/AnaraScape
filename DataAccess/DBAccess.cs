@@ -16,7 +16,7 @@ public class DBAccess(IConfiguration config) : IDBAccess
 
     public List<T> QueryDB<T, U>(string sqlStatement, U parameters, string connStringName, bool isStoredProcedure = false)
     {
-        string connString = _config.GetConnectionString(connStringName);
+        string connString = _config.GetConnectionString(connStringName)!;
         CommandType commandType = CommandType.Text;
 
         if (isStoredProcedure)
@@ -30,7 +30,7 @@ public class DBAccess(IConfiguration config) : IDBAccess
 
     public void WriteToDB<T>(string sqlStatement, T parameters, string connStringName, bool isStoredProcedure = false)
     {
-        string connString = _config.GetConnectionString(connStringName);
+        string connString = _config.GetConnectionString(connStringName)!;
         CommandType commandType = CommandType.Text;
 
         if (isStoredProcedure)

@@ -1,6 +1,7 @@
 ﻿@page "/map-generator"
 
 @using AnaraScapeWeb.Components.Layout
+@using DataAccess
 @using DataAccess.Models
 @using MapDesignLibrary
 @using Library59.ImageProcessing
@@ -11,6 +12,7 @@
 
 @inject DungeonTileCache TileCache
 @inject IJSRuntime JS
+@inject ICrud crud
 
 @rendermode InteractiveServer
 
@@ -116,9 +118,16 @@
         return Task.FromResult(MapDesign!);
     }
 
+    /// <summary>
+    /// Should only be hit if the browser fails to merge tile images (too large for html canvas).
+    /// </summary>
+    /// <param name="displayMatFromJS">Id matrix retrieved from client</param>
+    /// <returns>byte array to client</returns>
     [JSInvokable]
     public Task<byte[]> SendImageBlobAsync(int[][] displayMatFromJS)
     {
+        crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Information, "Client requested image merging"));
+       
         // Place image paths in 2d list for processing
         List<List<string>> imagePathMatrix = [];
         foreach (int[] row in displayMatFromJS)

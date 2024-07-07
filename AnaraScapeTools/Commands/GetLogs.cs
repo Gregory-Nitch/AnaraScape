@@ -10,7 +10,7 @@ public class GetLogs(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;
 
-    private string GetLogRequestInput()
+    private static string GetLogRequestInput()
     {
         string? logRequest = "";
         StringBuilder getLogSubMenu = new();
@@ -55,7 +55,7 @@ public class GetLogs(ICrud crud) : IToolCommand
         return logRequest;
     }
 
-    private DateTime GetDate(string dateMessage)
+    private static DateTime GetDate(string dateMessage)
     {
         bool invalidDate = true;
         while (invalidDate)
@@ -116,7 +116,7 @@ public class GetLogs(ICrud crud) : IToolCommand
         CheckWriteToFile(logs);
     }
 
-    private void CheckWriteToFile(List<LogEvent> logs)
+    private static void CheckWriteToFile(List<LogEvent> logs)
     {
         string writeToFileReq = "";
         while (string.IsNullOrWhiteSpace(writeToFileReq))
