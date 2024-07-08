@@ -7,9 +7,9 @@ More features to come!
 
 ## Samples
 
-![Map Sample1](.\AnaraScapeWeb\wwwroot\static\anaraSample1.png)
-![Map Sample2](.\AnaraScapeWeb\wwwroot\static\anaraSample2.png)
-![Map Sample3](.\AnaraScapeWeb\wwwroot\static\anaraSample3.png)
+![Map Sample1](AnaraScapeWeb/wwwroot/static/anaraSample1.png)
+![Map Sample2](AnaraScapeWeb/wwwroot/static/anaraSample2.png)
+![Map Sample3](AnaraScapeWeb/wwwroot/static/anaraSample3.png)
 
 ## Current Tasks
 
