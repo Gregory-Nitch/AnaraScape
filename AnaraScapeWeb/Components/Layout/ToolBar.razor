@@ -124,9 +124,7 @@
     [Parameter]
     public EventCallback OnDownload { set; get; }
     [Parameter]
-    public EventCallback<string> OnGenError { set; get; }
-    [Parameter]
-    public string ToolBarErrMsg { set; get; } = "Opps! An error occured! Try again?";
+    public EventCallback<int> OnGenError { set; get; }
 
     private bool IsTop { set; get; } = true;
     private bool IsMiddle { set; get; } = false;
@@ -147,7 +145,7 @@
         catch (MapDesignException ex)
         {
             crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
-            return OnGenError.InvokeAsync(ToolBarErrMsg);
+            return OnGenError.InvokeAsync(400);
         }
     }
 

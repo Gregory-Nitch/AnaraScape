@@ -1,18 +1,62 @@
-﻿@page "/Error"
-@page "/Error/{errmsg}"
-@using System.Diagnostics
+﻿
+@page "/Error"
+@page "/Error/{status:int}"
+<PageTitle>Error - @Status</PageTitle>
 
-<PageTitle>Error</PageTitle>
+<style> body { overflow: hidden; }</style>
 
 <div id="error-overlay-div">
     <div id="error-text-container">
-        <p class="message text-danger">Error!</p>
+        <p class="message text-danger">Error! Code : @Status</p>
         <i id="warning-icon" class="bi bi-exclamation-triangle text-danger"></i>
         <p class="message text-danger">@ErrMsg</p>
     </div>
 </div>
 
-@code{
+@code {
     [Parameter]
-    public string ErrMsg { set; get; } = "An error occurred while processing your request...";
+    public int Status { set; get; }
+    private string ErrMsg = "An error occurred while processing your request, we'll look into it!";
+
+    protected override void OnInitialized()
+    {
+        switch (Status)
+        {
+            case 400:
+                ErrMsg = "Sorry, the server recived a malformed request!";
+                break;
+
+            case 401:
+                ErrMsg = "Sorry, you're not authorized to do that!";
+                break;
+
+            case 403:
+                ErrMsg = "Sorry, you're not allow on that page!";
+                break;
+
+            case 404:
+                ErrMsg = "Oops! It looks like you ventured too far off the path!";
+                break;
+
+            case 501:
+                ErrMsg = "Oops! That hasn't been made yet!";
+                break;
+
+            case 502:
+                ErrMsg = "Yikes, there was a problem with the Gateway! Try again later";
+                break;
+
+            case 503:
+                ErrMsg = "Sorry! We are either down for maintenance or have way too many active users!";
+                break;
+
+            case 504:
+                ErrMsg = "Sorry! Your request was timed out, try again later.";
+                break;
+
+            case 500: // Use default msg
+            default:
+                break;
+        }
+    }
 }

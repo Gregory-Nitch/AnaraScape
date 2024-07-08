@@ -1,4 +1,5 @@
-﻿@page "/map-generator"
+﻿
+@page "/map-generator"
 
 @using AnaraScapeWeb.Components.Layout
 @using DataAccess
@@ -21,7 +22,7 @@
 
 <PageTitle>Map Generator</PageTitle>
 
-<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" OnGenError="ShowError" ToolBarErrMsg="@GenErrMsg"/>
+<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" OnGenError="ShowError"/>
 <ProcessingOverlay />
 
 <div id="mapWrapper" oncontextmenu="event.preventDefault();">
@@ -66,8 +67,6 @@
     private MapDesign? MapDesign;
     private readonly int BASE_TILE_SIZE = 512;
     private bool shouldRender;
-    private readonly string GenErrMsg = "Oops! There was an error generating a design, we'll look into it! Try again?";
-    private readonly string DownloadErrMsg = "Oops! There was an error merging that map, we'll look into it! Try again?";
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -97,7 +96,7 @@
         catch (MapDesignException ex)
         {
             crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
-            ShowError(GenErrMsg);
+            ShowError(500);
         }
 
         StateHasChanged();
@@ -115,7 +114,7 @@
         catch (MapDesignException ex)
         {
             crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
-            ShowError(GenErrMsg);
+            ShowError(500);
         }
 
         StateHasChanged();
@@ -158,7 +157,7 @@
                 if (!MapDesign!.ImageMap.ContainsKey(id))
                 {// Invalid tile id recieved from client
                     crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Warning, "Invalid Tile id received from client"));
-                    ShowError(DownloadErrMsg);        
+                    ShowError(400);        
                 }
                 imgRow.Add(MapDesign!.ImageMap[id]);
             }
@@ -183,13 +182,13 @@
         catch (Exception ex)
         {
             crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"msg {ex.Message}\n{ex.StackTrace}"));
-            ShowError(DownloadErrMsg);
+            ShowError(500);
         }
         return Task.FromResult(imgBytes);
     }
 
-    private void ShowError(string errMsg)
+    private void ShowError(int errCode)
     {
-        NavManager.NavigateTo($"/Error/{errMsg}");
+        NavManager.NavigateTo($"/Error/{errCode}");
     }
 }
