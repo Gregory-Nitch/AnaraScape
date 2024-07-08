@@ -13,6 +13,7 @@
 @inject DungeonTileCache TileCache
 @inject IJSRuntime JS
 @inject ICrud crud
+@inject NavigationManager NavManager
 
 @rendermode InteractiveServer
 
@@ -65,8 +66,8 @@
     private MapDesign? MapDesign;
     private readonly int BASE_TILE_SIZE = 512;
     private bool shouldRender;
-    private readonly string GenErrMsg = "Oops! There was an error generating a design, we'll look into! Try again?";
-
+    private readonly string GenErrMsg = "Oops! There was an error generating a design, we'll look into it! Try again?";
+    private readonly string DownloadErrMsg = "Oops! There was an error merging that map, we'll look into it! Try again?";
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -98,7 +99,6 @@
             crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
             ShowError(GenErrMsg);
         }
-
 
         StateHasChanged();
     }
@@ -155,27 +155,41 @@
             List<string> imgRow = [];
             foreach (int id in row)
             {
+                if (!MapDesign!.ImageMap.ContainsKey(id))
+                {// Invalid tile id recieved from client
+                    crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Warning, "Invalid Tile id received from client"));
+                    ShowError(DownloadErrMsg);        
+                }
                 imgRow.Add(MapDesign!.ImageMap[id]);
             }
             imagePathMatrix.Add(imgRow);
         }
 
-        // TODO Try Catch here?
         string tileImgDir = Directory.GetCurrentDirectory() + "\\wwwroot\\static\\Tiles\\";
-        SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix,
-        tileImgDir,
-        BASE_TILE_SIZE,
-        BASE_TILE_SIZE);
-        using (var stream = new MemoryStream())
+        byte[] imgBytes = [];
+        try
         {
-            bitMap.Encode(stream, SKEncodedImageFormat.Png, 100);
-            bitMap.Dispose();
-            return Task.FromResult(stream.ToArray());
+            SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix,
+                                                         tileImgDir,
+                                                         BASE_TILE_SIZE,
+                                                         BASE_TILE_SIZE);
+            using (var stream = new MemoryStream())
+            {
+                bitMap.Encode(stream, SKEncodedImageFormat.Png, 100);
+                bitMap.Dispose();
+                imgBytes = stream.ToArray();
+            }
         }
+        catch (Exception ex)
+        {
+            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"msg {ex.Message}\n{ex.StackTrace}"));
+            ShowError(DownloadErrMsg);
+        }
+        return Task.FromResult(imgBytes);
     }
 
     private void ShowError(string errMsg)
     {
-        throw new NotImplementedException("Yo!!! TODO this thing!");
+        NavManager.NavigateTo($"/Error/{errMsg}");
     }
 }
