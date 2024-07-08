@@ -13,7 +13,8 @@ More features to come!
 
 ## Current Tasks
 
-- Logging
+- Testing
+- Add base world Map to world map page temporarily
 
 # Future Additions
 
@@ -30,6 +31,10 @@ More features to come!
     - Shows Backstory etc.
 
 3. Map generator add ons
+    
+    - More styles
+    
+    - More Tile shapes
 
 4. NPC database for DMs
 
