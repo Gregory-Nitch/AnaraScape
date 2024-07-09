@@ -11,12 +11,8 @@ More features to come!
 ![Map Sample2](AnaraScapeWeb/wwwroot/static/anaraSample2.png)
 ![Map Sample3](AnaraScapeWeb/wwwroot/static/anaraSample3.png)
 
-## Current Tasks
 
-- Testing
-- Add base world Map to world map page temporarily
-
-# Future Additions
+# Future Possible Additions
 
 1. World map with integrated calendar
 
@@ -53,7 +49,8 @@ More features to come!
  - bootstrap 5.3.3
  - bootstrap-icons 1.11.3
  - Dapper 2.1.35
+ - SkiaSharp via -> Microsoft.Maui.Graphics.Skia 8.0.60 (Library59.ImageProcessing)
 
 ## Resources 
 
-https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0&utm_source=aspnet-start-page&utm_campaign=vside
+https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0

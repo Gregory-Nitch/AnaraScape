@@ -11,7 +11,7 @@ namespace MapDesignLibrary;
 public class MapDesigner
 {
     private static readonly string[] ValidStyles = ["fort"];
-    private static readonly string[] ValidLevels = ["top", "middile", "bottom"];
+    private static readonly string[] ValidLevels = ["top", "middle", "bottom"];
 
     /// <summary>
     /// Designers must have height && width <= 20 || >= 2, valid style, level and stair settings,
@@ -47,7 +47,7 @@ public class MapDesigner
         {
             throw new MapDesignException($"ERR: invalid MapDesigner level of: {level}...");
         }
-        if (needsStairs && (level != "top" || level != "middle"))
+        if (needsStairs && (level != "top" && level != "middle"))
         {
             throw new MapDesignException($"ERR: invalid stair down state of: level={level} && needsStairs={needsStairs}...");
         }
