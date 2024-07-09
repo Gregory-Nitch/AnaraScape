@@ -1,16 +1,18 @@
-﻿/**
- * CLI tool to perform various jobs for the website, such as loading dungeon tiles.
- */
-
-using AnaraScapeTools.Commands;
+﻿using AnaraScapeTools.Commands;
 using DataAccess;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+/// <summary>
+/// CLI tool for backend management of AnaraScape
+/// </summary>
 internal class Program
 {
     public static ServiceProvider? ServiceProvider;
 
+    /// <summary>
+    /// Gets database config from settings file.
+    /// </summary>
     private static void StartConfig()
     {
         var services = new ServiceCollection();

@@ -1,12 +1,10 @@
-﻿
-namespace MapDesignLibrary;
+﻿namespace MapDesignLibrary;
 
 /// <summary>
 /// Contains all of the constants for the MapDesigner class.
 /// </summary>
 internal static class MapConstants
 {
-
     public static readonly int TILE_SIZE = 512;
 
     public static readonly string[] TOP_CONNECTIONS =

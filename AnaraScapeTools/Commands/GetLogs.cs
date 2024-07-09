@@ -1,11 +1,14 @@
-﻿
-using DataAccess;
+﻿using DataAccess;
 using DataAccess.Models;
 using System.Globalization;
 using System.Text;
 
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// Gets logs based on input parameters, will ask if need to save output to file.
+/// </summary>
+/// <param name="crud">CRUD object to execute sql</param>
 public class GetLogs(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;
@@ -35,7 +38,6 @@ public class GetLogs(ICrud crud) : IToolCommand
 
                 case "get-logs-after":
                     break;
-                    
 
                 case "get-logs-before":
                     break;
@@ -147,6 +149,8 @@ public class GetLogs(ICrud crud) : IToolCommand
             sb.AppendLine(log.ToString());
             sb.AppendLine();
         }
-        File.WriteAllText($"./LogsOut/logs-request-{DateOnly.FromDateTime(DateTime.Now.Date)}.log", sb.ToString());
+        File.WriteAllText(
+            $"./LogsOut/logs-request-{DateOnly.FromDateTime(DateTime.Now.Date)}.log", sb.ToString()
+            );
     }
 }

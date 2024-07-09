@@ -1,6 +1,4 @@
-﻿
-CREATE PROCEDURE [MapGenerator].[spDungeonTiles_GetAllTiles]
-
+﻿CREATE PROCEDURE [MapGenerator].[spDungeonTiles_GetAllTiles]
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -14,5 +12,4 @@ BEGIN
 		[IsStairs],
 		[Filename]
 	FROM [MapGenerator].[DungeonTiles];
-
 END	

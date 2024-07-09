@@ -1,17 +1,15 @@
-﻿
-using DataAccess;
+﻿using DataAccess;
 using DataAccess.Models;
 using Library59.ImageProcessing;
 using MapDesignLibrary;
-
 
 namespace AnaraScapeTools.Commands;
 
 /// <summary>
 /// Command to call the map designer from the MapDesigner Class library for testing.
-/// Has optional parameters for number of generations and map traits
+/// Has optional parameters for number of generations, map traits and save requests
 /// </summary>
-/// <param name="crud">ICrud interface used to call stored procedures on the database</param>
+/// <param name="crud">CRUD object to execute sql</param>
 public class DesignMaps(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;

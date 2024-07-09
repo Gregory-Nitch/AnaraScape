@@ -1,12 +1,10 @@
-﻿
+﻿using System.Text;
 
-using System.Text;
-
-/**
- * Help command for the tool, prints out to the console
- */
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// Prints all CLI commands to the console.
+/// </summary>
 public class Help : IToolCommand
 {
     public void Job()

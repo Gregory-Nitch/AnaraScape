@@ -1,5 +1,8 @@
-
-<style>body {overflow: hidden;}</style>
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
 
 <div id="construction-overlay-div">
     <div id="construction-text-container">
@@ -15,6 +18,10 @@
 </div>
 
 @code {
+    /*
+    May not always be used but this component is placed on pages that are still being built but
+    users may have access to them.
+    */
     [Parameter]
     public string FlavorMessage { set; get; } = "Flavoring should have gone here...";
 }

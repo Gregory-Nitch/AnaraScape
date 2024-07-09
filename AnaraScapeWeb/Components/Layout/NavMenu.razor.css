@@ -1,8 +1,7 @@
-﻿
-.navbar {
-    background-image: linear-gradient(180deg, 
-    rgb(30, 30, 40) 0%, 
-    rgb(50, 50, 50) 130%);
+﻿.navbar {
+    background-image: linear-gradient(180deg,
+            rgb(30, 30, 40) 0%,
+            rgb(50, 50, 50) 130%);
 }
 
 .navbar-brand {
@@ -15,15 +14,15 @@
     transition: .2s
 }
 
- .nav-item:hover {
-     background-color: rgb(17, 17, 20);
- }
+.nav-item:hover {
+    background-color: rgb(17, 17, 20);
+}
 
 /* Mobile */
 @media (max-width: 992px) {
 
     .nav-item {
         margin: 5px;
-        font-size: 20px;    
+        font-size: 20px;
     }
 }

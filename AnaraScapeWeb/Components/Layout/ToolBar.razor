@@ -8,68 +8,61 @@
 <div id="toolbar-container">
 
     <form id="toolbar" class="collapse navbar-collapse">
-        
-        <div id="tools">
-    
-            <div id="style-col">
-    
-                <div id="styles" class="btn-group" role="group" aria-label="Style button group">
 
+        <div id="tools">
+
+            <div id="style-col">
+                <div id="styles" class="btn-group" role="group" aria-label="Style button group">
                     <button type="button" class="btn btn-dark">Style</button>
                     <div class="btn-group" role="group">
                         <button id="style-drop-group" type="button" class="btn btn-dark dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
 
                         <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="style-drop-group">
-                            <button type="button" class="dropdown-item" 
-                            onclick="@(() => SetStyle("fort"))" >Fort</button>
+                            <button type="button" class="dropdown-item"
+                                onclick="@(() => SetStyle("fort"))">Fort</button>
                         </div>
-
                     </div>
                 </div>
-                
+
                 <div id="levels" class="btn-group-vertical" role="group" aria-label="Level radio toggle button group">
 
-                    <input type="radio" class="btn-check" name="btnradio" id="top-level-radio" 
-                    autocomplete="off" checked="@IsTop" @onclick="@(() => SetLevel("top"))">
+                    <input type="radio" class="btn-check" name="btnradio" id="top-level-radio" autocomplete="off"
+                        checked="@IsTop" @onclick="@(() => SetLevel("top"))">
                     <label class="btn btn-dark" for="top-level-radio">Top Level</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="middle-level-radio" 
-                    autocomplete="off" checked="@IsMiddle" @onclick="@(() => SetLevel("middle"))">
+                    <input type="radio" class="btn-check" name="btnradio" id="middle-level-radio" autocomplete="off"
+                        checked="@IsMiddle" @onclick="@(() => SetLevel("middle"))">
                     <label class="btn btn-dark" for="middle-level-radio">Middle Level</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="bottom-level-radio" 
-                    autocomplete="off" checked="@IsBottom" @onclick="@(() => SetLevel("bottom"))">
+                    <input type="radio" class="btn-check" name="btnradio" id="bottom-level-radio" autocomplete="off"
+                        checked="@IsBottom" @onclick="@(() => SetLevel("bottom"))">
                     <label class="btn btn-dark" for="bottom-level-radio">Bottom Level</label>
 
-                    <input type="checkbox" class="btn-check" id="stairs-down-check" autocomplete="off" 
-                    checked="@HasStairs" disabled="@StairButtonDisabled" @onchange="@(() => ToggleStairs())">
+                    <input type="checkbox" class="btn-check" id="stairs-down-check" autocomplete="off"
+                        checked="@HasStairs" disabled="@StairButtonDisabled" @onchange="@(() => ToggleStairs())">
                     <label class="btn btn-dark" for="stairs-down-check">Stairs Down</label>
 
                 </div>
-    
             </div>
-    
-            <div id="size-col">
 
+            <div id="size-col">
                 <div class="size-row">
                     <label for="height" class="form-label text-light">Height = <span id="height-display">
-                        @Height</span></label>
+                            @Height</span></label>
                     <input type="range" class="form-range" min="2" max="20" step="1" value="@Height"
-                    @oninput="@((e) => ChangeHeight(e))">
+                        @oninput="@((e) => ChangeHeight(e))">
                 </div>
 
                 <div class="size-row">
                     <label for="width" class="form-label text-light">Width = <span id="width-display">
-                        @Width</span></label>
+                            @Width</span></label>
                     <input type="range" class="form-range" min="2" max="20" step="1" id="width" value="@Width"
-                    @oninput="@((e) => ChangeWidth(e))">
+                        @oninput="@((e) => ChangeWidth(e))">
                 </div>
-
             </div>
-    
-            <div id="button-col">
 
+            <div id="button-col">
                 <button type="button" class="btn btn-success" @onclick="OnGenerateReq">
                     <i class="bi bi-pencil-square"></i>Generate!
                 </button>
@@ -79,18 +72,15 @@
 
                 <a type="button" class="btn btn-danger" href="">
                     <i class="bi bi-sun-fill"></i>AnaraScape Home</a>
-
             </div>
-    
         </div>
-    
-        <div id="tool-instructions">
 
+        <div id="tool-instructions">
             <p class="instruction text-secondary">
                 Controls:
             </p>
             <p class="instruction text-secondary">
-                Left click tiles that highlight when your mouse is over them to switch to a new tile. 
+                Left click tiles that highlight when your mouse is over them to switch to a new tile.
                 Hold right click and drag to move around the map.
             </p>
             <p class="instruction text-secondary">
@@ -99,13 +89,12 @@
             <p class="instruction text-secondary">
                 Use your mouse wheel to zoom in and out.
             </p>
-
         </div>
     </form>
-    
+
     <div id="toggler-div">
-        <button id="toolbar-toggler" type="button" class="btn btn-outline-danger py-0"
-                data-bs-toggle="collapse" data-bs-target="#toolbar">
+        <button id="toolbar-toggler" type="button" class="btn btn-outline-danger py-0" data-bs-toggle="collapse"
+            data-bs-target="#toolbar">
             <i class="bi bi-grip-horizontal"></i>
         </button>
     </div>
@@ -131,16 +120,20 @@
     private bool IsBottom { set; get; } = false;
     private bool StairButtonDisabled { set; get; } = false;
 
+    /// <summary>
+    /// Used to send new MapDesigner object to parent.
+    /// </summary>
+    /// <returns>EventCallback with MapDesigner object</returns>
     private Task OnGenerateReq()
     {
         try
         {
             return OnGenerate.InvokeAsync(new(Height,
-                                  Width,
-                                  Style,
-                                  Level,
-                                  HasStairs,
-                                  TileCache.DBTiles));
+            Width,
+            Style,
+            Level,
+            HasStairs,
+            TileCache.DBTiles));
         }
         catch (MapDesignException ex)
         {
@@ -149,21 +142,31 @@
         }
     }
 
+    /// <summary>
+    /// Used to signal to parent that a download has been requested
+    /// </summary>
+    /// <returns>EventCallback to trigger download actions</returns>
     private Task OnDownloadClicked()
     {
         return OnDownload.InvokeAsync();
     }
 
-    private void SetStyle(string style) {
+    private void SetStyle(string style)
+    {
         Style = style;
     }
 
-    private void SetLevel(string level) {
+    /// <summary>
+    /// Sets the level state of the requested map design, but also alters the stairs down state.
+    /// </summary>
+    /// <param name="level">new level state</param>
+    private void SetLevel(string level)
+    {
         Level = level;
         if (level == "top")
         {
             StairButtonDisabled = false;
-        } 
+        }
         else if (level == "middle")
         {
             StairButtonDisabled = true;

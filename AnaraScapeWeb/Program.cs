@@ -1,8 +1,6 @@
-
 using AnaraScapeWeb.Components;
 using DataAccess;
 using DataAccess.Models;
-
 
 var builder = WebApplication.CreateBuilder(args);
 

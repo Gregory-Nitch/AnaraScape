@@ -1,11 +1,11 @@
-﻿
-using DataAccess.Models;
+﻿using DataAccess.Models;
 
-/**
- * Performs CRUD operations for the map generator features
- */
 namespace DataAccess;
 
+/// <summary>
+/// Performs CRUD operations for AnaraScape
+/// </summary>
+/// <param name="db"></param>
 public class Crud(IDBAccess db) : ICrud
 {
     private readonly string ConnStringName = "Dev";
@@ -28,7 +28,9 @@ public class Crud(IDBAccess db) : ICrud
                        true);
     }
 
-    /** DELETES ALL tiles from the database */
+    /// <summary>
+    /// DELETEs ALL tiles from the database. 
+    /// </summary>
     public void DeleteAllTiles()
     {
         _db.WriteToDB("MapGenerator.spDungeonTiles_DeleteAllTiles",

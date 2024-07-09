@@ -1,6 +1,4 @@
-﻿
-
-namespace DataAccess.Models;
+﻿namespace DataAccess.Models;
 
 /// <summary>
 /// This class allows tile information to be loaded from the database and used across the

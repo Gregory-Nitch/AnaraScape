@@ -1,19 +1,17 @@
-﻿
-using DataAccess;
+﻿using DataAccess;
 using DataAccess.Models;
 
-/**
- * Loads all the tiles in the 'TileStaging' folder to the database.
- * 
- *                                       Connections[]
- *                                      v      v      v
- * File Naming Convention: Name^style^conn,conn,conn,conn^isEntrance^isStairs
- */
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// Loads all the tiles in the 'TileStaging' directory to the database.
+///                                        string[conn]
+///                                      v    v    v   v
+/// Required file nameing convention: Name^style^conn,conn,conn,conn^isEntrance^isStairs
+/// </summary>
+/// <param name="crud">CRUD object to execute sql</param>
 public class LoadTiles(ICrud crud) : IToolCommand
 {
-
     private readonly ICrud _crud = crud;
 
     public void Job()

@@ -1,2 +1,1 @@
-﻿
-CREATE SCHEMA [Logging]
+﻿CREATE SCHEMA [Logging];

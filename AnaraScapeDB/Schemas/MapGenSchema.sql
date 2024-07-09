@@ -1,2 +1,1 @@
-﻿
-CREATE SCHEMA [MapGenerator];
+﻿CREATE SCHEMA [MapGenerator];

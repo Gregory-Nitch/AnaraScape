@@ -1,8 +1,11 @@
-﻿
-using System.Text;
+﻿using System.Text;
 
 namespace MapDesignLibrary;
 
+/// <summary>
+/// Represents a valid dungeon design, main output objects are the TileMatrix, DisplayMatrix and 
+/// ImageMap fields.
+/// </summary>
 public class MapDesign
 {
     // Represents each section of the map and its current connections *3D*
@@ -18,10 +21,10 @@ public class MapDesign
     internal (int row, int col) StairsUp = (-1, -1);
     internal (int row, int col) StairsDown = (-1, -1);
 
-    /* Edges and corners require special handling */
+    /* ! Edges and corners require special handling ! */
     internal Dictionary<string, List<(int row, int col)>> Edges = [];
 
-    /* Outputs */
+    /* ! Main Outputs ! */
     // Represents each tile id that can fill the connection matrix above *3D*
     public List<List<List<int>>> TileMatrix { get; } = [];
     // Represents the tiles chosen for display *2D*

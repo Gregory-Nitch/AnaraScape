@@ -1,5 +1,4 @@
-﻿
-using DataAccess.Models;
+﻿using DataAccess.Models;
 
 namespace MapDesignLibrary;
 
@@ -36,11 +35,11 @@ public class MapDesigner
             throw new MapDesignException($"ERR: invalid MapDesigner height of: {height}...");
         }
         if (width < 2 || width > 20)
-        { 
-            throw new MapDesignException($"ERR: invalid MapDesigner width of: {width}..."); 
+        {
+            throw new MapDesignException($"ERR: invalid MapDesigner width of: {width}...");
         }
         if (!ValidStyles.Contains(style))
-        { 
+        {
             throw new MapDesignException($"ERR: invalid MapDesigner style of: {style}...");
         }
         if (!ValidLevels.Contains(level))
@@ -77,7 +76,6 @@ public class MapDesigner
 
     // Design to be worked on, instance created in 'Generate()'
     private MapDesign Design;
-
 
     /// <summary>
     /// Called to generate a map design from the given parameters to the class constructor.
@@ -468,8 +466,9 @@ public class MapDesigner
     }
 
     /// <summary>
-    /// Looks at the neighboring connections of the map and adds or removes connections from the passed valid
-    /// connections if use of those connections are valid or would produce a flaw in map design.
+    /// Looks at the neighboring connections of the map and adds or removes connections from the 
+    /// passed valid connections if use of those connections are valid or would produce a flaw in 
+    /// map design.
     /// </summary>
     /// <param name="section">Section to prune connections from.</param>
     /// <param name="validConnections">Connection set to prune connections from.</param>
@@ -655,7 +654,9 @@ public class MapDesigner
     /// <param name="protectRoute">If true all nodes on route to the target will be added to the 
     /// SafetyBuffer</param>
     /// <returns>bool: can reach the target = true, cannot = false</returns>
-    private bool AStar((int row, int col) start, (int row, int col) target, bool protectRoute = false)
+    private bool AStar((int row, int col) start,
+                       (int row, int col) target,
+                       bool protectRoute = false)
     {
         HashSet<(int row, int col)> explored = [];
         HashSet<Node> frontier = [];
@@ -719,7 +720,6 @@ public class MapDesigner
     /// <param name="state">Current state to get neighbors for</param>
     /// <param name="cost">Cost of current state</param>
     /// <returns>HashSet of type Node that is ordered by cost ascending</returns>
-    /// <exception cref="NotImplementedException"></exception>
     private HashSet<Node> AStarNeighbors(Node currentNode, (int row, int col) target)
     {
         (int row, int col) = currentNode.State;
@@ -945,7 +945,8 @@ public class MapDesigner
             needRight = true;
         }
 
-        List<DungeonTileModel> dbRegularTiles = DBTiles.Where(t => t.IsEntrance == false && t.IsStairs == "false").ToList();
+        List<DungeonTileModel> dbRegularTiles = DBTiles.Where(t => t.IsEntrance == false
+                                                                   && t.IsStairs == "false").ToList();
 
         List<DungeonTileModel> matchedTiles = [];
 
@@ -1098,7 +1099,8 @@ public class MapDesigner
         {
             for (int col = 0; col < Width; col++)
             {
-                int randomId = Design.TileMatrix[row][col].ElementAt(_Random.Next(Design.TileMatrix[row][col].Count));
+                int randomId = Design.TileMatrix[row][col]
+                                     .ElementAt(_Random.Next(Design.TileMatrix[row][col].Count));
                 Design.DisplayMatrix[row][col] = randomId;
             }
         }

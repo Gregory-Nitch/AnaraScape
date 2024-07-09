@@ -1,9 +1,8 @@
-﻿/**
- * Represents a command to be executed by the tool program
- */
+﻿namespace AnaraScapeTools.Commands;
 
-namespace AnaraScapeTools.Commands;
-
+/// <summary>
+/// Represents a command that implments 'Job()'
+/// </summary>
 public interface IToolCommand
 {
     public void Job();

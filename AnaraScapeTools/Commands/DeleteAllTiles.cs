@@ -1,12 +1,11 @@
-﻿
-/**
- * This command DELETES ALL tiles from the database
- */
-
-using DataAccess;
+﻿using DataAccess;
 
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// DELETEs ALL tiles from the database.
+/// </summary>
+/// <param name="crud">CRUD object to execute sql</param>
 public class DeleteAllTiles(ICrud crud) : IToolCommand
 {
 

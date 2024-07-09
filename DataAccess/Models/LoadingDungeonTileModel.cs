@@ -1,10 +1,14 @@
-﻿/**
- * Represents a tile to load to the database, (no id on construction)
- */
+﻿namespace DataAccess.Models;
 
-
-namespace DataAccess.Models;
-
+/// <summary>
+/// Represents a tile to load to the database, id then is provided by db
+/// </summary>
+/// <param name="tileName">name of tile</param>
+/// <param name="style">tiles style</param>
+/// <param name="connections">connections as a string</param>
+/// <param name="isEntrance">entrance flag</param>
+/// <param name="isStairs">stairs state</param>
+/// <param name="filename">actual filename of image</param>
 public class LoadingDungeonTileModel(string tileName,
                               string style,
                               string connections,

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [Logging].[LogEvents]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Time] DATETIME2 NOT NULL, 
-    [Level] VARCHAR(50) NOT NULL, 
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [Time] DATETIME2 NOT NULL,
+    [Level] VARCHAR(50) NOT NULL,
     [Message] VARCHAR(MAX) NOT NULL
-)
+);

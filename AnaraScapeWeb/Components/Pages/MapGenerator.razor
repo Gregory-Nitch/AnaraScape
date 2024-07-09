@@ -1,5 +1,4 @@
-﻿
-@page "/map-generator"
+﻿@page "/map-generator"
 
 @using AnaraScapeWeb.Components.Layout
 @using DataAccess
@@ -22,7 +21,7 @@
 
 <PageTitle>Map Generator</PageTitle>
 
-<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" OnGenError="ShowError"/>
+<ToolBar OnGenerate="GenNewDesign" OnDownload="RequestDownload" OnGenError="ShowError" />
 <ProcessingOverlay />
 
 <div id="mapWrapper" oncontextmenu="event.preventDefault();">
@@ -61,7 +60,6 @@
 
 
 @code {
-
     private DotNetObjectReference<MapGenerator>? BCompRef;
     private MapDesigner? MapDesigner;
     private MapDesign? MapDesign;
@@ -84,6 +82,9 @@
     // Need to control rendering for request download events
     protected override bool ShouldRender() => shouldRender;
 
+    /// <summary>
+    /// Called on initial page load, creates basic MapDesigner state.
+    /// </summary>
     private void GenBaseDesign()
     {
         shouldRender = true;
@@ -102,6 +103,10 @@
         StateHasChanged();
     }
 
+    /// <summary>
+    /// Triggered by ToolBar component to display a new dungeon design.
+    /// </summary>
+    /// <param name="newDesigner">MapDesigner object from EventCallback</param>
     private void GenNewDesign(MapDesigner newDesigner)
     {
         shouldRender = true;
@@ -120,6 +125,9 @@
         StateHasChanged();
     }
 
+    /// <summary>
+    /// Triggered by ToolBar component to start client browser map download process.
+    /// </summary>
     private async void RequestDownload()
     {
         shouldRender = false;
@@ -157,7 +165,7 @@
                 if (!MapDesign!.ImageMap.ContainsKey(id))
                 {// Invalid tile id recieved from client
                     crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Warning, "Invalid Tile id received from client"));
-                    ShowError(400);        
+                    ShowError(400);
                 }
                 imgRow.Add(MapDesign!.ImageMap[id]);
             }
@@ -169,9 +177,9 @@
         try
         {
             SKBitmap bitMap = JpegMerger.MergeFrom2DList(imagePathMatrix,
-                                                         tileImgDir,
-                                                         BASE_TILE_SIZE,
-                                                         BASE_TILE_SIZE);
+            tileImgDir,
+            BASE_TILE_SIZE,
+            BASE_TILE_SIZE);
             using (var stream = new MemoryStream())
             {
                 bitMap.Encode(stream, SKEncodedImageFormat.Png, 100);

@@ -5,6 +5,17 @@
 
 namespace DataAccess.Models;
 
+/// <summary>
+/// Represents a tile to be loaded from the database, connections are a string and id originates
+/// from the database.
+/// </summary>
+/// <param name="id">id (supplied from db)</param>
+/// <param name="tileName">name of tile</param>
+/// <param name="style">style of tile</param>
+/// <param name="connections">all connections as a string</param>
+/// <param name="isEntrance">entrance flag</param>
+/// <param name="isStairs">stairs flag</param>
+/// <param name="filename">actual filename for the tile image</param>
 public class StoredDungeonTileModel(int id,
                               string tileName,
                               string style,

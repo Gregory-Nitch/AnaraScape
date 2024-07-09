@@ -1,8 +1,10 @@
-
 using Library59.ImageProcessing;
 
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// Resizes all tiles in the TileStaging directory to the supplied scale (0.1-0.9).
+/// </summary>
 public class ResizeTiles : IToolCommand
 {
     public void Job()
