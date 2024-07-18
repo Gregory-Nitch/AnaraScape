@@ -1,5 +1,5 @@
 ﻿using DataAccess;
-using DataAccess.Models;
+using DataAccess.Models.LoggingModels;
 using System.Globalization;
 using System.Text;
 

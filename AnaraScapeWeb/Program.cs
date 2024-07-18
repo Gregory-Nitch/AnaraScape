@@ -1,6 +1,6 @@
 using AnaraScapeWeb.Components;
 using DataAccess;
-using DataAccess.Models;
+using DataAccess.Models.DungeonModels;
 
 var builder = WebApplication.CreateBuilder(args);
 

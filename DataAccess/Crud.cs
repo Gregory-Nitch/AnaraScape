@@ -1,4 +1,5 @@
-﻿using DataAccess.Models;
+﻿using DataAccess.Models.DungeonModels;
+using DataAccess.Models.LoggingModels;
 
 namespace DataAccess;
 

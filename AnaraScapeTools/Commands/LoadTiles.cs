@@ -1,5 +1,5 @@
 ﻿using DataAccess;
-using DataAccess.Models;
+using DataAccess.Models.DungeonModels;
 
 namespace AnaraScapeTools.Commands;
 

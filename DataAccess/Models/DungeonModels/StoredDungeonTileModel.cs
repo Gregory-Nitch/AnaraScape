@@ -1,9 +1,7 @@
 ﻿/**
  * Represents a tile to loaded from the database, (connections are string)
  */
-
-
-namespace DataAccess.Models;
+namespace DataAccess.Models.DungeonModels;
 
 /// <summary>
 /// Represents a tile to be loaded from the database, connections are a string and id originates

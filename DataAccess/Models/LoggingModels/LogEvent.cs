@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace DataAccess.Models;
+namespace DataAccess.Models.LoggingModels;
 
 /// <summary>
 /// Represents an event that needed to be logged to the database.

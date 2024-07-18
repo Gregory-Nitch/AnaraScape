@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AnaraScapeDB.publish.xml" />
+    <None Include="Schemas\Lore Schema.png" />
   </ItemGroup>
   <Import Project="$(NETCoreTargetsPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(NetCoreBuild)' == 'true'" />
   <Target Name="BeforeBuild">

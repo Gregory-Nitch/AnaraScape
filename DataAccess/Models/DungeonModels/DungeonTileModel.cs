@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Models;
+﻿namespace DataAccess.Models.DungeonModels;
 
 /// <summary>
 /// Represents a 8x8 tile loaded from the database, converted to its proper form.

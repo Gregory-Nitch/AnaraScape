@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Models;
+﻿namespace DataAccess.Models.DungeonModels;
 
 /// <summary>
 /// Represents a tile to load to the database, id then is provided by db
