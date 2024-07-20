@@ -7,4 +7,95 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Filename" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="13468bd8-bc05-467e-b694-75fc16bcd210" ChangeDateTime="07/18/2024 23:13:48">
+    <Property Name="ElementName" Value="[Lore].[NPCs].[LevelOrCr]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[NPCs]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LevelOrCR" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="04fb2e0c-38ee-486e-8dba-28e123d7f525" ChangeDateTime="07/19/2024 07:43:13">
+    <Property Name="ElementName" Value="[Lore].[NPCs].[BirthAge]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[NPCs]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BirthAgeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="322f3065-08c2-4434-9c3b-78fce72bb4f8" ChangeDateTime="07/19/2024 07:46:23">
+    <Property Name="ElementName" Value="[Lore].[NPCs].[DeathAge]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[NPCs]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DeathAgeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b4cc337e-8c85-44a3-8cb7-8cde89b780be" ChangeDateTime="07/19/2024 07:53:14">
+    <Property Name="ElementName" Value="[Lore].[Locations].[RulingGovernment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[Locations]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RulingGovernmentId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3a144be8-3a80-496b-b3f8-cb2b8c1eb80a" ChangeDateTime="07/19/2024 07:53:21">
+    <Property Name="ElementName" Value="[Lore].[Locations].[Ruler]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[Locations]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RulerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="859040e2-f78b-4a9d-bb23-be11038f895f" ChangeDateTime="07/19/2024 07:53:27">
+    <Property Name="ElementName" Value="[Lore].[Locations].[ContainingLocation]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[Locations]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ContainingLocationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="62075a59-c659-4f3d-bf8c-a2cabd092978" ChangeDateTime="07/20/2024 04:20:48">
+    <Property Name="ElementName" Value="[dbo].[Artifacts].[OwnerId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Artifacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NPCOwnerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="36a83ddf-53b1-4fa6-af04-fd797de40cd0" ChangeDateTime="07/20/2024 04:23:45">
+    <Property Name="ElementName" Value="[dbo].[Artifacts].[CreatorNPCId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Artifacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NPCCreatorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0cb99671-6d6e-486f-954d-cf0f20f356fa" ChangeDateTime="07/20/2024 04:23:54">
+    <Property Name="ElementName" Value="[dbo].[Artifacts].[CreatorFactionId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Artifacts]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FactionCreatorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3fe71275-3a14-455d-a07b-53910c9ae48c" ChangeDateTime="07/20/2024 05:31:52">
+    <Property Name="ElementName" Value="[dbo].[Resources].[rarity]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Resources]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Rarity" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c3784867-4af6-4c25-9f65-bf24ea18eeb5" ChangeDateTime="07/20/2024 05:41:23">
+    <Property Name="ElementName" Value="[dbo].[BT_EventFactionRelations].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BT_EventFactionRelations]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EventId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cfc04005-3969-443c-b538-44e4ea3cadc5" ChangeDateTime="07/20/2024 05:47:18">
+    <Property Name="ElementName" Value="[dbo].[BT_NPCFactionRelations].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BT_NPCFactionRelations]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NPCId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0f837525-e6e0-4570-a827-f731bec5188d" ChangeDateTime="07/20/2024 05:52:24">
+    <Property Name="ElementName" Value="[dbo].[BT_NPCEventRelations].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BT_NPCEventRelations]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NPCId" />
+  </Operation>
 </Operations>

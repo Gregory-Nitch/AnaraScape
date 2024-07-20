@@ -63,6 +63,9 @@
     <Folder Include="Logging" />
     <Folder Include="Logging\Tables" />
     <Folder Include="Logging\Stored Procedures" />
+    <Folder Include="Lore" />
+    <Folder Include="Lore\Stored Procedures" />
+    <Folder Include="Lore\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="MapGenerator\Tables\DungeonTiles.sql" />
@@ -77,6 +80,23 @@
     <Build Include="Logging\Stored Procedures\spLogEvents_GetAfter.sql" />
     <Build Include="Logging\Stored Procedures\spLogEvents_GetBefore.sql" />
     <Build Include="Logging\Stored Procedures\spLogEvents_GetRange.sql" />
+    <Build Include="Schemas\LoreSchema.sql" />
+    <Build Include="Lore\Tables\HistoricalAges.sql" />
+    <Build Include="Lore\Tables\NPCs.sql" />
+    <Build Include="Lore\Tables\Locations.sql" />
+    <Build Include="Lore\Tables\Factions.sql" />
+    <Build Include="Lore\Tables\Events.sql" />
+    <Build Include="Lore\Tables\Artifacts.sql" />
+    <Build Include="Lore\Tables\Terminologies.sql" />
+    <Build Include="Lore\Tables\GeoMaps.sql" />
+    <Build Include="Lore\Tables\Resources.sql" />
+    <Build Include="Lore\Tables\BT_EventFactionRelations.sql" />
+    <Build Include="Lore\Tables\BT_NPCFactionRelations.sql" />
+    <Build Include="Lore\Tables\BT_NPCEventRelations.sql" />
+    <Build Include="Lore\Tables\BT_LocationFactionRelations.sql" />
+    <Build Include="Lore\Tables\BT_LocationEventRelations.sql" />
+    <Build Include="Lore\Tables\BT_LocationResourceRelations.sql" />
+    <Build Include="Lore\Tables\BT_EventArtifactRelations.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />
@@ -89,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AnaraScapeDB.publish.xml" />
-    <None Include="Schemas\Lore Schema.png" />
+    <None Include="Schemas\Lore Schema Diagram.png" />
   </ItemGroup>
   <Import Project="$(NETCoreTargetsPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(NetCoreBuild)' == 'true'" />
   <Target Name="BeforeBuild">
