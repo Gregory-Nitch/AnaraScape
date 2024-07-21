@@ -2,6 +2,6 @@
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY,
     [Time] DATETIME2 NOT NULL,
-    [Level] VARCHAR(50) NOT NULL,
+    [Level] INT NOT NULL,
     [Message] VARCHAR(MAX) NOT NULL
 );

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [Logging].[spLogEvents_InsertEvent]
 	@Time DATETIME2,
-	@Level VARCHAR(50),
+	@Level INT,
 	@Message  VARCHAR(MAX)
 AS
 BEGIN

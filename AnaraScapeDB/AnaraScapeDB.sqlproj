@@ -66,6 +66,7 @@
     <Folder Include="Lore" />
     <Folder Include="Lore\Stored Procedures" />
     <Folder Include="Lore\Tables" />
+    <Folder Include="Lore\Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="MapGenerator\Tables\DungeonTiles.sql" />
@@ -110,6 +111,7 @@
   <ItemGroup>
     <None Include="AnaraScapeDB.publish.xml" />
     <None Include="Schemas\Lore Schema Diagram.png" />
+    <None Include="Lore\Scripts\LoreSchema_TEST_.sql" />
   </ItemGroup>
   <Import Project="$(NETCoreTargetsPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(NetCoreBuild)' == 'true'" />
   <Target Name="BeforeBuild">

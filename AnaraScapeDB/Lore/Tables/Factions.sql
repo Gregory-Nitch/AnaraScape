@@ -15,3 +15,31 @@
     CONSTRAINT [FK_DisbandAgeId] FOREIGN KEY ([DisbandAgeId]) 
         REFERENCES [Lore].[HistoricalAges]([Id])
 );
+
+GO
+
+CREATE TRIGGER [Lore].[DELETE_Faction]
+    ON [Lore].[Factions]
+    INSTEAD OF DELETE
+    AS
+    BEGIN
+        SET NoCount ON;
+
+        -- Set nulls
+        UPDATE [Lore].[Locations] SET [RulingGovernmentId] = NULL
+            WHERE [RulingGovernmentId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[Artifacts] SET [FactionCreatorId] = NULL
+            WHERE [FactionCreatorId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[Artifacts]SET [FactionOwnerId] = NULL
+            WHERE [FactionOwnerId] IN (SELECT [Id] FROM DELETED);
+
+        -- DELETE from bridge tables
+        DELETE FROM [Lore].[BT_EventFactionRelations]
+            WHERE [FactionId] IN (SELECT [Id] FROM DELETED);
+        DELETE FROM [Lore].[BT_LocationFactionRelations]
+            WHERE [FactionId] IN (SELECT [Id] FROM DELETED);
+        DELETE FROM [Lore].[BT_NPCFactionRelations]
+            WHERE [FactionId] IN (SELECT [Id] FROM DELETED);
+
+        DELETE FROM [Lore].[Factions] WHERE [Id] IN (SELECT [Id] FROM DELETED);
+    END

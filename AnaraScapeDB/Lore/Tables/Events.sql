@@ -13,3 +13,25 @@
 	CONSTRAINT [FK_EndAgeId] FOREIGN KEY ([EndAgeId]) 
 		REFERENCES [Lore].[HistoricalAges]([Id])
 );
+
+GO
+
+CREATE TRIGGER [Lore].[DELETE_Event]
+    ON [Lore].[Events]
+    INSTEAD OF DELETE
+    AS
+    BEGIN
+        SET NoCount ON;
+
+		-- DELETE from bridge tables
+		DELETE FROM [Lore].[BT_EventArtifactRelations]
+			WHERE [EventId] IN (SELECT [Id] FROM DELETED);
+		DELETE FROM [Lore].[BT_EventFactionRelations]
+			WHERE [EventId] IN (SELECT [Id] FROM DELETED);
+		DELETE FROM [Lore].[BT_LocationEventRelations]
+			WHERE [EventId] IN (SELECT [Id] FROM DELETED);
+		DELETE FROM [Lore].[BT_NPCEventRelations]
+			WHERE [EventId] IN (SELECT [Id] FROM DELETED);
+
+		DELETE FROM [Lore].[Events] WHERE [Id] IN (SELECT [Id] FROM DELETED);
+    END

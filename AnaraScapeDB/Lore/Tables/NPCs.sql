@@ -6,7 +6,7 @@
     [Description] VARCHAR(MAX) NOT NULL, 
     [Biography] VARCHAR(MAX) NOT NULL, 
     [Title] VARCHAR(100) NULL, 
-    [LevelOrCR] VARCHAR(4) NULL, 
+    [LevelOrCR] VARCHAR(6) NULL, 
     [Speed] INT NULL, 
     [HitPoints] INT NULL, 
     [ArmorClass] INT NULL, 
@@ -32,3 +32,33 @@
     CONSTRAINT [FK_DeathAgeId] FOREIGN KEY ([DeathAgeId]) 
         REFERENCES [Lore].[HistoricalAges]([Id])
 );
+
+GO
+
+CREATE TRIGGER [Lore].[DELETE_NPC]
+    ON [Lore].[NPCs]
+    INSTEAD OF DELETE
+    AS
+    BEGIN
+        SET NoCount ON;
+        
+        -- Set nulls
+        UPDATE [Lore].[Terminologies] SET [InventorId] = NULL 
+            WHERE [InventorId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[Artifacts] SET [NPCOwnerId] = NULL 
+            WHERE [NPCOwnerId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[Artifacts] SET [NPCCreatorId] = NULL 
+            WHERE [NPCCreatorId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[Locations] SET [RulerId] = NULL
+            WHERE [RulerId] IN (SELECT [Id] FROM DELETED); 
+        UPDATE [Lore].[Factions] SET [LeaderId] = NULL
+            WHERE [LeaderId] IN (SELECT [Id] FROM DELETED);
+
+        -- DELETE from bridge tables
+        DELETE FROM [Lore].[BT_NPCEventRelations] 
+            WHERE [NPCId] IN (SELECT [Id] FROM DELETED);
+        DELETE FROM [Lore].[BT_NPCFactionRelations] 
+            WHERE [NPCId] IN (SELECT [Id] FROM DELETED);
+
+        DELETE FROM [Lore].[NPCs] WHERE [Id] IN (SELECT [Id] FROM DELETED);
+    END

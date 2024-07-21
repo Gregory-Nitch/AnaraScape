@@ -13,3 +13,33 @@
     CONSTRAINT [FK_ContainingLocationId] FOREIGN KEY ([ContainingLocationId]) 
         REFERENCES [Lore].[Locations]([Id])
 );
+
+GO
+
+CREATE TRIGGER [Lore].[DELETE_Location]
+    ON [Lore].[Locations]
+    INSTEAD OF DELETE
+    AS
+    BEGIN
+        SET NoCount ON;
+
+        -- Set nulls
+        UPDATE [Lore].[Locations] SET [ContainingLocationId] = NULL 
+            WHERE [ContainingLocationId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[NPCs] SET [LocationId] = NULL 
+            WHERE [LocationId] IN (SELECT [Id] FROM DELETED);
+        UPDATE [Lore].[Artifacts] SET [LocationId] = NULL 
+            WHERE [LocationId] IN (SELECT [Id] FROM DELETED);
+
+        -- DELETE from bridge tables and GeoMaps (due to nonnullable fields)
+        DELETE FROM [Lore].[GeoMaps] 
+            WHERE [LocationId] IN (SELECT [Id] FROM DELETED);
+        DELETE FROM [Lore].[BT_LocationEventRelations]
+            WHERE [LocationId] IN (SELECT [Id] FROM DELETED);
+        DELETE FROM [Lore].[BT_LocationFactionRelations]
+            WHERE [LocationId] IN (SELECT [Id] FROM DELETED);
+        DELETE FROM [Lore].[BT_LocationResourceRelations]
+            WHERE [LocationId] IN (SELECT [Id] FROM DELETED);
+
+        DELETE FROM [Lore].[Locations] WHERE [Id] IN (SELECT [Id] FROM DELETED);
+    END

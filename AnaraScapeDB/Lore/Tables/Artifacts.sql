@@ -29,3 +29,19 @@
 	CONSTRAINT [FK_LostAgeId] FOREIGN KEY ([LostAgeId]) 
 		REFERENCES [Lore].[HistoricalAges]([Id])
 );
+
+GO
+
+CREATE TRIGGER [Lore].[DELETE_Artifact]
+    ON [Lore].[Artifacts]
+    INSTEAD OF DELETE
+    AS
+    BEGIN
+        SET NoCount ON;
+
+		-- DELETE from bridge tables
+		DELETE FROM [Lore].[BT_EventArtifactRelations]
+			WHERE [ArtifactId] IN (SELECT [Id] FROM DELETED);
+
+		DELETE FROM [Lore].[Artifacts] WHERE [Id] IN (SELECT [Id] FROM DELETED);
+    END
