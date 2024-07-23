@@ -1,5 +1,6 @@
 ﻿using DataAccess.Models.DungeonModels;
 using DataAccess.Models.LoggingModels;
+using DataAccess.Models.LoreModels;
 
 namespace DataAccess;
 
@@ -83,5 +84,10 @@ public class Crud(IDBAccess db) : ICrud
                                               new { beginDate, endDate },
                                               ConnStringName,
                                               true);
+    }
+
+    public void InsertLore<T>(T loreObj, LoreTable table)
+    {
+        _db.WriteToDB(LoreFactory.StoredProcessLoreMap[table], loreObj, ConnStringName, true);
     }
 }

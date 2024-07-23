@@ -22,9 +22,9 @@ public class HistoricalAgeModel(int id, AnaraAge age, string description, int? l
 /// <param name="age">enum representing the age's name & chronological order</param>
 /// <param name="description">description text of the age</param>
 /// <param name="lengthInYears">length of the age in years (nullable)</param>
-public class LoadingHistoricalAgeModel(AnaraAge age, string description, int? lengthInYears)
+public class LoadingHistoricalAgeModel(AnaraAge age, string description)
 {
     public AnaraAge Age { get; set; } = age;
     public string Description { get; set; } = description;
-    public int? LengthInYears { get; set; } = lengthInYears;
+    public int? LengthInYears { get; set; }
 }

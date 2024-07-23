@@ -91,9 +91,9 @@ public class LoadingArtifactModel(string name)
     public EntityType? CreatorType { get; set; }
     public int? NPCCreatorId { get; set; } // FK (NPCs)
     public int? FactionCreatorId { get; set; } // FK (Factions)
-    public AnaraDate? CreationDate { get; set; }
+    public string? CreationDate { get; set; }
     public int? CreationAgeId { get; set; } // FK (HistoricalAges)
-    public AnaraDate? LostDate { get; set; }
+    public string? LostDate { get; set; }
     public int? LostAgeId { get; set; } // FK (HistoricalAges)
 }
 

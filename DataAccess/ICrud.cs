@@ -1,5 +1,6 @@
 ﻿using DataAccess.Models.DungeonModels;
 using DataAccess.Models.LoggingModels;
+using DataAccess.Models.LoreModels;
 
 namespace DataAccess;
 
@@ -16,4 +17,5 @@ public interface ICrud
     public List<LogEvent> GetLogsAfter(DateTime date);
     public List<LogEvent> GetLogsBefore(DateTime date);
     public List<LogEvent> GetLogsInRange(DateTime beginDate, DateTime endDate);
+    public void InsertLore<T>(T loreObj, LoreTable table);
 }

@@ -42,6 +42,6 @@ public class LoadingTerminologyModel(string term)
     public string Term { get; set; } = term;
     public string? Definition { get; set; }
     public int? InventorId { get; set; } // FK (NPCs)
-    public AnaraDate? InventionDate { get; set; }
+    public string? InventionDate { get; set; }
     public int? InventionAgeId { get; set; } // FK (HistoricalAges)
 }

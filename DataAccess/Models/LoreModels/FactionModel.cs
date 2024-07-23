@@ -59,8 +59,8 @@ public class LoadingFactionModel(string name)
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
     public string? Description { get; set; }
     public int? LeaderId { get; set; }
-    public AnaraDate? FoundingDate { get; set; }
+    public string? FoundingDate { get; set; }
     public int? FoundingAgeId { get; set; }
-    public AnaraDate? DisbandDate { get; set; }
+    public string? DisbandDate { get; set; }
     public int? DisbandAgeId { get; set; }
 }

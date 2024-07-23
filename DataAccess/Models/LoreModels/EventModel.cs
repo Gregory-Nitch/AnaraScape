@@ -61,19 +61,13 @@ public class StoredEventModel(int id,
 /// <param name="startAgeId">start age id FK(HistoricalAges)</param>
 /// <param name="endDate">end date of the event</param>
 /// <param name="endAgeId">end age id FK(HistoricalAges)</param>
-public class LoadingEventModel(string name,
-                         bool isMultiDayEvent,
-                         string? description,
-                         AnaraDate? startDate,
-                         int? startAgeId,
-                         AnaraDate? endDate,
-                         int? endAgeId)
+public class LoadingEventModel(string name, bool isMultiDayEvent)
 {
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
     public bool IsMultiDayEvent { get; set; } = isMultiDayEvent;
-    public string? Description { get; set; } = description;
-    public AnaraDate? StartDate { get; set; } = startDate;
-    public int? StartAgeId { get; set; } = startAgeId;
-    public AnaraDate? EndDate { get; set; } = endDate;
-    public int? EndAgeId { get; set; } = endAgeId;
+    public string? Description { get; set; }
+    public string? StartDate { get; set; }
+    public int? StartAgeId { get; set; }
+    public string? EndDate { get; set; }
+    public int? EndAgeId { get; set; }
 }

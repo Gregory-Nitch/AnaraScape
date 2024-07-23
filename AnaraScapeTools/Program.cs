@@ -75,6 +75,12 @@ internal class Program
                     Console.WriteLine("\nReturned to main...");
                     break;
 
+                case "lore-submenu":
+                    LoreSubMenu loreSubMenu = new(crud);
+                    loreSubMenu.Job();
+                    Console.WriteLine("\nReturned to main...");
+                    break;
+
                 case "DELETE-ALL-tiles":
                     DeleteAllTiles deleteTiles = new(crud);
                     deleteTiles.Job();

@@ -98,6 +98,15 @@
     <Build Include="Lore\Tables\BT_LocationEventRelations.sql" />
     <Build Include="Lore\Tables\BT_LocationResourceRelations.sql" />
     <Build Include="Lore\Tables\BT_EventArtifactRelations.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifact_InsertArtifact.sql" />
+    <Build Include="Lore\Stored Procedures\spEvents_InsertEvent.sql" />
+    <Build Include="Lore\Stored Procedures\spFactions_InsertFaction.sql" />
+    <Build Include="Lore\Stored Procedures\spGeoMaps_InsertGeoMap.sql" />
+    <Build Include="Lore\Stored Procedures\spHistoricalAges_InsertHistoricalAge.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_InsertLocation.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_InsertNPC.sql" />
+    <Build Include="Lore\Stored Procedures\spResources_InsertResource.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_InsertTerm.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />

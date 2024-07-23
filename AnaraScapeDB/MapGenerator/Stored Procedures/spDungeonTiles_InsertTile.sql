@@ -13,9 +13,9 @@ BEGIN
 		([TileName], [Style], [Connections], [IsEntrance], [IsStairs], [Filename])
 	VALUES
 		(@TileName,
-			@Style,
-			@Connections,
-			@IsEntrance,
-			@IsStairs,
-			@Filename);
+		@Style,
+		@Connections,
+		@IsEntrance,
+		@IsStairs,
+		@Filename);
 END

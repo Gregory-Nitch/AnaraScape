@@ -10,7 +10,7 @@ public struct AnaraDate(int year, int month, int day)
     {
         return $"{Year}-{Month}-{Day}";
     }
-
+    
     public static AnaraDate ParseFromString(string str)
     {
         string[] vals = str.Split('-');
@@ -24,6 +24,7 @@ public struct AnaraDate(int year, int month, int day)
 /// </summary>
 public enum AnaraAge
 {
+    REQUIRED = -1, // Used for LoreFactory object building
     Precreation,
     Primordial,
     Mythic,

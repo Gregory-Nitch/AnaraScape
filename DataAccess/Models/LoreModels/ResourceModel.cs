@@ -15,6 +15,14 @@ public class ResourceModel(int id, string name, string? description, ResourceRar
     public ResourceRarity? Rarity { get; set; } = rarity;
 }
 
+
+public class LoadingResourceModel(string name)
+{
+    public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string? Description { get; set; }
+    public ResourceRarity? Rarity { get; set; }
+}
+
 /// <summary>
 /// Represents a level of rarity in the game setting.
 /// </summary>
