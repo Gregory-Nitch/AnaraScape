@@ -107,6 +107,13 @@
     <Build Include="Lore\Stored Procedures\spNPCs_InsertNPC.sql" />
     <Build Include="Lore\Stored Procedures\spResources_InsertResource.sql" />
     <Build Include="Lore\Stored Procedures\spTerminologies_InsertTerm.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_InsertRelation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />
