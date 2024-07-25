@@ -114,6 +114,7 @@
     <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_InsertRelation.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_InsertRelation.sql" />
     <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_InsertRelation.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_SelectAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />

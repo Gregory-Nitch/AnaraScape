@@ -90,4 +90,87 @@ public class Crud(IDBAccess db) : ICrud
     {
         _db.WriteToDB(LoreFactory.StoredProcessLoreMap[table], loreObj, ConnStringName, true);
     }
+
+    public List<StoredArtifactModel> GetAllArtifacts() 
+    {
+        return _db.QueryDB<StoredArtifactModel, dynamic>($"Lore.spArtifacts_SelectAll",
+                                                           new { },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<StoredEventModel> GetAllEvents()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<StoredFactionModel> GetAllFactions()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<GeoMapModel> GetAllGeoMaps()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<HistoricalAgeModel> GetAllHistoricalAges()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<LocationModel> GetAllLocations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<StoredNPCModel> GetAllNPCs()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<ResourceModel> GetAllResources()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<StoredTerminologyModel> GetAllTerms()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<EventArtifactRelationModel> GetAllEventArtifactRelations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<EventFactionRelationModel> GetAllEventFactionRelations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<LocationEventRelationModel> GetAllLocationEventRelations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<LocationFactionRelationModel> GetAllLocationFactionRelations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<LocationResourceRelationModel> GetAllLocationResourceRelations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<NPCEventRelationModel> GetAllNPCEventRelations()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<NPCFactionRelationModel> GetAllNPCFactionRelations()
+    {
+        throw new NotImplementedException();
+    }
 }

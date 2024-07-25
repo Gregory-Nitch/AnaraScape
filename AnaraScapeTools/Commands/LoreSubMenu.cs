@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using Dapper;
+using DataAccess;
 using DataAccess.Models.LoreModels;
 using System.Data;
 using System.Data.SqlClient;
@@ -245,7 +246,107 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
 
     private void SelectLoreByTable(LoreTable table) 
     {
-        throw new NotImplementedException();
+        StringBuilder sb = new();
+        switch (table)
+        {
+            case LoreTable.Artifacts:
+                _crud.GetAllArtifacts().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.Events:
+                _crud.GetAllEvents().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.Factions:
+                _crud.GetAllFactions().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.GeoMaps:
+                _crud.GetAllGeoMaps().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+            
+            case LoreTable.HistoricalAges:
+                _crud.GetAllHistoricalAges().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.Locations:
+                _crud.GetAllLocations().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.NPCs:
+                _crud.GetAllNPCs().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.Resources:
+                _crud.GetAllResources().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.Terminologies:
+                _crud.GetAllTerms().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_EventArtifactRelations:
+                _crud.GetAllEventArtifactRelations()
+                     .ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_EventFactionRelations:
+                _crud.GetAllEventFactionRelations()
+                     .ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_LocationEventRelations:
+                _crud.GetAllLocationEventRelations()
+                     .ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_LocationFactionRelations:
+                _crud.GetAllLocationFactionRelations()
+                     .ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_LocationResourceRelations:
+                _crud.GetAllLocationResourceRelations()
+                     .ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_NPCEventRelations:
+                _crud.GetAllNPCEventRelations().ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            case LoreTable.BT_NPCFactionRelations:
+                _crud.GetAllNPCFactionRelations()
+                     .ForEach(obj => AddLoreObjectToDataString(sb, obj));
+                break;
+
+            default:
+                throw new NotSupportedException();
+        }
+
+        string data = sb.ToString();
+        if (string.IsNullOrWhiteSpace(data))
+        {
+            Console.WriteLine($"\nLore Table {table} is empty...");
+        }
+        else
+        {
+            Console.WriteLine($"\n{data}");
+        }
+    }
+
+    private void AddLoreObjectToDataString(StringBuilder sb, object loreObj)
+    {// TODO Revisit here for string formating
+        PropertyInfo[]? props = loreObj.GetType().GetProperties();
+        foreach (var p in props)
+        {
+            sb.Append($"|{p.Name}|");
+        }
+        sb.AppendLine();
+        foreach (var p in props)
+        {
+            sb.Append($"|{p.GetValue(loreObj)}|");
+        }
+        sb.AppendLine("\n--------------------------------------------------------------------------------");
     }
 
     private void UpdateLoreEntry(LoreTable table) 

@@ -1,8 +1,10 @@
-﻿namespace DataAccess.Models.LoreModels;
+﻿using System.Security.AccessControl;
+
+namespace DataAccess.Models.LoreModels;
 
 public enum LoreTable
 {
-    Atrifacts,
+    Artifacts,
     Events,
     Factions,
     GeoMaps,
@@ -22,10 +24,9 @@ public enum LoreTable
 
 public class LoreFactory
 {
-
     public static readonly Dictionary<string, LoreTable> LoreTables = new()
     {
-        { "Artifacts", LoreTable.Atrifacts },
+        { "Artifacts", LoreTable.Artifacts },
         { "Events", LoreTable.Events },
         { "Factions", LoreTable.Factions },
         { "GeoMaps", LoreTable.GeoMaps },
@@ -45,7 +46,7 @@ public class LoreFactory
 
     public static readonly Dictionary<LoreTable, string> StoredProcessLoreMap = new()
     {
-        { LoreTable.Atrifacts, "Lore.spArtifact_InsertArtifact" },
+        { LoreTable.Artifacts, "Lore.spArtifact_InsertArtifact" },
         { LoreTable.Events, "Lore.spEvents_InsertEvent" },
         { LoreTable.Factions, "Lore.spFactions_InsertFaction" },
         { LoreTable.GeoMaps, "Lore.spGeoMaps_InsertGeoMap" },
@@ -63,60 +64,47 @@ public class LoreFactory
         { LoreTable.BT_NPCFactionRelations, "Lore.spBT_NPCFactionRelations_InsertRelation" },
     };
 
-    public static Object GetLoreObject(LoreTable type)
+    public static readonly Dictionary<LoreTable, Type> LoreTypeMap = new()
     {
-        switch(type)
+        { LoreTable.Artifacts, typeof(StoredArtifactModel) },
+        { LoreTable.Events, typeof(StoredEventModel) },
+        { LoreTable.Factions, typeof(StoredFactionModel) },
+        { LoreTable.GeoMaps, typeof(GeoMapModel) },
+        { LoreTable.HistoricalAges, typeof(HistoricalAgeModel) },
+        { LoreTable.Locations, typeof(LocationModel) },
+        { LoreTable.NPCs, typeof(StoredNPCModel) },
+        { LoreTable.Resources, typeof(ResourceModel) },
+        { LoreTable.Terminologies, typeof(TerminologyModel) },
+        { LoreTable.BT_EventArtifactRelations, typeof(EventArtifactRelationModel) },
+        { LoreTable.BT_EventFactionRelations, typeof(EventFactionRelationModel) },
+        { LoreTable.BT_LocationEventRelations, typeof(LocationEventRelationModel) },
+        { LoreTable.BT_LocationFactionRelations, typeof(LocationFactionRelationModel) },
+        { LoreTable.BT_LocationResourceRelations, typeof(LocationResourceRelationModel) },
+        { LoreTable.BT_NPCEventRelations, typeof(NPCEventRelationModel) },
+        { LoreTable.BT_NPCFactionRelations, typeof(NPCFactionRelationModel) },
+    };
+
+    public static object GetLoreObject(LoreTable enumType)
+    {
+        return enumType switch
         {
-            case LoreTable.Atrifacts:
-                return new LoadingArtifactModel("REQUIRED");
-
-            case LoreTable.Events:
-                return new LoadingEventModel("REQUIRED", false);
-
-            case LoreTable.Factions:
-                return new LoadingFactionModel("REQUIRED");
-            
-            case LoreTable.GeoMaps:
-                return new LoadingGeoMapModel("REQUIRED", -1, "REQUIRED");
-
-            case LoreTable.HistoricalAges:
-                return new LoadingHistoricalAgeModel(AnaraAge.REQUIRED, "REQUIRED");
-
-            case LoreTable.Locations:
-                return new LoadingLocationModel("REQUIRED");
-
-            case LoreTable.NPCs:
-                return new LoadingNPCModel("REQUIRED", "REQUIRED", "REQUIRED", "REQUIRED");
-
-            case LoreTable.Resources:
-                return new LoadingResourceModel("REQUIRED");
-
-            case LoreTable.Terminologies:
-                return new LoadingTerminologyModel("REQUIRED");
-
-            case LoreTable.BT_EventArtifactRelations:
-                return new EventArtifactRelationModel(-1, -1);
-
-            case LoreTable.BT_EventFactionRelations:
-                return new EventFactionRelationModel(-1, -1);
-
-            case LoreTable.BT_LocationEventRelations:
-                return new LocationEventRelationModel(-1, -1);
-
-            case LoreTable.BT_LocationFactionRelations:
-                return new LocationFactionRelationModel(-1, -1);
-
-            case LoreTable.BT_LocationResourceRelations:
-                return new LocationResourceRelationModel(-1, -1);
-
-            case LoreTable.BT_NPCEventRelations:
-                return new NPCEventRelationModel(-1, -1);
-
-            case LoreTable.BT_NPCFactionRelations:
-                return new NPCFactionRelationModel(-1, -1);
-
-            default:
-                throw new NotSupportedException();
-        }
+            LoreTable.Artifacts => new LoadingArtifactModel("REQUIRED"),
+            LoreTable.Events => new LoadingEventModel("REQUIRED", false),
+            LoreTable.Factions => new LoadingFactionModel("REQUIRED"),
+            LoreTable.GeoMaps => new LoadingGeoMapModel("REQUIRED", -1, "REQUIRED"),
+            LoreTable.HistoricalAges => new LoadingHistoricalAgeModel(AnaraAge.REQUIRED, "REQUIRED"),
+            LoreTable.Locations => new LoadingLocationModel("REQUIRED"),
+            LoreTable.NPCs => new LoadingNPCModel("REQUIRED", "REQUIRED", "REQUIRED", "REQUIRED"),
+            LoreTable.Resources => new LoadingResourceModel("REQUIRED"),
+            LoreTable.Terminologies => new LoadingTerminologyModel("REQUIRED"),
+            LoreTable.BT_EventArtifactRelations => new EventArtifactRelationModel(-1, -1),
+            LoreTable.BT_EventFactionRelations => new EventFactionRelationModel(-1, -1),
+            LoreTable.BT_LocationEventRelations => new LocationEventRelationModel(-1, -1),
+            LoreTable.BT_LocationFactionRelations => new LocationFactionRelationModel(-1, -1),
+            LoreTable.BT_LocationResourceRelations => new LocationResourceRelationModel(-1, -1),
+            LoreTable.BT_NPCEventRelations => new NPCEventRelationModel(-1, -1),
+            LoreTable.BT_NPCFactionRelations => new NPCFactionRelationModel(-1, -1),
+            _ => throw new NotSupportedException(),
+        };
     }
 }
