@@ -7,7 +7,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	INSERT INTO [Lore].[HistoricalAges]
-		([AnaraAge], [Description], [LengthInYears])
+		([Age], [Description], [LengthInYears])
 	VALUES
 		(@Age, @Description, @LengthInYears);
 

@@ -101,76 +101,128 @@ public class Crud(IDBAccess db) : ICrud
 
     public List<StoredEventModel> GetAllEvents()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<StoredEventModel, dynamic>($"Lore.spEvents_SelectAll",
+                                                        new { },
+                                                        ConnStringName,
+                                                        true);
     }
 
     public List<StoredFactionModel> GetAllFactions()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<StoredFactionModel, dynamic>($"Lore.spFactions_SelectAll",
+                                                          new { },
+                                                          ConnStringName,
+                                                          true);
     }
 
     public List<GeoMapModel> GetAllGeoMaps()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<GeoMapModel, dynamic>($"Lore.spGeoMaps_SelectAll",
+                                                   new { },
+                                                   ConnStringName,
+                                                   true);
     }
 
     public List<HistoricalAgeModel> GetAllHistoricalAges()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<HistoricalAgeModel, dynamic>($"Lore.spHistoricalAges_SelectAll",
+                                                          new { },
+                                                          ConnStringName,
+                                                          true);
     }
 
     public List<LocationModel> GetAllLocations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<LocationModel, dynamic>($"Lore.spLocations_SelectAll",
+                                                     new { },
+                                                     ConnStringName,
+                                                     true);
     }
 
     public List<StoredNPCModel> GetAllNPCs()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<StoredNPCModel, dynamic>($"Lore.spNPCs_SelectAll",
+                                                      new { },
+                                                      ConnStringName,
+                                                      true);
     }
 
     public List<ResourceModel> GetAllResources()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<ResourceModel, dynamic>($"Lore.spResources_SelectAll",
+                                                     new { },
+                                                     ConnStringName,
+                                                     true);
     }
 
     public List<StoredTerminologyModel> GetAllTerms()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<StoredTerminologyModel, dynamic>($"Lore.spTerminologies_SelectAll",
+                                                              new { },
+                                                              ConnStringName,
+                                                              true);
     }
 
     public List<EventArtifactRelationModel> GetAllEventArtifactRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<EventArtifactRelationModel, dynamic>(
+                                              $"Lore.spBT_EventArtifactRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 
     public List<EventFactionRelationModel> GetAllEventFactionRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<EventFactionRelationModel, dynamic>(
+                                              $"Lore.spBT_EventFactionRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 
     public List<LocationEventRelationModel> GetAllLocationEventRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<LocationEventRelationModel, dynamic>(
+                                              $"Lore.spBT_LocationEventRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 
     public List<LocationFactionRelationModel> GetAllLocationFactionRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<LocationFactionRelationModel, dynamic>(
+                                              $"Lore.spBT_LocationFactionRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 
     public List<LocationResourceRelationModel> GetAllLocationResourceRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<LocationResourceRelationModel, dynamic>(
+                                              $"Lore.spBT_LocationResourceRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 
     public List<NPCEventRelationModel> GetAllNPCEventRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<NPCEventRelationModel, dynamic>(
+                                              $"Lore.spBT_NPCEventRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 
     public List<NPCFactionRelationModel> GetAllNPCFactionRelations()
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<NPCFactionRelationModel, dynamic>(
+                                              $"Lore.spBT_NPCFactionRelations_SelectAll",
+                                              new { },
+                                              ConnStringName,
+                                              true);
     }
 }

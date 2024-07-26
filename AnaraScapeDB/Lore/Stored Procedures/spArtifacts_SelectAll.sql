@@ -3,6 +3,21 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	SELECT * FROM [Lore].[Artifacts];
+	SELECT 
+		[Id],
+		[Name],
+		[Description],
+		[LocationId],
+		[OwnerType],
+		[NPCOwnerId],
+		[FactionOwnerId],
+		[CreatorType],
+		[NPCCreatorId],
+		[FactionCreatorId],
+		[CreationDate],
+		[CreationAgeId],
+		[LostDate],
+		[LostAgeId]
+	FROM [Lore].[Artifacts];
 
 END

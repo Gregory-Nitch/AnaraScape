@@ -24,10 +24,10 @@ INSERT INTO [Lore].[Factions] ([Name], [Description], [FoundingDate])
 	VALUES ('faction2', 'faction2 description', '234-2-5');
 
 
-INSERT INTO [Lore].[HistoricalAges] ([AnaraAge], [Description], [LengthInYears])
+INSERT INTO [Lore].[HistoricalAges] ([Age], [Description], [LengthInYears])
 	VALUES (0, 'ag1 description', 123);
 
-INSERT INTO [Lore].[HistoricalAges] ([AnaraAge], [Description], [LengthInYears])
+INSERT INTO [Lore].[HistoricalAges] ([Age], [Description], [LengthInYears])
 	VALUES (1, 'age2 description', 345);
 
 
@@ -66,11 +66,11 @@ INSERT INTO [Lore].[Resources] ([Name], [Description], [Rarity])
 	VALUES ('resource2', 'resource2 description', 2);
 
 
-INSERT INTO [Lore].[Terminologies] ([Term], [Definition], [InventionDate])
-	VALUES ('term1', 'term1 definition', '123-3-4');
+INSERT INTO [Lore].[Terminologies] ([Name], [Definition], [InventionDate])
+	VALUES ('Name1', 'Name1 definition', '123-3-4');
 
-INSERT INTO [Lore].[Terminologies] ([Term], [Definition], [InventionDate])
-	VALUES ('term2', 'term2 definition', '345-2-4');
+INSERT INTO [Lore].[Terminologies] ([Name], [Definition], [InventionDate])
+	VALUES ('Name2', 'Name2 definition', '345-2-4');
 
 
 -- Update main tables
@@ -80,8 +80,8 @@ UPDATE [Lore].[Artifacts]
 	[NPCOwnerId] = (SELECT [Id] FROM [Lore].[NPCs] WHERE [Name] = 'npc1'),
 	[CreatorType] = 1,
 	[FactionCreatorId] = (SELECT [Id] FROM [Lore].[Factions] WHERE [Name] = 'faction1'),
-	[CreationAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0),
-	[LostAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
+	[CreationAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0),
+	[LostAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
 	WHERE [Name] = 'artifact1';
 
 
@@ -91,29 +91,29 @@ UPDATE [Lore].[Artifacts]
 	[FactionOwnerId] = (SELECT [Id] FROM [Lore].[Factions] WHERE [Name] = 'faction2'),
 	[CreatorType] = 0,
 	[NPCCreatorId] = (SELECT [Id] FROM [Lore].[NPCs] WHERE [Name] = 'npc2'),
-	[CreationAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0)
+	[CreationAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0)
 	WHERE [Name] = 'artifact2';
 
 
 UPDATE [Lore].[Events]
-	SET [StartAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0),
-	[EndAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
+	SET [StartAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0),
+	[EndAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
 	WHERE [Name] = 'event1';
 
 UPDATE [Lore].[Events]
-	SET [StartAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
+	SET [StartAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
 	WHERE [Name] = 'event2';
 
 
 UPDATE [Lore].[Factions]
 	SET [LeaderId] = (SELECT [Id] FROM [Lore].[NPCs] WHERE [Name] = 'npc1'),
-	[FoundingAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0),
-	[DisbandAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
+	[FoundingAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0),
+	[DisbandAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
 	WHERE [Name] = 'faction1';
 
 UPDATE [Lore].[Factions]
 	SET [LeaderId] = (SELECT [Id] FROM [Lore].[NPCs] WHERE [Name] = 'npc2'),
-	[FoundingAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0)
+	[FoundingAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0)
 	WHERE [Name] = 'faction2';
 
 
@@ -135,25 +135,25 @@ UPDATE [Lore].[Locations]
 
 UPDATE [Lore].[NPCs]
 	SET [LocationId] = (SELECT [Id] FROM [Lore].[Locations] WHERE [Name] = 'location1'),
-	[BirthAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0),
-	[DeathAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
+	[BirthAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0),
+	[DeathAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
 	WHERE [Name] = 'npc1';
 
 UPDATE [Lore].[NPCs]
 	SET [LocationId] = (SELECT [Id] FROM [Lore].[Locations] WHERE [Name] = 'location2'),
-	[BirthAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
+	[BirthAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
 	WHERE [Name] = 'npc2';
 
 
 UPDATE [Lore].[Terminologies]
 	SET [InventorId] = (SELECT [Id] FROM [Lore].[NPCs] WHERE [Name] = 'npc1'),
-	[InventionAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 0)
-	WHERE [Term] = 'term1';
+	[InventionAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 0)
+	WHERE [Name] = 'Name1';
 
 UPDATE [Lore].[Terminologies]
 	SET [InventorId] = (SELECT [Id] FROM [Lore].[NPCs] WHERE [Name] = 'npc2'),
-	[InventionAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [AnaraAge] = 1)
-	WHERE [Term] = 'term2';
+	[InventionAgeId] = (SELECT [Id] FROM [Lore].[HistoricalAges] WHERE [Age] = 1)
+	WHERE [Name] = 'Name2';
 
 
 -- B table connecting
@@ -227,22 +227,22 @@ INSERT INTO [Lore].[BT_NPCFactionRelations] ([NPCId], [FactionId])
 
 -- Resulting table states
 
-SELECT * FROM [Lore].[Artifacts];
-SELECT * FROM [Lore].[Events];
-SELECT * FROM [Lore].[Factions];
-SELECT * FROM [Lore].[GeoMaps];
-SELECT * FROM [Lore].[HistoricalAges];
-SELECT * FROM [Lore].[Locations];
-SELECT * FROM [Lore].[NPCs];
-SELECT * FROM [Lore].[Resources];
-SELECT * FROM [Lore].[Terminologies];
-SELECT * FROM [Lore].[BT_EventArtifactRelations];
-SELECT * FROM [Lore].[BT_EventFactionRelations];
-SELECT * FROM [Lore].[BT_LocationEventRelations];
-SELECT * FROM [Lore].[BT_LocationFactionRelations];
-SELECT * FROM [Lore].[BT_LocationResourceRelations];
-SELECT * FROM [Lore].[BT_NPCEventRelations];
-SELECT * FROM [Lore].[BT_NPCFactionRelations];
+--SELECT * FROM [Lore].[Artifacts];
+--SELECT * FROM [Lore].[Events];
+--SELECT * FROM [Lore].[Factions];
+--SELECT * FROM [Lore].[GeoMaps];
+--SELECT * FROM [Lore].[HistoricalAges];
+--SELECT * FROM [Lore].[Locations];
+--SELECT * FROM [Lore].[NPCs];
+--SELECT * FROM [Lore].[Resources];
+--SELECT * FROM [Lore].[Terminologies];
+--SELECT * FROM [Lore].[BT_EventArtifactRelations];
+--SELECT * FROM [Lore].[BT_EventFactionRelations];
+--SELECT * FROM [Lore].[BT_LocationEventRelations];
+--SELECT * FROM [Lore].[BT_LocationFactionRelations];
+--SELECT * FROM [Lore].[BT_LocationResourceRelations];
+--SELECT * FROM [Lore].[BT_NPCEventRelations];
+--SELECT * FROM [Lore].[BT_NPCFactionRelations];
 
 
 -- Test clean up

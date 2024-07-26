@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [Lore].[Terminologies]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Term] VARCHAR(100) NOT NULL, 
+    [Name] VARCHAR(100) NOT NULL, 
     [Definition] VARCHAR(MAX) NULL, 
     [InventorId] INT NULL, 
     [InventionDate] VARCHAR(MAX) NULL, 

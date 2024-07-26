@@ -115,6 +115,21 @@
     <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_InsertRelation.sql" />
     <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_InsertRelation.sql" />
     <Build Include="Lore\Stored Procedures\spArtifacts_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spEvents_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spFactions_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spGeoMaps_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spHistoricalAges_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spResources_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_SelectAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />

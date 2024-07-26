@@ -14,32 +14,41 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
 
     public void Job()
     {
-        string action = GetCrudAction();
-        LoreTable table = GetTable();
-
-        switch (action)
+        string action = "";
+        while (string.IsNullOrWhiteSpace(action))
         {
-            case "insert":
-                BuildAndInsertLore(table);
-                break;
+            action = GetCrudAction();
+            if (action == "EXIT")
+            {
+                return;
+            }
+            LoreTable table = GetTable();
 
-            case "select":
-                SelectLoreByTable(table);
-                break;
+            switch (action)
+            {
+                case "insert":
+                    BuildAndInsertLore(table);
+                    break;
 
-            case "update":
-                UpdateLoreEntry(table);
-                break;
+                case "select":
+                    SelectLoreByTable(table);
+                    break;
 
-            case "DELETE":
-                DeleteEntryLoreById(table);
-                break;
+                case "update":
+                    UpdateLoreEntry(table);
+                    break;
 
-            case "EXIT":
-                break;
+                case "DELETE":
+                    DeleteEntryLoreById(table);
+                    break;
 
-            default: // Should not be reachable due to GetCrudAction() checks
-                throw new ArgumentException($"ERR: Database action of '{action}' is invalid...");
+                case "EXIT":
+                    return;
+
+                default: // Should not be reachable due to GetCrudAction() checks
+                    throw new ArgumentException($"ERR: Database action of '{action}' is invalid...");
+            }
+            action = "";
         }
     }
 
@@ -335,7 +344,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
     }
 
     private void AddLoreObjectToDataString(StringBuilder sb, object loreObj)
-    {// TODO Revisit here for string formating
+    {// TODO Revisit here for proper table formating
         PropertyInfo[]? props = loreObj.GetType().GetProperties();
         foreach (var p in props)
         {

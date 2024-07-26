@@ -41,7 +41,7 @@ public class LoreFactory
         { "BT_LocationFactionRelations", LoreTable.BT_LocationFactionRelations },
         { "BT_LocationResourceRelations", LoreTable.BT_LocationResourceRelations },
         { "BT_NPCEventRelations", LoreTable.BT_NPCEventRelations },
-        { "BT_NPCFactionRealtions", LoreTable.BT_NPCFactionRelations },
+        { "BT_NPCFactionRelations", LoreTable.BT_NPCFactionRelations },
     };
 
     public static readonly Dictionary<LoreTable, string> StoredProcessLoreMap = new()
@@ -97,13 +97,20 @@ public class LoreFactory
             LoreTable.NPCs => new LoadingNPCModel("REQUIRED", "REQUIRED", "REQUIRED", "REQUIRED"),
             LoreTable.Resources => new LoadingResourceModel("REQUIRED"),
             LoreTable.Terminologies => new LoadingTerminologyModel("REQUIRED"),
-            LoreTable.BT_EventArtifactRelations => new EventArtifactRelationModel(-1, -1),
-            LoreTable.BT_EventFactionRelations => new EventFactionRelationModel(-1, -1),
-            LoreTable.BT_LocationEventRelations => new LocationEventRelationModel(-1, -1),
-            LoreTable.BT_LocationFactionRelations => new LocationFactionRelationModel(-1, -1),
-            LoreTable.BT_LocationResourceRelations => new LocationResourceRelationModel(-1, -1),
-            LoreTable.BT_NPCEventRelations => new NPCEventRelationModel(-1, -1),
-            LoreTable.BT_NPCFactionRelations => new NPCFactionRelationModel(-1, -1),
+            LoreTable.BT_EventArtifactRelations => 
+                new EventArtifactRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+            LoreTable.BT_EventFactionRelations => 
+                new EventFactionRelationModel(-1, -1,"REQUIRED", "REQUIRED"),
+            LoreTable.BT_LocationEventRelations => 
+                new LocationEventRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+            LoreTable.BT_LocationFactionRelations => 
+                new LocationFactionRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+            LoreTable.BT_LocationResourceRelations => 
+                new LocationResourceRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+            LoreTable.BT_NPCEventRelations => 
+                new NPCEventRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+            LoreTable.BT_NPCFactionRelations => 
+                new NPCFactionRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
             _ => throw new NotSupportedException(),
         };
     }

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [Lore].[HistoricalAges]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [AnaraAge] INT NOT NULL, 
+    [Age] INT NOT NULL, 
     [Description] VARCHAR(MAX) NOT NULL, 
     [LengthInYears] INT NULL
 );

@@ -98,4 +98,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="NPCId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="2accb0fc-c31f-4f6f-af4c-84e7f1f83e70" ChangeDateTime="07/26/2024 04:59:23">
+    <Property Name="ElementName" Value="[Lore].[HistoricalAges].[AnaraAge]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[HistoricalAges]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Age" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5a9011cd-206f-4f8e-93f9-2899cbd5dc97" ChangeDateTime="07/26/2024 05:02:22">
+    <Property Name="ElementName" Value="[Lore].[Terminologies].[Term]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Lore].[Terminologies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
 </Operations>
