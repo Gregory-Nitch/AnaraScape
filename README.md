@@ -1,11 +1,20 @@
 # AnaraScape
 A Random TTRPG Dungeon Generation Website
 
+This is what the home page looks like:
+![HomeSample](HomeSample.jpeg)
+
 More features to come!
 
-`Still under construction`
+`Still under construction`,
+If you see this page it means you've reached a page that has not been finished yet.
 
-## Samples
+![UnderConstructionSample](UnderconstructionPageSample.jpeg)
+
+## Map Samples
+
+Here is the tool bar for making maps and some samples:
+![ToolbarSample](MapGeneratorSample.jpeg)
 
 ![Map Sample1](AnaraScapeWeb/wwwroot/static/anaraSample1.png)
 ![Map Sample2](AnaraScapeWeb/wwwroot/static/anaraSample2.png)
