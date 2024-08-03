@@ -18,7 +18,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         while (string.IsNullOrWhiteSpace(action))
         {
             action = GetCrudAction();
-            if (action == "EXIT")
+            if (string.Equals(action, "EXIT"))
             {
                 return;
             }
@@ -27,7 +27,8 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
             switch (action)
             {
                 case "insert":
-                    BuildAndInsertLore(table);
+                    var obj = LoreFactory.GetLoreObject(table);
+                    BuildAndDeUpsertLore(table, "INSERT", obj);
                     break;
 
                 case "select":
@@ -35,11 +36,11 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                     break;
 
                 case "update":
-                    UpdateLoreEntry(table);
+                    BuildAndDeUpsertLore(table, "UPDATE");
                     break;
 
                 case "DELETE":
-                    DeleteEntryLoreById(table);
+                    BuildAndDeUpsertLore(table, "DELETE");
                     break;
 
                 case "EXIT":
@@ -115,36 +116,70 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return LoreFactory.LoreTables[table];
     }
 
-    private void BuildAndInsertLore(LoreTable table)
+    private void BuildAndDeUpsertLore(LoreTable table, string action, object? obj = null)
     {
-        var obj = LoreFactory.GetLoreObject(table);
+        obj ??= GetIdFromUserAndCheckDB(table, action);
+        if (obj == null)
+        {
+            Console.WriteLine($"\nAborting {action}...");
+            return;
+        }
+
         var loreObj = Convert.ChangeType(obj, obj.GetType());
         var props = loreObj.GetType().GetProperties();
         List<string> propNames = [];
+        Dictionary<string, int> btIdMap = [];
         foreach (var p in props)
-        { 
+        {
+            // Store old ids for B table updating
+            if (table > LoreTable.Terminologies && p.Name.EndsWith("Id"))
+            {
+                btIdMap[p.Name] = (int)p.GetValue(loreObj)!; // Prevents missing keys during update
+                btIdMap["Old" + p.Name] = (int)p.GetValue(loreObj)!;
+            }
             propNames.Add(p.Name);
         }
         string? colRequest = "";
         while (string.IsNullOrWhiteSpace(colRequest))
         {
-            Console.Write(BuildObjData(obj, props, table));
+            Console.Write(BuildObjData(loreObj, props, table, action));
             colRequest = Console.ReadLine();
-            if (colRequest != null && colRequest == "EXIT")
+            if (colRequest != null && string.Equals(colRequest, "EXIT"))
             {
                 return;
             }
-            else if (colRequest != null && colRequest == "INSERT")
+            else if (colRequest != null && string.Equals(colRequest, action))
             {
                 if (IsValidLoreObj(loreObj, props))
                 {
                     try
                     {
-                        _crud.InsertLore(loreObj, table);
+                        if (string.Equals(action, "UPDATE") && table <= LoreTable.Terminologies)
+                        {
+                            _crud.UpdateLore(loreObj, table);
+                        }
+                        else if (string.Equals(action, "UPDATE") && table > LoreTable.Terminologies)
+                        {
+                            LoreFactory.RouteBTableUpdateLoreObject(table, btIdMap, _crud);
+                        }
+                        else if (string.Equals(action, "DELETE") && table <= LoreTable.Terminologies)
+                        {
+                            _crud.DeleteLoreById((int)loreObj.GetType()
+                                                             .GetProperty("Id")!
+                                                             .GetValue(loreObj)!, table);
+                        }
+                        else if (string.Equals(action, "DELETE") && table > LoreTable.Terminologies)
+                        {
+                            LoreFactory.RouteBTableDeleteLoreObject(table, btIdMap, _crud);
+                        }
+                        else if (string.Equals(action, "INSERT"))
+                        {
+                            _crud.InsertLore(loreObj, table);
+                        }
                     }
                     catch (SqlException ex)
                     {
-                        Console.WriteLine($"ERR: SQL entry error... {ex.Message}");
+                        Console.WriteLine($"ERR: SQL execution error... {ex.Message}");
                         colRequest = "";
                     }
                 }
@@ -155,18 +190,13 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                     colRequest = "";
                 }
             }
-            else if (colRequest != null && !propNames.Contains(colRequest))
-            {
-                Console.WriteLine("\nERR: Invalid column request...");
-                colRequest = "";
-            }
-            else // Update working object
+            else if(!string.Equals(action, "DELETE")) // Update working object
             {
                 try
                 {
                     var targetProp = props.Where(p => p.Name == colRequest).First();
                     var targetType = targetProp.PropertyType;
-                    SetLoreObjProperty(loreObj, targetProp, targetType);
+                    SetLoreObjProperty(loreObj, targetProp, targetType, table, btIdMap);
                 }
                 catch (InvalidCastException ex)
                 {
@@ -177,7 +207,103 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                     colRequest = "";
                 }
             }
+            else
+            {
+                Console.WriteLine("\nERR: Invalid request...");
+                colRequest = "";
+            }
         }
+    }
+
+    private object? GetIdFromUserAndCheckDB(LoreTable table, string action)
+    {
+        // Handle B Tables separately
+        if (table > LoreTable.Terminologies)
+        {
+            return GetIdsForBTableObjectAndCheckDB(table);
+        }
+
+        Dictionary<string, int> idMap = new()
+            { {"PK", 0 } };
+        while (idMap["PK"] == 0)
+        {
+            Console.Write($"\nInsert Id for row in {table} to {action} (or EXIT):\n||> ");
+            string input = Console.ReadLine()!;
+            if (int.TryParse(input, out int id))
+            {
+                idMap["PK"] = id;
+                object? obj = LoreFactory.GetDBLoreObject(table, idMap, _crud);
+                if (obj == null)
+                {
+                    Console.WriteLine($"\nNo entry found with the Id = {idMap["PK"]}!");
+                    idMap["PK"] = 0;
+                    continue;
+                }
+                return obj;
+            }
+            else if (string.Equals(input, "EXIT"))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("ERR: Invalid entry, enter an int...");
+            }
+        }
+        return null;
+    }
+
+    private object? GetIdsForBTableObjectAndCheckDB(LoreTable table)
+    {
+        Dictionary<string, int> ids = [];
+        Type type = LoreFactory.LoreTypeMap[table];
+        var props = type.GetProperties();
+        bool invalidObj = true;
+        while (invalidObj)
+        {
+            foreach (var prop in props)
+            {
+                if (prop.PropertyType != typeof(int))
+                {
+                    continue;
+                }
+                int id = 0;
+                while (id == 0)
+                {
+                    Console.Write($"\nEnter Id for {prop.Name} (or EXIT):\n||> ");
+                    string input = Console.ReadLine()!;
+                    if (int.TryParse(input, out id))
+                    {
+                        ids[prop.Name] = id;
+                    }
+                    else if (string.Equals(input, "EXIT"))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        Console.WriteLine("ERR: Invalid entry, enter an int...");
+                    }
+                }
+            }
+
+            object? obj = LoreFactory.GetDBLoreObject(table, ids, _crud);
+            if (obj == null)
+            {
+                StringBuilder sb = new();
+                sb.Append("\nNo entry found with the Ids: ");
+                foreach (var key in ids.Keys)
+                {
+                    sb.Append($"{key} = {ids[key]} ");
+                }
+                sb.Append('!');
+                Console.WriteLine(sb.ToString());
+                continue;
+            }
+            return obj;
+
+        }
+        return null;
     }
 
     private bool IsValidLoreObj(object loreObj, PropertyInfo[] props)
@@ -210,7 +336,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return isValid;
     }
 
-    private void SetLoreObjProperty(object loreObj, PropertyInfo targetProp, Type targetType)
+    private void SetLoreObjProperty(object loreObj, PropertyInfo targetProp, Type targetType, LoreTable table, Dictionary<string, int> btIdMap)
     {
         // Check for nullable types for casting
         if (targetProp.PropertyType.IsGenericType && 
@@ -227,6 +353,11 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
             var casted = targetType.IsEnum ? Enum.Parse(targetType, val!) :
                                              Convert.ChangeType(val, targetType);
             targetProp.SetValue(loreObj, casted);
+            // Store new ids for B table updating
+            if (table > LoreTable.Terminologies && targetProp.Name.EndsWith("Id"))
+            {
+                btIdMap[targetProp.Name] = (int)targetProp.GetValue(loreObj)!;
+            }
         }
         catch (InvalidCastException)
         {
@@ -235,7 +366,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         } 
     }
 
-    private string BuildObjData(object obj, PropertyInfo[] props, LoreTable table) 
+    private string BuildObjData(object obj, PropertyInfo[] props, LoreTable table, string action) 
     {
         if (obj == null)
         {
@@ -247,7 +378,12 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         {
             builder.AppendLine($"\t{p.Name} : {p.GetValue(obj)}");
         }
-        builder.AppendLine("(input column name or 'INSERT' to input to database or 'EXIT')");
+        builder.AppendLine("(input ");
+        if (!string.Equals(action, "DELETE"))
+        {
+            builder.AppendLine("column name or ");
+        }
+        builder.AppendLine($"'{action}' to execute on database or 'EXIT')");
         builder.Append("||> ");
         
         return builder.ToString();
@@ -344,7 +480,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
     }
 
     private void AddLoreObjectToDataString(StringBuilder sb, object loreObj)
-    {// TODO Revisit here for proper table formating
+    {// TODO Revisit here for proper table formatting
         PropertyInfo[]? props = loreObj.GetType().GetProperties();
         foreach (var p in props)
         {
@@ -356,15 +492,5 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
             sb.Append($"|{p.GetValue(loreObj)}|");
         }
         sb.AppendLine("\n--------------------------------------------------------------------------------");
-    }
-
-    private void UpdateLoreEntry(LoreTable table) 
-    {
-        throw new NotImplementedException();
-    }
-
-    private void DeleteEntryLoreById(LoreTable table) 
-    {
-        throw new NotImplementedException();
     }
 }

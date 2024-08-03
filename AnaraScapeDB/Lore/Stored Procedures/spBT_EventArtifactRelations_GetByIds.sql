@@ -1,15 +1,18 @@
-﻿CREATE PROCEDURE [Lore].[spBT_EventArtifactRelations_SelectAll]
+﻿CREATE PROCEDURE [Lore].[spBT_EventArtifactRelations_GetByCK]
+	@EventId INT,
+	@ArtifactId INT
 AS
 BEGIN
 	SET NOCOUNT ON;
 
-	SELECT
+	SELECT 
 		[EventId],
 		[ArtifactId],
 		[Events].[Name] AS [EventName],
 		[Artifacts].[Name] AS [ArtifactName]
 	FROM [Lore].[BT_EventArtifactRelations]
 		INNER JOIN [Lore].[Events] ON ([Events].[Id] = [EventId])
-		INNER JOIN [Lore].[Artifacts] ON ([Artifacts].[Id] = [ArtifactId]);
+		INNER JOIN [Lore].[Artifacts] ON ([Artifacts].[Id] = [ArtifactId])
+	WHERE [EventId] = @EventId AND [ArtifactId] = @ArtifactId;
 
 END

@@ -8,7 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E15A3A69-C5FC-4F2D-BC14-AFC6FA238C4E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		HomeSample.jpeg = HomeSample.jpeg
+		MapGeneratorSample.jpeg = MapGeneratorSample.jpeg
 		README.md = README.md
+		UnderconstructionPageSample.jpeg = UnderconstructionPageSample.jpeg
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4350647E-47F5-4A0F-A029-9B925A179793}"

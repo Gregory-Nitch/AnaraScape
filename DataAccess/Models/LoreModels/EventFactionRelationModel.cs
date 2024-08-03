@@ -10,3 +10,9 @@ public class EventFactionRelationModel(int eventId,
     public string EventName { get; set; } = eventName;
     public string FactionName { get; set; } = factionName; 
 }
+
+public class LoadingEventFactionRelationModel(int eventId,int factionId)
+{
+    public int EventId { get; set; } = eventId;
+    public int FactionId { get; set; } = factionId;
+}

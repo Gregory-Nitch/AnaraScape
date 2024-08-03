@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Lore].[spArtifact_InsertArtifact]
+﻿CREATE PROCEDURE [Lore].[spArtifacts_InsertArtifact]
 	@Name VARCHAR(100),
 	@Description VARCHAR(MAX),
 	@LocationId INT,

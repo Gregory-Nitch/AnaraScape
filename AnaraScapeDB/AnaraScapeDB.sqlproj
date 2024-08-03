@@ -98,7 +98,7 @@
     <Build Include="Lore\Tables\BT_LocationEventRelations.sql" />
     <Build Include="Lore\Tables\BT_LocationResourceRelations.sql" />
     <Build Include="Lore\Tables\BT_EventArtifactRelations.sql" />
-    <Build Include="Lore\Stored Procedures\spArtifact_InsertArtifact.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_InsertArtifact.sql" />
     <Build Include="Lore\Stored Procedures\spEvents_InsertEvent.sql" />
     <Build Include="Lore\Stored Procedures\spFactions_InsertFaction.sql" />
     <Build Include="Lore\Stored Procedures\spGeoMaps_InsertGeoMap.sql" />
@@ -130,6 +130,38 @@
     <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_SelectAll.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_SelectAll.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_SelectAll.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_UpdateByIds.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_GetByIds.sql" />
+    <Build Include="Lore\Stored Procedures\spEvents_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spFactions_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spGeoMaps_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spHistoricalAges_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spResources_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_GetById.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_GetByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_GetByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_GetByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_GetByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_GetByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_GetByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_UpdateByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_UpdateByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_UpdateByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_UpdateByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_UpdateByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_UpdateByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spEvents_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spHistoricalAges_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spGeoMaps_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spFactions_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spResources_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_UpdateById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />

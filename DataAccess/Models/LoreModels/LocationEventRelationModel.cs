@@ -10,3 +10,9 @@ public class LocationEventRelationModel(int locationId,
     public string LocationName { get; set; } = locationName;
     public string EventName { get; set; } = eventName;
 }
+
+public class LoadingLocationEventRelationModel(int locationId, int eventId)
+{
+    public int LocationId { get; set; } = locationId;
+    public int EventId { get; set; } = eventId;
+}

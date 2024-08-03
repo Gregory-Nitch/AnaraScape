@@ -5,7 +5,7 @@ using DataAccess.Models.LoreModels;
 namespace DataAccess;
 
 /// <summary>
-/// Represents the required implmentation for CRUD objects
+/// Represents the required implementation for CRUD objects
 /// </summary>
 public interface ICrud
 {
@@ -34,4 +34,62 @@ public interface ICrud
     public List<LocationResourceRelationModel> GetAllLocationResourceRelations();
     public List<NPCEventRelationModel> GetAllNPCEventRelations();
     public List<NPCFactionRelationModel> GetAllNPCFactionRelations();
+    public StoredArtifactModel? GetStoredArtifactById(int id);
+    public StoredEventModel? GetStoredEventById(int id);
+    public StoredFactionModel? GetStoredFactionById(int id);
+    public GeoMapModel? GetGeoMapById(int id);
+    public HistoricalAgeModel? GetHistoricalAgeById(int id);
+    public LocationModel? GetLocationById(int id);
+    public StoredNPCModel? GetStoredNPCById(int id);
+    public ResourceModel? GetResourceById(int id);
+    public StoredTerminologyModel? GetStoredTerminologyById(int id);
+    public EventArtifactRelationModel? GetEventArtifactRelationByCompositeId(int eventId,
+                                                                              int artifactId);
+    public EventFactionRelationModel? GetEventFactionRelationByCompositeId(int eventId,
+                                                                          int factionId);
+    public LocationEventRelationModel? GetLocationEventRelationByCompositeId(int LocationId,
+                                                                            int eventId);
+    public LocationFactionRelationModel? GetLocationFactionRelationByCompositeId(int locationId,
+                                                                                int factionId);
+    public LocationResourceRelationModel? GetLocationResourceRelationByCompositeId(int locationId,
+                                                                                  int resourceId);
+    public NPCEventRelationModel? GetNPCEventRelationByCompositeId(int npcId, int eventId);
+    public NPCFactionRelationModel? GetNPCFactionRelationByCompositeId(int npcId, int factionId);
+    public void UpdateLore<T>(T loreObj, LoreTable table);
+    public void UpdateEventArtifactRelationByCompositeId(int eventId,
+                                                         int artifactId,
+                                                         int oldEventId,
+                                                         int oldArtifactId);
+    public void UpdateEventFactionRelationByCompositeId(int eventId,
+                                                        int factionId,
+                                                        int oldEventId,
+                                                        int oldFactionId);
+    public void UpdateLocationEventRelationByCompositeId(int locationId,
+                                                         int eventId,
+                                                         int oldLocationId,
+                                                         int oldEventId);
+    public void UpdateLocationFactionRelationByCompositeId(int locationId,
+                                                           int factionId,
+                                                           int oldLocationId,
+                                                           int oldFactionId);
+    public void UpdateLocationResourceRelationByCompositeId(int locationId,
+                                                            int resourceId,
+                                                            int oldLocationId,
+                                                            int oldResourceId);
+    public void UpdateNPCEventRelationsByCompositeId(int npcId,
+                                                     int eventId,
+                                                     int oldNPCId,
+                                                     int oldEventId);
+    public void UpdateNPCFactionRelationByCompositeId(int npcId,
+                                                      int factionId,
+                                                      int oldNPCId,
+                                                      int oldFactionId);
+    public void DeleteLoreById(int id, LoreTable table);
+    public void DeleteEventArtifactRelationByCompositeId(int eventId, int artifactId);
+    public void DeleteEventFactionRelationByCompositeId(int eventId, int factionId);
+    public void DeleteLocationEventRelationByCompositeId(int locationId, int eventId);
+    public void DeleteLocationFactionRelationByCompositeId(int locationId, int factionId);
+    public void DeleteLocationResourceRelationByCompositeId(int locationId, int resourceId);
+    public void DeleteNPCEventRelationsByCompositeId(int npcId, int eventId);
+    public void DeleteNPCFactionRelationByCompositeId(int npcId, int factionId);
 }

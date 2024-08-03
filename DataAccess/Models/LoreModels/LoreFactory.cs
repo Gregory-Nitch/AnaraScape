@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-
-namespace DataAccess.Models.LoreModels;
+﻿namespace DataAccess.Models.LoreModels;
 
 public enum LoreTable
 {
@@ -44,9 +42,9 @@ public class LoreFactory
         { "BT_NPCFactionRelations", LoreTable.BT_NPCFactionRelations },
     };
 
-    public static readonly Dictionary<LoreTable, string> StoredProcessLoreMap = new()
+    public static readonly Dictionary<LoreTable, string> StoredProcedureInsertLoreMap = new()
     {
-        { LoreTable.Artifacts, "Lore.spArtifact_InsertArtifact" },
+        { LoreTable.Artifacts, "Lore.spArtifacts_InsertArtifact" },
         { LoreTable.Events, "Lore.spEvents_InsertEvent" },
         { LoreTable.Factions, "Lore.spFactions_InsertFaction" },
         { LoreTable.GeoMaps, "Lore.spGeoMaps_InsertGeoMap" },
@@ -64,6 +62,26 @@ public class LoreFactory
         { LoreTable.BT_NPCFactionRelations, "Lore.spBT_NPCFactionRelations_InsertRelation" },
     };
 
+    public static readonly Dictionary<LoreTable, string> StoredProcedureUpdateLoreMap = new()
+    {
+        { LoreTable.Artifacts, "Lore.spArtifacts_UpdateById" },
+        { LoreTable.Events, "Lore.spEvents_UpdateById" },
+        { LoreTable.Factions, "Lore.spFactions_UpdateById" },
+        { LoreTable.GeoMaps, "Lore.spGeoMaps_UpdateById" },
+        { LoreTable.HistoricalAges, "Lore.spHistoricalAges_UpdateById" },
+        { LoreTable.Locations, "Lore.spLocations_UpdateById" },
+        { LoreTable.NPCs, "Lore.spNPCs_UpdateById" },
+        { LoreTable.Resources, "Lore.spResources_UpdateById" },
+        { LoreTable.Terminologies, "Lore.spTerminologies_UpdateById" },
+        { LoreTable.BT_EventArtifactRelations, "Lore.spBT_EventArtifactRelations_UpdateByCK" },
+        { LoreTable.BT_EventFactionRelations, "Lore.spBT_EventFactionRelations_UpdateByCK" },
+        { LoreTable.BT_LocationEventRelations, "Lore.spBT_LocationEventRelations_UpdateByCK" },
+        { LoreTable.BT_LocationFactionRelations, "Lore.spBT_LocationFactionRelations_UpdateByCK" },
+        { LoreTable.BT_LocationResourceRelations, "Lore.spBT_LocationResourceRelations_UpdateByCK" },
+        { LoreTable.BT_NPCEventRelations, "Lore.spBT_NPCEventRelations_UpdateByCK" },
+        { LoreTable.BT_NPCFactionRelations, "Lore.spBT_NPCFactionRelations_UpdateByCK" },
+    };
+
     public static readonly Dictionary<LoreTable, Type> LoreTypeMap = new()
     {
         { LoreTable.Artifacts, typeof(StoredArtifactModel) },
@@ -75,13 +93,13 @@ public class LoreFactory
         { LoreTable.NPCs, typeof(StoredNPCModel) },
         { LoreTable.Resources, typeof(ResourceModel) },
         { LoreTable.Terminologies, typeof(TerminologyModel) },
-        { LoreTable.BT_EventArtifactRelations, typeof(EventArtifactRelationModel) },
-        { LoreTable.BT_EventFactionRelations, typeof(EventFactionRelationModel) },
-        { LoreTable.BT_LocationEventRelations, typeof(LocationEventRelationModel) },
-        { LoreTable.BT_LocationFactionRelations, typeof(LocationFactionRelationModel) },
-        { LoreTable.BT_LocationResourceRelations, typeof(LocationResourceRelationModel) },
-        { LoreTable.BT_NPCEventRelations, typeof(NPCEventRelationModel) },
-        { LoreTable.BT_NPCFactionRelations, typeof(NPCFactionRelationModel) },
+        { LoreTable.BT_EventArtifactRelations, typeof(LoadingEventArtifactRelationModel) },
+        { LoreTable.BT_EventFactionRelations, typeof(LoadingEventFactionRelationModel) },
+        { LoreTable.BT_LocationEventRelations, typeof(LoadingLocationEventRelationModel) },
+        { LoreTable.BT_LocationFactionRelations, typeof(LoadingLocationFactionRelationModel) },
+        { LoreTable.BT_LocationResourceRelations, typeof(LoadingLocationResourceRelationModel) },
+        { LoreTable.BT_NPCEventRelations, typeof(LoadingNPCEventRelationModel) },
+        { LoreTable.BT_NPCFactionRelations, typeof(LoadingNPCFactionRelationModel) },
     };
 
     public static object GetLoreObject(LoreTable enumType)
@@ -98,20 +116,163 @@ public class LoreFactory
             LoreTable.Resources => new LoadingResourceModel("REQUIRED"),
             LoreTable.Terminologies => new LoadingTerminologyModel("REQUIRED"),
             LoreTable.BT_EventArtifactRelations => 
-                new EventArtifactRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+                new LoadingEventArtifactRelationModel(-1, -1),
             LoreTable.BT_EventFactionRelations => 
-                new EventFactionRelationModel(-1, -1,"REQUIRED", "REQUIRED"),
+                new LoadingEventFactionRelationModel(-1, -1),
             LoreTable.BT_LocationEventRelations => 
-                new LocationEventRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+                new LoadingLocationEventRelationModel(-1, -1),
             LoreTable.BT_LocationFactionRelations => 
-                new LocationFactionRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+                new LoadingLocationFactionRelationModel(-1, -1),
             LoreTable.BT_LocationResourceRelations => 
-                new LocationResourceRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+                new LoadingLocationResourceRelationModel(-1, -1),
             LoreTable.BT_NPCEventRelations => 
-                new NPCEventRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+                new LoadingNPCEventRelationModel(-1, -1),
             LoreTable.BT_NPCFactionRelations => 
-                new NPCFactionRelationModel(-1, -1, "REQUIRED", "REQUIRED"),
+                new LoadingNPCFactionRelationModel(-1, -1),
             _ => throw new NotSupportedException(),
         };
+    }
+
+    public static object? GetDBLoreObject(LoreTable enumType,
+                                          Dictionary<string, int> idMap,
+                                          ICrud crud)
+    {
+        return enumType switch
+        {
+            LoreTable.Artifacts => crud.GetStoredArtifactById(idMap["PK"]),
+            LoreTable.Events => crud.GetStoredEventById(idMap["PK"]),
+            LoreTable.Factions => crud.GetStoredFactionById(idMap["PK"]),
+            LoreTable.GeoMaps => crud.GetGeoMapById(idMap["PK"]),
+            LoreTable.HistoricalAges => crud.GetHistoricalAgeById(idMap["PK"]),
+            LoreTable.Locations => crud.GetLocationById(idMap["PK"]),
+            LoreTable.NPCs => crud.GetStoredNPCById(idMap["PK"]),
+            LoreTable.Resources => crud.GetResourceById(idMap["PK"]),
+            LoreTable.Terminologies => crud.GetStoredTerminologyById(idMap["PK"]),
+            LoreTable.BT_EventArtifactRelations =>
+                crud.GetEventArtifactRelationByCompositeId(idMap["EventId"], idMap["ArtifactId"]),
+            LoreTable.BT_EventFactionRelations =>
+                crud.GetEventFactionRelationByCompositeId(idMap["EventId"], idMap["FactionId"]),
+            LoreTable.BT_LocationEventRelations =>
+                crud.GetLocationEventRelationByCompositeId(idMap["LocationId"], idMap["EventId"]),
+            LoreTable.BT_LocationFactionRelations =>
+                crud.GetLocationFactionRelationByCompositeId(idMap["LocationId"], idMap["FactionId"]),
+            LoreTable.BT_LocationResourceRelations =>
+                crud.GetLocationResourceRelationByCompositeId(idMap["LocationId"], idMap["ResourceId"]),
+            LoreTable.BT_NPCEventRelations =>
+                crud.GetNPCEventRelationByCompositeId(idMap["NPCId"], idMap["EventId"]),
+            LoreTable.BT_NPCFactionRelations =>
+                crud.GetNPCFactionRelationByCompositeId(idMap["NPCId"], idMap["FactionId"]),
+            _ => throw new NotSupportedException(),
+        };
+    }
+
+    public static void RouteBTableUpdateLoreObject(LoreTable table,
+                                                   Dictionary<string, int> btIdMap,
+                                                   ICrud crud)
+    {
+        switch (table)
+        {
+            case LoreTable.BT_EventArtifactRelations:
+                
+                crud.UpdateEventArtifactRelationByCompositeId(btIdMap["EventId"],
+                                                              btIdMap["ArtifactId"],
+                                                              btIdMap["OldEventId"],
+                                                              btIdMap["OldArtifactId"]);
+                break;
+
+            case LoreTable.BT_EventFactionRelations:
+                crud.UpdateEventFactionRelationByCompositeId(btIdMap["EventId"],
+                                                             btIdMap["FactionId"],
+                                                             btIdMap["OldEventId"],
+                                                             btIdMap["OldFactionId"]);
+                break;
+
+            case LoreTable.BT_LocationEventRelations:
+                crud.UpdateLocationEventRelationByCompositeId(btIdMap["LocationId"],
+                                                              btIdMap["EventId"],
+                                                              btIdMap["OldLocationId"],
+                                                              btIdMap["OldEventId"]);
+                break;
+
+            case LoreTable.BT_LocationFactionRelations:
+                crud.UpdateLocationFactionRelationByCompositeId(btIdMap["LocationId"], 
+                                                                btIdMap["FactionId"],
+                                                                btIdMap["OldLocationId"],
+                                                                btIdMap["OldFactionId"]);
+                break;
+
+            case LoreTable.BT_LocationResourceRelations:
+                crud.UpdateLocationResourceRelationByCompositeId(btIdMap["LocationId"], 
+                                                                 btIdMap["ResourceId"],
+                                                                 btIdMap["OldLocationId"],
+                                                                 btIdMap["OldResourceId"]);
+                break;
+
+            case LoreTable.BT_NPCEventRelations:
+                crud.UpdateNPCEventRelationsByCompositeId(btIdMap["NPCId"],
+                                                          btIdMap["EventId"],
+                                                          btIdMap["OldNPCId"],
+                                                          btIdMap["OldEventId"]);
+
+                break;
+
+            case LoreTable.BT_NPCFactionRelations:
+                crud.UpdateNPCFactionRelationByCompositeId(btIdMap["NPCId"], 
+                                                           btIdMap["FactionId"],
+                                                           btIdMap["OldNPCId"],
+                                                           btIdMap["OldFactionId"]);
+                break;
+
+            default:
+                throw new NotImplementedException();
+        }
+    }
+
+    public static void RouteBTableDeleteLoreObject(LoreTable table,
+                                                   Dictionary<string, int> btIdMap,
+                                                   ICrud crud)
+    {
+        switch (table)
+        {
+            case LoreTable.BT_EventArtifactRelations:
+
+                crud.DeleteEventArtifactRelationByCompositeId(btIdMap["EventId"],
+                                                              btIdMap["ArtifactId"]);
+                break;
+
+            case LoreTable.BT_EventFactionRelations:
+                crud.DeleteEventFactionRelationByCompositeId(btIdMap["EventId"],
+                                                             btIdMap["FactionId"]);
+                break;
+
+            case LoreTable.BT_LocationEventRelations:
+                crud.DeleteLocationEventRelationByCompositeId(btIdMap["LocationId"],
+                                                              btIdMap["EventId"]);
+                break;
+
+            case LoreTable.BT_LocationFactionRelations:
+                crud.DeleteLocationFactionRelationByCompositeId(btIdMap["LocationId"],
+                                                                btIdMap["FactionId"]);
+                break;
+
+            case LoreTable.BT_LocationResourceRelations:
+                crud.DeleteLocationResourceRelationByCompositeId(btIdMap["LocationId"],
+                                                                 btIdMap["ResourceId"]);
+                break;
+
+            case LoreTable.BT_NPCEventRelations:
+                crud.DeleteNPCEventRelationsByCompositeId(btIdMap["NPCId"],
+                                                          btIdMap["EventId"]);
+
+                break;
+
+            case LoreTable.BT_NPCFactionRelations:
+                crud.DeleteNPCFactionRelationByCompositeId(btIdMap["NPCId"],
+                                                           btIdMap["FactionId"]);
+                break;
+
+            default:
+                throw new NotImplementedException();
+        }
     }
 }

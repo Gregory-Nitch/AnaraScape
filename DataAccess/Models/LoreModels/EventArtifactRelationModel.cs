@@ -10,3 +10,10 @@ public class EventArtifactRelationModel(int eventId,
     public string EventName { get; set; } = eventName;
     public string ArtifactName { get; set; } = artifactName;
 }
+
+
+public class LoadingEventArtifactRelationModel(int eventId, int artifactId)
+{
+    public int EventId { get; set; } = eventId;
+    public int ArtifactId { get; set; } = artifactId;
+}
