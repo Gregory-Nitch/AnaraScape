@@ -378,10 +378,10 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         {
             builder.AppendLine($"\t{p.Name} : {p.GetValue(obj)}");
         }
-        builder.AppendLine("(input ");
+        builder.Append("(input ");
         if (!string.Equals(action, "DELETE"))
         {
-            builder.AppendLine("column name or ");
+            builder.Append("column name or ");
         }
         builder.AppendLine($"'{action}' to execute on database or 'EXIT')");
         builder.Append("||> ");

@@ -162,6 +162,22 @@
     <Build Include="Lore\Stored Procedures\spNPCs_UpdateById.sql" />
     <Build Include="Lore\Stored Procedures\spResources_UpdateById.sql" />
     <Build Include="Lore\Stored Procedures\spTerminologies_UpdateById.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_DeleteByCK.sql" />
+    <Build Include="Lore\Stored Procedures\spEvents_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spFactions_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spGeoMaps_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spHistoricalAges_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spResources_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_DeleteById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />

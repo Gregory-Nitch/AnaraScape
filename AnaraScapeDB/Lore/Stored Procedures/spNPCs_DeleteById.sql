@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE [Lore].[spNPCs_DeleteById]
+	@Id INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	DELETE FROM [Lore].[NPCs] WHERE [Id] = @Id;
+
+END
