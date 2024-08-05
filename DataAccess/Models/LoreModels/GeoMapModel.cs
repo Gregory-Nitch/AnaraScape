@@ -13,7 +13,8 @@ public class GeoMapModel(int id, string name, int locationId, string filename)
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
     public int LocationId { get; set; } = locationId; // FK (Locations)
     // Name of image file (not full path
-    public string Filename { get; set; } = filename ?? throw new ArgumentNullException(nameof(filename));
+    public string Filename { get; set; } = filename ?? 
+        throw new ArgumentNullException(nameof(filename));
 }
 
 
@@ -22,11 +23,12 @@ public class GeoMapModel(int id, string name, int locationId, string filename)
 /// </summary>
 /// <param name="name">name of the map</param>
 /// <param name="locationId">location id FK(Locations)</param>
-/// <param name="filename">filename of the image (not fullpath)</param>
+/// <param name="filename">filename of the image (not full path)</param>
 public class LoadingGeoMapModel(string name, int locationId, string filename)
 {
     public string Name { get; set; } = name ?? throw new ArgumentException(nameof(name));
     public int LocationId { get; set; } = locationId; // FK (Locations)
-    // Name of image file (not full path
-    public string Filename { get; set; } = filename ?? throw new ArgumentNullException(nameof(filename));
+    // Name of image file (not full path)
+    public string Filename { get; set; } = filename ?? 
+        throw new ArgumentNullException(nameof(filename));
 }

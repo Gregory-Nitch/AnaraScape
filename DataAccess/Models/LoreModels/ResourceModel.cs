@@ -1,5 +1,6 @@
 ﻿namespace DataAccess.Models.LoreModels;
 
+
 /// <summary>
 /// Represents a resource in the game setting.
 /// </summary>
@@ -16,6 +17,10 @@ public class ResourceModel(int id, string name, string? description, ResourceRar
 }
 
 
+/// <summary>
+/// Represents a resource in the game setting as it is being loaded.
+/// </summary>
+/// <param name="name">name of the resource</param>
 public class LoadingResourceModel(string name)
 {
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));

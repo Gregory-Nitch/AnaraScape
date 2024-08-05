@@ -1,5 +1,9 @@
 ﻿namespace DataAccess.Models.LoreModels;
 
+
+/// <summary>
+/// Encompasses all the tables in the lore schema including B Tables (BTs > Terminologies)
+/// </summary>
 public enum LoreTable
 {
     Artifacts,
@@ -20,8 +24,16 @@ public enum LoreTable
     BT_NPCFactionRelations,
 }
 
+
+/// <summary>
+/// Builds new lore objects based on requested tables, also contains maps to stored 
+/// procedures and types.
+/// </summary>
 public class LoreFactory
 {
+    /// <summary>
+    /// Matches LoreTable enum values to strings.
+    /// </summary>
     public static readonly Dictionary<string, LoreTable> LoreTables = new()
     {
         { "Artifacts", LoreTable.Artifacts },
@@ -42,6 +54,9 @@ public class LoreFactory
         { "BT_NPCFactionRelations", LoreTable.BT_NPCFactionRelations },
     };
 
+    /// <summary>
+    /// Map for matching insert store procedures to LoreTable enums.
+    /// </summary>
     public static readonly Dictionary<LoreTable, string> StoredProcedureInsertLoreMap = new()
     {
         { LoreTable.Artifacts, "Lore.spArtifacts_InsertArtifact" },
@@ -62,6 +77,9 @@ public class LoreFactory
         { LoreTable.BT_NPCFactionRelations, "Lore.spBT_NPCFactionRelations_InsertRelation" },
     };
 
+    /// <summary>
+    /// Map for matching update store procedures to LoreTable enum values.
+    /// </summary>
     public static readonly Dictionary<LoreTable, string> StoredProcedureUpdateLoreMap = new()
     {
         { LoreTable.Artifacts, "Lore.spArtifacts_UpdateById" },
@@ -82,6 +100,9 @@ public class LoreFactory
         { LoreTable.BT_NPCFactionRelations, "Lore.spBT_NPCFactionRelations_UpdateByCK" },
     };
 
+    /// <summary>
+    /// Maps LoreTable enum values to lore object types.
+    /// </summary>
     public static readonly Dictionary<LoreTable, Type> LoreTypeMap = new()
     {
         { LoreTable.Artifacts, typeof(StoredArtifactModel) },
@@ -102,6 +123,13 @@ public class LoreFactory
         { LoreTable.BT_NPCFactionRelations, typeof(LoadingNPCFactionRelationModel) },
     };
 
+    /// <summary>
+    /// Builds new lore object instances.
+    /// </summary>
+    /// <param name="enumType">type of lore object to build</param>
+    /// <returns>lore object based on passed LoreTable enum</returns>
+    /// <exception cref="NotSupportedException">thrown when an invalid enum value is passed
+    /// </exception>
     public static object GetLoreObject(LoreTable enumType)
     {
         return enumType switch
@@ -133,6 +161,15 @@ public class LoreFactory
         };
     }
 
+    /// <summary>
+    /// Gets a lore object stored in the database.
+    /// </summary>
+    /// <param name="enumType">table to get object from</param>
+    /// <param name="idMap">id map containing required id(s)</param>
+    /// <param name="crud">crud object to execute sql on</param>
+    /// <returns>object matching passed parameters</returns>
+    /// <exception cref="NotSupportedException">thrown when an invalid LoreTable enum is passed
+    /// </exception>
     public static object? GetDBLoreObject(LoreTable enumType,
                                           Dictionary<string, int> idMap,
                                           ICrud crud)
@@ -166,6 +203,14 @@ public class LoreFactory
         };
     }
 
+    /// <summary>
+    /// Routes update requests for B Tables.
+    /// </summary>
+    /// <param name="table">db table to route update to</param>
+    /// <param name="btIdMap">id map containing old and new ids</param>
+    /// <param name="crud">crud obj to execute sql on</param>
+    /// <exception cref="NotImplementedException">thrown if an invalid LoreTable enum value
+    /// is passed</exception>
     public static void RouteBTableUpdateLoreObject(LoreTable table,
                                                    Dictionary<string, int> btIdMap,
                                                    ICrud crud)
@@ -228,6 +273,13 @@ public class LoreFactory
         }
     }
 
+    /// <summary>
+    /// Routes delete requests to B Tables.
+    /// </summary>
+    /// <param name="table">table to route delete request too</param>
+    /// <param name="btIdMap">id map containing the ids need to delete the entry from db</param>
+    /// <param name="crud">crud object to execute sql on</param>
+    /// <exception cref="NotImplementedException"></exception>
     public static void RouteBTableDeleteLoreObject(LoreTable table,
                                                    Dictionary<string, int> btIdMap,
                                                    ICrud crud)

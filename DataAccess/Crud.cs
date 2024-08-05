@@ -89,7 +89,10 @@ public class Crud(IDBAccess db) : ICrud
 
     public void InsertLore<T>(T loreObj, LoreTable table)
     {
-        _db.WriteToDB(LoreFactory.StoredProcedureInsertLoreMap[table], loreObj, ConnStringName, true);
+        _db.WriteToDB(LoreFactory.StoredProcedureInsertLoreMap[table],
+                      loreObj,
+                      ConnStringName,
+                      true);
     }
 
     public List<StoredArtifactModel> GetAllArtifacts() 
@@ -302,34 +305,41 @@ public class Crud(IDBAccess db) : ICrud
     public EventArtifactRelationModel? GetEventArtifactRelationByCompositeId(int eventId,
                                                                              int artifactId)
     {
-        return _db.QueryDB<EventArtifactRelationModel, dynamic>("Lore.spBT_EventArtifactRelations_GetByCK", 
-                                                                new { eventId, artifactId },
-                                                                ConnStringName,
-                                                                true).FirstOrDefault();
+        return _db.QueryDB<EventArtifactRelationModel, dynamic>(
+                            "Lore.spBT_EventArtifactRelations_GetByCK", 
+                            new { eventId, artifactId },
+                            ConnStringName,
+                            true).FirstOrDefault();
     }
 
-    public EventFactionRelationModel? GetEventFactionRelationByCompositeId(int eventId, int factionId)
+    public EventFactionRelationModel? GetEventFactionRelationByCompositeId(int eventId,
+                                                                           int factionId)
     {
-        return _db.QueryDB<EventFactionRelationModel, dynamic>("Lore.spBT_EventFactionRelations_GetByCK",
-                                                                new { eventId, factionId },
-                                                                ConnStringName,
-                                                                true).FirstOrDefault();
+        return _db.QueryDB<EventFactionRelationModel, dynamic>(
+                            "Lore.spBT_EventFactionRelations_GetByCK",
+                            new { eventId, factionId },
+                            ConnStringName,
+                            true).FirstOrDefault();
     }
 
-    public LocationEventRelationModel? GetLocationEventRelationByCompositeId(int locationId, int eventId)
+    public LocationEventRelationModel? GetLocationEventRelationByCompositeId(int locationId,
+                                                                             int eventId)
     {
-        return _db.QueryDB<LocationEventRelationModel, dynamic>("Lore.spBT_LocationEventRelations_GetByCK",
-                                                                 new { eventId, locationId },
-                                                                 ConnStringName,
-                                                                 true).FirstOrDefault();
+        return _db.QueryDB<LocationEventRelationModel, dynamic>(
+                            "Lore.spBT_LocationEventRelations_GetByCK",
+                            new { eventId, locationId },
+                            ConnStringName,
+                            true).FirstOrDefault();
     }
 
-    public LocationFactionRelationModel? GetLocationFactionRelationByCompositeId(int locationId, int factionId)
+    public LocationFactionRelationModel? GetLocationFactionRelationByCompositeId(int locationId,
+                                                                                 int factionId)
     {
-        return _db.QueryDB<LocationFactionRelationModel, dynamic>("Lore.spBT_LocationFactionRelations_GetByCK",
-                                                                   new { locationId, factionId },
-                                                                   ConnStringName,
-                                                                   true).FirstOrDefault();
+        return _db.QueryDB<LocationFactionRelationModel, dynamic>(
+                            "Lore.spBT_LocationFactionRelations_GetByCK",
+                            new { locationId, factionId },
+                            ConnStringName,
+                            true).FirstOrDefault();
     }
 
     public LocationResourceRelationModel? GetLocationResourceRelationByCompositeId(int locationId,
@@ -352,7 +362,8 @@ public class Crud(IDBAccess db) : ICrud
 
     public NPCFactionRelationModel? GetNPCFactionRelationByCompositeId(int npcId, int factionId)
     {
-        return _db.QueryDB<NPCFactionRelationModel, dynamic>("Lore.spBT_NPCFactionRelations_GetByCK",
+        return _db.QueryDB<NPCFactionRelationModel, dynamic>(
+                                                   "Lore.spBT_NPCFactionRelations_GetByCK",
                                                    new { npcId, factionId },
                                                    ConnStringName,
                                                    true).FirstOrDefault();

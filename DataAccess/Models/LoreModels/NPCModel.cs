@@ -1,5 +1,6 @@
 ﻿namespace DataAccess.Models.LoreModels;
 
+
 /// <summary>
 /// Represents a NPC in the game setting.
 /// </summary>
@@ -87,7 +88,7 @@ public class LoadingNPCModel(string name, string race, string description, strin
 /// <param name="title">title of NPC (king of X, etc)</param>
 /// <param name="levelOrCR">level or CR of NPC (lvl3||cr3)</param>
 /// <param name="speed">speed in feet</param>
-/// <param name="hitPoints">hitpoints of the NPC (max)</param>
+/// <param name="hitPoints">hit points of the NPC (max)</param>
 /// <param name="armorClass">armor class of NPC</param>
 /// <param name="statArray">stats of the NPC in string form</param>
 /// <param name="proficiencyBonus">proficiency bonus of the NPC</param>
@@ -150,9 +151,9 @@ public class StoredNPCModel(int id,
     public string? ActionList { get; set; } = actionList;
     public string? FeatureList { get; set; } = featureList;
     public string? EquipmentList { get; set; } = equipmentList;
-    public int? LocationId { get; set; } = locationId;
+    public int? LocationId { get; set; } = locationId; // FK Locations
     public string? BirthDate { get; set; } = birthDate;
-    public int? BirthAgeId { get; set; } = birthAgeId;
+    public int? BirthAgeId { get; set; } = birthAgeId; // FK HistoricalAges
     public string? DeathDate { get; set; } = deathDate;
-    public int? DeathAgeId { get; set; } = deathAgeId;
+    public int? DeathAgeId { get; set; } = deathAgeId; // FK HistoricalAges
 }

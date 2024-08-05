@@ -1,7 +1,7 @@
 ﻿namespace DataAccess.Models.LoreModels;
 
 /// <summary>
-/// Reprents an artifact in the game setting
+/// Represents an artifact in the game setting
 /// </summary>
 /// <param name="storedModel">model data from database</param>
 public class ArtifactModel(StoredArtifactModel storedModel)
@@ -28,7 +28,7 @@ public class ArtifactModel(StoredArtifactModel storedModel)
 
 
 /// <summary>
-/// Atrifact model data in its database form.
+/// Artifact model data in its database form.
 /// </summary>
 /// <param name="id">id from db</param>
 /// <param name="name">name of artifact</param>
@@ -62,22 +62,22 @@ public class StoredArtifactModel(int id,
     public int Id { get; set; } = id;
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
     public string? Description { get; set; } = description;
-    public int? LocationId { get; set; } = locationId;
+    public int? LocationId { get; set; } = locationId; // FK (Locations)
     public EntityType? OwnerType { get; set; } = ownerType;
-    public int? NPCOwnerId { get; set; } = nPCOwnerId;
-    public int? FactionOwnerId { get; set; } = factionOwnerId;
+    public int? NPCOwnerId { get; set; } = nPCOwnerId; // FK (NPCs)
+    public int? FactionOwnerId { get; set; } = factionOwnerId; // FK (Factions)
     public EntityType? CreatorType { get; set; } = creatorType;
-    public int? NPCCreatorId { get; set; } = nPCCreatorId;
-    public int? FactionCreatorId { get; set; } = factionCreatorId;
+    public int? NPCCreatorId { get; set; } = nPCCreatorId; // FK (NPCs)
+    public int? FactionCreatorId { get; set; } = factionCreatorId; // FK (Factions)
     public string? CreationDate { get; set; } = creationDate;
-    public int? CreationAgeId { get; set; } = creationAgeId;
+    public int? CreationAgeId { get; set; } = creationAgeId; // FK (HistoricalAges)
     public string? LostDate { get; set; } = lostDate;
-    public int? LostAgeId { get; set; } = lostAgeId;
+    public int? LostAgeId { get; set; } = lostAgeId; // FK (HistoricalAges)
 }
 
 
 /// <summary>
-/// Represents an aritifact as it is being build for loading (such as with CLI tool)
+/// Represents an artifact as it is being build for loading (such as with CLI tool)
 /// </summary>
 /// <param name="name">name of the artifact</param>
 public class LoadingArtifactModel(string name)

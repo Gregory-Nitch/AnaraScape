@@ -1,5 +1,4 @@
-﻿using Dapper;
-using DataAccess;
+﻿using DataAccess;
 using DataAccess.Models.LoreModels;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,10 +7,18 @@ using System.Text;
 
 namespace AnaraScapeTools.Commands;
 
+/// <summary>
+/// Lore sub menu command allows insert, select, update and delete of lore db entries.
+/// </summary>
+/// <param name="crud">crud obj to execute sql on db</param>
 public class LoreSubMenu(ICrud crud) : IToolCommand
 {
     private readonly ICrud _crud = crud;
 
+    /// <summary>
+    /// Enters the lore sub menu and gets desired action from user.
+    /// </summary>
+    /// <exception cref="ArgumentException">thrown if produced action is not valid</exception>
     public void Job()
     {
         string action = "";
@@ -53,6 +60,10 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         }
     }
 
+    /// <summary>
+    /// Gets the requested sql action from the user.
+    /// </summary>
+    /// <returns>should only return sql action strings or exit</returns>
     private string GetCrudAction()
     {
         string? action = "";
@@ -89,6 +100,10 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return action;
     }
 
+    /// <summary>
+    /// Gets the lore table the user wants execute sql upon.
+    /// </summary>
+    /// <returns>enum of LoreTable</returns>
     private LoreTable GetTable()
     {
         StringBuilder builder = new();
@@ -116,6 +131,12 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return LoreFactory.LoreTables[table];
     }
 
+    /// <summary>
+    /// Performs delete, update, and insert sql actions based on parameters
+    /// </summary>
+    /// <param name="table">table to execute sql on</param>
+    /// <param name="action">action to execute on table</param>
+    /// <param name="obj">obj to use during execution(default null)</param>
     private void BuildAndDeUpsertLore(LoreTable table, string action, object? obj = null)
     {
         obj ??= GetIdFromUserAndCheckDB(table, action);
@@ -215,6 +236,12 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         }
     }
 
+    /// <summary>
+    /// Checks if an object id is in the passed table, B Tables are routed to a different method.
+    /// </summary>
+    /// <param name="table">table to execute sql on</param>
+    /// <param name="action">action to execute on table</param>
+    /// <returns>object from table with requested id, or null if user requests exit</returns>
     private object? GetIdFromUserAndCheckDB(LoreTable table, string action)
     {
         // Handle B Tables separately
@@ -253,6 +280,11 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return null;
     }
 
+    /// <summary>
+    /// Gets composite key ids from user and checks if an object with those ids is in the database.
+    /// </summary>
+    /// <param name="table">table to check for object</param>
+    /// <returns>object with matching ids, or null if user requests exit</returns>
     private object? GetIdsForBTableObjectAndCheckDB(LoreTable table)
     {
         Dictionary<string, int> ids = [];
@@ -306,6 +338,12 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return null;
     }
 
+    /// <summary>
+    /// Checks if the passed lore object has valid values prior to insert or update.
+    /// </summary>
+    /// <param name="loreObj">object to check</param>
+    /// <param name="props">properties of passed object</param>
+    /// <returns>boolean flag indicating a valid or invalid object</returns>
     private bool IsValidLoreObj(object loreObj, PropertyInfo[] props)
     {
         bool isValid = true;
@@ -336,7 +374,20 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return isValid;
     }
 
-    private void SetLoreObjProperty(object loreObj, PropertyInfo targetProp, Type targetType, LoreTable table, Dictionary<string, int> btIdMap)
+    /// <summary>
+    /// Sets the passed object's property value as user's input.
+    /// </summary>
+    /// <param name="loreObj">object to update</param>
+    /// <param name="targetProp">property to update</param>
+    /// <param name="targetType">type of value required for property</param>
+    /// <param name="table">table the object resides in</param>
+    /// <param name="btIdMap">B Table id map (for B Tables only)</param>
+    /// <exception cref="InvalidCastException"></exception>
+    private void SetLoreObjProperty(object loreObj,
+                                    PropertyInfo targetProp,
+                                    Type targetType,
+                                    LoreTable table,
+                                    Dictionary<string, int> btIdMap)
     {
         // Check for nullable types for casting
         if (targetProp.PropertyType.IsGenericType && 
@@ -361,11 +412,20 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         }
         catch (InvalidCastException)
         {
-            throw new InvalidCastException($"Could not cast {val} -> '{val!.GetType()}' to type " +
-                $"'{targetType}'");
+            throw new InvalidCastException($"ERR: Could not cast {val} -> '{val!.GetType()}' to " +
+                $"type '{targetType}'");
         } 
     }
 
+    /// <summary>
+    /// Builds the passed object's data as a string.
+    /// </summary>
+    /// <param name="obj">object to get data for</param>
+    /// <param name="props">properties of the object</param>
+    /// <param name="table">table the object resides in</param>
+    /// <param name="action">desired action on the object</param>
+    /// <returns>string of the object's data</returns>
+    /// <exception cref="ArgumentNullException">thrown if passed object is null</exception>
     private string BuildObjData(object obj, PropertyInfo[] props, LoreTable table, string action) 
     {
         if (obj == null)
@@ -389,6 +449,11 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         return builder.ToString();
     }
 
+    /// <summary>
+    /// Gets all the objects in a requested table and builds a data sheet.
+    /// </summary>
+    /// <param name="table">table to select from</param>
+    /// <exception cref="NotSupportedException">thrown if an invalid table is requested</exception>
     private void SelectLoreByTable(LoreTable table) 
     {
         StringBuilder sb = new();
@@ -479,6 +544,12 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         }
     }
 
+    /// <summary>
+    /// Adds an objects data to the passed string builder object. Used to build rows of sql select
+    /// data sheets.
+    /// </summary>
+    /// <param name="sb">string builder object to build data in</param>
+    /// <param name="loreObj">object to add data to string builder</param>
     private void AddLoreObjectToDataString(StringBuilder sb, object loreObj)
     {// TODO Revisit here for proper table formatting
         PropertyInfo[]? props = loreObj.GetType().GetProperties();

@@ -9,13 +9,13 @@ public class FactionModel(StoredFactionModel storedModel)
     public int Id { get; set; } = storedModel.Id;
     public string Name { get; set; } = storedModel.Name;
     public string? Description { get; set; } = storedModel.Description;
-    public int? LeaderId { get; set; } = storedModel.LeaderId;
+    public int? LeaderId { get; set; } = storedModel.LeaderId; // FK NPCs
     public AnaraDate? FoundingDate { get; set; } = 
         storedModel.FoundingDate != null ? AnaraDate.ParseFromString(storedModel.FoundingDate) : null;
-    public int? FoundingAgeId { get; set; } = storedModel.FoundingAgeId;
+    public int? FoundingAgeId { get; set; } = storedModel.FoundingAgeId; // FK Historical Ages
     public AnaraDate? DisbandDate { get; set; } =
         storedModel.DisbandDate != null ? AnaraDate.ParseFromString(storedModel.DisbandDate) : null;
-    public int? DisbandAgeId { get; set; } = storedModel.DisbandAgeId;
+    public int? DisbandAgeId { get; set; } = storedModel.DisbandAgeId; // FK Historical Ages
 }
 
 
@@ -42,11 +42,11 @@ public class StoredFactionModel(int id,
     public int Id { get; set; } = id;
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
     public string? Description { get; set; } = description;
-    public int? LeaderId { get; set; } = leaderId;
+    public int? LeaderId { get; set; } = leaderId; // FK NPCs
     public string? FoundingDate { get; set; } = foundingDate;
-    public int? FoundingAgeId { get; set; } = foundingAgeId;
+    public int? FoundingAgeId { get; set; } = foundingAgeId; // FK Historical Ages
     public string? DisbandDate { get; set; } = disbandDate;
-    public int? DisbandAgeId { get; set; } = disbandAgeId;
+    public int? DisbandAgeId { get; set; } = disbandAgeId; // FK Historical Ages
 }
 
 
@@ -58,9 +58,9 @@ public class LoadingFactionModel(string name)
 {
     public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
     public string? Description { get; set; }
-    public int? LeaderId { get; set; }
+    public int? LeaderId { get; set; } // FK NPCs
     public string? FoundingDate { get; set; }
-    public int? FoundingAgeId { get; set; }
+    public int? FoundingAgeId { get; set; } // FK Historical Ages
     public string? DisbandDate { get; set; }
-    public int? DisbandAgeId { get; set; }
+    public int? DisbandAgeId { get; set; } // FK Historical Ages
 }

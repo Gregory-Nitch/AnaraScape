@@ -45,9 +45,9 @@ public class StoredEventModel(int id,
     public bool IsMultiDayEvent { get; set; } = isMultiDayEvent;
     public string? Description { get; set; } = description;
     public string? StartDate { get; set; } = startDate;
-    public int? StartAgeId { get; set; } = startAgeId;
+    public int? StartAgeId { get; set; } = startAgeId; // FK (HistoricalAges)
     public string? EndDate { get; set; } = endDate;
-    public int? EndAgeId { get; set; } = endAgeId;
+    public int? EndAgeId { get; set; } = endAgeId; // FK (HistoricalAges)
 }
 
 
@@ -67,7 +67,7 @@ public class LoadingEventModel(string name, bool isMultiDayEvent)
     public bool IsMultiDayEvent { get; set; } = isMultiDayEvent;
     public string? Description { get; set; }
     public string? StartDate { get; set; }
-    public int? StartAgeId { get; set; }
+    public int? StartAgeId { get; set; } // FK (HistoricalAges)
     public string? EndDate { get; set; }
-    public int? EndAgeId { get; set; }
+    public int? EndAgeId { get; set; } // FK (HistoricalAges)
 }

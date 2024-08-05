@@ -1,5 +1,10 @@
 ﻿namespace DataAccess.Models.LoreModels;
 
+
+/// <summary>
+/// Represents a term in the game setting.
+/// </summary>
+/// <param name="storedModel">model from db to build full model from</param>
 public class TerminologyModel(StoredTerminologyModel storedModel)
 {
     public int Id { get; set; } = storedModel.Id;
@@ -37,6 +42,11 @@ public class StoredTerminologyModel(int id,
     public int? InventionAgeId { get; set; } = inventionAgeId; // FK (HistoricalAges)
 }
 
+
+/// <summary>
+/// Represents a term as it is being loaded.
+/// </summary>
+/// <param name="name">name of the term</param>
 public class LoadingTerminologyModel(string name)
 {
     public string Name { get; set; } = name;
