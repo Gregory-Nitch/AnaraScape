@@ -13,6 +13,10 @@ body {
     min-height: 100vh;
 }
 
+main {
+    padding-top: 77px;
+}
+
 .bi {
     font-size: 30px;
     padding: 10px;

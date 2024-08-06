@@ -1,5 +1,6 @@
 ﻿namespace DataAccess.Models.LoreModels;
 
+
 /// <summary>
 /// Represents a geographical map in the game setting.
 /// </summary>
