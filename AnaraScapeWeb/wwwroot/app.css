@@ -14,7 +14,13 @@ body {
 }
 
 main {
-    padding-top: 77px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
 }
 
 .bi {

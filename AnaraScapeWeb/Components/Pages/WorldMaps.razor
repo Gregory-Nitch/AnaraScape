@@ -1,11 +1,23 @@
-﻿@page "/world-maps"
-
+﻿@page "/world-maps/{reqName?}"
 @using AnaraScapeWeb.Components.Layout
+
+@rendermode InteractiveServer
 
 <PageTitle>World Maps</PageTitle>
 
-<UnderConstruction FlavorMessage="But Tingilindëedur Telemnion is hard at work mapping the plane of Anara!" />
+<h1 class="text-light">@ReqName</h1>
+
+<canvas id="geomap-canvas"></canvas>
+
+<!--<UnderConstruction FlavorMessage="But Tingilindëedur Telemnion is hard at work mapping the plane of Anara!" />-->
 
 @code {
+    [Parameter]
+    public string? ReqName { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        ReqName = ReqName ?? "Anara";
+    }
 
 }
