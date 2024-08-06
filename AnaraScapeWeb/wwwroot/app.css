@@ -33,6 +33,15 @@ h1:focus {
     outline: none;
 }
 
+.btn-dark {
+    background-color: rgb(30, 30, 30);
+    transition: .2s
+}
+
+    .btn-dark:hover {
+        background-color: rgb(17, 17, 20);
+    }
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }

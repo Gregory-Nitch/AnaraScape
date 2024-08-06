@@ -1,4 +1,23 @@
-﻿
-#geomap-canvas {
+﻿#geomap-canvas {
     width: 95vw;
+    border: 5px groove grey;
+    border-radius: 25px;
+    display: block;
+    margin: auto;
+}
+
+#router-div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#other-maps {
+    display: flex;
+    flex-direction: column;
+}
+
+#location-lore {
+    display: flex;
+    flex-direction: column;
 }

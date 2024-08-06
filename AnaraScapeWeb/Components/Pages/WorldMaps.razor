@@ -1,7 +1,13 @@
 ﻿@page "/world-maps/{reqName?}"
 @using AnaraScapeWeb.Components.Layout
+@using DataAccess.Models.LoreModels
+
+@inject GeoMapCache GeoMapCache
+@inject LocationCache LocationCache
+@inject NavigationManager NavManager
 
 @rendermode InteractiveServer
+
 
 <PageTitle>World Maps</PageTitle>
 
@@ -9,15 +15,102 @@
 
 <canvas id="geomap-canvas"></canvas>
 
-<!--<UnderConstruction FlavorMessage="But Tingilindëedur Telemnion is hard at work mapping the plane of Anara!" />-->
+<div id="router-div">
+
+    <div id="other-maps">
+        @if (ContainingMaps.Count > 0)
+        {
+            <h2 class="text-light">Containing Maps</h2>
+            @foreach(var map in ContainingMaps)
+            {
+             <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainingMap(map.Name))">
+                 <i class="bi bi-zoom-out"></i>@map.Name
+             </button>   
+            }
+        }
+        @if (ContainedMaps.Count > 0)
+        {
+            <h2 class="text-light">Contained Maps</h2>
+            @foreach (var map in ContainedMaps)
+            {
+                <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedMap(map.Name))">
+                    <i class="bi bi-zoom-in"></i>@map.Name
+                </button>
+            }
+        }
+    </div>
+
+    <div id="location-lore">
+        @if (Location != null)
+        {
+            <button type="button" class="btn btn-dark" @onclick="GoToLore">
+                <i class="bi bi-file-richtext"></i>@Location.Name Lore
+            </button>
+        }
+        @if (ContainedLocations.Count > 0)
+        {
+            <h2 class="text-light">Contained Locations Lore</h2>
+            @foreach (var entry in ContainedLocations)
+            {
+                <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedLore(entry.Id))">
+                    <i class="bi bi-file-earmark-richtext"></i>@entry.Name Lore
+                </button>
+            }
+        }
+        
+    </div>
+
+</div>
+
+
+@* <UnderConstruction FlavorMessage="But Tingilindëedur Telemnion is hard at work mapping the plane of Anara!" /> *@
 
 @code {
     [Parameter]
     public string? ReqName { get; set; }
 
+    public GeoMapModel? GeoMap = null;
+    public LocationModel? Location = null;
+    public List<GeoMapModel> ContainingMaps = [];
+    public List<GeoMapModel> ContainedMaps = [];
+    public List<LocationModel> ContainedLocations = [];
+
     protected override void OnParametersSet()
-    {
+    {// TODO Handle default nulls.
         ReqName = ReqName ?? "Anara";
+        GeoMap = GeoMapCache.GeoMaps.Where(g => g.Name == ReqName).FirstOrDefault();
+        if (GeoMap != null)
+        {
+            Location = LocationCache.Locations.Where(
+                            l => l.Id == GeoMap.LocationId).FirstOrDefault();
+        }
+
+        ContainingMaps = [.. GeoMapCache.GeoMaps.Where(
+                      g => g.LocationId == Location.ContainingLocationId)];
+
+        ContainedLocations = [.. LocationCache.Locations.Where(
+                                              l => l.ContainingLocationId == Location.Id)];
+
+        ContainedMaps = [.. GeoMapCache.GeoMaps.Where(
+                     g => ContainedLocations.Any(l => l.Id == g.LocationId))];
     }
 
+    private void GoToContainingMap(string mapName)
+    {
+        NavManager.NavigateTo($"/world-maps/{mapName}");
+    }
+
+    private void GoToContainedMap(string mapName)
+    {
+        NavManager.NavigateTo($"/world-maps/{mapName}");
+    }
+    private void GoToLore()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void GoToContainedLore(int id)
+    {
+        throw new NotImplementedException();
+    }
 }
