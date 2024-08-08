@@ -164,7 +164,7 @@
             foreach (int id in row)
             {
                 if (!MapDesign!.ImageMap.ContainsKey(id))
-                {// Invalid tile id recieved from client
+                {// Invalid tile id received from client
                     crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Warning, "Invalid Tile id received from client"));
                     ShowError(400);
                 }
