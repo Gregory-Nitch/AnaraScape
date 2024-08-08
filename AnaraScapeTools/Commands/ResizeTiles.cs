@@ -9,7 +9,7 @@ public class ResizeTiles : IToolCommand
 {
     public void Job()
     {
-        Console.WriteLine("Tile output scale (0.1 - 0.9)||> ");
+        Console.Write("Tile output scale (0.1 - 0.9)\n||> ");
         bool validScale = false;
         double scale = 0.0;
         while (!validScale)
@@ -33,7 +33,7 @@ public class ResizeTiles : IToolCommand
 
         string[] images = Directory.GetFileSystemEntries("./TileStaging"); // In exe directory
         foreach (string img in images)
-        {
+        {// TODO check not routing to out path???
             string outPath = img.Replace("./TileStaging/", "./ResizedTilesOut/");
             JpegResizer.ResizeImgAndSaveToJpeg(img, outPath, scale);
         }
