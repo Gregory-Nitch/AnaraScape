@@ -1,19 +1,19 @@
 ﻿
-// Used to call non static methods on component instance
-class DotNetRef {
+// Used to call non static methods on map generator component instance
+class MapGenComponent {
     static ref;
 
-    static getBCompReference = (compRef) => {
-        DotNetRef.ref = compRef;
+    static getMapGenCompReference = (mapGenCompRef) => {
+        MapGenComponent.ref = mapGenCompRef;
     };
 
     // Gets map Design data from server
     static requestMapDesign = () => {
         this.displayProcessingOverlay(true, "Loading...");
-        DotNetRef.ref.invokeMethodAsync("SendDesignAsync")
+        MapGenComponent.ref.invokeMethodAsync("SendDesignAsync")
             .then(mapDesign => {
-                displayMatrix = [];
-                tileMatrix = [];
+                MGObj.displayMatrix = [];
+                MGObj.tileMatrix = [];
                 for (let i = 0; i < mapDesign.displayMatrix.length; i++) {
                     let displayRow = [];
                     let tileRow = [];
@@ -25,18 +25,18 @@ class DotNetRef {
                         }
                         tileRow.push(tileCol);
                     }
-                    displayMatrix.push(displayRow);
-                    tileMatrix.push(tileRow);
+                    MGObj.displayMatrix.push(displayRow);
+                    MGObj.tileMatrix.push(tileRow);
                 }
 
-                imageMap = mapDesign.imageMap;
-                mapWidth = displayMatrix[0].length;
-                mapHeight = displayMatrix.length;
-                initMapGenPageState();
-                loadTiles();
-                addMapWrapperEvents();
-                initMap();
-                drawMap();
+                MGObj.imageMap = mapDesign.imageMap;
+                MGObj.mapWidth = MGObj.displayMatrix[0].length;
+                MGObj.mapHeight = MGObj.displayMatrix.length;
+                MGObj.initMapGenPageState();
+                MGObj.loadTiles();
+                MGObj.addMapWrapperEvents();
+                MGObj.initMap();
+                MGObj.drawMap();
                 this.confirmImagesLoaded();
             });
     };
@@ -47,34 +47,36 @@ class DotNetRef {
         // Create temp canvas for drawing
         let tmpCanvas = document.createElement("canvas");
         let tmpCvsContext = tmpCanvas.getContext("2d");
-        tmpCanvas.width = BASE_TILE_SIZE * mapWidth;
-        tmpCanvas.height = BASE_TILE_SIZE * mapHeight;
+        tmpCanvas.width = MGObj.BASE_TILE_SIZE * MGObj.mapWidth;
+        tmpCanvas.height = MGObj.BASE_TILE_SIZE * MGObj.mapHeight;
 
         // Draw current rendered map to it
         let tmpX = 0;
         let tmpY = 0;
-        for (const row of displayMatrix) {
+        for (const row of MGObj.displayMatrix) {
             for (const tileId of row) {
-                tmpCvsContext.drawImage(renderingTiles[tileId], tmpX, tmpY);
-                tmpX += BASE_TILE_SIZE;
+                tmpCvsContext.drawImage(MGObj.renderingTiles[tileId], tmpX, tmpY);
+                tmpX += MGObj.BASE_TILE_SIZE;
             }
             tmpX = 0;
-            tmpY += BASE_TILE_SIZE;
+            tmpY += MGObj.BASE_TILE_SIZE;
         }
 
         // Create blob and download
         tmpCanvas.toBlob(async (blob) => {
-
+            
             // If blob is null its too big for the browser
             if (blob == null) {
-                await DotNetRef.ref.invokeMethodAsync("SendImageBlobAsync", displayMatrix).then(blobFromServer => {
-                    blob = new Blob([blobFromServer], { type: "image/png" });
+                await MapGenComponent.ref.invokeMethodAsync(
+                    "SendImageBlobAsync",
+                    MGObj.displayMatrix).then(blobFromServer => {
+                        blob = new Blob([blobFromServer], { type: "image/png" });
                 });
             }
 
             let link = await document.createElement("a");
             link.href = await window.URL.createObjectURL(blob);
-            link.download = await "AnaraScape-Dungeon-" + mapWidth + "x" + mapHeight;
+            link.download = await "AnaraScape-Dungeon-" + MGObj.mapWidth + "x" + MGObj.mapHeight;
             link.style.display = await "none";
             await document.body.appendChild(link);
             link.click();
@@ -117,299 +119,305 @@ class DotNetRef {
     };
 }
 
-window.DotNetRef = DotNetRef;
-
+window.MapGenComponent = MapGenComponent;
+let MGObj = {
 // Map Design variables (to be filled on page load)
-let displayMatrix;
-let tileMatrix;
-let imageMap;
-let mapWidth;
-let mapHeight;
+    displayMatrix: null,
+    tileMatrix: null,
+    imageMap: null,
+    mapWidth: null,
+    mapHeight: null,
 // Setup canvas, div overlay "mapOverlay"
-const MAX_ZOOM = 2; 
-const ZOOM_SENS = 0.00005;
-const BASE_TILE_SIZE = 512;
-let MIN_ZOOM;// Not a constant but should only be changed at map init
-let mapCanvas;
-let canvasContext;
-let mapOverlay;
-let mapWrapper;
-let clickedLoc;
-let zoom;
-let canvasCamOffset;
-let draggingMap;
-let dragStart;
-let winCntrX;
-let winCntrY;
-let scaleTileSize;
-let scaleMapSizeX;
-let scaleMapSizeY;
-let mapStartX;
-let mapStartY;
-let waitForMap;
-let renderingTiles;
-let mapScaler;
-let winScaler;
-let DivStartX;
-let DivStartY;
+    MAX_ZOOM: 2, 
+    ZOOM_SENS: 0.00005,
+    BASE_TILE_SIZE: 512,
+    MIN_ZOOM: null, // Not a constant but should only be changed at map init
+    mapCanvas: null,
+    canvasContext: null,
+    mapOverlay: null,
+    mapWrapper: null,
+    clickedLoc: null,
+    zoom: null,
+    canvasCamOffset: null,
+    draggingMap: null,
+    dragStart: null,
+    winCntrX: null,
+    winCntrY: null,
+    scaleTileSize: null,
+    scaleMapSizeX: null,
+    scaleMapSizeY: null,
+    mapStartX: null,
+    mapStartY: null,
+    waitForMap: null,
+    renderingTiles: null,
+    mapScaler: null,
+    winScaler: null,
+    DivStartX: null,
+    DivStartY: null,
 
-function initMapGenPageState() {
-    MIN_ZOOM = 0.025;// Not a constant but should only be changed at map init
-    mapCanvas = document.getElementById("mapCanvas");
-    canvasContext = mapCanvas.getContext("2d");
-    mapOverlay = document.getElementById("mapOverlay");
-    mapWrapper = document.getElementById("mapWrapper");
-    clickedLoc = { x: null, y: null };
-    zoom = 0.3;
-    canvasCamOffset = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    draggingMap = false;
-    dragStart = { x: 0, y: 0, divX: 0, divY: 0 };
-    mapCanvas.height = window.innerHeight;
-    mapCanvas.width = window.innerWidth;
-    winCntrX = null;
-    winCntrY = null;
-    scaleTileSize = null;
-    scaleMapSizeX = null;
-    scaleMapSizeY = null;
-    mapStartX = null;
-    mapStartY = null;
-    waitForMap = false;
-    renderingTiles = {};
-    mapScaler = 0;
-    winScaler = 0;
-    DivStartX = 0;
-    DivStartY = 0;
-};
+    initMapGenPageState: function() {
+        MGObj.MIN_ZOOM = 0.025;// Not a constant but should only be changed at map init
+        MGObj.mapCanvas = document.getElementById("mapCanvas");
+        MGObj.canvasContext = mapCanvas.getContext("2d");
+        MGObj.mapOverlay = document.getElementById("mapOverlay");
+        MGObj.mapWrapper = document.getElementById("mapWrapper");
+        MGObj.clickedLoc = { x: null, y: null };
+        MGObj.zoom = 0.3;
+        MGObj.canvasCamOffset = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        MGObj.draggingMap = false;
+        MGObj.dragStart = { x: 0, y: 0, divX: 0, divY: 0 };
+        MGObj.mapCanvas.height = window.innerHeight;
+        MGObj.mapCanvas.width = window.innerWidth;
+        MGObj.winCntrX = null;
+        MGObj.winCntrY = null;
+        MGObj.scaleTileSize = null;
+        MGObj.scaleMapSizeX = null;
+        MGObj.scaleMapSizeY = null;
+        MGObj.mapStartX = null;
+        MGObj.mapStartY = null;
+        MGObj.waitForMap = false;
+        MGObj.renderingTiles = {};
+        MGObj.mapScaler = 0;
+        MGObj.winScaler = 0;
+        MGObj.DivStartX = 0;
+        MGObj.DivStartY = 0;
+    },
 
-function addMapWrapperEvents() {
-    mapWrapper.addEventListener("wheel", (evt) => adjustZoom(evt.deltaY * ZOOM_SENS));
-    mapWrapper.addEventListener("mousedown", onPointerDown);
-    mapWrapper.addEventListener("mousemove", onPointerMove)
-    mapWrapper.addEventListener("mouseup", onPointerUp);
-    window.addEventListener("resize", (evt) => resizeCanvas());
-};
+    addMapWrapperEvents: function() {
+        MGObj.mapWrapper.addEventListener("wheel", (evt) =>
+            MGObj.adjustZoom(evt.deltaY * MGObj.ZOOM_SENS));
+        MGObj.mapWrapper.addEventListener("mousedown", MGObj.onPointerDown);
+        MGObj.mapWrapper.addEventListener("mousemove", MGObj.onPointerMove)
+        MGObj.mapWrapper.addEventListener("mouseup", MGObj.onPointerUp);
+        window.addEventListener("resize", (evt) => MGObj.resizeCanvas());
+    },
 
-function addColumnListeners() {
-    let cols = document.getElementsByClassName("column");
-    for (let col of cols) {
-        col.addEventListener("click", flipTile);
-    }
-};
+    addColumnListeners: function() {
+        let cols = document.getElementsByClassName("column");
+        for (let col of cols) {
+            col.addEventListener("click", MGObj.flipTile);
+        }
+    },
 
 // Beginning of map gen logic
-function initMap() {
+    initMap: function() {
+    
+        MGObj.setStartingZoom();
+        
+        // Get center of window
+        MGObj.winCntrX = window.innerWidth / 2;
+        MGObj.winCntrY = window.innerHeight / 2;
+    
+        // Get X & Y of map top left for div
+        MGObj.scaleTileSize = MGObj.BASE_TILE_SIZE * MGObj.zoom;
+        MGObj.scaleMapSizeX = MGObj.scaleTileSize * MGObj.mapWidth;
+        MGObj.scaleMapSizeY = MGObj.scaleTileSize * MGObj.mapHeight;
+    
+        MGObj.DivStartX = MGObj.winCntrX - (MGObj.scaleMapSizeX / 2);
+        MGObj.DivStartY = MGObj.winCntrY - (MGObj.scaleMapSizeY / 2);
+    
+        // Get start of map, center should be 0px, 0px
+        MGObj.mapStartX = -(MGObj.BASE_TILE_SIZE * MGObj.mapWidth / 2);
+        MGObj.mapStartY = -(MGObj.BASE_TILE_SIZE * MGObj.mapHeight / 2);
+    
+        // Gen Divs
+        MGObj.mapOverlay.style.left = MGObj.DivStartX + "px";
+        MGObj.mapOverlay.style.top = MGObj.DivStartY + "px";
+        MGObj.mapOverlay.style.width = MGObj.scaleMapSizeX + "px";
+        MGObj.mapOverlay.style.height = MGObj.scaleMapSizeY + "px";
+        MGObj.dragStart.divX = MGObj.DivStartX;
+        MGObj.dragStart.divY = MGObj.DivStartY;
+    
+        MGObj.setmapOverlaySizes();
+        MGObj.addColumnListeners();
+    },
 
-    setStartingZoom();
-
-    // Get center of window
-    winCntrX = window.innerWidth / 2;
-    winCntrY = window.innerHeight / 2;
-
-    // Get X & Y of map top left for div
-    scaleTileSize = BASE_TILE_SIZE * zoom;
-    scaleMapSizeX = scaleTileSize * mapWidth;
-    scaleMapSizeY = scaleTileSize * mapHeight;
-
-    DivStartX = winCntrX - (scaleMapSizeX / 2);
-    DivStartY = winCntrY - (scaleMapSizeY / 2);
-
-    // Get start of map, center should be 0px, 0px
-    mapStartX = -(BASE_TILE_SIZE * mapWidth / 2);
-    mapStartY = -(BASE_TILE_SIZE * mapHeight / 2);
-
-    // Gen Divs
-    mapOverlay.style.left = DivStartX + "px";
-    mapOverlay.style.top = DivStartY + "px";
-    mapOverlay.style.width = scaleMapSizeX + "px";
-    mapOverlay.style.height = scaleMapSizeY + "px";
-    dragStart.divX = DivStartX;
-    dragStart.divY = DivStartY;
-
-    setmapOverlaySizes();
-    addColumnListeners();
-};
-
-function setStartingZoom() {
-    // Get shortest window dimension, use it in formula
-    if (window.innerHeight > window.innerWidth)
-        winScaler = window.innerWidth;
-    else
-        winScaler = window.innerHeight;
-
-    // Get the longest dimension of the map, use it in formula if it is hitting window width
-    if (mapWidth > mapHeight && window.innerWidth < (mapWidth * BASE_TILE_SIZE) * (winScaler / (mapHeight * BASE_TILE_SIZE))) {
-        winScaler = window.innerWidth;
-        mapScaler = mapWidth;
-    }
-    else {
-        mapScaler = mapHeight;
-    }
-
-    /* Calcualte the starting zoom value for the canvas -> zoom = winScaler / (mapScaler * 512)
-     This will set the zoom so that every portion of the generated map is visable at the start. 
-     .25 gives starting padding around map and mapOverlay*/
-    zoom = winScaler / ((mapScaler + .25) * BASE_TILE_SIZE);
-    // Prevent zoom from going to far out based on map size
-    MIN_ZOOM = zoom; // Not a constant but should only be changed here!
-};
-
-function setmapOverlaySizes() {
-    // Resizes each col and row in the mapOverlay
-    let rows = document.getElementsByClassName("mapRow");
-    for (let currentRow of rows) {
-        currentRow.style.height = scaleTileSize + "px";
-        currentRow.style.width = scaleMapSizeX + "px";
-        for (let currentSec of currentRow.children) {
-            currentSec.style.height = (scaleTileSize * .75) + "px";
-            currentSec.style.width = (scaleTileSize * .75) + "px";
-            currentSec.style.margin = (scaleTileSize * .125) + "px";
+    setStartingZoom: function() {
+        // Get shortest window dimension, use it in formula
+        if (window.innerHeight > window.innerWidth)
+            MGObj.winScaler = window.innerWidth;
+        else
+            MGObj.winScaler = window.innerHeight;
+    
+        // Get the longest dimension of the map, use it in formula if it is hitting window width
+        if (MGObj.mapWidth > MGObj.mapHeight &&
+                window.innerWidth < (MGObj.mapWidth * MGObj.BASE_TILE_SIZE) *
+                (MGObj.winScaler / (MGObj.mapHeight * MGObj.BASE_TILE_SIZE))) {
+            MGObj.winScaler = window.innerWidth;
+            MGObj.mapScaler = MGObj.mapWidth;
         }
-    }
-};
+        else {
+            MGObj.mapScaler = MGObj.mapHeight;
+        }
+    
+        /* Calcualte the starting zoom value for the canvas -> zoom = winScaler / (mapScaler * 512)
+         This will set the zoom so that every portion of the generated map is visable at the start. 
+         .25 gives starting padding around map and mapOverlay*/
+        MGObj.zoom = MGObj.winScaler / ((MGObj.mapScaler + .25) * MGObj.BASE_TILE_SIZE);
+        // Prevent zoom from going to far out based on map size
+        MGObj.MIN_ZOOM = MGObj.zoom; // Not a constant but should only be changed here!
+    },
 
-function loadTiles() {
-    for (const row of tileMatrix) {
-        for (const col of row) {
-            for (const id of col) {
-                renderingTiles[id] = new Image();
-                renderingTiles[id].src = "/static/Tiles/" + imageMap[id];
+    setmapOverlaySizes: function() {
+        // Resizes each col and row in the mapOverlay
+        let rows = document.getElementsByClassName("mapRow");
+        for (let currentRow of rows) {
+            currentRow.style.height = MGObj.scaleTileSize + "px";
+            currentRow.style.width = MGObj.scaleMapSizeX + "px";
+            for (let currentSec of currentRow.children) {
+                currentSec.style.height = (MGObj.scaleTileSize * .75) + "px";
+                currentSec.style.width = (MGObj.scaleTileSize * .75) + "px";
+                currentSec.style.margin = (MGObj.scaleTileSize * .125) + "px";
             }
         }
-    }
-}
+    },
 
-function drawMap() {
-    // Resize to window
-    mapCanvas.width = window.innerWidth;
-    mapCanvas.height = window.innerHeight;
-
-    // Move to center of map & set zoom
-    canvasContext.translate(winCntrX, winCntrY)
-    canvasContext.scale(zoom, zoom);
-    canvasContext.translate(-winCntrX + canvasCamOffset.x, -winCntrY + canvasCamOffset.y);
-
-    // Clear canvas for next frame
-    canvasContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-    // Redraw map
-    let imgX = mapStartX;
-    let imgY = mapStartY;
-
-    for (const row of displayMatrix) {
-        for (const tileId of row) {
-            canvasContext.drawImage(renderingTiles[tileId],
-                imgX, imgY);
-            imgX += BASE_TILE_SIZE;
+    loadTiles: function() {
+        for (const row of MGObj.tileMatrix) {
+            for (const col of row) {
+                for (const id of col) {
+                    MGObj.renderingTiles[id] = new Image();
+                    MGObj.renderingTiles[id].src = "/static/Tiles/" + MGObj.imageMap[id];
+                }
+            }
         }
-        imgX = mapStartX;
-        imgY += BASE_TILE_SIZE;
-    }
-    // Get next frame
-    requestAnimationFrame(drawMap);
-};
+    },
 
-function adjustZoom(zoomAmnt) {
-    // Get new zoom
-    if (!draggingMap)
-        if (zoomAmnt)
-            if (zoom > .35)
-                zoom += zoomAmnt * 2;// Increases sensitivity at high zoom levels
-            else
-                zoom += zoomAmnt;
+    drawMap: function() {
+        // Resize to window
+        MGObj.mapCanvas.width = window.innerWidth;
+        MGObj.mapCanvas.height = window.innerHeight;
+    
+        // Move to center of map & set zoom
+        MGObj.canvasContext.translate(MGObj.winCntrX, MGObj.winCntrY)
+        MGObj.canvasContext.scale(MGObj.zoom, MGObj.zoom);
+        MGObj.canvasContext.translate(-MGObj.winCntrX + MGObj.canvasCamOffset.x,
+            -MGObj.winCntrY + MGObj.canvasCamOffset.y);
+    
+        // Clear canvas for next frame
+        MGObj.canvasContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    
+        // Redraw map
+        let imgX = MGObj.mapStartX;
+        let imgY = MGObj.mapStartY;
+    
+        for (const row of MGObj.displayMatrix) {
+            for (const tileId of row) {
+                MGObj.canvasContext.drawImage(MGObj.renderingTiles[tileId],
+                    imgX, imgY);
+                imgX += MGObj.BASE_TILE_SIZE;
+            }
+            imgX = MGObj.mapStartX;
+            imgY += MGObj.BASE_TILE_SIZE;
+        }
+        // Get next frame
+        requestAnimationFrame(MGObj.drawMap);
+    },
 
-    zoom = Math.min(zoom, MAX_ZOOM);
-    zoom = Math.max(zoom, MIN_ZOOM);
+    adjustZoom: function(zoomAmnt) {
+        // Get new zoom
+        if (!MGObj.draggingMap)
+            if (zoomAmnt)
+                if (MGObj.zoom > .35)
+                    MGObj.zoom += zoomAmnt * 2;// Increases sensitivity at high zoom levels
+                else
+                    MGObj.zoom += zoomAmnt;
+    
+        MGObj.zoom = Math.min(MGObj.zoom, MGObj.MAX_ZOOM);
+        MGObj.zoom = Math.max(MGObj.zoom, MGObj.MIN_ZOOM);
+    
+        // Get new map scaling
+        MGObj.scaleTileSize = MGObj.BASE_TILE_SIZE * MGObj.zoom;
+        MGObj.scaleMapSizeX = MGObj.scaleTileSize * MGObj.mapWidth;
+        MGObj.scaleMapSizeY = MGObj.scaleTileSize * MGObj.mapHeight;
+    
+        // Resize Divs, rows, cols
+        MGObj.mapOverlay.style.left = ((-MGObj.winCntrX + MGObj.canvasCamOffset.x) * MGObj.zoom) +
+            (MGObj.winCntrX - MGObj.scaleMapSizeX / 2) + "px";
+        MGObj.mapOverlay.style.top = ((-MGObj.winCntrY + MGObj.canvasCamOffset.y) * MGObj.zoom) +
+            (MGObj.winCntrY - MGObj.scaleMapSizeY / 2) + "px";
+        MGObj.mapOverlay.style.width = MGObj.scaleMapSizeX + "px";
+        MGObj.mapOverlay.style.height = MGObj.scaleMapSizeY + "px";
+        MGObj.setmapOverlaySizes();
+    },
 
-    // Get new map scaling
-    scaleTileSize = BASE_TILE_SIZE * zoom;
-    scaleMapSizeX = scaleTileSize * mapWidth;
-    scaleMapSizeY = scaleTileSize * mapHeight;
+    resizeCanvas: function() {
+        MGObj.canvasCamOffset.x = window.innerWidth / 2;
+        MGObj.canvasCamOffset.y = window.innerHeight / 2;
+        MGObj.initMap();
+    },
 
-    // Resize Divs, rows, cols
-    mapOverlay.style.left = ((-winCntrX + canvasCamOffset.x) * zoom) + (winCntrX - scaleMapSizeX / 2) + "px";
-    mapOverlay.style.top = ((-winCntrY + canvasCamOffset.y) * zoom) + (winCntrY - scaleMapSizeY / 2) + "px";
-    mapOverlay.style.width = scaleMapSizeX + "px";
-    mapOverlay.style.height = scaleMapSizeY + "px";
-    setmapOverlaySizes();
-};
-
-function resizeCanvas() {
-    canvasCamOffset.x = window.innerWidth / 2;
-    canvasCamOffset.y = window.innerHeight / 2;
-    initMap();
-};
-
-function onPointerDown(evt) {
-    evt.preventDefault();
-    if (evt.button == 2) {// Drag with right mouse only
-        draggingMap = true;
-        dragStart.x = evt.clientX / zoom - canvasCamOffset.x;
-        dragStart.y = evt.clientY / zoom - canvasCamOffset.y;
-        dragStart.divX = evt.clientX;
-        dragStart.divY = evt.clientY;
-    };
-}
-
-function onPointerMove(evt) {
-    if (draggingMap) {
+    onPointerDown: function(evt) {
         evt.preventDefault();
+        if (evt.button == 2) {// Drag with right mouse only
+            MGObj.draggingMap = true;
+            MGObj.dragStart.x = evt.clientX / MGObj.zoom - MGObj.canvasCamOffset.x;
+            MGObj.dragStart.y = evt.clientY / MGObj.zoom - MGObj.canvasCamOffset.y;
+            MGObj.dragStart.divX = evt.clientX;
+            MGObj.dragStart.divY = evt.clientY;
+        };
+    },
 
-        // Move mapOverlay with map
-        let transX = dragStart.divX - evt.clientX;
-        let transY = dragStart.divY - evt.clientY;
-
-        // Keep a portion of the map in the window at all times
-        if (mapOverlay.offsetLeft - transX < -scaleMapSizeX + 200 ||
-            mapOverlay.offsetLeft - transX > window.innerWidth - 200 ||
-            mapOverlay.offsetTop - transY < -scaleMapSizeY + 200 ||
-            mapOverlay.offsetTop - transY > window.innerHeight - 200) {
-            return;
+    onPointerMove: function(evt) {
+        if (MGObj.draggingMap) {
+            evt.preventDefault();
+    
+            // Move mapOverlay with map
+            let transX = MGObj.dragStart.divX - evt.clientX;
+            let transY = MGObj.dragStart.divY - evt.clientY;
+    
+            // Keep a portion of the map in the window at all times
+            if (MGObj.mapOverlay.offsetLeft - transX < -MGObj.scaleMapSizeX + 200 ||
+                MGObj.mapOverlay.offsetLeft - transX > window.innerWidth - 200 ||
+                MGObj.mapOverlay.offsetTop - transY < -MGObj.scaleMapSizeY + 200 ||
+                MGObj.mapOverlay.offsetTop - transY > window.innerHeight - 200) {
+                return;
+            }
+    
+            MGObj.dragStart.divX = evt.clientX;
+            MGObj.dragStart.divY = evt.clientY;
+            MGObj.mapOverlay.style.left = MGObj.mapOverlay.offsetLeft - transX + "px";
+            MGObj.mapOverlay.style.top = MGObj.mapOverlay.offsetTop - transY + "px";
+    
+            // Move map
+            MGObj.canvasCamOffset.x = evt.clientX / MGObj.zoom - MGObj.dragStart.x;
+            MGObj.canvasCamOffset.y = evt.clientY / MGObj.zoom - MGObj.dragStart.y;
         }
+    },
 
-        dragStart.divX = evt.clientX;
-        dragStart.divY = evt.clientY;
-        mapOverlay.style.left = mapOverlay.offsetLeft - transX + "px";
-        mapOverlay.style.top = mapOverlay.offsetTop - transY + "px";
+    onPointerUp: function(evt) {
+        evt.preventDefault();
+        MGObj.draggingMap = false;
+    },
 
-        // Move map
-        canvasCamOffset.x = evt.clientX / zoom - dragStart.x;
-        canvasCamOffset.y = evt.clientY / zoom - dragStart.y;
+    flipTile: function(evt) {
+        // Get 2d index of section
+        let secId = parseInt(this.id, 10)
+        let row = Math.ceil(secId / MGObj.mapWidth);
+        let col = secId - (row - 1) * MGObj.mapWidth;
+        // Decrement for proper array indexing
+        row--;
+        col--;
+    
+        // Get tile id of current tile
+        let cTileId = MGObj.displayMatrix[row][col];
+    
+        // Find current tile in tileMatrix, get next tile id
+        let nextTileId = cTileId;
+        for (let i = 0; i < MGObj.tileMatrix[row][col].length; i++) {
+            if (MGObj.tileMatrix[row][col][i] == cTileId) {
+                if (i == MGObj.tileMatrix[row][col].length - 1) {
+                    nextTileId = MGObj.tileMatrix[row][col][0];
+                    break;
+                }
+                else {
+                    nextTileId = MGObj.tileMatrix[row][col][i + 1];
+                    break;
+                }
+            }
+        };
+    
+        // Place next tile id into presenting tiles
+        MGObj.displayMatrix[row][col] = nextTileId;
     }
-};
-
-function onPointerUp(evt) {
-    evt.preventDefault();
-    draggingMap = false;
-}
-
-function flipTile(evt) {
-    // Get 2d index of section
-    let secId = parseInt(this.id, 10)
-    let row = Math.ceil(secId / mapWidth);
-    let col = secId - (row - 1) * mapWidth;
-    // Decrement for proper array indexing
-    row--;
-    col--;
-
-    // Get tile id of current tile
-    let cTileId = displayMatrix[row][col];
-
-
-    // Find current tile in tileMatrix, get next tile id
-    let nextTileId = cTileId;
-    for (let i = 0; i < tileMatrix[row][col].length; i++) {
-        if (tileMatrix[row][col][i] == cTileId) {
-            if (i == tileMatrix[row][col].length - 1) {
-                nextTileId = tileMatrix[row][col][0];
-                break;
-            }
-            else {
-                nextTileId = tileMatrix[row][col][i + 1];
-                break;
-            }
-        }
-    };
-
-    // Place next tile id into presenting tiles
-    displayMatrix[row][col] = nextTileId;
 };

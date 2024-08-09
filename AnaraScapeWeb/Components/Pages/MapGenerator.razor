@@ -72,11 +72,11 @@
         if (firstRender)
         {
             BCompRef = DotNetObjectReference.Create(this);
-            await JS.InvokeVoidAsync("DotNetRef.getBCompReference", BCompRef);
+            await JS.InvokeVoidAsync("MapGenComponent.getMapGenCompReference", BCompRef);
         }
         if (MapDesign != null)
         {
-            await JS.InvokeVoidAsync("DotNetRef.requestMapDesign");
+            await JS.InvokeVoidAsync("MapGenComponent.requestMapDesign");
         }
     }
 
@@ -132,7 +132,7 @@
     private async void RequestDownload()
     {
         shouldRender = false;
-        await JS.InvokeVoidAsync("DotNetRef.requestMapDownload");
+        await JS.InvokeVoidAsync("MapGenComponent.requestMapDownload");
     }
 
     public void Dispose()
