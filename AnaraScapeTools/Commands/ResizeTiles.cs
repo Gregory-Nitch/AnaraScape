@@ -31,10 +31,10 @@ public class ResizeTiles : IToolCommand
             }
         }
 
-        string[] images = Directory.GetFileSystemEntries("./TileStaging"); // In exe directory
+        string[] images = Directory.GetFileSystemEntries(".\\TileStaging"); // In exe directory
         foreach (string img in images)
-        {// TODO check not routing to out path???
-            string outPath = img.Replace("./TileStaging/", "./ResizedTilesOut/");
+        {
+            string outPath = img.Replace(".\\TileStaging", ".\\ResizedTilesOut");
             JpegResizer.ResizeImgAndSaveToJpeg(img, outPath, scale);
         }
     }
