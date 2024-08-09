@@ -25,6 +25,7 @@ let WMObj = {
         WMObj.dragStart = { x: 0, y: 0 };
         WMObj.mapImg.onload = function () {
             WMObj.zoom = WMObj.canvas.height / WMObj.mapImg.naturalHeight;
+            WMObj.MIN_ZOOM = WMObj.zoom;
             WMObj.drawCord = { x: -(WMObj.mapImg.naturalWidth / 2), y: -(WMObj.mapImg.naturalHeight / 2) };
             WMObj.draw();
         };
@@ -32,7 +33,7 @@ let WMObj = {
 
     addCanvasEvents: function () {
         WMObj.canvas.addEventListener("wheel", (evt) =>
-            WMObj.adjustZoom(evt.deltaY * WMObj.ZOOM_SENS));
+            WMObj.adjustZoom(evt, evt.deltaY * WMObj.ZOOM_SENS));
         WMObj.canvas.addEventListener("mousedown", WMObj.onPointerDown);
         WMObj.canvas.addEventListener("mousemove", WMObj.onPointerMove)
         WMObj.canvas.addEventListener("mouseup", WMObj.onPointerUp);
@@ -59,4 +60,16 @@ let WMObj = {
         // Get next frame
         requestAnimationFrame(WMObj.draw);
     },
+
+    adjustZoom: function (evt, zoomAmnt) {
+        evt.preventDefault();
+        if (WMObj.zoom > .35) {
+            WMObj.zoom += zoomAmnt * 2;
+        } else {
+            WMObj.zoom += zoomAmnt;
+        }
+
+        WMObj.zoom = Math.min(WMObj.zoom, WMObj.MAX_ZOOM);
+        WMObj.zoom = Math.max(WMObj.zoom, WMObj.MIN_ZOOM);
+    }, 
 };
