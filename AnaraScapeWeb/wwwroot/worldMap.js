@@ -37,7 +37,6 @@ let WMObj = {
         WMObj.canvas.addEventListener("mousedown", WMObj.onPointerDown);
         WMObj.canvas.addEventListener("mousemove", WMObj.onPointerMove)
         WMObj.canvas.addEventListener("mouseup", WMObj.onPointerUp);
-        window.addEventListener("resize", (evt) => WMObj.resizeCanvas());
     },
 
     draw: function () {
@@ -72,4 +71,28 @@ let WMObj = {
         WMObj.zoom = Math.min(WMObj.zoom, WMObj.MAX_ZOOM);
         WMObj.zoom = Math.max(WMObj.zoom, WMObj.MIN_ZOOM);
     }, 
+
+    onPointerDown: function (evt) {
+        evt.preventDefault();
+        WMObj.draggingMap = true;
+        WMObj.dragStart.x = evt.clientX / WMObj.zoom - WMObj.canvasCamOffset.x;
+        WMObj.dragStart.y = evt.clientY / WMObj.zoom - WMObj.canvasCamOffset.y;
+    },
+
+    onPointerMove: function (evt) {
+        evt.preventDefault();
+        if (WMObj.draggingMap) {
+
+            // TODO keep a portion of the map in the canvas at all times.
+
+            // Move map
+            WMObj.canvasCamOffset.x = evt.clientX / WMObj.zoom - WMObj.dragStart.x;
+            WMObj.canvasCamOffset.y = evt.clientY / WMObj.zoom - WMObj.dragStart.y;
+        }
+    },
+
+    onPointerUp: function (evt) {
+        evt.preventDefault();
+        WMObj.draggingMap = false;
+    },
 };
