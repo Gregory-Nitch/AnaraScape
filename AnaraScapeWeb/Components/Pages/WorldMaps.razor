@@ -5,6 +5,7 @@
 @inject GeoMapCache GeoMapCache
 @inject LocationCache LocationCache
 @inject NavigationManager NavManager
+@inject IJSRuntime JS
 
 @rendermode InteractiveServer
 
@@ -69,11 +70,11 @@
     [Parameter]
     public string? ReqName { get; set; }
 
-    public GeoMapModel? GeoMap = null;
-    public LocationModel? Location = null;
-    public List<GeoMapModel> ContainingMaps = [];
-    public List<GeoMapModel> ContainedMaps = [];
-    public List<LocationModel> ContainedLocations = [];
+    private GeoMapModel? GeoMap = null;
+    private LocationModel? Location = null;
+    private List<GeoMapModel> ContainingMaps = [];
+    private List<GeoMapModel> ContainedMaps = [];
+    private List<LocationModel> ContainedLocations = [];
 
     protected override void OnParametersSet()
     {// TODO Handle default nulls.
@@ -86,13 +87,23 @@
         }
 
         ContainingMaps = [.. GeoMapCache.GeoMaps.Where(
-                      g => g.LocationId == Location.ContainingLocationId)];
+      g => g.LocationId == Location.ContainingLocationId)];
 
         ContainedLocations = [.. LocationCache.Locations.Where(
-                                              l => l.ContainingLocationId == Location.Id)];
+                              l => l.ContainingLocationId == Location.Id)];
 
         ContainedMaps = [.. GeoMapCache.GeoMaps.Where(
-                     g => ContainedLocations.Any(l => l.Id == g.LocationId))];
+     g => ContainedLocations.Any(l => l.Id == g.LocationId))];
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("WorldMapComponent.requestWorldMap",  
+                                     $"/static/GeoMaps/{GeoMap.Filename}");
+        }
     }
 
     private void GoToContainingMap(string mapName)

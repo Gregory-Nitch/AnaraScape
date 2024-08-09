@@ -1,0 +1,62 @@
+﻿// Used for Blazor JSInterOp
+class WorldMapComponent {
+    static requestWorldMap = (mapFilename) => {
+        WMObj.init(mapFilename);
+        WMObj.addCanvasEvents();
+    };
+}
+
+window.WorldMapComponent = WorldMapComponent;
+let WMObj = {
+
+    MAX_ZOOM: 2,
+    ZOOM_SENS: 0.00005,
+
+    init: function(mapFilename) {
+        WMObj.mapImg = new Image();
+        WMObj.mapImg.src = mapFilename;
+        WMObj.canvas = document.getElementById("geomap-canvas");
+        WMObj.canvasContext = WMObj.canvas.getContext("2d");
+        WMObj.canvas.width = window.innerWidth * .85;
+        WMObj.canvas.height = window.innerHeight * .6;
+        WMObj.clickedLoc = { x: null, y: null };
+        WMObj.canvasCamOffset = { x: WMObj.canvas.width / 2, y: WMObj.canvas.height / 2 };
+        WMObj.draggingMap = false;
+        WMObj.dragStart = { x: 0, y: 0 };
+        WMObj.mapImg.onload = function () {
+            WMObj.zoom = WMObj.canvas.height / WMObj.mapImg.naturalHeight;
+            WMObj.drawCord = { x: -(WMObj.mapImg.naturalWidth / 2), y: -(WMObj.mapImg.naturalHeight / 2) };
+            WMObj.draw();
+        };
+    },
+
+    addCanvasEvents: function () {
+        WMObj.canvas.addEventListener("wheel", (evt) =>
+            WMObj.adjustZoom(evt.deltaY * WMObj.ZOOM_SENS));
+        WMObj.canvas.addEventListener("mousedown", WMObj.onPointerDown);
+        WMObj.canvas.addEventListener("mousemove", WMObj.onPointerMove)
+        WMObj.canvas.addEventListener("mouseup", WMObj.onPointerUp);
+        window.addEventListener("resize", (evt) => WMObj.resizeCanvas());
+    },
+
+    draw: function () {
+        // Resize to keep dimensions based on window
+        WMObj.canvas.width = window.innerWidth * .85;
+        WMObj.canvas.height = window.innerHeight * .6;
+
+        // Move to center of map & set zoom
+        WMObj.canvasContext.translate(WMObj.canvas.width / 2, WMObj.canvas.height / 2);
+        WMObj.canvasContext.scale(WMObj.zoom, WMObj.zoom);
+        WMObj.canvasContext.translate(-WMObj.canvas.width / 2 + WMObj.canvasCamOffset.x,
+            -WMObj.canvas.height / 2 + WMObj.canvasCamOffset.y);
+
+        // Clear canvas for next frame
+        WMObj.canvasContext.clearRect(0, 0, WMObj.canvas.width, WMObj.canvas.height);
+
+        // Redraw
+        WMObj.canvasContext.drawImage(WMObj.mapImg, WMObj.drawCord.x, WMObj.drawCord.y);
+
+        // Get next frame
+        requestAnimationFrame(WMObj.draw);
+    },
+};

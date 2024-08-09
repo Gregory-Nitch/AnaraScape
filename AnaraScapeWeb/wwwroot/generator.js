@@ -117,43 +117,14 @@ class MapGenComponent {
             }
         })
     };
-}
+};
 
 window.MapGenComponent = MapGenComponent;
 let MGObj = {
-// Map Design variables (to be filled on page load)
-    displayMatrix: null,
-    tileMatrix: null,
-    imageMap: null,
-    mapWidth: null,
-    mapHeight: null,
-// Setup canvas, div overlay "mapOverlay"
+
     MAX_ZOOM: 2, 
     ZOOM_SENS: 0.00005,
     BASE_TILE_SIZE: 512,
-    MIN_ZOOM: null, // Not a constant but should only be changed at map init
-    mapCanvas: null,
-    canvasContext: null,
-    mapOverlay: null,
-    mapWrapper: null,
-    clickedLoc: null,
-    zoom: null,
-    canvasCamOffset: null,
-    draggingMap: null,
-    dragStart: null,
-    winCntrX: null,
-    winCntrY: null,
-    scaleTileSize: null,
-    scaleMapSizeX: null,
-    scaleMapSizeY: null,
-    mapStartX: null,
-    mapStartY: null,
-    waitForMap: null,
-    renderingTiles: null,
-    mapScaler: null,
-    winScaler: null,
-    DivStartX: null,
-    DivStartY: null,
 
     initMapGenPageState: function() {
         MGObj.MIN_ZOOM = 0.025;// Not a constant but should only be changed at map init
