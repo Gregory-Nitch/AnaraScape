@@ -44,14 +44,14 @@ let WMObj = {
         WMObj.canvas.width = window.innerWidth * .85;
         WMObj.canvas.height = window.innerHeight * .6;
 
+        // Clear canvas for next frame
+        WMObj.canvasContext.fillRect(0, 0, WMObj.canvas.width, WMObj.canvas.height);
+
         // Move to center of map & set zoom
         WMObj.canvasContext.translate(WMObj.canvas.width / 2, WMObj.canvas.height / 2);
         WMObj.canvasContext.scale(WMObj.zoom, WMObj.zoom);
         WMObj.canvasContext.translate(-WMObj.canvas.width / 2 + WMObj.canvasCamOffset.x,
             -WMObj.canvas.height / 2 + WMObj.canvasCamOffset.y);
-
-        // Clear canvas for next frame
-        WMObj.canvasContext.clearRect(0, 0, WMObj.canvas.width, WMObj.canvas.height);
 
         // Redraw
         WMObj.canvasContext.drawImage(WMObj.mapImg, WMObj.drawCord.x, WMObj.drawCord.y);
@@ -83,7 +83,16 @@ let WMObj = {
         evt.preventDefault();
         if (WMObj.draggingMap) {
 
-            // TODO keep a portion of the map in the canvas at all times.
+            // TODO revisit here to improve map containment
+            // Keep a portion of the map in the canvas at all times.
+            let newX = evt.clientX / WMObj.zoom - WMObj.dragStart.x;
+            let newY = evt.clientY / WMObj.zoom - WMObj.dragStart.y;
+            if (newX < -WMObj.mapImg.naturalWidth / 2 ||
+                newX > WMObj.mapImg.naturalWidth / 2 ||
+                newY < -WMObj.mapImg.naturalHeight / 2 ||
+                newY > WMObj.mapImg.naturalHeight / 2) {
+                return;
+            }
 
             // Move map
             WMObj.canvasCamOffset.x = evt.clientX / WMObj.zoom - WMObj.dragStart.x;
