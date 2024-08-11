@@ -1,4 +1,4 @@
-﻿@page "/lore"
+﻿@page "/lore/{table?}/{id:int?}"
 
 @using AnaraScapeWeb.Components.Layout
 
@@ -8,6 +8,26 @@
 
 <UnderConstruction FlavorMessage="Fear not! The scribes at the Scriptorium are hard at work!" />
 
-@code {
+@if (Table != null && Id != null)
+{
+    @switch (Table.ToLower())
+    {
+        case "locations":
+            break; // TODO switch based on table and id
 
+        default:
+            break;
+    }
+}
+else
+{
+    // TODO show default top lore info
+}
+
+
+@code {
+    [Parameter]
+    public string? Table { get; set; }
+    [Parameter]
+    public int? Id { get; set; }
 }

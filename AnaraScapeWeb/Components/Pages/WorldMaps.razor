@@ -63,9 +63,6 @@
 
 </div>
 
-@* TODO remove below under construction when done *@
-@* <UnderConstruction FlavorMessage="But Tingilindëedur Telemnion is hard at work mapping the plane of Anara!" /> *@
-
 @code {
     [Parameter]
     public string? ReqName { get; set; }
@@ -117,11 +114,11 @@
     }
     private void GoToLore()
     {
-        throw new NotImplementedException();
+        NavManager.NavigateTo($"/lore/locations/{Location.Id}");
     }
 
     private void GoToContainedLore(int id)
     {
-        throw new NotImplementedException();
+        NavManager.NavigateTo($"/lore/locations/{id}");
     }
 }
