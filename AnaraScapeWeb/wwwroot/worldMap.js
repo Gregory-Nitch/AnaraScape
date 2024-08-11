@@ -26,7 +26,10 @@ let WMObj = {
         WMObj.mapImg.onload = function () {
             WMObj.zoom = WMObj.canvas.height / WMObj.mapImg.naturalHeight;
             WMObj.MIN_ZOOM = WMObj.zoom;
-            WMObj.drawCord = { x: -(WMObj.mapImg.naturalWidth / 2), y: -(WMObj.mapImg.naturalHeight / 2) };
+            WMObj.drawCord = { 
+                x: -(WMObj.mapImg.naturalWidth / 2), 
+                y: -(WMObj.mapImg.naturalHeight / 2) 
+            };
             WMObj.draw();
         };
     },
@@ -83,20 +86,19 @@ let WMObj = {
         evt.preventDefault();
         if (WMObj.draggingMap) {
 
-            // TODO revisit here to improve map containment
             // Keep a portion of the map in the canvas at all times.
             let newX = evt.clientX / WMObj.zoom - WMObj.dragStart.x;
             let newY = evt.clientY / WMObj.zoom - WMObj.dragStart.y;
-            if (newX < -WMObj.mapImg.naturalWidth / 2 ||
-                newX > WMObj.mapImg.naturalWidth / 2 ||
-                newY < -WMObj.mapImg.naturalHeight / 2 ||
-                newY > WMObj.mapImg.naturalHeight / 2) {
+            if (newX - WMObj.canvas.width / 2 < -WMObj.mapImg.naturalWidth / 2 ||
+                newX - WMObj.canvas.width / 2 > WMObj.mapImg.naturalWidth / 2 ||
+                newY - WMObj.canvas.height / 2 < -WMObj.mapImg.naturalHeight / 2 ||
+                newY - WMObj.canvas.height / 2 > WMObj.mapImg.naturalHeight / 2) {
                 return;
             }
 
             // Move map
-            WMObj.canvasCamOffset.x = evt.clientX / WMObj.zoom - WMObj.dragStart.x;
-            WMObj.canvasCamOffset.y = evt.clientY / WMObj.zoom - WMObj.dragStart.y;
+            WMObj.canvasCamOffset.x = newX;
+            WMObj.canvasCamOffset.y = newY;
         }
     },
 
