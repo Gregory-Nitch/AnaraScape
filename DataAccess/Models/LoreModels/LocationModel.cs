@@ -23,6 +23,7 @@ public class LocationModel(int id,
     public int? RulingGovernmentId { get; set; } = rulingGovernmentId; // FK (Factions)
     public int? RulerId { get; set; } = rulerId; // FK (NPCs)
     public int? ContainingLocationId { get; set; } = containingLocationId; // FK (Locations) - Same table
+    public bool HasSubLocations { get; set; }
 }
 
 

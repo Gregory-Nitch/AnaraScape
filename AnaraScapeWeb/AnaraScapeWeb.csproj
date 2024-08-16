@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\loreSideBar.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Library59\Library59\Library59.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\MapDesign\MapDesignLibrary.csproj" />
@@ -14,6 +18,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\loreSideBar.js" />
   </ItemGroup>
 
 </Project>

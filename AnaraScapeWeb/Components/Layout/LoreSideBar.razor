@@ -1,0 +1,91 @@
+﻿@using DataAccess
+@using DataAccess.Models.LoreModels
+
+@inject LocationCache LocationCache
+@inject NavigationManager NavManager
+@inject IJSRuntime JS
+
+
+<div id="lore-side-bar">
+    @foreach (var region in MainRegions)
+    {
+        @if (region != null) // TODO remove this null check once db is properly populated
+        {
+            <div id="@region.Id" class="lore-side-bar-entry">
+                <p class="lore-side-bar-txt">@region.Name</p>
+                <i class="bi bi-caret-right text-light lore-side-bar-caret"></i>
+            </div>
+        }
+    }
+</div>
+
+<div id="lore-side-bar-toggler-div">
+    <button id="lore-side-bar-toggler" type="button" class="btn btn-outline-danger p-0">
+        <i class="bi bi-grip-horizontal p-0"></i>
+    </button>
+</div>
+
+
+@code {
+    public List<LocationModel> MainRegions { get; set; } = [];
+    private DotNetObjectReference<LoreSideBar>? BCompRef;
+
+    protected override void OnInitialized()
+    {
+        LocationModel acies = LocationCache.Locations.Where(loc => 
+            string.Equals(loc.Name, "Acies")).FirstOrDefault()!;
+        LocationModel cinallis = LocationCache.Locations.Where(loc => 
+            string.Equals(loc.Name, "Cinallis")).FirstOrDefault()!;
+        LocationModel glaciem = LocationCache.Locations.Where(loc => 
+            string.Equals(loc.Name, "Glaciem")).FirstOrDefault()!;
+        LocationModel krukiathu = LocationCache.Locations.Where(loc => 
+            string.Equals(loc.Name, "Krukiathu")).FirstOrDefault()!;
+        LocationModel paleWastes = LocationCache.Locations.Where(loc => 
+            string.Equals(loc.Name, "PaleWastes")).FirstOrDefault()!;
+        LocationModel saltedTides = LocationCache.Locations.Where(loc => 
+            string.Equals(loc.Name, "SaltedTides")).FirstOrDefault()!;
+        MainRegions.AddRange([acies, cinallis, glaciem, krukiathu, paleWastes, saltedTides]);
+        foreach (var region in MainRegions)
+        {
+            if (region == null)
+            {
+                // TODO log and recover
+            }
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            BCompRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("LoreSideBarComponent.getLoreSideBarCompReference", BCompRef);
+            await JS.InvokeVoidAsync("LoreSideBarComponent.initLoreSideBar");
+        }
+    }
+
+    [JSInvokable]
+    public void GoToLocation(int id)
+    {
+        NavManager.NavigateTo($"/lore/locations/{id}");  
+        // TODO prevent re render?
+    }
+
+    [JSInvokable]
+    public Task<Dictionary<int, dynamic>> GetSubLocationsAsync(int id)
+    {
+        Dictionary<int, dynamic> locationMap = [];
+
+        foreach(var loc in LocationCache.Locations.Where(loc => loc.ContainingLocationId == id))
+        {
+            locationMap[loc.Id] = new { loc.Name, loc.HasSubLocations};
+        }
+
+        return Task.FromResult(locationMap);
+    }
+
+    public void Dispose()
+    {
+        BCompRef?.Dispose();
+    }
+}

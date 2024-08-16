@@ -11,57 +11,58 @@
 
 
 <PageTitle>World Maps</PageTitle>
-
-<h1 class="text-light">@ReqName</h1>
-
-<canvas id="geomap-canvas" oncontextmenu="return false;"></canvas>
-
-<div id="router-div">
-
-    <div id="other-maps">
-        @if (ContainingMaps.Count > 0)
-        {
-            <h2 class="text-light">Containing Maps</h2>
-            @foreach(var map in ContainingMaps)
+<article>
+    <h1 class="text-light">@ReqName</h1>
+    
+    <canvas id="geomap-canvas" oncontextmenu="return false;"></canvas>
+    
+    <div id="router-div">
+    
+        <div id="other-maps">
+            @if (ContainingMaps.Count > 0)
             {
-             <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainingMap(map.Name))">
-                 <i class="bi bi-zoom-out"></i>@map.Name
-             </button>   
+                <h2 class="text-light">Containing Maps</h2>
+                @foreach(var map in ContainingMaps)
+                {
+                 <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainingMap(map.Name))">
+                     <i class="bi bi-zoom-out"></i>@map.Name
+                 </button>   
+                }
             }
-        }
-        @if (ContainedMaps.Count > 0)
-        {
-            <h2 class="text-light">Contained Maps</h2>
-            @foreach (var map in ContainedMaps)
+            @if (ContainedMaps.Count > 0)
             {
-                <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedMap(map.Name))">
-                    <i class="bi bi-zoom-in"></i>@map.Name
+                <h2 class="text-light">Contained Maps</h2>
+                @foreach (var map in ContainedMaps)
+                {
+                    <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedMap(map.Name))">
+                        <i class="bi bi-zoom-in"></i>@map.Name
+                    </button>
+                }
+            }
+        </div>
+    
+        <div id="location-lore">
+            @if (Location != null)
+            {
+                <button type="button" class="btn btn-dark" @onclick="GoToLore">
+                    <i class="bi bi-file-richtext"></i>@Location.Name Lore
                 </button>
             }
-        }
-    </div>
-
-    <div id="location-lore">
-        @if (Location != null)
-        {
-            <button type="button" class="btn btn-dark" @onclick="GoToLore">
-                <i class="bi bi-file-richtext"></i>@Location.Name Lore
-            </button>
-        }
-        @if (ContainedLocations.Count > 0)
-        {
-            <h2 class="text-light">Contained Locations Lore</h2>
-            @foreach (var entry in ContainedLocations)
+            @if (ContainedLocations.Count > 0)
             {
-                <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedLore(entry.Id))">
-                    <i class="bi bi-file-earmark-richtext"></i>@entry.Name Lore
-                </button>
+                <h2 class="text-light">Contained Locations Lore</h2>
+                @foreach (var entry in ContainedLocations)
+                {
+                    <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedLore(entry.Id))">
+                        <i class="bi bi-file-earmark-richtext"></i>@entry.Name Lore
+                    </button>
+                }
             }
-        }
-        
+            
+        </div>
+    
     </div>
-
-</div>
+</article>
 
 @code {
     [Parameter]
@@ -112,6 +113,7 @@
     {
         NavManager.NavigateTo($"/world-maps/{mapName}");
     }
+
     private void GoToLore()
     {
         NavManager.NavigateTo($"/lore/locations/{Location.Id}");

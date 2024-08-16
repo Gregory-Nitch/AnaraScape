@@ -4,6 +4,7 @@
             rgb(50, 50, 50) 130%);
     position: fixed;
     width: 100vw;
+    z-index: 3;
 }
 
 .navbar-brand {
