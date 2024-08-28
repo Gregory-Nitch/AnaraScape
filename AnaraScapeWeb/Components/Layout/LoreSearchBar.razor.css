@@ -1,0 +1,12 @@
+﻿#lore-search-bar {
+    display: flex;
+    justify-content: center;
+}
+
+#lore-search-input {
+    border-radius: 8px;
+}
+
+.lore-search-item {
+    margin: 5px;
+}

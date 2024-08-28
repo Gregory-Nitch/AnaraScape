@@ -9,24 +9,58 @@
 @* TODO remove below when done *@
 @* <UnderConstruction FlavorMessage="Fear not! The scribes at the Scriptorium are hard at work!" /> *@
 
-<LoreSideBar/>
+<LoreSideBar /> @* Keep outside of article for proper positioning. *@
 
-@if (Table != null && Id != null)
-{
-    @switch (Table.ToLower())
+<article>
+
+    <LoreSearchBar />
+
+    @if (Table != null && Id != null)
     {
-        case "locations":
-            break; // TODO switch based on table and id
+        @switch (Table.ToLower())
+        {
+            case "artifacts":
+                <ArtifactLore Id="(int)Id" />
+                break;
 
-        default:
-            break;
+            case "events":
+                <EventLore Id="(int)Id" />
+                break;
+
+            case "factions":
+                <FactionLore Id="(int)Id" />
+                break;
+
+            case "historical-ages":
+                <HistoricalAgeLore Id="(int)Id" />
+                break;
+
+            case "npcs":
+                <NPCLore Id="(int)Id" />
+                break;
+
+            case "locations":
+                <LocationLore Id="(int)Id" />
+                break;
+
+            case "resources":
+                <ResourceLore Id="(int)Id" />
+                break;
+
+            case "terminologies":
+                <TerminologyLore Id="(int)Id" />
+                break;
+
+            default:
+                break; // TODO log and recover, go to main lore page/error?
+        }
     }
-}
-else
-{
-    // TODO show default top lore info
-}
+    else
+    {
+        // TODO show default top lore info
+    }
 
+</article>
 
 @code {
     [Parameter]

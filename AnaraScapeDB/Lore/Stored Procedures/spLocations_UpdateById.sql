@@ -4,7 +4,8 @@
 	@Description VARCHAR(MAX),
 	@RulingGovernmentId INT,
 	@RulerId INT,
-	@ContainingLocationId INT
+	@ContainingLocationId INT,
+	@HasSubLocations BIT
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -15,7 +16,8 @@ BEGIN
 		[Description] = @Description,
 		[RulingGovernmentId] = @RulingGovernmentId,
 		[RulerId] = @RulerId,
-		[ContainingLocationId] = @ContainingLocationId
+		[ContainingLocationId] = @ContainingLocationId,
+		[HasSubLocations] = @HasSubLocations
 	WHERE [Id] = @Id;
 
 END

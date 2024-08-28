@@ -9,7 +9,7 @@ public class LocationCache
         foreach (var location in Locations)
         {
             if (Locations.Any(l => l.ContainingLocationId == location.Id))
-            {
+            {// TODO Change this to a CLI tool that persists in DB 
                 location.HasSubLocations = true;
             }
         }

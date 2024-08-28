@@ -1,0 +1,71 @@
+﻿@page "/lore/search/{table}/{searchInput}"
+
+@using AnaraScapeWeb.Components.Layout
+@using DataAccess
+@using DataAccess.Models.LoreModels
+
+@inject ICrud Crud
+@inject NavigationManager NavManager
+
+@rendermode InteractiveServer
+
+<PageTitle>Search Lore</PageTitle>
+
+<LoreSideBar /> @* Keep outside of article for proper positioning. *@
+
+<article>
+
+    <LoreSearchBar TableSelection="@Table" />
+
+    <h2 class="text-light">@Table Search Results</h2>
+
+    @* TODO other iterations here *@
+
+    @foreach (LocationModel loc in Locations)
+    {
+        <h5 class="lore-result" @onclick="() => GoToLore(loc.Id)">
+            @loc.Name
+        </h5>
+    }
+
+</article>
+
+@code {
+    [Parameter]
+    public string Table { get; set; } = "";
+    [Parameter]
+    public string SearchInput { get; set; } = "";
+
+    private List<ArtifactModel> Artifacts = [];
+    private List<EventModel> Events = [];
+    private List<FactionModel> Factions = [];
+    private List<GeoMapModel> GeoMaps = [];
+    private List<LocationModel> Locations = [];
+    private List<NPCModel> NPCs = [];
+    private List<ResourceModel> Resources = [];
+    private List<TerminologyModel> Terminologies = [];
+
+    protected override void OnParametersSet()
+    {
+        if (Enum.TryParse(Table, out LoreTable loreTable))
+        {
+            switch (loreTable)
+            {
+                case LoreTable.Locations:
+                    Locations = Crud.GetLocationsLike(SearchInput);
+                    break;
+
+                // TODO other table crud actions here
+
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+        // TODO log and recover
+    }
+
+    private void GoToLore(int id)
+    {
+        NavManager.NavigateTo($"/lore/{Table}/{id}");
+    }
+}

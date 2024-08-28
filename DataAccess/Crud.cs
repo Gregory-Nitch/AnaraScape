@@ -1,7 +1,6 @@
 ﻿using DataAccess.Models.DungeonModels;
 using DataAccess.Models.LoggingModels;
 using DataAccess.Models.LoreModels;
-using Microsoft.Extensions.Logging;
 
 namespace DataAccess;
 
@@ -95,7 +94,7 @@ public class Crud(IDBAccess db) : ICrud
                       true);
     }
 
-    public List<StoredArtifactModel> GetAllArtifacts() 
+    public List<StoredArtifactModel> GetAllArtifacts()
     {
         return _db.QueryDB<StoredArtifactModel, dynamic>("Lore.spArtifacts_SelectAll",
                                                            new { },
@@ -306,7 +305,7 @@ public class Crud(IDBAccess db) : ICrud
                                                                              int artifactId)
     {
         return _db.QueryDB<EventArtifactRelationModel, dynamic>(
-                            "Lore.spBT_EventArtifactRelations_GetByCK", 
+                            "Lore.spBT_EventArtifactRelations_GetByCK",
                             new { eventId, artifactId },
                             ConnStringName,
                             true).FirstOrDefault();
@@ -355,7 +354,7 @@ public class Crud(IDBAccess db) : ICrud
     public NPCEventRelationModel? GetNPCEventRelationByCompositeId(int npcId, int eventId)
     {
         return _db.QueryDB<NPCEventRelationModel, dynamic>("Lore.spBT_NPCEventRelations_GetByCK",
-                                                           new { npcId, eventId},
+                                                           new { npcId, eventId },
                                                            ConnStringName,
                                                            true).FirstOrDefault();
     }
@@ -405,7 +404,7 @@ public class Crud(IDBAccess db) : ICrud
                                                          int oldEventId)
     {
         _db.WriteToDB("Lore.spBT_LocationEventRelations_UpdateByCK",
-                       new { locationId, eventId, oldLocationId, oldEventId},
+                       new { locationId, eventId, oldLocationId, oldEventId },
                        ConnStringName,
                        true);
     }
@@ -513,5 +512,96 @@ public class Crud(IDBAccess db) : ICrud
                        new { npcId, factionId },
                        ConnStringName,
                        true);
+    }
+
+    public List<ArtifactModel> GetArtifactsLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<EventModel> GetEventsLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<FactionModel> GetFactionsLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<GeoMapModel> GetGeoMapsLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<LocationModel> GetLocationsLike(string likeName)
+    {
+        return _db.QueryDB<LocationModel, dynamic>("Lore.spLocations_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<NPCModel> GetNPCsLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<ResourceModel> GetResourcesLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<TerminologyModel> GetTerminologiesLike(string likeName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public FullLocationModel? GetFullLocationInfoById(int id)
+    {
+        return _db.QueryDB<FullLocationModel, dynamic>("Lore.spLocations_GetFullInfoById",
+                                              new { id },
+                                              ConnStringName,
+                                              true).FirstOrDefault();
+    }
+
+    public List<(int id, string name)> GetLocationArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetLocationArtifacts",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<(int id, string name)> GetLocationEvents(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_LocationEventRelations_GetLocationEvents",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<(int id, string name)> GetLocationFactions(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_LocationFactionRelations_GetLocationFactions",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<(int id, string name)> GetLocationNPCs(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spNPCs_GetLocationNPCs",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<(int id, string name)> GetLocationResources(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_LocationResourceRelations_GetLocationResources",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
     }
 }

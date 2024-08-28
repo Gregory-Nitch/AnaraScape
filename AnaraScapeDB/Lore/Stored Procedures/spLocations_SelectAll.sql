@@ -9,7 +9,8 @@ BEGIN
 		[Description],
 		[RulingGovernmentId],
 		[RulerId],
-		[ContainingLocationId]
-  FROM [Lore].[Locations]
+		[ContainingLocationId],
+		[HasSubLocations]
+	FROM [Lore].[Locations]
 
 END
