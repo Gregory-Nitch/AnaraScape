@@ -92,4 +92,18 @@ public interface ICrud
     public void DeleteLocationResourceRelationByCompositeId(int locationId, int resourceId);
     public void DeleteNPCEventRelationsByCompositeId(int npcId, int eventId);
     public void DeleteNPCFactionRelationByCompositeId(int npcId, int factionId);
+    public List<ArtifactModel> GetArtifactsLike(string likeName);
+    public List<EventModel> GetEventsLike(string likeName);
+    public List<FactionModel> GetFactionsLike(string likeName);
+    public List<GeoMapModel> GetGeoMapsLike(string likeName);
+    public List<LocationModel> GetLocationsLike(string likeName);
+    public List<NPCModel> GetNPCsLike(string likeName);
+    public List<ResourceModel> GetResourcesLike(string likeName);
+    public List<TerminologyModel> GetTerminologiesLike(string likeName);
+    public FullLocationModel? GetFullLocationInfoById(int id);
+    public List<(int id, string name)> GetLocationArtifacts(int id);
+    public List<(int id, string name)> GetLocationEvents(int id);
+    public List<(int id, string name)> GetLocationFactions(int id);
+    public List<(int id, string name)> GetLocationNPCs(int id);
+    public List<(int id, string name)> GetLocationResources(int id);
 }

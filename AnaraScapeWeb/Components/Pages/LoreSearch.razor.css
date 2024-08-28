@@ -1,0 +1,19 @@
+﻿
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2, h5 {
+    text-align: center;
+}
+
+.lore-result {
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+}
+
+    .lore-result:hover {
+        color: rgb(220, 53, 69);
+    }

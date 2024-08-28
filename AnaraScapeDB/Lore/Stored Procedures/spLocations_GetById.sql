@@ -10,7 +10,8 @@ BEGIN
 		[Description],
 		[RulingGovernmentId],
 		[RulerId],
-		[ContainingLocationId]
+		[ContainingLocationId],
+		[HasSubLocations]
 	FROM [Lore].[Locations]
 	WHERE [Id] = @Id;
 

@@ -13,20 +13,20 @@
 <PageTitle>World Maps</PageTitle>
 <article>
     <h1 class="text-light">@ReqName</h1>
-    
+
     <canvas id="geomap-canvas" oncontextmenu="return false;"></canvas>
-    
+
     <div id="router-div">
-    
+
         <div id="other-maps">
             @if (ContainingMaps.Count > 0)
             {
                 <h2 class="text-light">Containing Maps</h2>
-                @foreach(var map in ContainingMaps)
+                @foreach (var map in ContainingMaps)
                 {
-                 <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainingMap(map.Name))">
-                     <i class="bi bi-zoom-out"></i>@map.Name
-                 </button>   
+                    <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainingMap(map.Name))">
+                        <i class="bi bi-zoom-out"></i>@map.Name
+                    </button>
                 }
             }
             @if (ContainedMaps.Count > 0)
@@ -40,7 +40,7 @@
                 }
             }
         </div>
-    
+
         <div id="location-lore">
             @if (Location != null)
             {
@@ -58,9 +58,9 @@
                     </button>
                 }
             }
-            
+
         </div>
-    
+
     </div>
 </article>
 
@@ -80,27 +80,26 @@
         GeoMap = GeoMapCache.GeoMaps.Where(g => g.Name == ReqName).FirstOrDefault();
         if (GeoMap != null)
         {
-            Location = LocationCache.Locations.Where(
-                            l => l.Id == GeoMap.LocationId).FirstOrDefault();
+            Location = LocationCache.Locations.Where(l => l.Id == GeoMap.LocationId).FirstOrDefault();
         }
 
-        ContainingMaps = [.. GeoMapCache.GeoMaps.Where(
-      g => g.LocationId == Location.ContainingLocationId)];
+        ContainingMaps = [.. GeoMapCache.GeoMaps.Where(g => g.LocationId == Location.ContainingLocationId)];
 
-        ContainedLocations = [.. LocationCache.Locations.Where(
-                              l => l.ContainingLocationId == Location.Id)];
+        ContainedLocations = [.. LocationCache.Locations.Where(l => l.ContainingLocationId == Location.Id)];
 
-        ContainedMaps = [.. GeoMapCache.GeoMaps.Where(
-     g => ContainedLocations.Any(l => l.Id == g.LocationId))];
+        ContainedMaps = [.. GeoMapCache.GeoMaps.Where(g => ContainedLocations.Any(l => l.Id == g.LocationId))];
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        if (true)
+        {
 
+        }
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("WorldMapComponent.requestWorldMap",  
-                                     $"/static/GeoMaps/{GeoMap.Filename}");
+            await JS.InvokeVoidAsync("WorldMapComponent.requestWorldMap",
+            $"/static/GeoMaps/{GeoMap.Filename}");
         }
     }
 

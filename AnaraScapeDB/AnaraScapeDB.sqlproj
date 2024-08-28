@@ -69,6 +69,7 @@
     <Folder Include="Lore\Scripts" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Lore\Stored Procedures\spLocations_GetFullInfoById.sql" />
     <Build Include="MapGenerator\Tables\DungeonTiles.sql" />
     <Build Include="MapGenerator\Stored Procedures\spDungeonTiles_InsertTile.sql" />
     <Build Include="Schemas\MapGenSchema.sql" />
@@ -178,6 +179,12 @@
     <Build Include="Lore\Stored Procedures\spNPCs_DeleteById.sql" />
     <Build Include="Lore\Stored Procedures\spResources_DeleteById.sql" />
     <Build Include="Lore\Stored Procedures\spTerminologies_DeleteById.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_GetLike.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_GetLocationArtifacts.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_GetLocationEvents.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_GetLocationFactions.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_GetLocationNPCs.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_GetLocationResources.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AnaraScapeDB.refactorlog" />
@@ -192,6 +199,9 @@
     <None Include="AnaraScapeDB.publish.xml" />
     <None Include="Schemas\Lore Schema Diagram.png" />
     <None Include="Lore\Scripts\LoreSchema_TEST_.sql" />
+    <None Include="..\AnaraScapeWeb\Components\Pages\LocationLore.razor">
+      <Link>LocationLore.razor</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

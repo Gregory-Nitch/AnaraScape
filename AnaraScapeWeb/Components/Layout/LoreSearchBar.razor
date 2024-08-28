@@ -1,0 +1,62 @@
+﻿@inject NavigationManager NavManager
+
+<div id="lore-search-bar">
+    <div id="lore-search-bar-btn-group" class="btn-group lore-search-item" role="group" aria-label="lore category button group">
+        <button type="button" class="btn btn-dark">@TableSelection</button>
+        <div class="btn-group" role="group">
+            <button id="lore-drop-group" type="button" class="btn btn-dark dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="lore-drop-group">
+                @foreach (var table in LoreTables)
+                {
+                    <button type="button" class="dropdown-item" value="@table"
+                            @onclick="() => SetTable(table)">
+                        @table
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <input type="text" id="lore-search-input" class="text-light btn-dark lore-search-item" 
+    placeholder="Lore name..." @bind="SearchEntry" />
+
+    <button type="button" class="btn btn-dark lore-search-item" @onclick="() => SearchLore(SearchEntry)">
+        Search
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public string TableSelection { get; set; } = "Lore Category";
+    public string SearchEntry { get; set; } = "";
+    public string[] LoreTables { get; set; } = 
+        [
+            "Artifacts", 
+            "Events", 
+            "Factions", 
+            "GeoMaps", 
+            "Locations",
+            "NPCs",
+            "Resources",
+            "Terminology"
+        ];
+
+
+    public void SetTable(string table){
+        TableSelection = table;
+    }
+
+    public void SearchLore(string userInput)
+    {
+        // TODO Sanitize input
+
+        if (Equals(TableSelection, "Lore Category"))
+        {
+            return; // TODO Display Error
+        }
+
+        NavManager.NavigateTo($"/lore/search/{TableSelection}/{userInput}");
+    }
+}

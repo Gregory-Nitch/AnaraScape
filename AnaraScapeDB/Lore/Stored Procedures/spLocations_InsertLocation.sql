@@ -3,7 +3,8 @@
 	@Description VARCHAR(MAX),
 	@RulingGovernmentId INT,
 	@RulerId INT,
-	@ContainingLocationId INT
+	@ContainingLocationId INT,
+	@HasSubLocations BIT
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -13,12 +14,15 @@ BEGIN
 		[Description],
 		[RulingGovernmentId],
 		[RulerId],
-		[ContainingLocationId])
-	VALUES
-		(@Name,
-		@Description,
-		@RulingGovernmentId,
-		@RulerId,
-		@ContainingLocationId);
+		[ContainingLocationId],
+		[HasSubLocations])
+	VALUES(
+			@Name,
+			@Description,
+			@RulingGovernmentId,
+			@RulerId,
+			@ContainingLocationId,
+			@HasSubLocations
+		);
 
 END
