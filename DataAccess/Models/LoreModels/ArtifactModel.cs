@@ -17,11 +17,11 @@ public class ArtifactModel(StoredArtifactModel storedModel)
     public int? NPCCreatorId { get; set; } = storedModel?.NPCCreatorId; // FK (NPCs)
     public int? FactionCreatorId { get; set; } = storedModel?.FactionCreatorId; // FK (Factions)
     public AnaraDate? CreationDate { get; set; } = storedModel?.CreationDate != null ?
-                                                   AnaraDate.ParseFromString(storedModel.CreationDate) 
+                                                   AnaraDate.ParseFromString(storedModel.CreationDate)
                                                    : null;
     public int? CreationAgeId { get; set; } = storedModel?.CreationAgeId; // FK (HistoricalAges)
     public AnaraDate? LostDate { get; set; } = storedModel?.LostDate != null ?
-                                               AnaraDate.ParseFromString(storedModel.LostDate) 
+                                               AnaraDate.ParseFromString(storedModel.LostDate)
                                                : null;
     public int? LostAgeId { get; set; } = storedModel?.LostAgeId; // FK (HistoricalAges)
 }
@@ -95,6 +95,61 @@ public class LoadingArtifactModel(string name)
     public int? CreationAgeId { get; set; } // FK (HistoricalAges)
     public string? LostDate { get; set; }
     public int? LostAgeId { get; set; } // FK (HistoricalAges)
+}
+
+
+/// <summary>
+/// Represents an artifact in the game setting and all of its relationships
+/// </summary>
+/// <param name="storedModel">model data from database</param>
+public class FullArtifactModel(int id,
+                               string name,
+                               string? description,
+                               int? locationId,
+                               string? locationName,
+                               EntityType? ownerType,
+                               int? npcOwnerId,
+                               string? npcOwnerName,
+                               int? factionOwnerId,
+                               string? factionOwnerName,
+                               EntityType? creatorType,
+                               int? npcCreatorId,
+                               string? npcCreatorName,
+                               int? factionCreatorId,
+                               string? factionCreatorName,
+                               string? creationDate,
+                               int? creationAgeId,
+                               AnaraAge? creationAge,
+                               string? lostDate,
+                               int? lostAgeId,
+                               AnaraAge? lostAge)
+{
+    public int Id { get; set; } = id;
+    public string Name { get; set; } = name;
+    public string? Description { get; set; } = description;
+    public int? LocationId { get; set; } = locationId; // FK (Locations)
+    public string? LocationName { get; } = locationName;
+    public EntityType? OwnerType { get; set; } = ownerType;
+    public int? NPCOwnerId { get; set; } = npcOwnerId; // FK (NPCs)
+    public string? NPCOwnerName { get; } = npcOwnerName;
+    public int? FactionOwnerId { get; set; } = factionOwnerId; // FK (Factions)
+    public string? FactionOwnerName { get; } = factionOwnerName;
+    public EntityType? CreatorType { get; set; } = creatorType;
+    public int? NPCCreatorId { get; set; } = npcCreatorId; // FK (NPCs)
+    public string? NPCCreatorName { get; } = npcCreatorName;
+    public int? FactionCreatorId { get; set; } = factionCreatorId; // FK (Factions)
+    public string? FactionCreatorName { get; } = factionCreatorName;
+    public AnaraDate? CreationDate { get; set; } = creationDate != null ?
+                                                   AnaraDate.ParseFromString(creationDate)
+                                                   : null;
+    public int? CreationAgeId { get; set; } = creationAgeId; // FK (HistoricalAges)
+    public AnaraAge? CreationAge { get; } = creationAge;
+    public AnaraDate? LostDate { get; set; } = lostDate != null ?
+                                               AnaraDate.ParseFromString(lostDate)
+                                               : null;
+    public int? LostAgeId { get; set; } = lostAgeId; // FK (HistoricalAges)
+    public AnaraAge? LostAge { get; } = lostAge;
+    public List<(int id, string name)> NotableEvents { get; set; } = [];
 }
 
 

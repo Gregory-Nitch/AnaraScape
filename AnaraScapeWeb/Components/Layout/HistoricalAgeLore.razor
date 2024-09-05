@@ -1,4 +1,172 @@
-﻿@code {
+﻿@using DataAccess;
+@using DataAccess.Models.LoreModels;
+
+@inject ICrud Crud
+@inject NavigationManager NavManager
+
+<PageTitle>Lore: @Model!.Age</PageTitle>
+
+<h1 class="text-light">@Model!.Age Age</h1>
+
+@if (Model.Description != null)
+{
+    <h3 class="text-light lore-info">Description:</h3>
+    <p class="text-light lore-info">@Model.Description</p>
+}
+
+<h3 class="text-light lore-info">Length In Years:</h3>
+@if (Model.LengthInYears != null)
+{
+    <p class="text-light lore-info">@Model.LengthInYears</p>
+}
+else
+{
+    <p class="text-light lore-info">Unknown</p>
+}
+
+@if (Model.PrecedingAgeId != null)
+{
+    <h3 class="text-light lore-info">Preceding Age:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.PrecedingAgeId!)">
+            @Model.PrecedingAge</p>
+    </div>
+}
+
+@if (Model.FollowingAgeId != null)
+{
+    <h3 class="text-light lore-info">Following Age:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.FollowingAgeId!)">
+            @Model.FollowingAge
+        </p>
+    </div>
+}
+
+@if (Model.NotableLivingNPCs.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Living NPCs:</h3>
+    string table = "npcs";
+    @foreach (var npc in Model.NotableLivingNPCs)
+    {
+        int id = npc.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableDeadNPCs.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Dead NPCs:</h3>
+    string table = "npcs";
+    @foreach (var npc in Model.NotableDeadNPCs)
+    {
+        int id = npc.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableCreatedArtifacts.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Created Artifacts:</h3>
+    string table = "artifacts";
+    @foreach (var art in Model.NotableCreatedArtifacts)
+    {
+        int id = art.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableLostArtifacts.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Lost Artifacts:</h3>
+    string table = "artifacts";
+    @foreach (var art in Model.NotableLostArtifacts)
+    {
+        int id = art.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableBeginingEvents.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Begining Events:</h3>
+    string table = "events";
+    @foreach (var evt in Model.NotableBeginingEvents)
+    {
+        int id = evt.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableEndingEvents.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Ending Events:</h3>
+    string table = "events";
+    @foreach (var evt in Model.NotableEndingEvents)
+    {
+        int id = evt.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableFoundingFactions.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Founding Factions:</h3>
+    string table = "factions";
+    @foreach (var fac in Model.NotableFoundingFactions)
+    {
+        int id = fac.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
+        </div>
+    }
+}
+
+@if (Model.NotableDisbandingFactions.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Dibanding Factions:</h3>
+    string table = "factions";
+    @foreach (var fac in Model.NotableDisbandingFactions)
+    {
+        int id = fac.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
+        </div>
+    }
+}
+
+@code {
     [Parameter]
     public int Id { get; set; }
+    [Parameter]
+    public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    private FullHistoricalAgeModel? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model = Crud.GetFullHistoricalAgeInfoById(Id);
+        if (Model == null)
+        {
+            // TODO log and recover
+        }
+    }
+
+    private Task ReqLore(string table, int id)
+    {
+        return OnReqLoreEvent.InvokeAsync((table, id));
+    }
 }

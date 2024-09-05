@@ -18,15 +18,16 @@
 @if (!string.IsNullOrWhiteSpace(Model.MapFilename))
 {
     <h3 class="text-light lore-info">Map:</h3>
-    <img class="lore-img" src="/static/GeoMaps/@Model.MapFilename" alt="@Model.MapFilename"
-        @onclick="() => GoToGeoMap(Model.MapName!)">
+    <img class="lore-map" src="/static/GeoMaps/@Model.MapFilename" alt="@Model.MapFilename"
+        @onclick="() => ReqMap(Model.MapName!)">
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.ContainingLocationName))
 {
+    string table = "locations";
     <h3 class="text-light lore-info">Containing Location:</h3>
     <div class="lore-entry-div">
-        <p class="lore-entry" @onclick="() => GoToContainingLore(Model.ContainingLocationId)">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.ContainingLocationId!)">
             @Model.ContainingLocationName</p>
     </div>
 }
@@ -34,42 +35,45 @@
 @if (Model.SubLocations.Count != 0)
 {
     <h3 class="text-light lore-info">Sub-Locations:</h3>
+    string table = "locations";
     @foreach (var loc in Model.SubLocations)
     {
-        string locId = $"loc{loc.Id}"; // Added 'loc' here to prevent collision with side bar component ids
+        int id = loc.Id;
         <div class="lore-entry-div">
-            <p id="@locId" class="lore-entry" @onclick="() =>
-                GoToSubLocation(int.Parse(locId.Remove(_idRemoveStart, _idRemoveEnd)))">@loc.Name</p>
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@loc.Name</p>
         </div>
     }
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.RulingGovernmentName))
 {
+    string table = "factions";
     <h3 class="text-light lore-info">Ruling Government:</h3>
     <div class="lore-entry-div">
-        <p class="lore-entry" @onclick="() => GoToFaction(Model.RulingGovernmentId)">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.RulingGovernmentId!)">
             @Model.RulingGovernmentName</p>
     </div>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.RulerName))
 {
+    string table = "npcs";
     <h3 class="text-light lore-info">Ruler:</h3>
     <div class="lore-entry-div">
-        <p class="lore-entry" @onclick="() => GoToNPC(Model.RulerId)">@Model.RulerName</p>
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.RulerId!)">
+            @Model.RulerName</p>
     </div>
 }
 
 @if (Model.NotableArtifacts.Count != 0)
 {
     <h3 class="text-light lore-info">Notable Artifacts:</h3>
+    string table = "artifacts";
     @foreach (var art in Model.NotableArtifacts)
     {
-        string artId = $"art{art.id}"; // Prevents side bar id collisions
+        int id = art.id;
         <div class="lore-entry-div">
-            <p id="@artId" class="lore-entry" @onclick="() =>
-                GoToArtifact(int.Parse(artId.Remove(_idRemoveStart, _idRemoveEnd)))">@art.name</p>
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
         </div>
     }
 }
@@ -77,12 +81,12 @@
 @if (Model.NotableEvents.Count != 0)
 {
     <h3 class="text-light lore-info">Notable Events:</h3>
+    string table = "events";
     @foreach (var evt in Model.NotableEvents)
     {
-        string evtId = $"evt{evt.id}"; // Prevents side bar id collisions
+        int id = evt.id;
         <div class="lore-entry-div">
-            <p id="@evtId" class="lore-entry" @onclick="() =>
-                GoToEvent(int.Parse(evtId.Remove(_idRemoveStart, _idRemoveEnd)))">@evt.name</p>
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
         </div>
     }
 }
@@ -90,12 +94,12 @@
 @if (Model.NotableFactions.Count != 0)
 {
     <h3 class="text-light lore-info">Notable Factions:</h3>
+    string table = "factions";
     @foreach (var fac in Model.NotableFactions)
     {
-        string facId = $"fac{fac.id}"; // Prevents side bar id collisions
+        int id = fac.id;
         <div class="lore-entry-div">
-            <p id="@facId" class="lore-entry" @onclick="() => 
-                GoToFaction(int.Parse(facId.Remove(_idRemoveStart, _idRemoveEnd)))">@fac.name</p>
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
         </div>
     }
 }
@@ -103,12 +107,12 @@
 @if (Model.NotableNPCs.Count != 0)
 {
     <h3 class="text-light lore-info">Notable NPCs:</h3>
+    string table = "npcs";
     @foreach (var npc in Model.NotableNPCs)
     {
-        string npcId = $"npc{npc.id}";
+        int id = npc.id;
         <div class="lore-entry-div">
-            <p id="@npcId" class="lore-entry" @onclick="() => 
-                GoToNPC(int.Parse(npcId.Remove(_idRemoveStart, _idRemoveEnd)))">@npc.name</p>
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
         </div>
     }
 }
@@ -116,11 +120,13 @@
 @code {
     [Parameter]
     public int Id { get; set; }
+    [Parameter]
+    public EventCallback<(string table, int id)> OnReqLoreEvent { set; get; }
+    [Parameter]
+    public EventCallback<string> OnReqMapEvent { set; get; }
     private FullLocationModel? Model { get; set; } = null;
-    private readonly int _idRemoveStart = 0;
-    private readonly int _idRemoveEnd = 3;
 
-    protected override void OnParametersSet() // TODO change to on after init + stream rendering?
+    protected override void OnInitialized()
     {
         Model = Crud.GetFullLocationInfoById(Id);
         if (Model == null)
@@ -133,38 +139,13 @@
         }
     }
 
-    private void GoToGeoMap(string name)
+    private Task ReqLore(string table, int id)
     {
-        NavManager.NavigateTo($"/world-maps/{name}");
+        return OnReqLoreEvent.InvokeAsync((table, id));
     }
 
-    private void GoToContainingLore(int? id)
+    private Task ReqMap(string name)
     {
-        NavManager.NavigateTo($"/lore/locations/{id}");
-    }
-
-    private void GoToFaction(int? id)
-    {
-        NavManager.NavigateTo($"/lore/factions/{id}");
-    }
-
-    private void GoToSubLocation(int? id)
-    {
-        NavManager.NavigateTo($"/lore/locations/{id}");
-    }
-
-    private void GoToArtifact(int? id)
-    {
-        NavManager.NavigateTo($"/lore/artifacts/{id}");
-    }
-
-    private void GoToEvent(int? id)
-    {
-        NavManager.NavigateTo($"/lore/events/{id}");
-    }
-
-    private void GoToNPC(int? id)
-    {
-        NavManager.NavigateTo($"/lore/npcs/{id}");
+        return OnReqMapEvent.InvokeAsync(name);
     }
 }

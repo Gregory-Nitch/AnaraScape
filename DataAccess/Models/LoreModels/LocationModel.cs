@@ -1,5 +1,4 @@
-﻿
-namespace DataAccess.Models.LoreModels;
+﻿namespace DataAccess.Models.LoreModels;
 
 /// <summary>
 /// Represents a location in the game setting
@@ -11,6 +10,7 @@ namespace DataAccess.Models.LoreModels;
 /// <param name="rulerId">ruling NPC id FK(NPCs)</param>
 /// <param name="containingLocationId">location that holds this location FK(Locations - same 
 /// table)</param>
+/// <param name="hasSubLocations">denotes a location that has sublocations</param>
 public class LocationModel(int id,
                            string name,
                            string? description,
@@ -53,9 +53,11 @@ public class LoadingLocationModel(string name)
 /// <param name="rulerId">ruling NPC id FK(NPCs)</param>
 /// <param name="containingLocationId">location that holds this location FK(Locations - same 
 /// table)</param>
-/// <param name="governmentName">ruling government name</param>
+/// <param name="rulingGovernmentName">ruling government name</param>
 /// <param name="rulerName">ruler name</param>
 /// <param name="containingLocationName">containing location name</param>
+/// <param name="mapFilename">name of the geomap file for this location</param>
+/// <param name="mapName">name of the geomap, used for world map component routing</param>
 public class FullLocationModel(int id,
                            string name,
                            string? description,
@@ -79,51 +81,25 @@ public class FullLocationModel(int id,
     public string? ContainingLocationName { get; set; } = containingLocationName;
     public string? MapFilename { get; set; } = mapFilename;
     public string? MapName { get; set; } = mapName;
-    public List<LocationModel> SubLocations { get; set; }
-    public List<(int id, string name)> NotableArtifacts { get; set; }
-    public List<(int id, string name)> NotableEvents { get; set; }
-    public List<(int id, string name)> NotableFactions { get; set; }
-    public List<(int id, string name)> NotableNPCs { get; set; }
-    public List<(int id, string name)> NotableResources { get; set; }
+    public List<LocationModel> SubLocations { get; set; } = [];
+    public List<(int id, string name)> NotableArtifacts { get; set; } = [];
+    public List<(int id, string name)> NotableEvents { get; set; } = [];
+    public List<(int id, string name)> NotableFactions { get; set; } = [];
+    public List<(int id, string name)> NotableNPCs { get; set; } = [];
+    public List<(int id, string name)> NotableResources { get; set; } = [];
 
-
+    /// <summary>
+    /// Populates all the relationship lists for the full object. 
+    /// </summary>
+    /// <param name="locCache">cache of locations to pull from rather than the db</param>
+    /// <param name="crud">crud object to call to db</param>
     public void PopulateRelations(LocationCache locCache, ICrud crud)
     {
-        GetSubLocations(locCache);
-        GetArtifacts(crud);
-        GetEvents(crud);
-        GetFactions(crud);
-        GetNPCs(crud);
-        GetResources(crud);
-    }
-
-    private void GetResources(ICrud crud)
-    {
-        NotableResources = crud.GetLocationResources(Id);
-    }
-
-    private void GetNPCs(ICrud crud)
-    {
-        NotableNPCs = crud.GetLocationNPCs(Id);
-    }
-
-    private void GetFactions(ICrud crud)
-    {
-        NotableFactions = crud.GetLocationFactions(Id);
-    }
-
-    private void GetEvents(ICrud crud)
-    {
-        NotableEvents = crud.GetLocationEvents(Id);
-    }
-
-    private void GetArtifacts(ICrud crud)
-    {
-        NotableArtifacts = crud.GetLocationArtifacts(Id);
-    }
-
-    private void GetSubLocations(LocationCache locCache)
-    {
         SubLocations = [.. locCache.Locations.Where(l => l.ContainingLocationId == Id)];
+        NotableArtifacts = crud.GetLocationArtifacts(Id);
+        NotableEvents = crud.GetLocationEvents(Id);
+        NotableFactions = crud.GetLocationFactions(Id);
+        NotableNPCs = crud.GetLocationNPCs(Id);
+        NotableResources = crud.GetLocationResources(Id);
     }
 }

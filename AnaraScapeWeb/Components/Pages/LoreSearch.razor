@@ -19,13 +19,39 @@
 
     <h2 class="text-light">@Table Search Results</h2>
 
-    @* TODO other iterations here *@
-
-    @foreach (LocationModel loc in Locations)
+    @foreach (var art in Artifacts)
     {
-        <h5 class="lore-result" @onclick="() => GoToLore(loc.Id)">
-            @loc.Name
-        </h5>
+        <h5 class="lore-result" @onclick="() => GoToLore(art.id)">@art.name</h5>
+    }
+
+    @foreach (var evt in Events)
+    {
+        <h5 class="lore-result" @onclick="() => GoToLore(evt.id)">@evt.name</h5>
+    }
+
+    @foreach (var map in GeoMaps)
+    {
+        <h5 class="lore-result" @onclick="() => GoToMap(map.name)">@map.name</h5>
+    }
+
+    @foreach (var loc in Locations)
+    {
+        <h5 class="lore-result" @onclick="() => GoToLore(loc.id)">@loc.name</h5>
+    }
+
+    @foreach (var npc in NPCs)
+    {
+        <h5 class="lore-result" @onclick="() => GoToLore(npc.id)">@npc.name</h5>
+    }
+
+    @foreach (var rsc in Resources)
+    {
+        <h5 class="lore-result" @onclick="() => GoToLore(rsc.id)">@rsc.name</h5>
+    }
+
+    @foreach (var trm in Terminologies)
+    {
+        <h5 class="lore-result" @onclick="() => GoToLore(trm.id)">@trm.name</h5>
     }
 
 </article>
@@ -36,14 +62,14 @@
     [Parameter]
     public string SearchInput { get; set; } = "";
 
-    private List<ArtifactModel> Artifacts = [];
-    private List<EventModel> Events = [];
-    private List<FactionModel> Factions = [];
-    private List<GeoMapModel> GeoMaps = [];
-    private List<LocationModel> Locations = [];
-    private List<NPCModel> NPCs = [];
-    private List<ResourceModel> Resources = [];
-    private List<TerminologyModel> Terminologies = [];
+    private List<(int id, string name)> Artifacts = [];
+    private List<(int id, string name)> Events = [];
+    private List<(int id, string name)> Factions = [];
+    private List<(int id, string name)> GeoMaps = [];
+    private List<(int id, string name)> Locations = [];
+    private List<(int id, string name)> NPCs = [];
+    private List<(int id, string name)> Resources = [];
+    private List<(int id, string name)> Terminologies = [];
 
     protected override void OnParametersSet()
     {
@@ -51,21 +77,53 @@
         {
             switch (loreTable)
             {
+                case LoreTable.Artifacts:
+                    Artifacts = Crud.GetArtifactsLike(SearchInput);
+                    break;
+
+                case LoreTable.Events:
+                    Events = Crud.GetEventsLike(SearchInput);
+                    break;
+
+                case LoreTable.Factions:
+                    Factions = Crud.GetFactionsLike(SearchInput);
+                    break;
+
+                case LoreTable.GeoMaps:
+                    GeoMaps = Crud.GetGeoMapsLike(SearchInput);
+                    break;
+
                 case LoreTable.Locations:
                     Locations = Crud.GetLocationsLike(SearchInput);
                     break;
 
-                // TODO other table crud actions here
+                case LoreTable.NPCs:
+                    NPCs = Crud.GetNPCsLike(SearchInput);
+                    break;
+
+                case LoreTable.Resources:
+                    Resources = Crud.GetResourcesLike(SearchInput);
+                    break;
+
+                case LoreTable.Terminologies:
+                    Terminologies = Crud.GetTerminologiesLike(SearchInput);
+                    break;
 
                 default:
+                    // TODO log and recover (Should be unreachable)
                     throw new NotSupportedException();
             }
         }
-        // TODO log and recover
+        // TODO log and recover (Should be unreachable)
     }
 
     private void GoToLore(int id)
     {
         NavManager.NavigateTo($"/lore/{Table}/{id}");
+    }
+
+    private void GoToMap(string name)
+    {
+        NavManager.NavigateTo($"/world-maps/{name}");
     }
 }
