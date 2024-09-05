@@ -1,4 +1,127 @@
-﻿@code {
+﻿@using DataAccess
+@using DataAccess.Models.LoreModels
+
+@inject ICrud Crud
+@inject NavigationManager NavManager
+
+<PageTitle>Lore: @Model!.Name</PageTitle>
+
+<h1 class="text-light">@Model!.Name</h1>
+
+@if (!string.IsNullOrWhiteSpace(Model.Description))
+{
+    <h3 class="text-light lore-info">Description:</h3>
+    <p class="text-light lore-info">@Model.Description</p>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.LocationName))
+{
+    string table = "locations";
+    <h3 class="text-light lore-info">Location:</h3>
+    <div class="lore-entry-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.LocationId!)">
+            @Model.LocationName</p>
+    </div>
+}
+
+@if (Model.OwnerType != null)
+{
+    <h3 class="text-light lore-info">Owner:</h3>
+    int? id = Model.NPCOwnerId ?? Model.FactionOwnerId;
+    string? name = Model.NPCOwnerName ?? Model.FactionOwnerName;
+    string table = "";
+    @if (Model.OwnerType == EntityType.NPC)
+    {
+        table = "npcs";
+    }
+    else if (Model.OwnerType == EntityType.Faction)
+    {
+        table = "factions";
+    }
+    <div class="lore-entry-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)id!)">
+            @name</p>
+    </div>
+}
+
+@if (Model.CreatorType != null)
+{
+    <h3 class="text-light lore-info">Creator:</h3>
+    int? id = Model.NPCCreatorId ?? Model.FactionCreatorId;
+    string? name = Model.NPCCreatorName ?? Model.FactionCreatorName;
+    string table = "";
+    @if (Model.CreatorType == EntityType.NPC)
+    {
+        table = "npcs";
+    }
+    else if (Model.CreatorType == EntityType.Faction)
+    {
+        table = "factions";
+    }
+    <div class="lore-entry-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)id!)">
+            @Model.FactionCreatorName</p>
+    </div>
+}
+
+@if (Model.CreationAge != null)
+{
+    <h3 class="text-light lore-info">Creation Age and Date:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+        <div class="lore-date-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.CreationAgeId!)">
+                @Model.CreationAge</p>
+            <p class="text-light date">@Model.CreationDate</p>
+        </div>
+    </div>
+}
+
+@if (Model.LostAge != null)
+{
+    <h3 class="text-light lore-info">Lost Age and Date:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+        <div class="lore-date-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.LostAgeId!)">
+                @Model.LostAge</p>
+            <p class="text-light date">@Model.LostDate</p>
+        </div>
+    </div>
+}
+
+@if (Model.NotableEvents.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Events:</h3>
+    string table = "events";
+    @foreach (var evt in Model.NotableEvents)
+    {
+        int id = evt.id;
+        <div class="lore-entry-div">
+            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
+        </div>
+    }
+}
+
+@code {
     [Parameter]
     public int Id { get; set; }
+    [Parameter]
+    public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    private FullArtifactModel? Model { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        Model = Crud.GetFullArtifactInfoById(Id);
+        if (Model == null)
+        {
+            // TODO Log and recover
+        }
+    }
+
+    private Task ReqLore(string table, int id)
+    {
+        return OnReqLoreEvent.InvokeAsync((table, id));
+    }
 }

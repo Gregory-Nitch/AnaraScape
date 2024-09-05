@@ -4,10 +4,9 @@
 
 @rendermode InteractiveServer
 
-<PageTitle>Lore</PageTitle>
+@inject NavigationManager NavManager
 
-@* TODO remove below when done *@
-@* <UnderConstruction FlavorMessage="Fear not! The scribes at the Scriptorium are hard at work!" /> *@
+<PageTitle>Lore</PageTitle>
 
 <LoreSideBar /> @* Keep outside of article for proper positioning. *@
 
@@ -20,19 +19,19 @@
         @switch (Table.ToLower())
         {
             case "artifacts":
-                <ArtifactLore Id="(int)Id" />
+                <ArtifactLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
                 break;
 
             case "events":
-                <EventLore Id="(int)Id" />
+                <EventLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
                 break;
 
             case "factions":
-                <FactionLore Id="(int)Id" />
+                <FactionLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
                 break;
 
             case "historical-ages":
-                <HistoricalAgeLore Id="(int)Id" />
+                <HistoricalAgeLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
                 break;
 
             case "npcs":
@@ -40,7 +39,7 @@
                 break;
 
             case "locations":
-                <LocationLore Id="(int)Id" />
+                <LocationLore OnReqLoreEvent="GoToLore" OnReqMapEvent="GoToMap" Id="(int)Id" />
                 break;
 
             case "resources":
@@ -67,4 +66,14 @@
     public string? Table { get; set; }
     [Parameter]
     public int? Id { get; set; }
+
+    public void GoToLore((string table, int id) req)
+    {
+        NavManager.NavigateTo($"/lore/{req.table}/{req.id}");
+    }
+
+    public void GoToMap(string mapName)
+    {
+        NavManager.NavigateTo($"/world-maps/{mapName}");
+    }
 }

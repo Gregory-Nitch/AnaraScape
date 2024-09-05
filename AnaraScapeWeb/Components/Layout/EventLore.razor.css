@@ -1,4 +1,4 @@
-﻿.lore-info,
+.lore-info,
 .lore-entry-div {
     padding-left: 10%;
     padding-right: 10%;
@@ -14,8 +14,7 @@
     color: rgb(220, 53, 69);
 }
 
-.lore-img,
-.lore-map {
+.lore-img {
     width: 80%;
     max-width: 500px;
     margin-right: 10%;
@@ -26,11 +25,14 @@
     transition: 0.5s;
 }
 
-.lore-map:hover {
-    border-color: rgb(220, 53, 69);
-}
-
-.lore-map:hover,
 .lore-entry:hover {
     cursor: pointer;
+}
+
+.lore-date-div {
+    display: flex;
+}
+
+.date {
+    margin-left: 10px;
 }

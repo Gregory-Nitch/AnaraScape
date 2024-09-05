@@ -514,47 +514,74 @@ public class Crud(IDBAccess db) : ICrud
                        true);
     }
 
-    public List<ArtifactModel> GetArtifactsLike(string likeName)
+    public List<(int id, string name)> GetArtifactsLike(string likeName)
     {
-        throw new NotImplementedException();
-    }
-
-    public List<EventModel> GetEventsLike(string likeName)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<FactionModel> GetFactionsLike(string likeName)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<GeoMapModel> GetGeoMapsLike(string likeName)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<LocationModel> GetLocationsLike(string likeName)
-    {
-        return _db.QueryDB<LocationModel, dynamic>("Lore.spLocations_GetLike",
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetLike",
                                                    new { Name = likeName },
                                                    ConnStringName,
                                                    true);
     }
 
-    public List<NPCModel> GetNPCsLike(string likeName)
+    public List<(int id, string name)> GetEventsLike(string likeName)
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spEvents_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+
     }
 
-    public List<ResourceModel> GetResourcesLike(string likeName)
+    public List<(int id, string name)> GetFactionsLike(string likeName)
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spFactions_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+
     }
 
-    public List<TerminologyModel> GetTerminologiesLike(string likeName)
+    public List<(int id, string name)> GetGeoMapsLike(string likeName)
     {
-        throw new NotImplementedException();
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spGeoMaps_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+
+    }
+
+    public List<(int id, string name)> GetLocationsLike(string likeName)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spLocations_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<(int id, string name)> GetNPCsLike(string likeName)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spNPCs_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+
+    }
+
+    public List<(int id, string name)> GetResourcesLike(string likeName)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spResources_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+
+    }
+
+    public List<(int id, string name)> GetTerminologiesLike(string likeName)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spTerminologies_GetLike",
+                                                   new { Name = likeName },
+                                                   ConnStringName,
+                                                   true);
+
     }
 
     public FullLocationModel? GetFullLocationInfoById(int id)
@@ -603,5 +630,219 @@ public class Crud(IDBAccess db) : ICrud
                                                    new { id },
                                                    ConnStringName,
                                                    true);
+    }
+
+    public FullArtifactModel? GetFullArtifactInfoById(int id)
+    {
+        var model = _db.QueryDB<FullArtifactModel, dynamic>("Lore.spArtifacts_GetFullInfoById",
+                                                       new { id },
+                                                       ConnStringName,
+                                                       true).FirstOrDefault();
+        if (model != null)
+        {
+            model.NotableEvents = GetArtifactEvents(id);
+        }
+        return model;
+    }
+
+    public List<(int id, string name)> GetArtifactEvents(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_EventArtifactRelations_GetArtifactEvents",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public FullEventModel? GetFullEventInfoById(int id)
+    {
+        var model = _db.QueryDB<FullEventModel, dynamic>("Lore.spEvents_GetFullInfoById",
+                                                         new { id },
+                                                         ConnStringName,
+                                                         true).FirstOrDefault();
+        if (model != null)
+        {
+            model.NotableArtifacts = GetEventArtifacts(id);
+            model.NotableFactions = GetEventFactions(id);
+            model.NotableLocations = GetEventLocations(id);
+            model.NotableNPCs = GetEventNPCs(id);
+        }
+        return model;
+    }
+
+    public List<(int id, string name)> GetEventArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_EventArtifactRelations_GetEventArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetEventFactions(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_EventFactionRelations_GetEventFactions",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetEventLocations(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_LocationEventRelations_GetEventLocations",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public List<(int id, string name)> GetEventNPCs(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_NPCEventRelations_GetEventNPCs",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+    }
+
+    public FullFactionModel? GetFullFactionInfoById(int id)
+    {
+        var model = _db.QueryDB<FullFactionModel, dynamic>("Lore.spFactions_GetFullInfoById",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true).FirstOrDefault();
+
+        if (model != null)
+        {
+            model.NotableCreatedArtifacts = GetFactionCreatedArtifacts(id);
+            model.NotableOwnedArtifacts = GetFactionOwnedArtifacts(id);
+            model.NotableEvents = GetFactionEvents(id);
+            model.NotableLocations = GetFactionLocations(id);
+            model.NotableNPCs = GetFactionNPCs(id);
+        }
+        return model;
+    }
+
+    public List<(int id, string name)> GetFactionCreatedArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetFactionCreatedArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetFactionOwnedArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetFactionOwnedArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetFactionEvents(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_EventFactionRelations_GetFactionEvents",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetFactionLocations(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_LocationFactionRelations_GetFactionLocations",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetFactionNPCs(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_NPCFactionRelations_GetFactionNPCs",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public FullHistoricalAgeModel? GetFullHistoricalAgeInfoById(int id)
+    {
+        var model = _db.QueryDB<FullHistoricalAgeModel, dynamic>("Lore.spHistoricalAges_GetFullInfoById",
+                                                                 new { id },
+                                                                 ConnStringName,
+                                                                 true).FirstOrDefault();
+        if (model != null)
+        {
+            model.NotableLivingNPCs = GetHistoricalAgeLivingNPCs(id);
+            model.NotableDeadNPCs = GetHistoricalAgeDeadNPCs(id);
+            model.NotableCreatedArtifacts = GetHistoricalAgeCreatedArtifacts(id);
+            model.NotableLostArtifacts = GetHistoricalAgeLostArtifacts(id);
+            model.NotableBeginingEvents = GetHistoricalAgeBeginingEvents(id);
+            model.NotableEndingEvents = GetHistorcalAgeEndingEvents(id);
+            model.NotableFoundingFactions = GetHistoricalAgeFoundingFactions(id);
+            model.NotableDisbandingFactions = GetHistoricalAgeDisbandingFactions(id);
+        }
+        return model;
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeLivingNPCs(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spNPCs_GetHistoricalAgeLivingNPCs",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeDeadNPCs(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spNPCs_GetHistoricalAgeDeadNPCs",
+                                                       new { id },
+                                                       ConnStringName,
+                                                       true);
+
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeCreatedArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetHistoricalAgeCreatedArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeLostArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetHistoricalAgeLostArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeBeginingEvents(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spEvents_GetHistoricalAgeBeginingEvents",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetHistorcalAgeEndingEvents(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spEvents_GetHistoricalAgeEndingEvents",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeFoundingFactions(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spFactions_GetHistoricalAgeFoundingFactions",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetHistoricalAgeDisbandingFactions(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spFactions_GetHistoricalAgeDisbandingFactions",
+                                                   new { id },
+                                                   ConnStringName,
+                                                   true);
+
     }
 }

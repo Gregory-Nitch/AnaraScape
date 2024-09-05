@@ -6,12 +6,7 @@ BEGIN
 
 	SELECT
 		[Id],
-		[Name],
-		[Description],
-		[RulingGovernmentId],
-		[RulerId],
-		[ContainingLocationId],
-		[HasSubLocations]
+		[Name]
 	FROM [Lore].[Locations]
 	WHERE [Name] LIKE '%'+@Name+'%';
 

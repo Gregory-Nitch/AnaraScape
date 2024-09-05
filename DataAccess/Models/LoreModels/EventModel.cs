@@ -10,11 +10,11 @@ public class EventModel(StoredEventModel storedModel)
     public string Name { get; set; } = storedModel.Name;
     public bool IsMultiDayEvent { get; set; } = storedModel.IsMultiDayEvent;
     public string? Description { get; set; } = storedModel?.Description;
-    public AnaraDate? StartDate { get; set; } = storedModel?.StartDate != null ? 
+    public AnaraDate? StartDate { get; set; } = storedModel?.StartDate != null ?
                                                 AnaraDate.ParseFromString(storedModel.StartDate)
                                                 : null;
     public int? StartAgeId { get; set; } = storedModel?.StartAgeId; // FK (HistoricalAges)
-    public AnaraDate? EndDate { get; set; } = storedModel?.EndDate != null ? 
+    public AnaraDate? EndDate { get; set; } = storedModel?.EndDate != null ?
                                               AnaraDate.ParseFromString(storedModel.EndDate) : null;
     public int? EndAgeId { get; set; } = storedModel?.EndAgeId; // FK (HistoricalAges)
 }
@@ -70,4 +70,35 @@ public class LoadingEventModel(string name, bool isMultiDayEvent)
     public int? StartAgeId { get; set; } // FK (HistoricalAges)
     public string? EndDate { get; set; }
     public int? EndAgeId { get; set; } // FK (HistoricalAges)
+}
+
+
+public class FullEventModel(int id,
+                            string name,
+                            bool isMultiDayEvent,
+                            string? description,
+                            string? startDate,
+                            int? startAgeId,
+                            AnaraAge? startAge,
+                            string? endDate,
+                            int? endAgeId,
+                            AnaraAge? endAge)
+{
+    public int Id { get; set; } = id;
+    public string Name { get; set; } = name;
+    public bool IsMultiDayEvent { get; set; } = isMultiDayEvent;
+    public string? Description { get; set; } = description;
+    public AnaraDate? StartDate { get; set; } = startDate != null ?
+                                                AnaraDate.ParseFromString(startDate)
+                                                : null;
+    public int? StartAgeId { get; set; } = startAgeId; // FK (HistoricalAges)
+    public AnaraAge? StartAge { get; } = startAge;
+    public AnaraDate? EndDate { get; set; } = endDate != null ?
+                                              AnaraDate.ParseFromString(endDate) : null;
+    public int? EndAgeId { get; set; } = endAgeId; // FK (HistoricalAges)
+    public AnaraAge? EndAge { get; } = endAge;
+    public List<(int id, string name)> NotableArtifacts = [];
+    public List<(int id, string name)> NotableFactions = [];
+    public List<(int id, string name)> NotableLocations = [];
+    public List<(int id, string name)> NotableNPCs = [];
 }
