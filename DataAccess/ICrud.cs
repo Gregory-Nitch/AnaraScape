@@ -129,4 +129,12 @@ public interface ICrud
     public List<(int id, string name)> GetHistorcalAgeEndingEvents(int id);
     public List<(int id, string name)> GetHistoricalAgeFoundingFactions(int id);
     public List<(int id, string name)> GetHistoricalAgeDisbandingFactions(int id);
+    public FullNPCModel? GetFullNPCInfoById(int id);
+    public List<(int id, string name)> GetNPCLeadingFactions(int id);
+    public List<(int id, string name)> GetNPCMemberFactions(int id);
+    public List<(int id, string name)> GetNPCEvents(int id);
+    public List<(int id, string name)> GetNPCRulingLocations(int id);
+    public List<(int id, string name)> GetNPCCreatedArtifacts(int id);
+    public List<(int id, string name)> GetNPCOwnedArtifacts(int id);
+    public List<(int id, string name)> GetNPCTerms(int id);
 }

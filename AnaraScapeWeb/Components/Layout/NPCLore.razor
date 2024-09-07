@@ -1,4 +1,303 @@
-﻿@code {
+﻿@using DataAccess
+@using DataAccess.Models.LoreModels;
+
+@inject ICrud Crud
+@inject NavigationManager NavManger
+
+<PageTitle>@Model!.Name</PageTitle>
+
+<h1 class="text-light">@Model!.Name</h1>
+
+@if (Model.Race != null)
+{
+    <h3 class="text-light lore-info">Race:</h3>
+    <p class="text-light lore-info">@Model.Race</p>
+}
+
+@if (Model.Description != null)
+{
+    <h3 class="text-light lore-info">Description:</h3>
+    <p class="text-light lore-info">@Model.Description</p>
+}
+
+@if (Model.Biography != null)
+{
+    <h3 class="text-light lore-info">Biography:</h3>
+    <p class="text-light lore-info">@Model.Biography</p>
+}
+
+@if (Model.Title != null)
+{
+    <h3 class="text-light lore-info">Title:</h3>
+    <p class="text-light lore-info">@Model.Title</p>
+}
+
+@if (Model.LevelOrCR != null)
+{
+    <h3 class="text-light lore-info">Level/CR:</h3>
+    <p class="text-light lore-info">@Model.LevelOrCR</p>
+}
+
+@if (Model.Speed != null)
+{
+    <h3 class="text-light lore-info">Speed:</h3>
+    <p class="text-light lore-info">@Model.Speed</p>
+}
+
+@if (Model.HitPoints != null)
+{
+    <h3 class="text-light lore-info">Hit Points:</h3>
+    <p class="text-light lore-info2">@Model.HitPoints</p>
+}
+
+@if (Model.ArmorClass != null)
+{
+    <h3 class="text-light lore-info">Armor Class</h3>
+    <p class="text-light lore-info">@Model.ArmorClass</p>
+}
+
+@if (Model.StatArray != null)
+{
+    <h3 class="text-light lore-info">Ability Scores:</h3>
+    @foreach (var stat in Model.StatArray)
+    {
+        <p class="text-light lore-info">@stat</p>
+    }
+}
+
+@if (Model.ProficiencyBonus != null)
+{
+    <h3 class="text-light lore-info">Proficiency Bonus:</h3>
+    <p class="text-light lore-info">@Model.ProficiencyBonus</p>
+}
+
+@if (Model.SpellSaveDC != null)
+{
+    <h3 class="text-light lore-info">Spell Save DC:</h3>
+    <p class="text-light lore-info">@Model.SpellSaveDC</p>
+}
+
+@if (Model.SpellList != null && Model.SpellList.Count != 0)
+{
+    <h3 class="text-light lore-info">Spell List:</h3>
+    @foreach (var spell in Model.SpellList)
+    {
+        <p class="text-light lore-info">@spell</p>
+    }
+}
+
+@if (Model.SaveProficienciesList != null && Model.SaveProficienciesList.Count != 0)
+{
+    <h3>Save Proficiencies:</h3>
+    @foreach (var save in Model.SaveProficienciesList)
+    {
+        <p class="text-light lore-info">@save</p>
+    }
+}
+
+@if (Model.SkillProficienciesList != null && Model.SkillProficienciesList.Count != 0)
+{
+    <h3 class="text-light lore-info">Skill Proficiencies:</h3>
+    @foreach (var skill in Model.SkillProficienciesList)
+    {
+        <p class="text-light lore-info">@skill</p>
+    }
+}
+
+@if (Model.ItemProficienciesList != null && Model.ItemProficienciesList.Count != 0)
+{
+    <h3 class="text-light lore-info">Item Proficiencies:</h3>
+    @foreach (var item in Model.ItemProficienciesList)
+    {
+        <p class="text-light lore-info">@item</p>
+    }
+}
+
+@if (Model.ActionList != null && Model.ActionList.Count != 0)
+{
+    <h3 class="text-light lore-info">Actions:</h3>
+    @foreach (var action in Model.ActionList)
+    {
+        <p class="text-light lore-info">@action</p>
+    }
+}
+
+@if (Model.FeatureList != null && Model.FeatureList.Count != 0)
+{
+    <h3>Features:</h3>
+    @foreach (var feature in Model.FeatureList)
+    {
+        <p class="text-light lore-info">@feature</p>
+    }
+}
+
+@if (Model.EquipmentList != null && Model.EquipmentList.Count != 0)
+{
+    <h3 class="text-light lore-info">Equipment:</h3>
+    @foreach (var equipment in Model.EquipmentList)
+    {
+        <p class="text-light lore-info">@equipment</p>
+    }
+}
+
+@if (Model.LocationId != null)
+{
+    <h3 class="text-light lore-info">Current Location:</h3>
+    string table = "locations";
+    <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.LocationId!)">@Model.LocationName</p>
+</div>
+}
+
+@if (Model.BirthDate != null)
+{
+    <h3 class="text-light lore-info">Birth Date:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+    <div class="lore-date-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.BirthAgeId!)">
+            @Model.BirthAge</p>
+        <p class="text-light date">@Model.BirthDate</p>
+    </div>
+</div>
+}
+
+@if (Model.DeathDate != null)
+{
+    <h3 class="text-light lore-info">Death Date:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+    <div class="lore-date-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.DeathAgeId!)">
+            @Model.DeathAge</p>
+        <p class="text-light date">@Model.DeathDate</p>
+    </div>
+</div>
+}
+
+@if (Model.NotableLeadingFactions.Count != 0)
+{
+    <h3 class="text-light lore-info">Leader of the Following Factions:</h3>
+    string table = "factions";
+    @foreach (var fac in Model.NotableLeadingFactions)
+    {
+        int id = fac.id;
+        <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @fac.name
+    </p>
+</div>
+    }
+}
+
+@if (Model.NotableMemberFactions.Count != 0)
+{
+    <h3 class="text-light lore-info">Member of the Following Factions</h3>
+    string table = "factions";
+    @foreach (var fac in Model.NotableMemberFactions)
+    {
+        int id = fac.id;
+        <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @fac.name
+    </p>
+</div>
+    }
+}
+
+@if (Model.NotableEvents.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Events:</h3>
+    string table = "events";
+    @foreach (var evt in Model.NotableEvents)
+    {
+        int id = evt.id;
+        <div class="text-light lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @evt.name
+    </p>
+</div>
+    }
+}
+
+@if (Model.NotableRulingLocations.Count != 0)
+{
+    <h3 class="text-light lore-info">Ruler of the Following Locations:</h3>
+    string table = "locations";
+    @foreach (var loc in Model.NotableRulingLocations)
+    {
+        int id = loc.id;
+        <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @loc.name
+    </p>
+</div>
+    }
+}
+
+@if (Model.NotableCreatedArtifacts.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Created Artifacts:</h3>
+    string table = "artifacts";
+    @foreach (var art in Model.NotableCreatedArtifacts)
+    {
+        int id = art.id;
+        <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @art.name
+    </p>
+</div>
+    }
+}
+
+@if (Model.NotableOwnedArtifacts.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Owned Artifacts:</h3>
+    string table = "artifacts";
+    @foreach (var art in Model.NotableOwnedArtifacts)
+    {
+        int id = art.id;
+        <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @art.name
+    </p>
+</div>
+    }
+}
+
+@if (Model.NotableTerms.Count != 0)
+{
+    <h3 class="text-light lore-info">Notable Created Terms:</h3>
+    string table = "terminologies";
+    @foreach (var trm in Model.NotableTerms)
+    {
+        int id = trm.id;
+        <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">
+        @trm.name
+    </p>
+</div>
+    }
+}
+
+@code {
     [Parameter]
     public int Id { get; set; }
+    [Parameter]
+    public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    private FullNPCModel? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model = Crud.GetFullNPCInfoById(Id);
+        if (Model == null)
+        {
+            // TODO Log and recover
+        }
+    }
+
+    private Task ReqLore(string table, int id)
+    {
+        return OnReqLoreEvent.InvokeAsync((table, id));
+    }
 }

@@ -32,10 +32,10 @@ public class NPCModel(StoredNPCModel storedModel)
     public List<string>? FeatureList { get; set; } = storedModel?.FeatureList?.Split(",").ToList();
     public List<string>? EquipmentList { get; set; } = storedModel?.EquipmentList?.Split(",").ToList();
     public int? LocationId { get; set; } = storedModel?.LocationId; // FK (Locations)
-    public AnaraDate? BirthDate { get; set; } = storedModel?.BirthDate != null ? 
+    public AnaraDate? BirthDate { get; set; } = storedModel?.BirthDate != null ?
                                                 AnaraDate.ParseFromString(storedModel.BirthDate) : null;
     public int? BirthAgeId { get; set; } = storedModel?.BirthAgeId; // FK (HistoricalAges)
-    public AnaraDate? DeathDate { get; set; } = storedModel?.DeathDate != null ? 
+    public AnaraDate? DeathDate { get; set; } = storedModel?.DeathDate != null ?
                                                 AnaraDate.ParseFromString(storedModel.DeathDate) : null;
     public int? DeathAgeId { get; set; } = storedModel?.DeathAgeId; // FK (HistoricalAges)
 }
@@ -156,4 +156,107 @@ public class StoredNPCModel(int id,
     public int? BirthAgeId { get; set; } = birthAgeId; // FK HistoricalAges
     public string? DeathDate { get; set; } = deathDate;
     public int? DeathAgeId { get; set; } = deathAgeId; // FK HistoricalAges
+}
+
+
+/// <summary>
+/// Represents a NPC in the game setting, including all of their relationships.
+/// </summary>
+/// <param name="id">id from db</param>
+/// <param name="name">name of the npc</param>
+/// <param name="race">race of the npc</param>
+/// <param name="description">description of the npc</param>
+/// <param name="biography">biography of the npc</param>
+/// <param name="title">title that the npc holds</param>
+/// <param name="levelOrCR">level or cr of the npc</param>
+/// <param name="speed">movement speed of the npc</param>
+/// <param name="hitPoints">max hit points of the npc</param>
+/// <param name="armorClass">npc's armor class</param>
+/// <param name="statArray">array of stats for the npc (str, dex, etc...)</param>
+/// <param name="proficiencyBonus">proficiency bonus of the npc</param>
+/// <param name="spellSaveDC">spell save dc of the npc's spells</param>
+/// <param name="spellList">list of spell names the npc has access to</param>
+/// <param name="saveProficienciesList">list of saves the npc is proficient in</param>
+/// <param name="skillProficienciesList">list of skills the npc is proficient in</param>
+/// <param name="itemProficienciesList">list of items the npc is proficient with</param>
+/// <param name="actionList">list of actions the npc can take (attacks, hide, etc...)</param>
+/// <param name="featureList">list of features the npc has</param>
+/// <param name="equipmentList">list of equipment the npc has on them</param>
+/// <param name="locationId">loction id where the npc normally resides(FK Locations)</param>
+/// <param name="locationName">name of the location the npc normally resides</param>
+/// <param name="birthDate">npc's date of birth</param>
+/// <param name="birthAgeId">age id the npc was born in (FK HistoricalAges)</param>
+/// <param name="birthAge">enum value representing the birth age</param>
+/// <param name="deathDate">npc's date of death</param>
+/// <param name="deathAgeId">age id the npc died in (FK HistoricalAges)</param>
+/// <param name="deathAge">enum value representing the death age</param>
+public class FullNPCModel(int id,
+                          string name,
+                          string race,
+                          string description,
+                          string biography,
+                          string? title,
+                          string? levelOrCR,
+                          int? speed,
+                          int? hitPoints,
+                          int? armorClass,
+                          string? statArray,
+                          int? proficiencyBonus,
+                          int? spellSaveDC,
+                          string? spellList,
+                          string? saveProficienciesList,
+                          string? skillProficienciesList,
+                          string? itemProficienciesList,
+                          string? actionList,
+                          string? featureList,
+                          string? equipmentList,
+                          int? locationId,
+                          string? locationName,
+                          string? birthDate,
+                          int? birthAgeId,
+                          AnaraAge? birthAge,
+                          string? deathDate,
+                          int? deathAgeId,
+                          AnaraAge? deathAge)
+{
+    public int Id { get; set; } = id;
+    public string Name { get; set; } = name;
+    public string Race { get; set; } = race;
+    public string Description { get; set; } = description;
+    public string Biography { get; set; } = biography;
+    public string? Title { get; set; } = title;
+    public string? LevelOrCR { get; set; } = levelOrCR;
+    public int? Speed { get; set; } = speed;
+    public int? HitPoints { get; set; } = hitPoints;
+    public int? ArmorClass { get; set; } = armorClass;
+    public string[]? StatArray { get; set; } = statArray?.Split(',');
+    public int? ProficiencyBonus { get; set; } = proficiencyBonus;
+    public int? SpellSaveDC { get; set; } = spellSaveDC;
+    public List<string>? SpellList { get; set; } = spellList?.Split(',').ToList();
+    public List<string>? SaveProficienciesList { get; set; } = saveProficienciesList?.Split(',')
+                                                                                     .ToList();
+    public List<string>? SkillProficienciesList { get; set; } = skillProficienciesList?.Split(',')
+                                                                                       .ToList();
+    public List<string>? ItemProficienciesList { get; set; } = itemProficienciesList?.Split(',')
+                                                                                     .ToList();
+    public List<string>? ActionList { get; set; } = actionList?.Split(',').ToList();
+    public List<string>? FeatureList { get; set; } = featureList?.Split(',').ToList();
+    public List<string>? EquipmentList { get; set; } = equipmentList?.Split(',').ToList();
+    public int? LocationId { get; set; } = locationId; // FK (Locations)
+    public string? LocationName { get; set; } = locationName;
+    public AnaraDate? BirthDate { get; set; } = birthDate != null ?
+                                                AnaraDate.ParseFromString(birthDate) : null;
+    public int? BirthAgeId { get; set; } = birthAgeId; // FK (HistoricalAges)
+    public AnaraAge? BirthAge { get; } = birthAge;
+    public AnaraDate? DeathDate { get; set; } = deathDate != null ?
+                                                AnaraDate.ParseFromString(deathDate) : null;
+    public int? DeathAgeId { get; set; } = deathAgeId; // FK (HistoricalAges)
+    public AnaraAge? DeathAge { get; } = deathAge;
+    public List<(int id, string name)> NotableLeadingFactions { get; set; } = [];
+    public List<(int id, string name)> NotableMemberFactions { get; set; } = [];
+    public List<(int id, string name)> NotableEvents { get; set; } = [];
+    public List<(int id, string name)> NotableRulingLocations { get; set; } = [];
+    public List<(int id, string name)> NotableCreatedArtifacts { get; set; } = [];
+    public List<(int id, string name)> NotableOwnedArtifacts { get; set; } = [];
+    public List<(int id, string name)> NotableTerms { get; set; } = [];
 }

@@ -845,4 +845,80 @@ public class Crud(IDBAccess db) : ICrud
                                                    true);
 
     }
+
+    public FullNPCModel? GetFullNPCInfoById(int id)
+    {
+        var model = _db.QueryDB<FullNPCModel, dynamic>("Lore.spNPCs_GetFullInfoById",
+                                                       new { id },
+                                                       ConnStringName,
+                                                       true).FirstOrDefault();
+
+        if (model != null)
+        {
+            model.NotableLeadingFactions = GetNPCLeadingFactions(id);
+            model.NotableMemberFactions = GetNPCMemberFactions(id);
+            model.NotableEvents = GetNPCEvents(id);
+            model.NotableRulingLocations = GetNPCRulingLocations(id);
+            model.NotableCreatedArtifacts = GetNPCCreatedArtifacts(id);
+            model.NotableOwnedArtifacts = GetNPCOwnedArtifacts(id);
+            model.NotableTerms = GetNPCTerms(id);
+        }
+        return model;
+    }
+
+    public List<(int id, string name)> GetNPCLeadingFactions(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spFactions_GetNPCLeadingFactions",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetNPCMemberFactions(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_NPCFactionRelations_GetNPCMemberFactions",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetNPCEvents(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_NPCEventRelations_GetNPCEvents",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetNPCRulingLocations(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spLocations_GetNPCRulingLocations",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetNPCCreatedArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetNPCCreatedArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetNPCOwnedArtifacts(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetNPCOwnedArtifacts",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public List<(int id, string name)> GetNPCTerms(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spTerminologies_GetNPCTerms",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
 }

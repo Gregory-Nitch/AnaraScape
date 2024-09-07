@@ -29,9 +29,9 @@ else
     <h3 class="text-light lore-info">Preceding Age:</h3>
     string table = "historical-ages";
     <div class="lore-entry-div">
-        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.PrecedingAgeId!)">
-            @Model.PrecedingAge</p>
-    </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.PrecedingAgeId!)">
+        @Model.PrecedingAge</p>
+</div>
 }
 
 @if (Model.FollowingAgeId != null)
@@ -39,10 +39,10 @@ else
     <h3 class="text-light lore-info">Following Age:</h3>
     string table = "historical-ages";
     <div class="lore-entry-div">
-        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.FollowingAgeId!)">
-            @Model.FollowingAge
-        </p>
-    </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.FollowingAgeId!)">
+        @Model.FollowingAge
+    </p>
+</div>
 }
 
 @if (Model.NotableLivingNPCs.Count != 0)
@@ -53,8 +53,8 @@ else
     {
         int id = npc.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
+</div>
     }
 }
 
@@ -66,8 +66,8 @@ else
     {
         int id = npc.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
+</div>
     }
 }
 
@@ -79,8 +79,8 @@ else
     {
         int id = art.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
+</div>
     }
 }
 
@@ -92,8 +92,8 @@ else
     {
         int id = art.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
+</div>
     }
 }
 
@@ -105,8 +105,8 @@ else
     {
         int id = evt.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
+</div>
     }
 }
 
@@ -118,8 +118,8 @@ else
     {
         int id = evt.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
+</div>
     }
 }
 
@@ -131,8 +131,8 @@ else
     {
         int id = fac.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
+</div>
     }
 }
 
@@ -144,8 +144,8 @@ else
     {
         int id = fac.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@fac.name</p>
+</div>
     }
 }
 

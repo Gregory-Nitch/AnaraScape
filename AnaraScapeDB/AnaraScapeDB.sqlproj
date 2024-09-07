@@ -75,6 +75,8 @@
     <Build Include="Lore\Stored Procedures\spArtifacts_GetHistoricalAgeCreatedArtifacts.sql" />
     <Build Include="Lore\Stored Procedures\spArtifacts_GetHistoricalAgeLostArtifacts.sql" />
     <Build Include="Lore\Stored Procedures\spArtifacts_GetLike.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_GetNPCCreatedArtifacts.sql" />
+    <Build Include="Lore\Stored Procedures\spArtifacts_GetNPCOwnedArtifacts.sql" />
     <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_GetArtifactEvents.sql" />
     <Build Include="Lore\Stored Procedures\spBT_EventArtifactRelations_GetEventArtifacts.sql" />
     <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_GetEventFactions.sql" />
@@ -82,7 +84,9 @@
     <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_GetEventLocations.sql" />
     <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_GetFactionLocations.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_GetEventNPCs.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_GetNPCEvents.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_GetFactionNPCs.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_GetNPCMemberFactions.sql" />
     <Build Include="Lore\Stored Procedures\spEvents_GetFullInfoById.sql" />
     <Build Include="Lore\Stored Procedures\spEvents_GetHistoricalAgeBeginingEvents.sql" />
     <Build Include="Lore\Stored Procedures\spEvents_GetHistoricalAgeEndingEvents.sql" />
@@ -91,14 +95,18 @@
     <Build Include="Lore\Stored Procedures\spFactions_GetHistoricalAgeDisbandingFactions.sql" />
     <Build Include="Lore\Stored Procedures\spFactions_GetHistoricalAgeFoundingFactions.sql" />
     <Build Include="Lore\Stored Procedures\spFactions_GetLike.sql" />
+    <Build Include="Lore\Stored Procedures\spFactions_GetNPCLeadingFactions.sql" />
     <Build Include="Lore\Stored Procedures\spGeoMaps_GetLike.sql" />
     <Build Include="Lore\Stored Procedures\spHistoricalAges_GetFullInfoById.sql" />
     <Build Include="Lore\Stored Procedures\spLocations_GetFullInfoById.sql" />
+    <Build Include="Lore\Stored Procedures\spLocations_GetNPCRulingLocations.sql" />
+    <Build Include="Lore\Stored Procedures\spNPCs_GetFullInfoById.sql" />
     <Build Include="Lore\Stored Procedures\spNPCs_GetHistoricalAgeDeadNPCs.sql" />
     <Build Include="Lore\Stored Procedures\spNPCs_GetHistoricalAgeLivingNPCs.sql" />
     <Build Include="Lore\Stored Procedures\spNPCs_GetLike.sql" />
     <Build Include="Lore\Stored Procedures\spResources_GetLike.sql" />
     <Build Include="Lore\Stored Procedures\spTerminologies_GetLike.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_GetNPCTerms.sql" />
     <Build Include="MapGenerator\Tables\DungeonTiles.sql" />
     <Build Include="MapGenerator\Stored Procedures\spDungeonTiles_InsertTile.sql" />
     <Build Include="Schemas\MapGenSchema.sql" />
