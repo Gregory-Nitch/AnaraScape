@@ -1,4 +1,61 @@
-﻿@code {
+﻿@using DataAccess
+@using DataAccess.Models.LoreModels;
+
+@inject ICrud Crud
+@inject NavigationManager NavManager
+
+<PageTitle>Lore: @Model!.Name</PageTitle>
+
+<h1 class="text-light">@Model!.Name</h1>
+
+@if (Model.Definition != null)
+{
+    <h3 class="text-light lore-info">Definition:</h3>
+    <p class="text-light lore-info">@Model.Definition</p>
+}
+
+@if (Model.InventorId != null)
+{
+    <h3 class="text-light lore-info">Inventor:</h3>
+    string table = "npcs";
+    <div class="lore-entry-div">
+    <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.InventorId!)">
+        @Model.InventorName</p>
+</div>
+}
+
+@if (Model.InventionAgeId != null)
+{
+    <h3 class="text-light lore-info">Invention Date:</h3>
+    string table = "historical-ages";
+    <div class="lore-entry-div">
+    <div class="lore-date-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.InventionAgeId!)">
+            @Model.InventionAge</p>
+        <p class="text-light date">@Model.InventionDate</p>
+    </div>
+</div>
+}
+
+
+@code {
     [Parameter]
     public int Id { get; set; }
+    [Parameter]
+    public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    private FullTerminologyModel? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model = Crud.GetFullTerminologyInfoById(Id);
+        if (Model == null)
+        {
+            // TODO log and recover
+        }
+    }
+
+    private Task ReqLore(string table, int id)
+    {
+        return OnReqLoreEvent.InvokeAsync((table, id));
+    }
 }

@@ -106,6 +106,7 @@
     <Build Include="Lore\Stored Procedures\spNPCs_GetHistoricalAgeLivingNPCs.sql" />
     <Build Include="Lore\Stored Procedures\spNPCs_GetLike.sql" />
     <Build Include="Lore\Stored Procedures\spResources_GetLike.sql" />
+    <Build Include="Lore\Stored Procedures\spTerminologies_GetFullInfoById.sql" />
     <Build Include="Lore\Stored Procedures\spTerminologies_GetLike.sql" />
     <Build Include="Lore\Stored Procedures\spTerminologies_GetNPCTerms.sql" />
     <Build Include="MapGenerator\Tables\DungeonTiles.sql" />

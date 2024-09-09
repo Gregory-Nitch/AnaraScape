@@ -139,4 +139,5 @@ public interface ICrud
     public List<(int id, string name)> GetNPCTerms(int id);
     public FullResourceModel? GetFullResourceInfoById(int id);
     public List<(int id, string name)> GetResourceLocations(int id);
+    public FullTerminologyModel? GetFullTerminologyInfoById(int id);
 }

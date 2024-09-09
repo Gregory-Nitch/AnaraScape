@@ -952,4 +952,12 @@ public class Crud(IDBAccess db) : ICrud
                                                            ConnStringName,
                                                            true);
     }
+
+    public FullTerminologyModel? GetFullTerminologyInfoById(int id)
+    {
+        return _db.QueryDB<FullTerminologyModel?, dynamic>("Lore.spTerminologies_GetFullInfoById",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true).FirstOrDefault();
+    }
 }
