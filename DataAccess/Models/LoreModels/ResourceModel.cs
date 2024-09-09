@@ -28,6 +28,24 @@ public class LoadingResourceModel(string name)
     public ResourceRarity? Rarity { get; set; }
 }
 
+
+/// <summary>
+/// Represents a resource in the game setting, along with its relationships.
+/// </summary>
+/// <param name="id">id from db</param>
+/// <param name="name">name of the resource</param>
+/// <param name="description">description of the resource</param>
+/// <param name="rarity">rarity of the resource (enum -> ResourceRarity)</param>
+public class FullResourceModel(int id, string name, string? description, ResourceRarity? rarity)
+{
+    public int Id { get; set; } = id;
+    public string Name { get; set; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string? Description { get; set; } = description;
+    public ResourceRarity? Rarity { get; set; } = rarity;
+    public List<(int id, string name)> NotableLocations { get; set; } = [];
+}
+
+
 /// <summary>
 /// Represents a level of rarity in the game setting.
 /// </summary>

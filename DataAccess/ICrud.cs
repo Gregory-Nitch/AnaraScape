@@ -137,4 +137,6 @@ public interface ICrud
     public List<(int id, string name)> GetNPCCreatedArtifacts(int id);
     public List<(int id, string name)> GetNPCOwnedArtifacts(int id);
     public List<(int id, string name)> GetNPCTerms(int id);
+    public FullResourceModel? GetFullResourceInfoById(int id);
+    public List<(int id, string name)> GetResourceLocations(int id);
 }

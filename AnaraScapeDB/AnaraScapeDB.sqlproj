@@ -83,6 +83,7 @@
     <Build Include="Lore\Stored Procedures\spBT_EventFactionRelations_GetFactionEvents.sql" />
     <Build Include="Lore\Stored Procedures\spBT_LocationEventRelations_GetEventLocations.sql" />
     <Build Include="Lore\Stored Procedures\spBT_LocationFactionRelations_GetFactionLocations.sql" />
+    <Build Include="Lore\Stored Procedures\spBT_LocationResourceRelations_GetResourceLocations.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_GetEventNPCs.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCEventRelations_GetNPCEvents.sql" />
     <Build Include="Lore\Stored Procedures\spBT_NPCFactionRelations_GetFactionNPCs.sql" />

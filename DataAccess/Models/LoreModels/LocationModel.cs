@@ -87,19 +87,4 @@ public class FullLocationModel(int id,
     public List<(int id, string name)> NotableFactions { get; set; } = [];
     public List<(int id, string name)> NotableNPCs { get; set; } = [];
     public List<(int id, string name)> NotableResources { get; set; } = [];
-
-    /// <summary>
-    /// Populates all the relationship lists for the full object. 
-    /// </summary>
-    /// <param name="locCache">cache of locations to pull from rather than the db</param>
-    /// <param name="crud">crud object to call to db</param>
-    public void PopulateRelations(LocationCache locCache, ICrud crud)
-    {
-        SubLocations = [.. locCache.Locations.Where(l => l.ContainingLocationId == Id)];
-        NotableArtifacts = crud.GetLocationArtifacts(Id);
-        NotableEvents = crud.GetLocationEvents(Id);
-        NotableFactions = crud.GetLocationFactions(Id);
-        NotableNPCs = crud.GetLocationNPCs(Id);
-        NotableResources = crud.GetLocationResources(Id);
-    }
 }

@@ -586,10 +586,19 @@ public class Crud(IDBAccess db) : ICrud
 
     public FullLocationModel? GetFullLocationInfoById(int id)
     {
-        return _db.QueryDB<FullLocationModel, dynamic>("Lore.spLocations_GetFullInfoById",
+        var model = _db.QueryDB<FullLocationModel, dynamic>("Lore.spLocations_GetFullInfoById",
                                               new { id },
                                               ConnStringName,
                                               true).FirstOrDefault();
+        if (model != null)
+        {
+            model.NotableArtifacts = GetLocationArtifacts(id);
+            model.NotableEvents = GetLocationEvents(id);
+            model.NotableFactions = GetLocationFactions(id);
+            model.NotableNPCs = GetLocationNPCs(id);
+            model.NotableResources = GetLocationResources(id);
+        }
+        return model;
     }
 
     public List<(int id, string name)> GetLocationArtifacts(int id)
@@ -917,6 +926,28 @@ public class Crud(IDBAccess db) : ICrud
     public List<(int id, string name)> GetNPCTerms(int id)
     {
         return _db.QueryDB<(int id, string name), dynamic>("Lore.spTerminologies_GetNPCTerms",
+                                                           new { id },
+                                                           ConnStringName,
+                                                           true);
+    }
+
+    public FullResourceModel? GetFullResourceInfoById(int id)
+    { // Uses same sp as 'GetResourceById()'
+        var model = _db.QueryDB<FullResourceModel?, dynamic>("Lore.spResources_GetById",
+                                                            new { id },
+                                                            ConnStringName,
+                                                            true).FirstOrDefault();
+
+        if (model != null)
+        {
+            model.NotableLocations = GetResourceLocations(id);
+        }
+        return model;
+    }
+
+    public List<(int id, string name)> GetResourceLocations(int id)
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spBT_LocationResourceRelations_GetResourceLocations",
                                                            new { id },
                                                            ConnStringName,
                                                            true);
