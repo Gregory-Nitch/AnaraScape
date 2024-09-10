@@ -57,7 +57,7 @@
 
             default:
                 ShowError(404);
-                break; // TODO log and recover, go to main lore page/error?
+                break;
         }
     }
     else
@@ -77,15 +77,18 @@
 
     protected override void OnInitialized()
     {
-        try
+        if (AnaraId == 0)
         {
-            AnaraId = LocationCache.Locations.Where(l => l.Name.Equals("Anara"))
-            .FirstOrDefault()!.Id;
-        }
-        catch (NullReferenceException ex)
-        {
-            Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
-            ShowError(500);
+            try
+            {
+                AnaraId = LocationCache.Locations.Where(l => l.Name.Equals("Anara"))
+                .FirstOrDefault()!.Id;
+            }
+            catch (NullReferenceException ex)
+            {
+                Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
+                ShowError(500);
+            }
         }
     }
 
