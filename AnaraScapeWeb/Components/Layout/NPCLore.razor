@@ -285,6 +285,8 @@
     public int Id { get; set; }
     [Parameter]
     public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    [Parameter]
+    public EventCallback<int> OnErrorEvent { get; set; }
     private FullNPCModel? Model { get; set; }
 
     protected override void OnInitialized()
@@ -292,7 +294,7 @@
         Model = Crud.GetFullNPCInfoById(Id);
         if (Model == null)
         {
-            // TODO Log and recover
+            OnErrorEvent.InvokeAsync(404);
         }
     }
 

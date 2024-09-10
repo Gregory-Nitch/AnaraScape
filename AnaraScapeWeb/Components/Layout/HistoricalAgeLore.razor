@@ -154,6 +154,8 @@ else
     public int Id { get; set; }
     [Parameter]
     public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    [Parameter]
+    public EventCallback<int> OnErrorEvent { get; set; }
     private FullHistoricalAgeModel? Model { get; set; }
 
     protected override void OnInitialized()
@@ -161,7 +163,7 @@ else
         Model = Crud.GetFullHistoricalAgeInfoById(Id);
         if (Model == null)
         {
-            // TODO log and recover
+            OnErrorEvent.InvokeAsync(404);
         }
     }
 

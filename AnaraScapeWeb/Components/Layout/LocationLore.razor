@@ -137,6 +137,8 @@
     public EventCallback<(string table, int id)> OnReqLoreEvent { set; get; }
     [Parameter]
     public EventCallback<string> OnReqMapEvent { set; get; }
+    [Parameter]
+    public EventCallback<int> OnErrorEvent { get; set; }
     private FullLocationModel? Model { get; set; } = null;
 
     protected override void OnInitialized()
@@ -144,7 +146,7 @@
         Model = Crud.GetFullLocationInfoById(Id);
         if (Model == null)
         {
-            // TODO Log and recover
+            OnErrorEvent.InvokeAsync(404);
         }
         else
         {

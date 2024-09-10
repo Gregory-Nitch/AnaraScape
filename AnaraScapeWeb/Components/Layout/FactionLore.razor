@@ -19,9 +19,9 @@
     <h3 class="text-light lore-info">Leader:</h3>
     string table = "npcs";
     <div class="lore-entry-div">
-        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.LeaderId!)">
-            @Model.LeaderName</p>
-    </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.LeaderId!)">
+        @Model.LeaderName</p>
+</div>
 }
 
 @if (Model.FoundingAgeId != null)
@@ -29,13 +29,13 @@
     <h3 class="text-light lore-info">Founding Date:</h3>
     string table = "historical-ages";
     <div class="lore-entry-div">
-        <div class="lore-date-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.FoundingAgeId!)">
-                @Model.FoundingAge
-            </p>
-            <p class="text-light date">@Model.FoundingDate</p>
-        </div>
+    <div class="lore-date-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.FoundingAgeId!)">
+            @Model.FoundingAge
+        </p>
+        <p class="text-light date">@Model.FoundingDate</p>
     </div>
+</div>
 }
 
 @if (Model.DisbandAgeId != null)
@@ -43,12 +43,12 @@
     <h3 class="text-light lore-info">Disband Date:</h3>
     string table = "historical-ages";
     <div class="lore-entry-div">
-        <div class="lore-date-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.DisbandAgeId!)">
-                @Model.DisbandAge</p>
-            <p class="text-light date">@Model.DisbandDate</p>
-        </div>
+    <div class="lore-date-div">
+        <p class="lore-entry" @onclick="() => ReqLore(table, (int)Model.DisbandAgeId!)">
+            @Model.DisbandAge</p>
+        <p class="text-light date">@Model.DisbandDate</p>
     </div>
+</div>
 }
 
 @if (Model.NotableCreatedArtifacts.Count != 0)
@@ -59,8 +59,8 @@
     {
         int id = art.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
+</div>
     }
 }
 
@@ -72,8 +72,8 @@
     {
         int id = art.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@art.name</p>
+</div>
     }
 }
 
@@ -85,8 +85,8 @@
     {
         int id = evt.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@evt.name</p>
+</div>
     }
 }
 
@@ -98,8 +98,8 @@
     {
         int id = loc.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@loc.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@loc.name</p>
+</div>
     }
 }
 
@@ -111,8 +111,8 @@
     {
         int id = npc.id;
         <div class="lore-entry-div">
-            <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
-        </div>
+    <p class="lore-entry" @onclick="() => ReqLore(table, id)">@npc.name</p>
+</div>
     }
 }
 
@@ -121,6 +121,8 @@
     public int Id { get; set; }
     [Parameter]
     public EventCallback<(string table, int id)> OnReqLoreEvent { get; set; }
+    [Parameter]
+    public EventCallback<int> OnErrorEvent { get; set; }
     private FullFactionModel? Model { get; set; }
 
     protected override void OnInitialized()
@@ -128,7 +130,7 @@
         Model = Crud.GetFullFactionInfoById(Id);
         if (Model == null)
         {
-            // TODO log and recover
+            OnErrorEvent.InvokeAsync(404);
         }
     }
 

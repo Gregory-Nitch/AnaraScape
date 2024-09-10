@@ -24,35 +24,35 @@
         @switch (Table.ToLower())
         {
             case "artifacts":
-                <ArtifactLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <ArtifactLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "events":
-                <EventLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <EventLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "factions":
-                <FactionLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <FactionLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "historical-ages":
-                <HistoricalAgeLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <HistoricalAgeLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "npcs":
-                <NPCLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <NPCLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "locations":
-                <LocationLore OnReqLoreEvent="GoToLore" OnReqMapEvent="GoToMap" Id="(int)Id" />
+                <LocationLore OnReqLoreEvent="GoToLore" OnReqMapEvent="GoToMap" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "resources":
-                <ResourceLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <ResourceLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             case "terminologies":
-                <TerminologyLore OnReqLoreEvent="GoToLore" Id="(int)Id" />
+                <TerminologyLore OnReqLoreEvent="GoToLore" Id="(int)Id" OnErrorEvent="ShowError" />
                 break;
 
             default:
