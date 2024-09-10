@@ -13,7 +13,7 @@
 
 @inject DungeonTileCache TileCache
 @inject IJSRuntime JS
-@inject ICrud crud
+@inject ICrud Crud
 @inject NavigationManager NavManager
 
 @rendermode InteractiveServer
@@ -98,7 +98,7 @@
         }
         catch (MapDesignException ex)
         {
-            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
+            Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
             ShowError(500);
         }
 
@@ -120,7 +120,7 @@
         }
         catch (MapDesignException ex)
         {
-            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
+            Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, ex.Message));
             ShowError(500);
         }
 
@@ -155,7 +155,7 @@
     [JSInvokable]
     public Task<byte[]> SendImageBlobAsync(int[][] displayMatFromJS)
     {
-        crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Information, "Client requested image merging"));
+        Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Information, "Client requested image merging"));
 
         // Place image paths in 2d list for processing
         List<List<string>> imagePathMatrix = [];
@@ -166,7 +166,7 @@
             {
                 if (!MapDesign!.ImageMap.ContainsKey(id))
                 {// Invalid tile id received from client
-                    crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Warning, "Invalid Tile id received from client"));
+                    Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Warning, "Invalid Tile id received from client"));
                     ShowError(400);
                 }
                 imgRow.Add(MapDesign!.ImageMap[id]);
@@ -191,7 +191,7 @@
         }
         catch (Exception ex)
         {
-            crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"msg {ex.Message}\n{ex.StackTrace}"));
+            Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"msg {ex.Message}\n{ex.StackTrace}"));
             ShowError(500);
         }
         return Task.FromResult(imgBytes);

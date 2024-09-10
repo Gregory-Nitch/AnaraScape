@@ -2,7 +2,7 @@
 @using DataAccess.Models.LoreModels
 
 @inject ICrud Crud
-@inject LocationCache LocCache
+@inject LocationCache LocationCache
 @inject NavigationManager NavManager
 
 <PageTitle>Lore: @Model!.Name</PageTitle>
@@ -145,6 +145,10 @@
         if (Model == null)
         {
             // TODO Log and recover
+        }
+        else
+        {
+            Model.SubLocations = [.. LocationCache.Locations.Where(l => l.ContainingLocationId == Id)];
         }
     }
 
