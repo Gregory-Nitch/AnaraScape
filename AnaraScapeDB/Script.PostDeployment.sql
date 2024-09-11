@@ -872,14 +872,40 @@ VALUES(
         WHERE [Name] = 'West Marches')
 );
 
--- Doaverine Junta sub locations (separated by woods 'uiane')???
+-- Doaverine Junta sub locations (separated by woods 'Earrann')
 
 INSERT INTO [Lore].[Locations]
     ([Name],
     [Description],
     [ContainingLocationId])
 VALUES(
-        'Fiodh Uiane',
+        'Earrann Uaine',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Doaverine Junta')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Earrann Geal',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Doaverine Junta')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Earrann Clach',
         '',
         (SELECT TOP 1
             [Id]
@@ -897,7 +923,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Geal')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -910,7 +936,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Uaine')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -923,7 +949,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Uaine')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -936,7 +962,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Geal')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -949,7 +975,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Geal')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -962,7 +988,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Geal')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -975,7 +1001,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Geal')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -988,7 +1014,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Geal')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -1001,7 +1027,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Clach')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -1014,7 +1040,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Clach')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -1027,7 +1053,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Clach')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -1040,7 +1066,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Clach')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -1053,5 +1079,98 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Doaverine Junta')
+        WHERE [Name] = 'Earrann Clach')
+);
+
+-- Start of Acies sub locations (main sections = 'Domus')
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Scalar Domus',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Acies')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Scutum Domus',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Acies')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Frigus Domus',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Acies')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Kaled',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Bellum',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Lacus',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Vita Nova',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
 );
