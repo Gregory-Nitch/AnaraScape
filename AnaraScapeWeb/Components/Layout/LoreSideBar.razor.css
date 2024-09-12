@@ -1,5 +1,5 @@
 ﻿#lore-side-bar {
-    background-color: rgba(30, 30, 30, .6);
+    background-color: rgba(20, 20, 20, 0.95);
     position: fixed;
     overflow: auto;
     scrollbar-color: rgba(60, 60, 60, .6) rgba(30, 30, 30, .6);
@@ -14,9 +14,9 @@
     transition: 0.5s;
 }
 
-    #lore-side-bar.closed {
-        max-width: 0px;
-    }
+#lore-side-bar.closed {
+    max-width: 0px;
+}
 
 .lore-side-bar-entry {
     display: flex;
@@ -42,7 +42,7 @@
 }
 
 #lore-side-bar-toggler-div {
-    position:fixed;
+    position: fixed;
     top: 77px;
     left: 25px;
 }
@@ -56,3 +56,12 @@
     width: 40px;
 }
 
+/* Mobile */
+@media (max-width: 992px) {
+
+    #lore-side-bar-toggler-div,
+    #lore-side-bar {
+        top: 71px;
+    }
+
+}
