@@ -211,7 +211,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                     colRequest = "";
                 }
             }
-            else if(!string.Equals(action, "DELETE")) // Update working object
+            else if (!string.Equals(action, "DELETE")) // Update working object
             {
                 try
                 {
@@ -223,7 +223,11 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                 {
                     Console.WriteLine($"\nERR: {ex.Message}...");
                 }
-                finally 
+                catch (InvalidOperationException)
+                {
+                    Console.WriteLine($"\nERR: Invalid column requested...");
+                }
+                finally
                 {
                     colRequest = "";
                 }
@@ -351,14 +355,14 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         {
             if (prop.PropertyType.IsEnum)
             {
-                if (prop.GetValue(loreObj) != null && 
+                if (prop.GetValue(loreObj) != null &&
                     AnaraAge.REQUIRED == (AnaraAge)prop.GetValue(loreObj)!)
                 {
                     isValid = false;
                 }
             }
             else if (prop.GetValue(loreObj) != null &&
-                prop.PropertyType == typeof(string) 
+                prop.PropertyType == typeof(string)
                 && (string)prop.GetValue(loreObj)! == "REQUIRED")
             {
                 isValid = false;
@@ -390,7 +394,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                                     Dictionary<string, int> btIdMap)
     {
         // Check for nullable types for casting
-        if (targetProp.PropertyType.IsGenericType && 
+        if (targetProp.PropertyType.IsGenericType &&
             targetProp.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
         {
             targetType = Nullable.GetUnderlyingType(targetType)!;
@@ -414,7 +418,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         {
             throw new InvalidCastException($"ERR: Could not cast {val} -> '{val!.GetType()}' to " +
                 $"type '{targetType}'");
-        } 
+        }
     }
 
     /// <summary>
@@ -426,7 +430,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
     /// <param name="action">desired action on the object</param>
     /// <returns>string of the object's data</returns>
     /// <exception cref="ArgumentNullException">thrown if passed object is null</exception>
-    private string BuildObjData(object obj, PropertyInfo[] props, LoreTable table, string action) 
+    private string BuildObjData(object obj, PropertyInfo[] props, LoreTable table, string action)
     {
         if (obj == null)
         {
@@ -445,7 +449,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         }
         builder.AppendLine($"'{action}' to execute on database or 'EXIT')");
         builder.Append("||> ");
-        
+
         return builder.ToString();
     }
 
@@ -454,7 +458,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
     /// </summary>
     /// <param name="table">table to select from</param>
     /// <exception cref="NotSupportedException">thrown if an invalid table is requested</exception>
-    private void SelectLoreByTable(LoreTable table) 
+    private void SelectLoreByTable(LoreTable table)
     {
         StringBuilder sb = new();
         switch (table)
@@ -474,7 +478,7 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
             case LoreTable.GeoMaps:
                 _crud.GetAllGeoMaps().ForEach(obj => AddLoreObjectToDataString(sb, obj));
                 break;
-            
+
             case LoreTable.HistoricalAges:
                 _crud.GetAllHistoricalAges().ForEach(obj => AddLoreObjectToDataString(sb, obj));
                 break;
