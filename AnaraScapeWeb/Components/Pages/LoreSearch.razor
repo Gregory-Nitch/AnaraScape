@@ -18,42 +18,44 @@
     <LoreSearchBar TableSelection="@Table" />
 
     <h2 class="text-light">@Table Search Results</h2>
+    <div class="result-div">
 
-    @foreach (var art in Artifacts)
-    {
-        <h5 class="lore-result" @onclick="() => GoToLore(art.id)">@art.name</h5>
-    }
+        @foreach (var art in Artifacts)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(art.id)">@art.name</p>
+        }
 
-    @foreach (var evt in Events)
-    {
-        <h5 class="lore-result" @onclick="() => GoToLore(evt.id)">@evt.name</h5>
-    }
+        @foreach (var evt in Events)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(evt.id)">@evt.name</p>
+        }
 
-    @foreach (var map in GeoMaps)
-    {
-        <h5 class="lore-result" @onclick="() => GoToMap(map.name)">@map.name</h5>
-    }
+        @foreach (var map in GeoMaps)
+        {
+            <p class="lore-result" @onclick="() => GoToMap(map.name)">@map.name</p>
+        }
 
-    @foreach (var loc in Locations)
-    {
-        <h5 class="lore-result" @onclick="() => GoToLore(loc.id)">@loc.name</h5>
-    }
+        @foreach (var loc in Locations)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(loc.id)">@loc.name</p>
+        }
 
-    @foreach (var npc in NPCs)
-    {
-        <h5 class="lore-result" @onclick="() => GoToLore(npc.id)">@npc.name</h5>
-    }
+        @foreach (var npc in NPCs)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(npc.id)">@npc.name</p>
+        }
 
-    @foreach (var rsc in Resources)
-    {
-        <h5 class="lore-result" @onclick="() => GoToLore(rsc.id)">@rsc.name</h5>
-    }
+        @foreach (var rsc in Resources)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(rsc.id)">@rsc.name</p>
+        }
 
-    @foreach (var trm in Terminologies)
-    {
-        <h5 class="lore-result" @onclick="() => GoToLore(trm.id)">@trm.name</h5>
-    }
+        @foreach (var trm in Terminologies)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(trm.id)">@trm.name</p>
+        }
 
+    </div>
 </article>
 
 @code {
