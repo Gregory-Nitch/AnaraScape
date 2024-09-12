@@ -15,10 +15,16 @@
 
 #other-maps {
     display: flex;
+    width: 30%;
     flex-direction: column;
 }
 
 #location-lore {
     display: flex;
+    width: 30%;
     flex-direction: column;
+}
+
+button {
+    margin: 20px;
 }

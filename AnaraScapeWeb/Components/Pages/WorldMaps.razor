@@ -50,7 +50,7 @@
             }
             @if (ContainedLocations.Count > 0)
             {
-                <h2 class="text-light">Contained Locations Lore</h2>
+                <h2 class="text-light">Contained Locations' Lore</h2>
                 @foreach (var entry in ContainedLocations)
                 {
                     <button type="button" class="btn btn-dark" @onclick="@(() => GoToContainedLore(entry.Id))">
