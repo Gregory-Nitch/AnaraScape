@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using DataAccess.Models.LoreModels;
+using Library59.SecTools;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
@@ -227,6 +228,11 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
                 {
                     Console.WriteLine($"\nERR: Invalid column requested...");
                 }
+                catch (Exception ex) when (ex is ArgumentNullException ||
+                                           ex is ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine($"\n{ex.Message}");
+                }
                 finally
                 {
                     colRequest = "";
@@ -404,9 +410,19 @@ public class LoreSubMenu(ICrud crud) : IToolCommand
         string? val = Console.ReadLine();
         try
         {
-            // Check for enums and AnaraDate objects before general casting
+            // Check for enums before general casting
             var casted = targetType.IsEnum ? Enum.Parse(targetType, val!) :
                                              Convert.ChangeType(val, targetType);
+
+            // Sanitize all incoming strings only ''' ',' '.' '-' allowed.
+            if (targetType == typeof(string))
+            {
+                casted = StringSanitizer.CheckForSQLServer((string)casted!,
+                                                  int.MaxValue,
+                                                  [.. StringSanitizer.SQLServerWhiteList, ',', '.', '-']);
+
+            }
+
             targetProp.SetValue(loreObj, casted);
             // Store new ids for B table updating
             if (table > LoreTable.Terminologies && targetProp.Name.EndsWith("Id"))

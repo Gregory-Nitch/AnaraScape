@@ -20,14 +20,14 @@ public struct AnaraDate(int year, int month, int day)
     {
         return $"{Year}-{Month}-{Day}";
     }
-    
+
     /// <summary>
     /// Parses an AnaraDate object from a passed string.
     /// </summary>
     /// <param name="str">string to parse</param>
     /// <returns>AnaraDate object represented by passed string</returns>
     public static AnaraDate ParseFromString(string str)
-    {// TODO perform data validation here
+    {
         string[] vals = str.Split('-');
         return new AnaraDate(int.Parse(vals[0]), int.Parse(vals[1]), int.Parse(vals[2]));
     }
