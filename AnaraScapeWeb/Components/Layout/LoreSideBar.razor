@@ -32,18 +32,24 @@
 
     protected override void OnInitialized()
     {
-        LocationModel acies = LocationCache.Locations.Where(loc => 
-            string.Equals(loc.Name, "Acies")).FirstOrDefault()!;
-        LocationModel cinallis = LocationCache.Locations.Where(loc => 
-            string.Equals(loc.Name, "Cinallis")).FirstOrDefault()!;
-        LocationModel glaciem = LocationCache.Locations.Where(loc => 
-            string.Equals(loc.Name, "Glaciem")).FirstOrDefault()!;
-        LocationModel krukiathu = LocationCache.Locations.Where(loc => 
-            string.Equals(loc.Name, "Krukiathu")).FirstOrDefault()!;
-        LocationModel paleWastes = LocationCache.Locations.Where(loc => 
-            string.Equals(loc.Name, "PaleWastes")).FirstOrDefault()!;
-        LocationModel saltedTides = LocationCache.Locations.Where(loc => 
-            string.Equals(loc.Name, "SaltedTides")).FirstOrDefault()!;
+        LocationModel acies = LocationCache.Locations.Where(loc =>
+        string.Equals(loc.Name, "Acies")).FirstOrDefault()!;
+
+        LocationModel cinallis = LocationCache.Locations.Where(loc =>
+        string.Equals(loc.Name, "Cinallis")).FirstOrDefault()!;
+
+        LocationModel glaciem = LocationCache.Locations.Where(loc =>
+        string.Equals(loc.Name, "Glaciem")).FirstOrDefault()!;
+
+        LocationModel krukiathu = LocationCache.Locations.Where(loc =>
+        string.Equals(loc.Name, "Krukiathu")).FirstOrDefault()!;
+
+        LocationModel paleWastes = LocationCache.Locations.Where(loc =>
+        string.Equals(loc.Name, "PaleWastes")).FirstOrDefault()!;
+
+        LocationModel saltedTides = LocationCache.Locations.Where(loc =>
+        string.Equals(loc.Name, "SaltedTides")).FirstOrDefault()!;
+
         MainRegions.AddRange([acies, cinallis, glaciem, krukiathu, paleWastes, saltedTides]);
         foreach (var region in MainRegions)
         {
@@ -67,7 +73,7 @@
     [JSInvokable]
     public void GoToLocation(int id)
     {
-        NavManager.NavigateTo($"/lore/locations/{id}");  
+        NavManager.NavigateTo($"/lore/locations/{id}");
         // TODO prevent re render?
     }
 
@@ -76,9 +82,9 @@
     {
         Dictionary<int, dynamic> locationMap = [];
 
-        foreach(var loc in LocationCache.Locations.Where(loc => loc.ContainingLocationId == id))
+        foreach (var loc in LocationCache.Locations.Where(loc => loc.ContainingLocationId == id))
         {
-            locationMap[loc.Id] = new { loc.Name, loc.HasSubLocations};
+            locationMap[loc.Id] = new { loc.Name, loc.HasSubLocations };
         }
 
         return Task.FromResult(locationMap);
