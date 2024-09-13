@@ -2,6 +2,7 @@
 
 @using AnaraScapeWeb.Components.Layout
 @using DataAccess
+@using DataAccess.Models.LoggingModels
 @using DataAccess.Models.LoreModels
 
 @inject ICrud Crud
@@ -112,11 +113,15 @@
                     break;
 
                 default:
-                    // TODO log and recover (Should be unreachable)
-                    throw new NotSupportedException();
+                    Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"Hit bottom of LoreSearch.razor table switch requested table = {loreTable}"));
+                    ShowError(500);
+                    break;
             }
         }
-        // TODO log and recover (Should be unreachable)
+        else
+        {
+            ShowError(404); // Request is outside of db tables
+        }
     }
 
     private void GoToLore(int id)
@@ -127,5 +132,10 @@
     private void GoToMap(string name)
     {
         NavManager.NavigateTo($"/world-maps/{name}");
+    }
+
+    private void ShowError(int errCode)
+    {
+        NavManager.NavigateTo($"/Error/{errCode}");
     }
 }
