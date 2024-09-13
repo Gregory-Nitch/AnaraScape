@@ -1,4 +1,18 @@
-﻿#lore-search-bar {
+﻿#search-error-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.err-msg {
+    margin: auto;
+    text-align: center;
+}
+
+.hide-errors {
+    display: none;
+}
+
+#lore-search-bar {
     display: flex;
     justify-content: center;
 }

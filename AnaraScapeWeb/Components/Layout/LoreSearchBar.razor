@@ -1,17 +1,25 @@
-﻿@inject NavigationManager NavManager
+﻿@using Library59.SecTools
+
+@inject NavigationManager NavManager
+
+<div id="search-error-div">
+    <p class="err-msg text-danger @(string.IsNullOrEmpty(NoTableErr) ? " hide-errors": "" )">@NoTableErr</p>
+    <p class="err-msg text-danger @(string.IsNullOrEmpty(NoEntryErr) ? " hide-errors": "" )">@NoEntryErr</p>
+</div>
 
 <div id="lore-search-bar">
-    <div id="lore-search-bar-btn-group" class="btn-group lore-search-item" role="group" aria-label="lore category button group">
+    <div id="lore-search-bar-btn-group" class="btn-group lore-search-item" role="group"
+        aria-label="lore category button group">
         <button type="button" class="btn btn-dark">@TableSelection</button>
         <div class="btn-group" role="group">
-            <button id="lore-drop-group" type="button" class="btn btn-dark dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-    
+            <button id="lore-drop-group" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"></button>
+
             <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="lore-drop-group">
                 @foreach (var table in LoreTables)
                 {
-                    <button type="button" class="dropdown-item" value="@table"
-                            @onclick="() => SetTable(table)">
+                    <button type="button" class="dropdown-item" value="@table" @onclick="() =>
+                         SetTable(table)">
                         @table
                     </button>
                 }
@@ -19,10 +27,11 @@
         </div>
     </div>
 
-    <input type="text" id="lore-search-input" class="text-light btn-dark lore-search-item" 
-    placeholder="Lore name..." @bind="SearchEntry" />
+    <input type="text" id="lore-search-input" class="text-light btn-dark lore-search-item" placeholder="Lore name..."
+        @bind="SearchEntry" />
 
-    <button type="button" class="btn btn-dark lore-search-item" @onclick="() => SearchLore(SearchEntry)">
+    <button type="button" class="btn btn-dark lore-search-item" @onclick="() =>
+     SearchLore(SearchEntry)">
         Search
     </button>
 </div>
@@ -31,32 +40,51 @@
     [Parameter]
     public string TableSelection { get; set; } = "Lore Category";
     public string SearchEntry { get; set; } = "";
-    public string[] LoreTables { get; set; } = 
-        [
-            "Artifacts", 
-            "Events", 
-            "Factions", 
-            "GeoMaps", 
-            "Locations",
-            "NPCs",
-            "Resources",
-            "Terminology"
-        ];
+    public string[] LoreTables { get; set; } =
+    [
+    "Artifacts",
+"Events",
+"Factions",
+"GeoMaps",
+"Locations",
+"NPCs",
+"Resources",
+"Terminology"
+    ];
 
+    public string NoTableErr { get; set; } = "";
+    public string NoEntryErr { get; set; } = "";
 
-    public void SetTable(string table){
+    public void SetTable(string table)
+    {
         TableSelection = table;
     }
 
     public void SearchLore(string userInput)
     {
-        // TODO Sanitize input
+        bool hasErr = false;
+        NoTableErr = "";
+        NoEntryErr = "";
+        try
+        {
+            userInput = StringSanitizer.CheckForSQLServer(userInput, 200, StringSanitizer.SQLServerWhiteList);
+        }
+        catch (Exception ex) when (ex is ArgumentNullException || ex is ArgumentOutOfRangeException)
+        {
+            NoEntryErr = "ERR: Enter a valid search entry! (Character limit = 200)";
+            hasErr = true;
+        }
+
 
         if (Equals(TableSelection, "Lore Category"))
         {
-            return; // TODO Display Error
+            NoTableErr = "ERR: Choose a valid lore type!";
+            hasErr = true;
         }
 
-        NavManager.NavigateTo($"/lore/search/{TableSelection}/{userInput}");
+        if (!hasErr)
+        {
+            NavManager.NavigateTo($"/lore/search/{TableSelection}/{userInput}");
+        }
     }
 }
