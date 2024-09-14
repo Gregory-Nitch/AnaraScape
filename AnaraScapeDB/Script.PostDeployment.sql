@@ -1174,3 +1174,207 @@ VALUES(
         FROM [Lore].[Locations]
         WHERE [Name] = 'Scalar Domus')
 );
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Luk''Teph',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Ziet',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Mulad',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Novum',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Amnis',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Ormel',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Sharm',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Mazra',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Sahil',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Jaal',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Villam',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Astad',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Jazir',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+
+-- Glaciem sub locations
+-- Gladis is part of Acien government
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Gladis',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Glaciem')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Turriuminverta',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Glaciem')
+);
