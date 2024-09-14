@@ -1378,3 +1378,4 @@ VALUES(
         FROM [Lore].[Locations]
         WHERE [Name] = 'Glaciem')
 );
+
