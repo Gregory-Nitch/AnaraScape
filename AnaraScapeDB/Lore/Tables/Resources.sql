@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [Lore].[Resources]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] VARCHAR(100) NOT NULL, 
-    [Description] VARCHAR(MAX) NULL, 
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [Name] VARCHAR(100) NOT NULL,
+    [Description] VARCHAR(MAX) NULL,
     [Rarity] INT NULL,
 );
 
@@ -13,11 +13,13 @@ CREATE TRIGGER [Lore].[DELETE_Resource]
     INSTEAD OF DELETE
     AS
     BEGIN
-        SET NoCount ON;
+    SET NOCOUNT ON;
 
-        -- DELETE from bride table
-        DELETE FROM [Lore].[BT_LocationResourceRelations]
-            WHERE [ResourceId] IN (SELECT [Id] FROM DELETED);
+    -- DELETE from bridge table
+    DELETE FROM [Lore].[BT_LocationResourceRelations]
+            WHERE [ResourceId] IN (SELECT [Id]
+    FROM DELETED);
 
-        DELETE FROM [Lore].[Resources] WHERE [Id] IN (SELECT [Id] FROM DELETED);
-    END
+    DELETE FROM [Lore].[Resources] WHERE [Id] IN (SELECT [Id]
+    FROM DELETED);
+END

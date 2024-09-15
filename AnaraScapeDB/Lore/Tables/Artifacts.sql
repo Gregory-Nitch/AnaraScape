@@ -37,11 +37,13 @@ CREATE TRIGGER [Lore].[DELETE_Artifact]
     INSTEAD OF DELETE
     AS
     BEGIN
-        SET NoCount ON;
+	SET NOCOUNT ON;
 
-		-- DELETE from bridge tables
-		DELETE FROM [Lore].[BT_EventArtifactRelations]
-			WHERE [ArtifactId] IN (SELECT [Id] FROM DELETED);
+	-- DELETE from bridge tables
+	DELETE FROM [Lore].[BT_EventArtifactRelations]
+			WHERE [ArtifactId] IN (SELECT [Id]
+	FROM DELETED);
 
-		DELETE FROM [Lore].[Artifacts] WHERE [Id] IN (SELECT [Id] FROM DELETED);
-    END
+	DELETE FROM [Lore].[Artifacts] WHERE [Id] IN (SELECT [Id]
+	FROM DELETED);
+END

@@ -3,15 +3,29 @@
 -- !!!
 -- Lore Schema 
 -- !!!
-/*
-* Anara Plane
-*/
+
 INSERT INTO [Lore].[Locations]
     ([Name],
     [Description])
 VALUES(
-        'Anara',
+        'Solis Sphere',
         ''
+);
+
+/*
+* Anara Plane Locations
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Anara',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
 );
 
 -- Anara Continents
@@ -1698,7 +1712,7 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
-        'Turriuminverta',
+        'Iturrium',
         '',
         (SELECT TOP 1
             [Id]
@@ -1758,4 +1772,568 @@ VALUES(
             [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Pale Wastes')
+);
+
+/*
+* Lundus Plane locations
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Lundus',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Uhmbrid',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lundus')
+);
+
+/*
+* Fusilia Plane Locations
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Fusilia',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
+);
+
+/*
+* Gelida Plane Locations
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Gelida',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
+);
+
+/*
+* Lapis Plane Locations
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Lapis',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
+);
+
+/*
+* Solis Plane Locations
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Solis',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
+);
+
+/*
+* Solis Sphere Sub Locations (in the astral sea)
+*/
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Sea of Stars',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Solis Sphere')
+);
+
+
+/*
+*    Historical Ages
+*/
+
+INSERT INTO [Lore].[HistoricalAges]
+    ([Age],
+    [Description])
+VALUES(
+        0,
+        ''
+);
+
+INSERT INTO [Lore].[HistoricalAges]
+    ([Age],
+    [Description])
+VALUES(
+        1,
+        ''
+);
+
+INSERT INTO [Lore].[HistoricalAges]
+    ([Age],
+    [Description])
+VALUES(
+        3,
+        ''
+);
+
+INSERT INTO [Lore].[HistoricalAges]
+    ([Age],
+    [Description])
+VALUES(
+        4,
+        ''
+);
+
+INSERT INTO [Lore].[HistoricalAges]
+    ([Age],
+    [Description])
+VALUES(
+        5,
+        ''
+);
+
+/*
+* Events
+*/
+
+INSERT INTO [Lore].[Events]
+    ([Name],
+    [IsMultiDayEvent],
+    [Description])
+VALUES(
+        'Ediv es Corvus Delictum',
+        FALSE,
+        ''
+);
+
+INSERT INTO [Lore].[Events]
+    ([Name],
+    [IsMultiDayEvent],
+    [Description])
+VALUES(
+        'Schism War',
+        TRUE,
+        ''
+);
+
+INSERT INTO [Lore].[Events]
+    ([Name],
+    [IsMultiDayEvent],
+    [Description])
+VALUES(
+        'The Banishment',
+        TRUE,
+        ''
+);
+
+INSERT INTO [Lore].[Events]
+    ([Name],
+    [IsMultiDayEvent],
+    [Description])
+VALUES(
+        'The First Crusade',
+        TRUE,
+        ''
+);
+
+
+/*
+* Factions
+*/
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Tamel Imperium',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Doaverine Junta',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Itamevoth Theocracy',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Ghuzalterok Remnant',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Inhaerent Custodium',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Lurkers',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Ordo Statera',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Lex Ferra',
+        ''
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Steel Triad',
+        ''
+);
+
+
+/*
+* Aritfacts
+*/
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Terasu''s Rahaslicon',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Veilith''s Spear',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Inaru''s Chains',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Iyla''s Ward',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Tamauht''s Mirror',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Zara Mazzallam',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Iennialaed',
+        ''
+);
+
+INSERT INTO [Lore].[Artifacts]
+    ([Name],
+    [Description])
+VALUES(
+        'Sha''Arhirm',
+        ''
+);
+
+
+/*
+* Resources
+*/
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Black Silver',
+        '',
+        4
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Lead',
+        '',
+        1
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Platinum',
+        '',
+        3
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Neairite',
+        '',
+        3
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Cinallis Poppy',
+        '',
+        2
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Monolis Flower',
+        '',
+        1
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Jaunes',
+        '',
+        1
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Nightshade',
+        '',
+        3
+);
+
+INSERT INTO [Lore].[Resources]
+    ([Name],
+    [Description],
+    [Rarity])
+VALUES(
+        'Widow''s Veil',
+        '',
+        5
+);
+
+
+/*
+* Terminologies
+*/
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Plane',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Sphere',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Oversphere',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Astral Space',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Cycle',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Cycle Velocity',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Planar Delta',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Absolute Delta',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Planar Assignment',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Planar Attraction',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Planisphere',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Manifold',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Manifold Duct',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Far Realms',
+        ''
+);
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'The Expanse',
+        ''
 );
