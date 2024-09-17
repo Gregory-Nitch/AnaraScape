@@ -1938,7 +1938,7 @@ INSERT INTO [Lore].[Events]
     [Description])
 VALUES(
         'Ediv es Corvus Delictum',
-        FALSE,
+        0,
         ''
 );
 
@@ -1948,7 +1948,7 @@ INSERT INTO [Lore].[Events]
     [Description])
 VALUES(
         'Schism War',
-        TRUE,
+        1,
         ''
 );
 
@@ -1958,7 +1958,7 @@ INSERT INTO [Lore].[Events]
     [Description])
 VALUES(
         'The Banishment',
-        TRUE,
+        1,
         ''
 );
 
@@ -1968,7 +1968,7 @@ INSERT INTO [Lore].[Events]
     [Description])
 VALUES(
         'The First Crusade',
-        TRUE,
+        1,
         ''
 );
 
@@ -2336,4 +2336,80 @@ INSERT INTO [Lore].[Terminologies]
 VALUES(
         'The Expanse',
         ''
+);
+
+/*
+* Start of GeoMaps
+*/
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Acies',
+        (SELECT [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Acies'),
+        'Acies.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Anara',
+        (SELECT [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Anara'),
+        'Anara.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Cinallis',
+        (SELECT [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Cinallis'),
+        'Cinallis.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Krukiathu',
+        (SELECT [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Krukiathu'),
+        'Krukiathu.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Salted Tides',
+        (SELECT [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Salted Tides'),
+        'Salted Tides.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Tamel Imperium',
+        (SELECT [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Imperium'),
+        'Tamel Imperium.jpg'
 );
