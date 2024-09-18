@@ -1,5 +1,20 @@
 -- This file contains SQL statements that will be executed after the build script.
 
+
+/*
+* Clear out prior table information (mainly for dev envrionment)
+*/
+DELETE FROM [Lore].[Artifacts];
+DELETE FROM [Lore].[Events];
+DELETE FROM [Lore].[Factions];
+DELETE FROM [Lore].[GeoMaps];
+DELETE FROM [Lore].[HistoricalAges];
+DELETE FROM [Lore].[Locations];
+DELETE FROM [Lore].[NPCs];
+DELETE FROM [Lore].[Resources];
+DELETE FROM [Lore].[Terminologies];
+
+
 -- !!!
 -- Lore Schema 
 -- !!!
@@ -2348,7 +2363,8 @@ INSERT INTO [Lore].[GeoMaps]
     [Filename])
 VALUES(
         'Acies',
-        (SELECT [Id]
+        (SELECT TOP 1
+            [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Acies'),
         'Acies.jpg'
@@ -2360,7 +2376,8 @@ INSERT INTO [Lore].[GeoMaps]
     [Filename])
 VALUES(
         'Anara',
-        (SELECT [Id]
+        (SELECT TOP 1
+            [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Anara'),
         'Anara.jpg'
@@ -2372,7 +2389,8 @@ INSERT INTO [Lore].[GeoMaps]
     [Filename])
 VALUES(
         'Cinallis',
-        (SELECT [Id]
+        (SELECT TOP 1
+            [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Cinallis'),
         'Cinallis.jpg'
@@ -2384,7 +2402,8 @@ INSERT INTO [Lore].[GeoMaps]
     [Filename])
 VALUES(
         'Krukiathu',
-        (SELECT [Id]
+        (SELECT TOP 1
+            [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Krukiathu'),
         'Krukiathu.jpg'
@@ -2396,7 +2415,8 @@ INSERT INTO [Lore].[GeoMaps]
     [Filename])
 VALUES(
         'Salted Tides',
-        (SELECT [Id]
+        (SELECT TOP 1
+            [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Salted Tides'),
         'Salted Tides.jpg'
@@ -2408,8 +2428,302 @@ INSERT INTO [Lore].[GeoMaps]
     [Filename])
 VALUES(
         'Tamel Imperium',
-        (SELECT [Id]
+        (SELECT TOP 1
+            [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Tamel Imperium'),
         'Tamel Imperium.jpg'
+);
+
+/*
+* Start of NPCs (Gods and other entities are included)
+*/
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Tamauht',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Iyla',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Veilith',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Inaru',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Terasu',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Zhule',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Rathak',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Guhluk',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Aihurem',
+        'Dragon',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Astarot',
+        'Dragon',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Geleondiril',
+        'Dragon',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Lemanoth',
+        'Celestial',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Marut''Apor',
+        'Construct',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Marut''Laban',
+        'Construct',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Xotlasihm',
+        'Celestial',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Nulth',
+        'Dragon',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Tamteru',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Veilrak',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Ilzu',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Gunaruk',
+        'Deity',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Balorok',
+        'Primordial',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Atal',
+        'Primordial',
+        '',
+        ''
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Ehekator',
+        'Primordial',
+        '',
+        ''
+);
+
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Xallax',
+        'Primordial',
+        '',
+        ''
 );
