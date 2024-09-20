@@ -10,6 +10,8 @@ internal class Program
 {
     public static ServiceProvider? ServiceProvider;
 
+    private static readonly string _returnedToMainMsg = "\nReturned to main...";
+
     /// <summary>
     /// Gets database config from settings file.
     /// </summary>
@@ -48,43 +50,49 @@ internal class Program
                 case "help":
                     Help help = new();
                     help.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "load-tiles":
                     LoadTiles loadTiles = new(crud);
                     loadTiles.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "resize-tiles":
                     ResizeTiles resizeTiles = new();
                     resizeTiles.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "design-maps":
                     DesignMaps designMaps = new(crud);
                     designMaps.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "get-logs":
                     GetLogs getLogs = new(crud);
                     getLogs.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "lore-submenu":
                     LoreSubMenu loreSubMenu = new(crud);
                     loreSubMenu.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
+                    break;
+
+                case "update-sublocation-flags":
+                    UpdateAllLocationSublocationFlags sublocUpdater = new(crud);
+                    sublocUpdater.Job();
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "DELETE-ALL-tiles":
                     DeleteAllTiles deleteTiles = new(crud);
                     deleteTiles.Job();
-                    Console.WriteLine("\nReturned to main...");
+                    Console.WriteLine(_returnedToMainMsg);
                     break;
 
                 case "EXIT":

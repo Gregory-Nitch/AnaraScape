@@ -960,4 +960,24 @@ public class Crud(IDBAccess db) : ICrud
                                                            ConnStringName,
                                                            true).FirstOrDefault();
     }
+
+    /// <summary>
+    /// Sets all the HasSublocation flags in the Locations table
+    /// </summary>
+    /// <returns>count of rows that have sublocations (0 = Error)</returns>
+    public int UpdateAllSublocationFlags()
+    {
+        var locations = GetAllLocations();
+        int count = 0;
+        foreach (var loc in locations)
+        {
+            if (locations.Any(l => l.ContainingLocationId == loc.Id))
+            {
+                loc.HasSubLocations = true;
+                UpdateLore(loc, LoreTable.Locations);
+                count++;
+            }
+        }
+        return count;
+    }
 }

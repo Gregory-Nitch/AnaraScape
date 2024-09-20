@@ -18,6 +18,7 @@ public class Help : IToolCommand
         builder.AppendLine("design-maps - designs a requested amount of maps according to parameters\n\n");
         builder.AppendLine("get-logs - gets logs from the database based on parameters\n\n");
         builder.AppendLine("lore-submenu - insert lore in chosen table\n\n");
+        builder.AppendLine("update-sublocation-flags - updates all sublocation flags in the Locations table\n\n");
         builder.AppendLine("DELETE-ALL-tiles - DELETES ALL tiles from the database: ALL TILES WILL BE DELETED!\n\n");
 
         Console.WriteLine(builder.ToString());

@@ -140,4 +140,5 @@ public interface ICrud
     public FullResourceModel? GetFullResourceInfoById(int id);
     public List<(int id, string name)> GetResourceLocations(int id);
     public FullTerminologyModel? GetFullTerminologyInfoById(int id);
+    public int UpdateAllSublocationFlags();
 }
