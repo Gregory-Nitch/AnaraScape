@@ -1,21 +1,20 @@
 ﻿@using DataAccess
+@using DataAccess.Models.LoggingModels
 @using DataAccess.Models.LoreModels
 
 @inject LocationCache LocationCache
 @inject NavigationManager NavManager
 @inject IJSRuntime JS
+@inject ICrud Crud
 
 
 <div id="lore-side-bar">
     @foreach (var region in MainRegions)
     {
-        @if (region != null) // TODO remove this null check once db is properly populated
-        {
-            <div id="@region.Id" class="lore-side-bar-entry">
-                <p class="lore-side-bar-txt">@region.Name</p>
-                <i class="bi bi-caret-right text-light lore-side-bar-caret"></i>
-            </div>
-        }
+        <div id="@region.Id" class="lore-side-bar-entry">
+            <p class="lore-side-bar-txt">@region.Name</p>
+            <i class="bi bi-caret-right text-light lore-side-bar-caret"></i>
+        </div>
     }
 </div>
 
@@ -27,6 +26,10 @@
 
 
 @code {
+    [Parameter]
+    public EventCallback<int> OnErrorEvent { get; set; }
+    [Parameter]
+    public EventCallback<(string table, int id)> OnReqLore { get; set; }
     public List<LocationModel> MainRegions { get; set; } = [];
     private DotNetObjectReference<LoreSideBar>? BCompRef;
 
@@ -45,17 +48,19 @@
         string.Equals(loc.Name, "Krukiathu")).FirstOrDefault()!;
 
         LocationModel paleWastes = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "PaleWastes")).FirstOrDefault()!;
+        string.Equals(loc.Name, "Pale Wastes")).FirstOrDefault()!;
 
         LocationModel saltedTides = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "SaltedTides")).FirstOrDefault()!;
+        string.Equals(loc.Name, "Salted Tides")).FirstOrDefault()!;
 
         MainRegions.AddRange([acies, cinallis, glaciem, krukiathu, paleWastes, saltedTides]);
         foreach (var region in MainRegions)
         {
             if (region == null)
             {
-                // TODO log and recover
+                string err = $"ERR: Main region ended as null...";
+                Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, err));
+                OnErrorEvent.InvokeAsync(500);
             }
         }
     }
@@ -73,8 +78,7 @@
     [JSInvokable]
     public void GoToLocation(int id)
     {
-        NavManager.NavigateTo($"/lore/locations/{id}");
-        // TODO prevent re render?
+        OnReqLore.InvokeAsync(("locations", id));
     }
 
     [JSInvokable]
