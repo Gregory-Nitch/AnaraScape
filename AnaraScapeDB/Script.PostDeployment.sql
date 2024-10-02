@@ -307,7 +307,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Dirmil Kingdom',
-        '',
+        'Encompasing the Eastern portion of the Tamel Imperium the Dirmil Kingdom is known for its high produce output from its farms, other fine goods, and art which give the rest of the imperium much of its culture. This has instilled a sense of patriotism in many of the kingdom''s subjects leading to a poor relation ship with the Banewright kingdom in the West. The people are generally friendly and tend to partake in finer comforts, but classist believes can be found throughout the society.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -320,7 +320,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tamel Kingdom',
-        '',
+        'Located at the heart of the Tamel Imperium its kingdom is also ruled by the Emperor and is well known for its beautiful surrounding country side and the large Tamel Lake which sees many sea faring vessels navigate to from the sea. The Banewright and Dirmil kingdoms often attempt to play manipulative games to gain favor of the Tamel Kingdom''s nobles sometimes leading to tense political climates.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -333,7 +333,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Banewright Kingdom',
-        '',
+        'Located on the Western side of the Tamel Imperium the Banewright Kingdom is right up against the West Marches. The Banewright Kingdom produces noteably less for the Tamel Imperium compared to the Dirmil Kingdom. However, the Banewright Kingdom is considered the ever vigilant bullwark of the imperium due to its location and these differences often lead to heated relationships between the two kingdoms. Here the people expect all to serve in the kingdoms military for atleast some period of time and there a strong values place upon military service and sacrifice. Due to the proximity of remnant forces and the clans in the North many of the kingdom''s people hold old grudges against Orcs, Tieflings and Elves.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -346,7 +346,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Deepstone Kingdom',
-        '',
+        'Formerly known as the Uskederth Kingdom prior to the Imperium''s founding the Deepstone Kingdom is located North of the Dirmil Kingdom in the Cinallis Alps that separate Cinallis in Northern and Southern regions. All of the large cities are mostly under ground with a large Dwarven population. Originally the Deepstone Kingdom was independent and cooexisted with the old elven houses. However, during much of the uprising against the elven houses the kingdom tried to remain nuetral. Eventually the elven houses were defeated but towards the end of the war the emerging Tamel Imperium chose to bring the dwarven kingdom under its rule rather than attempt an assualt on the nearly impenetrable fortress of Uskederth. To prove loyalty to the new imperium the kingdom was forced to change its name to Deepstone a common tongue translation of Uskederth. The kingdom still seeks to retain as much of its independence as possible but it still has a good relationship with the rest of the imperium.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]

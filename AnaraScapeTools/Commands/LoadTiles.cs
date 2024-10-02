@@ -5,8 +5,8 @@ namespace AnaraScapeTools.Commands;
 
 /// <summary>
 /// Loads all the tiles in the 'TileStaging' directory to the database.
-///                                        string[conn]
-///                                      v    v    v   v
+///                                                 string[conn]
+///                                                v    v    v   v
 /// Required file nameing convention: Name^style^conn,conn,conn,conn^isEntrance^isStairs
 /// </summary>
 /// <param name="crud">CRUD object to execute sql</param>
