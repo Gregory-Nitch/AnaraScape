@@ -516,7 +516,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tamel',
-        '',
+        'Located at the center of the Tamel Imperium, the capital Tamel is a sprawling metropolis with massive surrounding white walls spoted with red imperial banners and an interior fort and layered castel complex with the imperial palace at its center. The city also has a large port within a section of wall that encompasses part of the Tamel Lake. The country side found around the city is well known for its beauty and the city itself has untold amount of stores and shops. The city even sports a colosseum where criminals and warriors fight for money, fame and freedom, often times to the death in the event criminals are pitted against each other. The cities wards are well segregated between the classes and the watch tower lined main streets are massive. The imperial Scriptorium''s headquarters can be found here along side the city''s lesser noble houses in the inner wards. Numerous small communities can also be found around the outside of the city''s walls.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -529,7 +529,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tamsberth',
-        '',
+        'Tamsberth located South of Tamel is the main Tamel Imperium naval base. Trade also flows through the ports but they are mostly reserved for imperial vessels. Its location affords the imperium the ability to combat piracy from the Salted Tides while also acting as a naval launch point centered at the middle of the imperium. As such the city is home to many imperial sailors and is the main training area of the imperial navy.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -542,7 +542,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tharkad',
-        '',
+        'Tharkad sits on the Western most river of the imperium and holds the only crossing into the West Marches and is often known as the ''Aegis of the West'' within the Tamel Imperium, particularly in the Banewright Kingdom. Though the city mostly serves as a fort there are plentiful shops and businesses that have sprung up in its common areas to support the large military presence in the fort. The garrison and other forces are often engaged in skirmishes with the Ghuzalterok Remnent in the immediate Western areas but the Imperium refrains from any large troop movements in the area to prevent hostilities or raising tensions with the Doaverine Junta in the North. The city is often used as a staging point for bounty hunters and mercenaries that work out in the West Marches.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
