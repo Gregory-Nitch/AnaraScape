@@ -555,7 +555,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Banesford',
-        '',
+        'Banesford the capital of the Banewright Kingdom is found West of Tamel and while mainly serving as a city its fortifications are well kept and made due to the placement of the kingdom between the imperium and its enemies. Its citizens are very patriotic and harbor rivalries with the Dirmil Kingdom in the East and due to their proximity with the Doaverine Junta and Ghuzalterok Remnant also hold deep grudges against elves, orcs, teiflings, and sometimes even dwarves. All people are expected to provide some stint of military service at some point in their lives. The area around the city is able to produce a decent amount but does not add to the imperium''s output much and is more well known for its faded landscape. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
