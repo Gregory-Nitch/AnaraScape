@@ -568,7 +568,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Steinen',
-        '',
+        'Located in the Southern portion of the Banewright Kingdom, Steinen doubles as a fishing port and forward operating base of the Imperial Navy against Ghuzalterok Remnant forces. Due to the city''s high rotation of ported ships docking often comes at a high price and ships are expected to use the least amount of time possible in the port. This has driven a high pace lifestyle onto its residents, and as such bartering is normally avoided and people can be quite blunt.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -581,7 +581,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '1st Pillar',
-        '',
+        'Located towards the Western edge of the Cinallis Alps the 1st Pillar is a small imperial fort built to protect a tower that watches over the surrounding mountains and forest for invaders trying to cross imperial borders. The fort is quite secluded and is often used as a home to newer imperial soldiers to instill a fear of the old elven houses. The path to the fort goes through the Mithmirelen Woods where the hose of the same name used to rule from. New recruits are often exposed to the strange and haunted nature of the woods left by the old elven house and then left in isolation at the fort watching for invading clan members.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -594,7 +594,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '2nd Pillar',
-        '',
+        'Located towards the center of the Cinallis Alps the 2nd Pillar is a small imperial fort built to protect a tower that watches over the surrounding mountains and hills for invaders trying to cross imperial borders. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -607,7 +607,8 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '3rd Pillar',
-        '',
+        'Located towards the center of the Cinallis Alps the 3rd Pillar is a small imperial fort built to protect a tower that watches over the surrounding mountains, hills and forests for invaders trying to cross imperial borders. The 3rd Pillar is often seen as an easy post or a post used for the latter days of a career due to its close proximity of various dwarven cities. 
+',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -620,7 +621,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '4th Pillar',
-        '',
+        'Located towards the Eastern edge of the Cinallis Alps the 4th Pillar is a small imperial fort built to protect a tower that watches over the surrounding mountains, plains and nearby coast for invaders trying to cross imperial borders. Due to its close proximity to the Frillis Cartuae it is often seen as the most desirable post in imperial service.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -633,7 +634,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '5th Pillar',
-        '',
+        'Located East of Lendsberth the 5th Pillar is a small imperial fort built to protect a tower that watches over the surrounding forest, plains and nearby coast for invaders trying to cross imperial borders.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -646,7 +647,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '6th Pillar',
-        '',
+        'Located South of Lendsberth the 6th Pillar is a small imperial fort built to protect a tower that watches over the surrounding forest, and nearby coast for invaders trying to cross imperial borders.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -659,7 +660,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '7th Pillar',
-        '',
+        'Located South of Tamsberth on a small cape extending out from the continent the 7th Pillar is a small imperial fort built to protect a tower that watches over the small gulf of Tamsberth, and nearby coast for invaders trying to cross imperial borders as well as any pirate vessels from the Salted Tides.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -672,7 +673,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '8th Pillar',
-        '',
+        'Located on the Southern coast of the Banewright Kingdom the 8th Pillar is a small imperial fort built to protect a tower that watches over the nearby plains, and coast for invaders trying to cross imperial borders.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -685,7 +686,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '9th Pillar',
-        '',
+        'Located on the Southern edge of the West Marches border the 9th Pillar is a small imperial fort built to protect a tower that watches over the nearby plains, and river for invaders trying to cross imperial borders. Heavy amounts of imperial patrols can be found along this border from the 9th Pillar to Tharkad.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -698,7 +699,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         '10th Pillar',
-        '',
+        'Located South of Tharkad along the the West Marches border the 10th Pillar is a small imperial fort built to protect a tower that watches over the nearby plains, and river for invaders trying to cross imperial borders. Heavy amounts of imperial patrols can be found along this border from the 9th Pillar to Tharkad.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
