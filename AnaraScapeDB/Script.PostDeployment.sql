@@ -714,7 +714,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Venningen',
-        '',
+        'Venningen is located just on the otherside of the Tamel Imperium Western border and still harbords a decent amount of order to its governship despite being located in the West Marches. Though independent the city regularly feeds the imperials at Tharkad any information they can obtain on both the Ghuzalterok Remnent and Doaverine Junta forces in the area. In return the Tamel Imperium has been known to come to the aid of the city when threatened. Despite this the city is still a good place for those trying to stay clear of the imperium and thus is home to some of the West Marches'' ''less'' shady individuals.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -727,7 +727,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Henreith',
-        '',
+        'Henreith is located in between The Ghuzalterok Remnant and two other major powers on the Cinallis continent. Once known for its surrounding fields, hills, and trees it is a shell of its former self, reduced to ruins by years of fighting between the various powers in the region. Henreith holds no population and is only known as a combat zone when the various skirmishes take place in the West Marches, otherwise it is a ghost town. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -740,7 +740,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Zu''Wart',
-        '',
+        'Placed along the Southern portion of The Ghuzalterok Remnant front lines Zu''Wart is a small fort used to both gather forces for offensive operations and to maintain the foothold of forces in the area. The surrounding forests are subject to heavy patrols.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -753,7 +753,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Karlshad',
-        '',
+        'Karlshad was once a peaceful and prosperous lakeside town located on the South side of the West Marches. After the Ghuzalterok Remnant forces gain power over the region the people were force to provide large tithes forcing many of the people who lived there into poverty. One day a local had managed to steal a particular book from the passing through remnant captain at the time. This book had writing which the local could not understand but due to the remnants intrest in it they took it and managed to do so with out being caught. However, after the remnant forces realized the book was gone they returned to the town nearly razing it to the ground and killing most of its population. Some managed to escape into the nearby woods where they either made their way North, East or died along the way. Those who remained in the town were subjected to hard larbor, torture and interagations. Presently there is still a lingering population that continues to present tithes to remnant forces, but they do so out of fear. If they were to be caught trying to cross out of the forest to the East they would be killed on sight and remnant vessels have destroyed whatever small low quality boats the population has tried to escape with out the lakes mouth to the South.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -766,7 +766,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Gandersheim',
-        '',
+        'Gandersheim is located on the Northern edge of the West Marches along the coast of a small gulf and was once the home of the Gandersheim Alliance. Home to a massive fort it is used as the forward operating base of the Ghuzalterok Remnant in the region. The surrounding town is still populated with some if its former citizens but they are held against their will and the town is subjected to large patrols of remnant forces. Any who attempt to escape are either killed or dragged back to the city where they are brutally punished in public.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
