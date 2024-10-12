@@ -779,7 +779,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Nir''Wart',
-        '',
+        'Located towards the Northern part of the Ghuzalterok Remnant front lines Nir''Wart has often been the launching point for many raids going into Henreith. Its garrison also heavily patrols the surrounding forest.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -792,7 +792,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Vak''Din Mort',
-        '',
+        'Vak''Din Mort is located almost exactly in the center of the West Marches and serves as the backbone for Ghuzalterok Remnant forces which use the forest in the West Marches as a defensive line. Beyond serving as a crossroads between other parts of remnant controled territory, Vak''Din Mort also has supply depos, smiths and a relatively large surrounding community of remnant citizens.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -805,7 +805,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Immenreuth',
-        '',
+        'Immenreuth is located just West of Gandersheim on the North coast of the West Marches. Once home to one of the elven kingdoms in the area but during the invasion of Ghuzalterok Remnant forces the city was reduced to mostly ruins. Remnant forces now use the area as a undead spawning ground and haul any corpses from local combat here to be raised as undead forces. Due to the cool ocean air from the North and the mountains South of the city the surrounding forests are often filled with fog and mists after dawn.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -818,7 +818,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Annveild',
-        '',
+        'Annveild is a former underground dwarven kingdom located along the Northern coast of the West Marches. The city is entirely undergroundwith its entrances found in the forests around the mountains it is build under. A large number of caverns and tunnels form and almost maze like structure to the city but with a large central area that actually denotes the main city. Overthrown during the Ghuzalterok Remnant invasion the city is now home to many of the remnant''s drow forces in the West Marches, of which have created passages to tunnels all along the forest to the South and these have spawned some small caverns which house yet more remnant.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -831,7 +831,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Wussow',
-        '',
+        'Wussow is located along the Northern coast of the West Marches and is placed in a small clearing of the surrounding trees and mountains. Once known for its peaceful and easy going people it is now subject to the iron fist of the Ghuzalterok Remnant. Due to the close proximity of other Remnant strongholds the captive citizens rarely ever make attempts to escape and endure hard labor, conscription and abduction force on them by the remnant.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -844,7 +844,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Zeigelheim',
-        '',
+        'Once known as the "Castle Under the Mountain", Ziegelheim is located towards the center of the West Marches and is located deep under one of the larges mountains in the region. The city sports impressive defences and walled off tunnels filled with seige weaponry leading down to the city. The city itself is located in an extremly large cavern with public areas surrounding a castle that gradualy rises up almost resembling the mountain it is under. The city was overthrown during the Ghuzalterok Remnant invasion and is now home to large amounts of duergar. The city serves as the main forges for the remnant forces in the area.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -857,7 +857,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Illan',
-        '',
+        'Illan is located on the Southern side of the West Marches at the end of the spoted mountain range that separates the coastal areas from the large central forest. Once a human city among the rolling badland like hills the ruins of the city are now home to whatever Ghuzalterok Remnant forces that are heading East towards the front lines of the various skirmishes in region. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -870,7 +870,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Errenthel',
-        '',
+        'Located on the Northern coast of the West Marches in a small section of forest Errenthel is another one of the former elven kingdoms that met its demise during the Ghuzalterok Remnant invasion. Once a beautiful coastal elven town mixed amoung the trees the city now lies in ruins and abandoned.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -883,7 +883,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Vak''Din Mog',
-        '',
+        'Vak''Din Mog is located on the Western coast of the West Marches and is Headquarters to the Ghuzalterok Remnant in the region. Despite being located in a desert like region the city''s ports pull in a large amount of resources from Krukiathu and remnant raiding vessels. The city is heavily fortified and is flanked by two large towers.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -896,7 +896,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Narenel',
-        '',
+        'Narenel is located on the South Western coast of the West Marches and was once a prosperous and peaceful coast town of mostly humans. During the Ghuzalterok Remnant invasion the city was ruined but the remnant have built up a fort along side the ruins of the city which they use as an auxillary port for supplies, troop movements and naval operations.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
