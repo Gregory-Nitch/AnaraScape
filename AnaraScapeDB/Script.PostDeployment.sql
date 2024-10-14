@@ -911,7 +911,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Earrann Uaine',
-        '',
+        'Earran Uaine (Verdent Wood) is located on the Western side of the Doaverine Junta and holds a border with the West Marches. This forest border is heavily patrolled by the clans of the junta. The rest of the region is dominated by open wilderness, hills, spotted trees, smaller towns and Mac''Tire its only major clan. The people of this region are highly territorial when it comes to the boarder and crossing can be perilous or if stopped it is not uncommon to be turned back.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -924,7 +924,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Earrann Geal',
-        '',
+        'Earran Geal (Jade Wood) is located in the center of the Doaverine Junta and holds the junta''s Capital Doaverhim. Spanning the from the center to the North of Cinallis this region has fair temperatures in the South and cold temperatures in the North. There are two major forests and a few major clans along with the junta''s capital Doaverhim.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -937,7 +937,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Earrann Clach',
-        '',
+        'Earran Clach (Stone Wood) is located on the Eastern side of the Doaverine Junta and harbors most of the countries dwarven population with its 3 dwarven cities. There are other clans beyond the dwarven led ones in the region but they have settled in the region''s forest or along its icy coast. In addition, this region has a small strip of ice and spotted snow covered islands that connect it to the Pale Wastes in the North. Some have ventured across it but it is normally seen as a worthless endevor due to the perils of the crossing and the numerous barbarian tribes and other dangers in the Pale Wastes.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
