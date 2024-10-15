@@ -950,7 +950,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Grain',
-        '',
+        'Grain is located along the North coast of Cinallis is home to one of the more independent clans of the Doaverine Junta. Grain is mostly known for its fishing in the cold waters towards the mouth of the Northwall Gulf.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -963,7 +963,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Mac''Tire',
-        '',
+        'Mac''Tire is located on the Eastern edge of the Earran Uaine. The surrounding area is known for its large hills and spotted woods. Clan Mac''Tire is highly territorial and places high priority on keeping the borders secure to the South. People of Mac''Tire are also known for often conducting raids on the Ghuzalterok Remnant forces in the West Marches, sometimes with no appearent objectives.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -976,7 +976,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Giliad',
-        '',
+        'Giliad sits just on the other side of the large forest that forms the border between the Doaverine Junta and the West Marches. Rather than a city it performs more as a fort with some citizenry. The fort garrison and nearby Mac''Tire clan members strictly enforce passage across the forest border, which is often times considered dangerous by non clan members. There are no attack on sight orders but junta forces often will attack if there is suspicion that they have encountered remnant forces. Along with the fort is a forward watch tower in the forest which is used to raise alarm at the sight of large incoming forces.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -989,7 +989,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Nathair',
-        '',
+        'Nathair is located along the central Northern cost of Cinallis though not as remote as Grain, Nathair still holds a certain level of independence due to is location. Its population takes part both in fishing and hunting in the nearby woods.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1002,7 +1002,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'D''Larrawil',
-        '',
+        'D''Larrawil is located towards the Center of the Doaverine Junta on the Eastern side of a large lake and is placed in a very thick forest. Some of the surrounding trees trunks are as wide as 30 or 40 feet and are known to house small bridge connected communities. D''Larrawil was not one of the origial elven houses from the Southern part of Cinallis but came about as those houses fled North from the Tamel rebellion, as such the city''s populace is mostly elven.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1015,7 +1015,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Av''Naturen',
-        '',
+        'Av''Naturen is located on the Northern central side of the Cinallis Alps and is known for its strong ties to both Inaru and primordial elements. Originally the cities population was mostly Genasi, however, in 4977 the city was ransacked by a large force posing as devout followers of Inaru leaving the city mostly a ghost town. The city has since rebuilt and it''s population increased but remains from this attack are readily appearent. Many of the locals believe that the Tamel Imperium had perpetrated the attack, further fueling the long held grudges between the two countries.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1028,7 +1028,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ur''Mithmirelen',
-        '',
+        'Ur''Mithmirelen is located in the Northern forest of the Doaverine Junta and is home to the former house of Mithmirelen from the Tamel rebellion. Despite the close proximity to other cities the clan has purposefully secluded themselves into the wood and do not maintain roads going through the forest. People may freely come and go as the please but its citizens often prefer isolation. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1041,7 +1041,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Doaverhim',
-        '',
+        'Doaverhim is located in the Northern central area of the Doaverine Junta and serves as the country''s capital. The local area is realatively close to the two major forests but the city mostly operates as crossroad, in addition to the junta''s capital.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
