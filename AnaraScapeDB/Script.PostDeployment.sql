@@ -51,7 +51,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Acies',
-        'Acies is located in the South of the Western hemisphere (Acient) and is known for its relatively flat and open landscape, along with some of the oldest surviving structures on Anara. Acies is ruled by the Itamevoth Theocracy and its people heavily influenced by the worship of the good aligned gods of Anara. These religious beliefs have fueled the constant skirmishes and crusades since the Dark Age against the people of Krukiathu to the north who openly worship the dark gods. The most notable land marks are the Scalar Patha, The Luk''Teph Dessert, and the city Novum.',
+        'Acies is located in the south of the western hemisphere (Acient) and is known for its relatively flat and open landscape, along with some of the oldest surviving structures on Anara. Acies is ruled by the Itamevoth Theocracy and its people heavily influenced by the worship of the good aligned gods of Anara. These religious beliefs have fueled the constant skirmishes and crusades since the Dark Age against the people of Krukiathu to the north who openly worship the dark gods. The continent is separeated into different Domus'' (houses) which all answer to the high church in Ziet. The most notable land marks are the Scalar Patha, The Luk''Teph Dessert, and the city Novum.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1041,7 +1041,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Doaverhim',
-        'Doaverhim is located in the Northern central area of the Doaverine Junta and serves as the country''s capital. The local area is realatively close to the two major forests but the city mostly operates as crossroad, in addition to the junta''s capital.',
+        'Doaverhim is located in the Northern central area of the Doaverine Junta and serves as the country''s capital. The local area is realatively close to the two major forests but the city mostly operates as a crossroad, in addition to the junta''s capital. Every 20 years the junta will choose a new jarl to rule from this city and each clan maintains representatives to advocate for their clan to the jarl.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1054,7 +1054,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Iomair',
-        '',
+        'Iomair is located in the North Eastern mountains of the Doaverine Junta and right next to the strip of ice and snow islands that connect Cinallis to the Pale Wastes. Iomair''s population is mostly dwarven but surprisingly open to outsiders. The founding dwarves have dug this city deep under the mountains above to retain heat and stave off the freezing temperatures in winter. Some hunting of the surrounding area takes place but a lot of the city''s food comes from underground resources.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1067,7 +1067,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Iolaire',
-        '',
+        'Iolaire is located halfway up the Eastern coast of the Doavering Junta and despite its size actually regularly serves as the junta''s main port, even some Tamel Imperium merchants have regularly used the port for trade. The area surrounding the city is entirely made up of flat tundra spotted with trees.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1080,7 +1080,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Stal',
-        '',
+        'Stal is located in the central mountain range of the Doaverine Junta. This dwarven city is well known for its hunts in the seasons prior to snow fall to stock up on foods for the winter in the surrounding forest and mountains.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1093,7 +1093,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ur''Thendanril',
-        '',
+        'Ur''Thendanril is located just inland along the Eastern coast of the Doaverine Junta North of the Cinallis Alps. This city is where the evlen house Thendanril settled after the Tamel rebellion. The clan is ot nearlly as isolationist as the Ur''Mithmirelen clan but still sticks to their old evlen traditions of building non invasive cities in the forest.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1106,7 +1106,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Orn',
-        '',
+        'Orn is located along the North Eastern edge of the Cinallis Alps and actually predates the formation of the Doaverine Junta. In the past Orn had a close relationship with the dwarves of Deepstone (known as Uskederth at the time) but has since cut off ties after the Tamel Rebellion. The dwarves of Orn hold great pride for their smithing and weapons, armor or other metal goods from Orn are well known in the junta. Much of the minerals and metals used by the city''s forges come from the mineral rich Cinallis Alps.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1121,7 +1121,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Scalar Domus',
-        '',
+        'The Scalar Domus (House of Blood) contains the Western part of Acies up until the major river West of Ziet. Though not all cities play a large role in the defence of the wall that guards the strip of land between Acies and Krukiathu the domus is known for its heavy commitment in the protection of the Itamevoth Theocracy. The region is dominated by a central mountain range, temperate envrionments in the North and more lush ones in the South.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1134,7 +1134,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Scutum Domus',
-        '',
+        'The Scutum Domus (House of Shields) contains the central part of Acies, from the border of the Scalar Domus to the West, until the Eastern river and mountains that separate Acies into two asymetrical land masses. This region contains two of the Itamevoth Theocracy major cities, one of which is Ziet the country''s capital. The Northern part of the region is almost all desert and the Southern portion has 3 mountain ranges with temperate climats.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1147,7 +1147,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Frigus Domus',
-        '',
+        'The Frigus Domus region contains the Eastern and island portions of the junta. In addition, the region also contains old elven cities and frozen areas in its Southern portions.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
