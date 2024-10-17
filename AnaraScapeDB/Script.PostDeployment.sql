@@ -1147,7 +1147,8 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Frigus Domus',
-        'The Frigus Domus region contains the Eastern and island portions of the junta. In addition, the region also contains old elven cities and frozen areas in its Southern portions.',
+        'The Frigus Domus region contains the Eastern and island portions of the junta. In addition, the region also contains old elven cities and frozen areas in its Southern portions along
+with a small group of islands in the Acien Sea.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1160,7 +1161,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Kaled',
-        '',
+        'Kaled is located right on the edge of the Scalar Patha a strip of land that connects Krukiathu and Acies. Kaled is well known and revered for its massive wall and fortifications that have endured Ghuzalterok Remnant assaults for centuries. Though the fort serves as a first line of defence from remnant invasion, most of the surrounding area is occupied by civilian towns looking to support the large military presence. The walls are also said to be the starting point of The First Crusade which marked the end of the Dark Age.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1173,7 +1174,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Bellum',
-        '',
+        'Bellum is located on the Western coast of Acies and is surrounded by flat land of spotted trees. The city is relatively well fortified for an average town but is more well known for its large part in naval operations against the Ghuzalterok Remnant in the Tantum Ocean. Due to the city''s close proximity to Krukiathu its ports are not really used for trade.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1186,7 +1187,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Lacus',
-        '',
+        'Lacus is located on the edge of a large lake in the South West side of Acies. Lacus is one of the more peaceful places on Acies and is known for its large lakeside temple to Iyla.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1199,7 +1200,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Vita Nova',
-        '',
+        'Vita Nova is located on the Southern coast of Acies placed in an reaf like alcove of coastline. Vita Nova has the most active trade port on Acies and merchants flock from all over to sell their wares and enjoy the cove''s coastline. This has led the city to be one of the most vibrant cultural places on Acies (a stark contrast to the usual church led militaristic life style) and many people come to take part in many of the festivals which are used to honor the gods. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1212,7 +1213,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Luk''Teph',
-        '',
+        'Located in the center of the Dessert of Glass (aka. The Luk''Teph Dessert) is the former city of Luk''Teph. According to the few remaining records from the Schism War, Luk''Teph and the surrounding area used to be a lush area with rolling hills. However, due to some unknown event during the war the green hills were burned away and replaced with a dessert with a glass floor under the numerous sand dunes. Many of the former trees from the area still remain petrified and few people ever try to cross the dessert. Luk''Teph itself is now but a mass of ruins haunted by angery spirits that prey on all who enter the former city. As such all but the most brave treasure hunters avoid the area due its dangers.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1225,7 +1226,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ziet',
-        '',
+        'Located at the center of Acies in the middle of a set of mountain ranges, Ziet is both the capital of the Itamevoth Theocracy and one of the very few cities that survived the Schism War. Though many parts of the city were destroyed it has since been rebuilt and is now home to the largest and most elaborate cathedrals. Daily life heavily revolves around worship and service to the defence of Acies.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1238,7 +1239,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Mulad',
-        '',
+        'Mulad is located on the Eastern side of the Luk''Teph Dessert around a large oasis like lake. The city itself is wholy commited to the theocracy''s cause but the harshness of the surrounding dessert has made the city somewhat isolated and many of the less savory types in the Itamevoth Theocracy often come to Mulad to remain unseen. But this lawless nature of the city has made it a good spot to go when looking for lucrative deals.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1251,7 +1252,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Novum',
-        '',
+        'Novum is located just East of Ziet and is a new city built in the place where Aiel once stood. Ledgends say that during the Schism War Rathak ripped Aiel from the ground and threw it across the plane of Anara. This left a crater with some of the few remaining pieces of Aiel. After the end of the Dark Age the city was refounded under the name Novum and is built down into the crater and into the crater''s walls. Some of the former city''s structures which went underground can still be found and have produced astounding artifacts despite their dangers.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1264,7 +1265,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Amnis',
-        '',
+        'Amnis is located in the North East of Acies along a lake and its mouth that exits into the Rima Ocean. Mostly just seen as a stop gap when heading East, Amnis has never really been reguarded as a significant location. As such the population normally just goes about their business without much reguard to the Itamevoth Theocracy''s normal way of busy labor and worship. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
