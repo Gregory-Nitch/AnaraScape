@@ -1278,7 +1278,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ormel',
-        '',
+        'Ormel is located in the North East of Acies at the center of a thick forest. The city is known for its heavy elven influences and large elven population. Rather than clearing out a area of forest the city is built in such a way to reduce its interference with it''s surrounding environment. While this make traversing the city take much more time it also gives it a certain level of natural beauty.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1291,7 +1291,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Sharm',
-        '',
+        'Sharm is located on the central Southern coast of Acies at the mouth of a small gulf. The city is known for its small town nature despite its relatively large size. The city relies heavily on fishing from the nearby gulf and Acien Sea.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1305,7 +1305,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Mazra',
-        '',
+        'Mazra is located in the center of a large span of plains on the East side of Acies. The city is well known for its web like crossroads and large crop production output. The surrounding areas are heavily farmed leading to days of travel through farmland before reaching the city.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1319,7 +1319,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Sahil',
-        '',
+        'Sahil is located halfway down the Eastern coast of Acies on the edge of a small inlet of water. The city may seem out of the way from the rest of the Itamevoth Theocracy''s major military installations but Sahil is in fact a major naval base for the theocracy. The city''s navy is in charge of securing the waters to the North and East of Acies leading to numerous engagements with Ghuzalterok Remnant forces. To support these operations a large portion of the gulf was dug up to the ports of the city to allow large naval vessels the ability to dock.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1333,7 +1333,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Jaal',
-        '',
+        'Jaal is located just inland of the Southern cape of Acies along the coast of the Acien Sea. Like most Dwarven cities Jaal is located under the mountains and has a large network of areas. The surrounding mountains are also well known to have rich black silver deposites along with other metals. This has lead to a large density of mines in the area.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1347,7 +1347,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Villam',
-        '',
+        'Villam is located on the South side of the Eastern Acies coast. Rather than Itamevoth Theocracy naval vessels the city is more well known for trade coming through the ports. Tamel Imperium merchants bave enough to pass over the Rima Ocean and most of the trade from the Salted Tides comes through Villam. Unlike Vita Nova however the people of the city are much more utilitarian and focus on getting ships in and out so that Sahil to the North can be assisted should the need arise.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1361,7 +1361,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Astad',
-        '',
+        'Astad is located on the Southern tip of the Acien Sea coast line on of the more harsh climated areas of the Itamevoth Theocracy. The city does its fair share of both fishing and hunting in the surrounding area. For the theocracy Astad is the main naval vessel production ground and thus much of the city''s businesses revolve around contributing to the production of ships. Supplies are normally provided by the nearby forested area and the mines around Jaal.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1375,7 +1375,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Jazir',
-        '',
+        'Jazir is located on the North West island in the Acien Sea. This isolation has fueled a certain level of independance from the regular Itamevoth Theocracy church teachings. It would not be unheard of to hear of druidic circles and worship in the area. The city regularly fishes from the Acien Sea but trade is a rarity for Jazir. Most people here prefer their private lives and are not so welcoming to strangers.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
