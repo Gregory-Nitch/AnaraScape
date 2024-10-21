@@ -1390,7 +1390,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Grun Zustand',
-        '',
+        'Grun Zustand is the region that encompasses the Southern jungled portion of Krukiathu until the end of its southern coastal mountain range. The areas jungles and mountains are heavily guarded by Ghuzalterok Remnant forces.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1403,7 +1403,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Blas Zustand',
-        '',
+        'The Blas Zustand region is located on the Eastern side of Krukiathu and is made up of some forests, mountains and dessert areas.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1416,7 +1416,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Dunn Zustand',
-        '',
+        'Dunn Zustand is the Northern region of Krukiathu filled with badlands, marshes and a dence volcanic mountain range. Without knowning where to look for food the area is nearly inhospitable.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1429,7 +1429,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Bok''Da',
-        '',
+        'Bok''Da is located just West of the Scalar Patha along the Krukiathu coast. The city serves as a major naval facility for Ghuzalterok Remnant forces. The city has a mostly Orc and Goblin based community and this is reflected in their regular raiding of the coast lines to the South of Bak''Da.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1442,7 +1442,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Gol',
-        '',
+        'Gol is a massive wall like fort that extends across the Scalar Patha''s enterance onto Krukiathu. The fort is known for its ominous black walls and well fortified battlements. The Ghuzalterok Remnant keep a massive garrision stationed at the fort which is even carved into some of the nearby moutains.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1455,7 +1455,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ostanovka',
-        '',
+        'Ostanovka is located inland North of the Scalar Patha on the North edge of a large lake that runs into the straight that separated Acies and Krukiathu. The city is well fortified and regularly deploys military vessels into the straight to provide support on the Scalar Patha or to deal with any threats lingering in the straight. The city largely considers itself to be the second line of defence after Gol to the South. Due to the reduced level of trees around the city and its surounding country side the city also produces a fair amount for the Ghuzalterok Remnant. This combonation of duties has made the city quite lively with its citizens always having something to do.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1468,7 +1468,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ghux''Rok',
-        '',
+        'Ghux''Rok is located North of the Scalar Patha along the edge of a river. The area is mostly overlooked having fallen into ruin after being attacked by Itamevoth Theocracy forces during one of the many crusades over the centuries. The city was never rebuilt and is believed to have been scavenged for all that it had.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1481,7 +1481,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tenoklaten',
-        '',
+        'Tenoklaten is located right in the center of the major jungle that encompasses the Southern portion of Kurkiathu. Tenoklaten was once a city built by drow to cover from the sky under the dence forest ceiling during the mythic ages. However, during the Schism War the city was ruined and left in rubble leaving behind spirits which now haunt the area. Ghuzalterok Remnant forces even avoid the ruins and either hastily pass through during daylight hours or take paths around the former city.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
