@@ -1494,7 +1494,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Gharr''Gak',
-        '',
+        'Gharr''Gak is located on the Southern coast of Krukiathu just East of the Scalar Patha. The surrounding area is either dense jungle like forest or dense mountains. Gharr''Gak is used as a base of operations to thwart attacks that would seek to cross over the Southern mountain range of Krukiathu. The city sports a large fort and is surrounded by a community dominated by Orcs and Goblinoids. The garrsion is regularly tasked with patrolling the Southern mountain range.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1507,7 +1507,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Jhilak',
-        '',
+        'Jhilak is located on the North side of a large lake in Southern Krukiathu. Jhilak has a fort but is more along the lines of a regular Orc and Goblinoid village. The city heavily fishes out of the lake to the South so it has a decent amount of ports for small vessels.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1520,7 +1520,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Ighagh',
-        '',
+        'Ighagh is located on the Southern coast of Krukiathu placed in the center of the North side of the coastal mountain range. The land mass that Ighagh is on is surrounded by large rivers and a lake making for an isolated section of thick forest like jungle. Ighagh is tasked with patrolling the mountains to the South and maintaining control of the land mass it is on. Its fort is of resonable size and is surrounded by Orc and Goblinoid communities.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1533,7 +1533,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Krepost',
-        '',
+        'Krepost is located at the Eastern end of the Southern Kurkiathu coastal mountain range at the entrance to a small gulf. The area around Krepost is comprised of a wide variety of land and water with forests, mountains, and coastline. Though the city is located on the coast it hardly uses its ports for fishing or trade due to the close proximity of Acies to the South. The ports instead are regularly used as repair or productin yards for Ghuzalterok Remnant forces.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1546,7 +1546,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Beheerla''Teph',
-        '',
+        'Beheerla''Teph is located in the East of Krukiathu between two small mountain ranges and at the center of a forest. Beheerla''Teph is a Drow dominated city where the populace take cover from Solis under trees of the thick forest. The city also has a large underground portion to it which often unknowingly adds to the city''s size.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
