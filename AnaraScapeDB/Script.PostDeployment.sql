@@ -1559,7 +1559,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tlatelok',
-        '',
+        'Tlatelok is located on the North East coast of Krukiathu North of the Blas Zustand''s major forest. The surrouding landscape is spotted with hills but beyond that not much is found. At the center Tlatelok lies a massive temple to Ghuluk where countless undead are raised to work in the ports of the city. Since the population of the city is mostly undead the surrounding lands are not heavily farmed and the ports are used for ship production. Undead slaves are used to build ships day and night without end leading to a steady output of vessels for the Ghuzalterok Remnant navy.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1572,7 +1572,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Iztapham',
-        '',
+        'Iztapham is located on the East coast of Krukaithu on the North side of its barren coastline. Iztapham is now a pile of ruins left from the Mythic Age where elementals and ghosts roam. The city was once a ruled by primordial worshipers but was destroyed during the Schism Age by Ghuzalterok forces. Treasure hunters and mercenaries can often be found braving the depths of the old ruins to obtain what ever artifacts they may be able to find but average folk avoid the area due to its dangers.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1585,7 +1585,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Addun',
-        '',
+        'Addun is located on the South East tip of Krukiathu well into the coastal dessert of the Blas Zustand. The city is spanned across a large portion of the coast and is loaded with ports for naval vessels. The Ghuzalterok Remnant use Addun as the forward operating naval base in the Rima Ocean. The it is said that the city does not rely on food from in land Krukiathu but rather on raiding spoils alone. Vessels from Addun are known to attack coastal cities on Cinallis or boats in their surrounding waters.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1598,7 +1598,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Mahasagar',
-        '',
+        'Mahasagar is located halfway up the Western coast of Krukiathu at the edge of the barren lands of the Dunn Zustand. The city''s location is quite unusual considering its population is mostly Duergar. The city has a massive fort and large forges which are responsible for equiping the forces along the boarder of the Scalar Patha and the raiding vessels to the South. Most if not all of the Ghuzalterok Remnant battleships and other large naval vessels are built in Mahasagar.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1611,7 +1611,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Kod''Gaz',
-        '',
+        'Kod''Gaz is located on the North West Coast line of Krukiathu and is surrouded by barren lands with a large span of mountains to the North. Much unlike other Orc and Goblinoid dominated cities Kod''Gaz is more focused on fishing out of the cold Northern waters of the Tantum Ocean. Much of the produce of Kod''Gaz is used for food in the inland regions of the DunnZustand.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1624,7 +1624,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Voeld',
-        '',
+        'Voeld is located on the South Western edge of the Northern Krukiathu volcanic mountain range. Voeld is an acient Drow fortress dated back to the Mythic age and is one of the oldest cities on Anara. The upper region of the city is a fort carved into and amongst the mountains with the more civilian related infrastructure located underground. The city is known to remain in complete darkness without any type of light sources regardless of the time of day. Many of the Ghulaterok Remnant''s most powerful artifacts came and still orginate from Voeld.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1637,7 +1637,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Zotlal''Teph',
-        '',
+        'Zotlal''Teph is located West of Zult in the center of Krukaithu and is surrounded by marsh land often making traveling through the area difficult due to the terrain. Zotlal''Teph was once one of the more advanced research facilities for the Ghuzalterok during the Schism War. However the city was destroyed during the fighting and has remained in ruins due to the mutated in habitants of the city which act like ferral animals.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1650,7 +1650,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Zult',
-        '',
+        'Zult is located in the center of Krukiathu surrounded by a barren landscape. Zult is another one of Anara''s oldest cities. During the Schism Age however the Zult Spiel was built at the city''s center and now towers over the entire city. Massive walls were also built around the city during the war along with powerful fortifications which still remain. Each attempt to assualt the city throughout the centuries has ended in failure. Underneath the Zult Spiel is said to be a nearly endless dungeon like prison which has never been escaped from.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1663,7 +1663,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Bralgoz',
-        '',
+        'Bralgoz is located along the South side of the Northern mountain range of Krukiathu right up to the edge of a massive volcano and its surrounding mountains. Bralgoz serves as the Ghuzalterok Remnant main forge where local volcanic activity is used to power the forges. The city is mostly home to Duergar and other parts of the city extend deep underground of the surrounding mountains.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1676,7 +1676,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Tephletan',
-        '',
+        'Tephletan is located East of Zult in the center of Krukiathu and in the middle of a flooded marsh. The city was ruined during the Schism War durring the many earthquakes that took place. As the surrounding marsh land sank Tephletan began to be submerged in a bog like lake. Many of the city''s building collapsed and its population was forced out. Presently the ruins are home to a black dragon, which through elemental influence is further degrading the surrounding environment.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1689,7 +1689,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Oshbriruk',
-        '',
+        'Oshbiruk is located on the North Eastern edge of Krukiathu. The city produces a good amount of food through its ports and is one of the more normal cities on the continent. Despite the more average life style of its citizens, the city''s populace is utilitarian and cold, reflecting the surrounding cold barren areas of the city.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1702,7 +1702,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Eintra''Teph',
-        '',
+        'Eintra''Teph was once located on the Northern part of Krukiathu at the center of the mountainous islands that are now North of the continent at the present day. Eintra''Teph now lies wholy destroyed and all but forgotten after it was destroyed at the beginning of the Dark Age. Eintra''Teph was the location of Ediv es Corvus Delictum (Proclamation of Body of Evidence) where mortals asked the gods to remove the foul and tempered parts of themselfs, ultimately leading to the Schism War and subsequent ages.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
