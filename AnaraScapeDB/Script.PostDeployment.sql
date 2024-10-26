@@ -1718,7 +1718,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Gladis',
-        '',
+        'Gladis is located on the tip of a forested cape that extends out from the coast of Glaciem South of Acies. The meager town is sustained by local fishing and hunting in the nearby woods. While the town is part of the Itamevoth Theocracy which rules the continent of Acies to the North. However, the town is largely isolated from the rest of the theocracy. While there may be religious people living in the town, much unlike other parts of the theocracy there is no church in Gladis. Aside from its isolation from its ruling government Gladis is well known as a lauching point for any expedition that wishes to explore the continent of Glaciem. Though any expeditions that aims to pass through the Eye of Anara is likely to never be seen again.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1731,7 +1731,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Iturrium',
-        '',
+        'Iturrium is not on any available map and is only really known about by its guardian. At the center of the Eye of Anara is a break in the never ending storm and crater with splintering fractures radiating out from it. At the center of this crater is Iturrium which roughly translates to "The Inverted Spire". Iturrium is a stone tower that rises up about 70 feet high but has no windows. The tower only has one set of double doors and following with its name rather than having levels rising from the ground the tower is actually an entrance to a large underground fortifcation complex. Its construction was carried at the start of the Dark Ages and was made to house the piece of Ghuluk''s flesh that was severed by Veilith''s Spear as she struck him to the ground. At the bottom of the complex Veilith''s Spear still sits pinning the piece of flesh to the ground of Anara.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
