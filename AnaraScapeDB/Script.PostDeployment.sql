@@ -1746,7 +1746,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Dulrath',
-        '',
+        'Dulrath is located in the Pale Wastes North of the Krukaithu continent at the feet of a small mountain range. The surrounding area has spotted trees and South of the city is a gulf littered with islands. The population is a group of Frost Giants who are fiercly territorial of the surrounding area. The also have a hostile relationship with Balaroth in the East and openly defy his claim to power over the Pale Wastes.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1759,7 +1759,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Lutzun',
-        '',
+        'Lutzun is located towards the Western edge of the Northwall Mountain range in the Pale Wastes. The city''s entrance is carved into the side of one of the mountains and features a large staircase which decends down deep under the mountain where the main city is located. The city is home to a group of Duergar which have no relation to the Ghuzalterok Remnant. Though they never really see visitors they are very wary of them and avoid contact with the Giants of Dulrath to the West. They often have to protect their surrounding area from local barbarians. ',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1772,7 +1772,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Balaroth''s Peak',
-        '',
+        'Balaroth''s Peak is located out in the hilly expanse of the Pale Wastes at the top of the tallest mountain on Anara. There are a few lesser surrounding mountains where some of Balaroth''s subjects live but the area is mostly devoid of anything but ice.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1785,7 +1785,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Aiel',
-        '',
+        'The remains of Aiel (also known as the Thrown City) are found just North of where the sliver of land connects Cinallis and the Pale Wastes on the opposite side of the Northwall Mountain range. Though a few treasure hunters have gone out to inspect the craters of where the city fell, the area is very dangerous due to local barbarians and Balaroth who sometimes patrols the area himself. To the locals however, the area is refered to as "The Stones" due to the various parts of the former stone walled city sticking up out of the ice. Many holes made by the city can be found but are often filled with more dangers than above ground.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
