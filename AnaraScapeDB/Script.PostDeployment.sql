@@ -1801,7 +1801,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Lundus',
-        '',
+        'The large moon in the sky which the plane of Anara orbits, which is actually the excess remnants of dead elemental titans. Lundus is often associated with the realm of the dead and after life. Once a month Lundus covers Solis in the sky for a day causing a long lasting eclipse. Sometimes storms can be seen raging on its surface.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1814,7 +1814,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Uhmbrid',
-        '',
+        'The Uhmbrid is a large ziggurat like structure made from a black marble like stone. The structure is located along Lundus'' equator and is used to maintain the The Ulatum Veil (AKA the Sea for Stars). Once within range of the nebula, masses of corrupted souls from Anara are fired out into the Astral Sea to become part of the nebula which has been used for millennia to close off the Solis Sphere from the rest of Xenturi.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1830,7 +1830,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Fusilia',
-        '',
+        'Fusilia is the plane in the Solis Sphere that orbits closest to Solis is comprises both the elemental planes of fire (surface level) and earth (underground level). The surface of the plane is a barren hellscape of molten rock and ash. Beneath the surface rivers of lava cut through the stone and the various caverns that make up the underground areas of the plane.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1846,7 +1846,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Gelida',
-        '',
+        'Gelida is located farthest away from Solis in the Solis Sphere and makes up both the elemental planes of water (below the ice crust) and air (above the ice crust). The shape of the plane is formed by a spherical hollow ball of ice which is filled with water, above the icey surface though a constant storm rages at all times blowing snow and debris constantly. Within the water below numerous blocks of ice float around almost like homes to their elemental inhabitants.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1862,7 +1862,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Lapis',
-        '',
+        'Lapis is located after Lundus in distance from Solis in the Solis Sphere making it the third plane in orbit of the star. Other than the needle and spire like rocks and mountains the plane has scattered ruins from the past celestial civilizations that held station as Custodians until the Schism War. The ruins are old and weathered but the plane still has inhabitants. A few of the Custodians refused to take sides in the Schism War and remained but were ultimately locked on Lapis as punishment as the life of the plane slowly faded. These celestials that still remain hold a good amount of distain for the mortal races of Anara and their new set of gods.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1878,7 +1878,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Solis',
-        '',
+        'Solis is located at the center of the Solis Sphere and acts as the sphere''s star and as the orbit point for the other planes in the sphere. Originally Solis was just a source of light provided by Tamterasu, but at the end of the Schism War Tamauht pulled the other good aligned gods up into Solis creating a heaven like place for the good panthoen.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1894,7 +1894,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Sea of Stars',
-        '',
+        'Lapis is located after Lundus in distance from Solis in the Solis Sphere making it the third plane in orbit of the star. Other than the needle and spire like rocks and mountains the plane has scattered ruins from the past celestial civilizations that held station as Custodians until the Schism War. The ruins are old and weathered but the plane still has inhabitants. A few of the Custodians refused to take sides in the Schism War and remained but were ultimately locked on Lapis as punishment as the life of the plane slowly faded. These celestials that still remain hold a good amount of distain for the mortal races of Anara and their new set of gods.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
