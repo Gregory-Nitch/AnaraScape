@@ -1911,7 +1911,7 @@ INSERT INTO [Lore].[HistoricalAges]
     [Description])
 VALUES(
         0,
-        ''
+        'First there was darkness then a flash of light (unknown divine entities did this). These two entities were gods leaving Xenturi during the "Exodus".'
 );
 
 INSERT INTO [Lore].[HistoricalAges]
@@ -1919,7 +1919,16 @@ INSERT INTO [Lore].[HistoricalAges]
     [Description])
 VALUES(
         1,
-        ''
+        'After this flash there was swirling of elements until primordial titans emerged from them along with 4 divine offspring named Tamteru, Veilrak, Ilzu, Gunaruk, these gods were neither good nor evil and possessed traits of both, light and dark, pleasure and pain, honor and deceit, sacrifice and gluttony. Before the beings from Xenturi left to The Far Realms they informed the new fledgling gods of the horrors beyond the Ulatum Veil (Sea of Stars) and warned them to take control of the elements and close off the Solis Sphere to the rest of the Xenturi in hope that life could begin anew in Xenturi from the Solis Sphere.'
+);
+
+INSERT INTO [Lore].[HistoricalAges]
+    ([Age],
+    [Description])
+VALUES(
+        2,
+        'After a few hundred years the gods subdued the elements and the titans related to them. From the earth and fire elements the world (Anara) and its molten core was formed. From water the oceans were made, from wind and lightning rain and other weather was created. Then the god of light and dark created the sun (Solis) and moon (Lundus, huge stellar body which Anara orbits and is often associated with the realm of the dead and afterlife) while the other 3 gods made the races of the world with the Tree of Inheritors also known as Iennialaed.  
+'
 );
 
 INSERT INTO [Lore].[HistoricalAges]
@@ -1927,7 +1936,9 @@ INSERT INTO [Lore].[HistoricalAges]
     [Description])
 VALUES(
         3,
-        ''
+        '5000 years later as the races of the world grew, they began to criticize the gods in their duality and began to openly defy them. This drove the gods to separate themselves from their negative traits to create a better world for the created races of the world but doing so sparked a huge war that ruined most of civilization and doubled the number of gods. 8 totally different gods emerged 4 wholly good and 4 wholly evil. The war raged on for an unknown amount of time as its was totally, wholly and all-encompassing and the gods were wholly focused on the war (one notable reason for the loss of time is the sun dimmed as the god of light had to focus their power on the war).  
+
+        Eventually the lesser races and good gods devised a way to seal the evil gods away but in doing so found that they were still inexorably linked to their evil counter parts and as they sealed them away, they too were banished. The good gods were ripped into the sky where then sun now sits, and the evil gods were thrown deep into the ground creating a giant crater (this is now covered by ocean, but one edge of the crater creates a mountain range connected to land on the North side of Krukiathu). This created an ice age that lasted for about 100 years as dust filled the sky.'
 );
 
 INSERT INTO [Lore].[HistoricalAges]
@@ -1935,7 +1946,7 @@ INSERT INTO [Lore].[HistoricalAges]
     [Description])
 VALUES(
         4,
-        ''
+        'During the ice age there was almost no influence from the gods, priests could not hear from them, divine magic disappeared and regular magic mostly disappeared as well. (The gods did not yet know how to send their influences across the planes).'
 );
 
 INSERT INTO [Lore].[HistoricalAges]
@@ -1943,7 +1954,7 @@ INSERT INTO [Lore].[HistoricalAges]
     [Description])
 VALUES(
         5,
-        ''
+        '5000 years later, the races of the world were then left to their own devices with slight influences from the banished gods as their power still creeps into the world. Churches remain to the good gods as cults to the evil gods also remain.'
 );
 
 /*
@@ -1957,7 +1968,7 @@ INSERT INTO [Lore].[Events]
 VALUES(
         'Ediv es Corvus Delictum',
         0,
-        ''
+        '(Proclamation of Body of Evidence) The event that inspired the gods to separate themselves from the evil portions of themselves. The gods were summoned by a huge mass of mortals from every race on Anara lead by The Inhaerent Custodium and handed a list of grievances and wishes leading to heavy introspection by the gods of the Mythic Age.'
 );
 
 INSERT INTO [Lore].[Events]
@@ -1967,7 +1978,7 @@ INSERT INTO [Lore].[Events]
 VALUES(
         'Schism War',
         1,
-        ''
+        'The Schism War is also known as the War of Separations and encompasses nearly the entire Schism Age. Originally the war started as a result from the vast differences in the resulting gods after separation and how that radicalized their followers. What started as local religious skirmishes eventually led to full fledge war between the two opposing sides of the pantheon. Eventually the gods themselfs got involved and vastly changed the scale of the war. The skies were clouded with smoke and fire, and the very foundations of Anara shook as the gods clashed. The concept of time was lost as the gods of dark and light fought against each other and neutral parties were regularly persecuted. Every city on every continent was involved and lasted for at least two generations in total. The battles carried out by the gods often left the surrounding areas scared or completely changed, craters were formed, Pulchra was cast into the sea, Anara''s rate of rotation was changed, a whole section of Acies was glassed and turned into a dessert. The weapons and techonolgy of the time would seem like science fiction to the present people of Anara, giant war machines fought against giants, elemental beam weapons were mounted on city walls, the Warforged were made and magical items were common. Eventually Tamauht, witnessing the endless fighting decided to banish the evil gods away under the surface of Anara. This act known as The Banishment to turned out to affect all the gods, Terasu, Zhule, Rathak and Guhluk were sent under the surface and created the Hells and the Abyss while the good gods were pulled into the sky and imprisoned within Solis. No mortal really knows about the banishment as all witnesses were burnt away at Luk''Teph when it was turned into a dessert. As the evil gods were pulled underground mass amounts of ash and dust were sent into the air triggering a brutal ice age known as the Dark Age.'
 );
 
 INSERT INTO [Lore].[Events]
@@ -1977,7 +1988,7 @@ INSERT INTO [Lore].[Events]
 VALUES(
         'The Banishment',
         1,
-        ''
+        'The Banishment was carried out on the plains of Luk''Teph by Tamauht. Tamauht drew Solis from his staff and cast it into the sky where a portal opened from which bright radiant burning chains flew out and bound all the gods. The good gods were ripped into the sky with Solis with such force that storms around the plane were made. The evil gods were violently pulled beneath the earth on the North side of Kurkiathu forming a massive crater and filling the sky with dust and ash. From here Anara would enter a brutal ice age known as the Dark Age.'
 );
 
 INSERT INTO [Lore].[Events]
@@ -1987,7 +1998,129 @@ INSERT INTO [Lore].[Events]
 VALUES(
         'The First Crusade',
         1,
-        ''
+        'Charge made by those guarding the Scalar Patha during the Dark Age. This event marked the return of Divine magic. 100 fighters of the remaining population of Acies were charged with guarding the path to Krukiathu, equipped with rusty weapons and armor, wrapped in furs, charged from their fortifications against approaching remnant forces in a suicidal charge led by a man named Kaled that ultimately stopped the advance of the approaching forces. This charge is immortalized in murals within the Itamevoth Theocracy and in the poem written below: 
+
+        - I 
+
+        Half a charge, half a charge, 
+
+        Half a charge onward, 
+
+        All down onto the Scalar Patha, 
+
+        Raged the one hundred. 
+
+        “Forward, revive the crusade! 
+
+        Pay with your bloods iron!” he said. 
+
+        On the Scalar Patha, 
+
+        Charged the one hundred. 
+
+        - II 
+
+        “Charge, for the Crusade!” 
+
+        This zealous charge displayed, 
+
+        Faith of the remaining few. 
+
+        Faith of those once sundered. 
+
+        Beneath the cold, dark sky. 
+
+        Roaring out the final breath, 
+
+        With no choice but to do and die. 
+
+        Onto the path of death, 
+
+        Raged the one hundred. 
+
+        - III 
+
+        Demon to the right of them, 
+
+        Devil to the left of them, 
+
+        Elements before them. 
+
+        Steel clashed and thundered; 
+
+        As they charged the lines of hell, 
+
+        Fearless steel-clad shells, 
+
+        Straight to certain death, 
+
+        But hardly a man fell. 
+
+        Raged the one hundred. 
+
+        - IV 
+
+        Rusted swords gleaming bare, 
+
+        Gleaming as they cut the air, 
+
+        Smiting the darkness there, 
+
+        Fighting in the bloody snow, 
+
+        Those, once sundered. 
+
+        Spearing though fire and smoke, 
+
+        Though the line of shields they broke; 
+
+        Acien and Krukiathan, 
+
+        Split and felled by sword stroke, 
+
+        And still we wonder. 
+
+        How one might come back, 
+
+        But not all one hundred. 
+
+        - V 
+
+        Demon to the right of them, 
+
+        Devil to the left of them, 
+
+        Elements before them. 
+
+        Steel clashed and thundered; 
+
+        As they charged the lines of hell, 
+
+        Many a great hero fell. 
+
+        They that fought so well, 
+
+        Returned from the path of death 
+
+        To establish the new citadel, 
+
+        Those that remained, 
+
+        Remained of the one hundred. 
+
+        - VI 
+
+        For this there was no accolade, 
+
+        Only rusty, bloody, blade 
+
+        But the faithful still remember, 
+
+        The charge of the First Crusade, 
+
+        The charge that ended the Dark Age, 
+
+        And the immortal one hundred! '
 );
 
 
@@ -2000,7 +2133,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Tamel Imperium',
-        ''
+        'Empire made of various kingdoms that occupies most of the southern portion of Cinallis. Currently ruled by Henrik Tamel, with various kings, dukes, and barons beneath him.'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2008,7 +2141,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Doaverine Junta',
-        ''
+        'An assembly of clans who select a ruler called the "Muintir" once every 20 years located on the Northern part of Cinallis. The individual clans actually hold a large amount of autonomy but remain allied to resist outside influence. Once a part of the Tamel Imperium that won a war of independence about 900 years ago. Currently headed by Elise D''larrawill from D''larrawill.'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2016,7 +2149,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Itamevoth Theocracy',
-        ''
+        'A government led by the churches of the good gods with a head chosen from among them thus totaling 5 leaders located on Acies. People of the Theocracy are devoutly religious and locked in constant conflict with the Remnant. Currently led by The Sage (tittle) Solamir “the Old” (an old man think of father time and follower of Tamauht), and the Arch Priests; Layna (elf woman Older Tamauht), Yamis (Earth Genasi, Iyla), Vordeth (Silver dragonbon middle aged, wears armor, spear, shield more likely a paladin, Veilith), Rodrik (Old Dwarf man, Inaru).'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2024,7 +2157,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Ghuzalterok Remnant',
-        ''
+        'A loose government remaining from the leftovers of the Schism War where the evil aligned races have banded together to wage war on the good races of Anara located on Krukiathu. Has been at constant war with the Itamevoth Theocracy. Drow Leader Dyla Gisspawned, Orc/Beast/Goblin Leader Tathnok, Duergar Leader Torg Deepsmith, Chromatic Dragonborn  Ra''ush Bilebreath, Human Leader Krieg Luftvalker (Indian, Middle Eastern, Russian, Egyptian, Dark Fantasy Names) '
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2032,7 +2165,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Inhaerent Custodium',
-        ''
+        'A secretive organization that charges itself with the protection of all of Anara. It remains neutral in politics and wars of governments, but actively seeks to undermine remnant forces on Anara. While it often works with the Itamevoth Theocracy and other governments on Anara it does not take orders from them. Members go by code names and refrain from exchanging their real names, nearly all members leave their family behind as well. Their symbol is a set of five circles one large and four other small circles surrounding it with geometric shapes which hold ancient meaning connected to the good pantheon of gods.'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2040,7 +2173,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Lurkers',
-        ''
+        'A large thieves guild based in the Tamel Imperium. Normally work under a strict moral code but operate outside of the law. The head of the organization is called the Hand and their lieutenants are called Fingers. Their symbol is an open hand with an eye in the center of its palm.'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2048,7 +2181,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Ordo Statera',
-        ''
+        'Before the Schism war there was a small clan of people who existed that only came out to provide balance in the name of Xotlasihm known as Ordo Statera. They were only mentioned as shadows and identified by the symbol on their weapons and jackets. These few and secretive individuals carry the knowledge to create fire arms, and strive to maintain balance on the plane of Anara only acting when they believe it to be necessary. The symbol of the clan closely resembles the amulet that Xotlasihm is often depicted with which has a shape close to that of a 5 pointed star. However, the clan symbol has the initials "O.S." of the clan placed within the center of the star like shape.'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2056,7 +2189,7 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Lex Ferra',
-        ''
+        'Once a great company of warriors during the Schism War that dwindled to almost nothing during the Dark Age. The company is now but a shadow of its former self operating as mercenaries and working for coin. Still to this day however, the company holds a great repuation with the clients that start contracts with the group.'
 );
 
 INSERT INTO [Lore].[Factions]
@@ -2064,7 +2197,15 @@ INSERT INTO [Lore].[Factions]
     [Description])
 VALUES(
         'Steel Triad',
-        ''
+        'A ruthless mercenary group that values pay above all else. They take just about any job that they deem pays well enough, though they never take jobs from the Ghuzalterok Remnant to keep up appearances with the governing bodies of Anara.'
+);
+
+INSERT INTO [Lore].[Factions]
+    ([Name],
+    [Description])
+VALUES(
+        'Order of the Phoenix',
+        'A group of influential knights who are seeking to restore lost kingdoms and lands devastated by the remnant. Many of the members claim to be decendants of the former Gandersheim Alliance in the West Marches. The two main headquarters are located in the Tharkad in the Tamel Imperium and in Giliad in the Doaverine Junta.'
 );
 
 
@@ -2077,7 +2218,7 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Terasu''s Rahaslicon',
-        ''
+        'Black stone covers with an eye carved into the covers. The book is bound with a black leather which is riveted to the stone. The book is incredibly large tome and heavy weighing 30lbs. The contents of this foul manuscript of ineffable wickedness are so rabid that creatures of an alignment suffer merely by touching it. No mortal was meant to know the secrets it contains, knowledge so horrid that to even glimpse the scrawled pages invites madness and nature can''t abide the book''s presence.'
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2085,7 +2226,7 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Veilith''s Spear',
-        ''
+        'Veilith''s Spear is located in the Eye of Anara at the bottom of Iturrium. This spear was weilded by Veilith during the Schism War and according to ledgends served as a powerful ranged weapon in addition to melee combat.'
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2093,7 +2234,8 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Inaru''s Chains',
-        ''
+        'Inaru''s Chains are located in the ruins of Aiel (AKA the Thrown City )beneath the ice of the Pale Wastes. During the war the chains were used as support to keep the main forge Aiel stable during operation. A white dragon (Balaroth) from the pale wastes seeks the chains.  
+'
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2101,7 +2243,7 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Iyla''s Ward',
-        ''
+        'A blue saphire cloak with golden trimings worn by Iyla themself which were said to have healing and nurturing properties. They lie at the end of the Serenus Semita (Serene Path) in The Nubes Castellum overseen by Aihurem "The Pure".'
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2109,7 +2251,7 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Tamauht''s Mirror',
-        ''
+        'A cross between a staff and a two handed morning star Tamauht used this weapon as both a spell casting focus and a melee weapon. After the banishment the weapon was left at its casting place and was claimed by the very few survivors of Luk''Teph who brought the weapon back below ground to be stored. '
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2117,7 +2259,7 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Zara Mazzallam',
-        ''
+        'Black crystal edifice that is said to have instantly raised the sprits of Ghuzalterok forces in battle during the schism war and to rend the minds of enemies nearby. Currently located in the labrinth like dungeon of Tenbraz.'
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2125,7 +2267,11 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Iennialaed',
-        ''
+        'Created by Tamteru, Veilrak, Ilzu, Gunaruk and is the source of all life on Anara. Forged from the main essences of the primordial titans and parts of the gods themselves. Gunaruk carved the tree from neairite, Tamteru inscribed the runes on the tree''s branches, trunk, and roots with adamantine, then Veilrak gave up their sliver blood from which diamond leaves sprouted from the branches and Ilzu drew blood from the diamond leaves and gave birth to the first soul on Anara, a diamond dragon Geleondiril tasked with the protection of the tree. The magic used by these gods to create the tree was so powerful it reduced their powers substantially.
+        
+        The tree has dark crystal bark inscribed with impossibly small runes filled with adamantine and stands 100ft tall with diamond leaves sprouting from its branches which never fall off and constantly drip with silver blood of the celestials that made it. The tree currently resides in the Mountains of the Pale Wastes North of the Pale Gulf underground and under heavy protection from guardians placed by the gods.
+        
+        The tree is the source of life on Anara and all new souls are borne from it. When someone dies if their soul is still pure it is returned to the lake of silver blood (AKA The Lacuph Anmerith -> The Lake of Souls) at the base of the tree to be remade into other souls. As a person grows in experience and memoires those are turned into energy to produce more souls than the one given to the lake. If a soul is deemed unworthy it is taken to Lundus to be disposed of and cast into the Sea of Stars.'
 );
 
 INSERT INTO [Lore].[Artifacts]
@@ -2133,7 +2279,7 @@ INSERT INTO [Lore].[Artifacts]
     [Description])
 VALUES(
         'Sha''Arhirm',
-        ''
+        'Created by Tamteru, Veilrak, Ilzu, Gunaruk and is a gateway to Lundus used to take and dispose of corrupt souls there. It resides in the same subterranean room as The Tree of Inheritors. The gateway is made of gray marble with etched platinum runes and from the Anara side the inside of the gate looks to be a swirling black abyss, from the Lundus side it apears to be a swirling grey portal with sparkling lights. This gateway is guarded by two Marut constructs who spend their time watching over the gateway, one on each side and if any corrupted soul were to try to pass back to Anara the two gaurdians would seek to return them to Lundus at any cost.'
 );
 
 
@@ -2147,7 +2293,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Black Silver',
-        '',
+        'Found in small patches of silver ore veins rarely all throughout Anara. Carries half the worth of gold (like electrum). Though what causes black silver has been lost to time, it is known for its shielding properties (of which far surpass lead), anti-divination and non-corrosive properties. (In the Mythic Age it was known as "Titan''s Blood" which is silver imbued with Celestial or Primordial blood).',
         4
 );
 
@@ -2157,7 +2303,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Lead',
-        '',
+        'Found all around Anara, not particularly worth much but has been known to have shielding and anti-divination properties.',
         1
 );
 
@@ -2167,7 +2313,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Platinum',
-        '',
+        'Found all around Anara, though rare, beyond currency Platinum is used as the base material component for enchanting, that with its other qualities makes it ten times the price of gold.',
         3
 );
 
@@ -2177,7 +2323,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Neairite',
-        '',
+        'Found deep in the Under Dark. Rare to find on the surface of the plane, but it''s is known to be extremely hard (though not more than a diamond) and to enhance psionic, physic, illusion, and divination magics. Only worth 10gp per pound due to the difficulty to work with it due to its hardness.',
         3
 );
 
@@ -2187,7 +2333,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Cinallis Poppy',
-        '',
+        'Found in the mountains and Southern portions of Cinallis, is known for its bright red petals, pain killing and blood cloting qualities. Can be used to make weak healing potions and salves.',
         2
 );
 
@@ -2197,7 +2343,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Monolis Flower',
-        '',
+        '(Looks like an Ajisai flower) represents love in the Frillis Cartaue.',
         1
 );
 
@@ -2207,7 +2353,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Jaunes',
-        '',
+        'Yellow looking rose tulips in the Bruessix area.',
         1
 );
 
@@ -2217,7 +2363,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Nightshade',
-        '',
+        'Found all over the plane but not in large quantities. Known for its light purple petals interior yellow buds and toxic characteristics. Can be used to make weak poisons.',
         3
 );
 
@@ -2227,7 +2373,7 @@ INSERT INTO [Lore].[Resources]
     [Rarity])
 VALUES(
         'Widow''s Veil',
-        '',
+        'A rare moss like plant that sometimes grows on corpses that had their souls forcefully taken by Xotlasihm after death. Culturally this moss is seen as an ill omen and superstitious people avoid it and beasts refuse to eat the body it grows from. Appears as a black moss on top of the corpse where in thin areas it may resemble a black veil and this is where it gets its name. In addition to the black foliage of the moss in thicker areas of it thin root like branches with needle like thorns can be found most often digging into the corpse. If one where to harvest the moss then smoke it, it would be accompanied by an alkaline acidic smell and taste while granting the consumer the ability to see 10ft into the ethereal plane for 1 minute and the ability to communicate with any beings it can see, however the consumer is considered poisoned for the duration if they fail a DC15 Constitution save.',
         5
 );
 
@@ -2241,7 +2387,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Plane',
-        ''
+        'Planet.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2249,7 +2395,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Sphere',
-        ''
+        'System (ie. the Solar System).'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2257,7 +2403,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Oversphere',
-        ''
+        'Galaxy.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2265,7 +2411,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Astral Space',
-        ''
+        'Space.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2273,7 +2419,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Cycle',
-        ''
+        'One revolution of a plane around its star.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2281,7 +2427,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Cycle Velocity',
-        ''
+        'The rate at which a plane is said to complete its cycle or move through the Astral Sea.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2289,7 +2435,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Planar Delta',
-        ''
+        'Boundary between planes, for example; for a astral ship to leave the plane to Astral Space it must “exceed the Planar Delta”.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2297,7 +2443,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Absolute Delta',
-        ''
+        'Refers to the force required to break the Planar Delta, or a state in which one exceeds the planar delta “we have reached absolute delta”.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2305,7 +2451,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Planar Assignment',
-        ''
+        'A person''s or object''s home plane, for example, for the successful completion of a “Planeshift” spell, one must have an object with a “Planar Assignment” of their destination plane unless they are from that plane.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2313,7 +2459,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Planar Attraction',
-        ''
+        'A force between two planes or a plane in close proximity which draws them closer together.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2321,15 +2467,24 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Planisphere',
-        ''
+        'The breathable air between the surface of the plane and the Planar Delta.'
 );
 
 INSERT INTO [Lore].[Terminologies]
     ([Name],
     [Definition])
 VALUES(
-        'Manifold',
-        ''
+        'The Manifold',
+        'The space that gods of Xenturi went to that did not leave in the Exodus. It is an infinite set of alternate dimensions called Frames. To travel to another manifold you must pass through a Duct and to enter you must enter via a Transition.'
+);
+
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Manifold Frame',
+        'A single dimension in The Manifold.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2337,7 +2492,16 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Manifold Duct',
-        ''
+        'A link between manifolds either via a natural anomaly or through technological/magical implementation.'
+);
+
+
+INSERT INTO [Lore].[Terminologies]
+    ([Name],
+    [Definition])
+VALUES(
+        'Manifold Transition',
+        'An entry way into The Manifold, either created by magic, technology, or in rare cases a naturally occuring anomaly.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2345,7 +2509,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'Far Realms',
-        ''
+        'Other Overspheres (galaxies) beyond the edge of Xenturi.'
 );
 
 INSERT INTO [Lore].[Terminologies]
@@ -2353,7 +2517,7 @@ INSERT INTO [Lore].[Terminologies]
     [Definition])
 VALUES(
         'The Expanse',
-        ''
+        'The space between Overspheres.'
 );
 
 /*
@@ -2450,8 +2614,19 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Tamauht',
         'Deity',
-        '',
-        ''
+        'Normally shown as a man with long white hair and light in his eyes in brilliant plate armor wielding a two-handed morningstar emitting light or fire.',
+        'Followers of Tamauht seek to destroy evil things, enter dark areas and rid that area of evil, find lost knowledge, guard the safety of the world, planes and their boundaries. 
+
+        Commandments: 
+        - Bring light to dark places 
+
+        - Illuminate that which cannot be seen 
+
+        - Uphold the sanctity of time and planes 
+
+        Prayers:
+        - "hetu en prataya" (direct causes and indirect conditions, which underlie the actions of all things) 
+'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2462,8 +2637,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Iyla',
         'Deity',
-        '',
-        ''
+        'Normally depicted as an incredibly beautiful elven woman with golden hair and blue glowing eyes wearing low cut see through white silken robes. Or in the more conservative churches as a elven woman in saphire blue robes with gold trimmings.',
+        'Followers are normally Free spirited, artists, go on pilgrimages often, and may never return from pilgrimages as they tend to establish churches during their trip. Iyla''s followers also seek to free those bound to others by slavery or debt.
+        
+        Commandments:
+        - Release that which is held 
+
+        - Bring joy to the senses 
+
+        - Avoid stagnation and embrace the new '
 );
 
 INSERT INTO [Lore].[NPCs]
