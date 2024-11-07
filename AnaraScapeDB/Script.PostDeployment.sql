@@ -2645,7 +2645,7 @@ VALUES(
 
         - Bring joy to the senses 
 
-        - Avoid stagnation and embrace the new '
+        - Avoid stagnation and embrace the new'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2656,8 +2656,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Veilith',
         'Deity',
-        '',
-        ''
+        'Blindfolded dark-skinned woman in valkyrie like armor holding a spear and shield, longsword sheathed at her side.',
+        'Followers seek to uphold the law and morals of society, often target internal corruption, soldiers and guards often look to her in worship, and seek to do what is best for the collective group. 
+
+        Commandments: 
+        - Never betray 
+        
+        - Fight for the weak 
+
+        - Cultivate morality'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2668,8 +2675,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Inaru',
         'Deity',
-        '',
-        ''
+        'Black haired woman in priestly white robes with golden trim holding a ringed staff and a sickle or hammer.',
+        'Followers are normally smiths, famers, builders, craftsmen etc., seek to produce the best things they can, often seek out sources of undead or other elements of decay to destroy them. 
+
+        Commandments: 
+        - Feed the populace 
+
+        - Shelter the cold and weary 
+
+        - Purify the dead'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2680,8 +2694,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Terasu',
         'Deity',
-        '',
-        ''
+        'Amorphous, black robed figure, or a grey skinned being without eyes.',
+        'Followers normally covet knowledge and secrets, are often completely crazy, often have elements of their face removed (eyelids, ears, lips, nose), use of illusions is also common.
+
+        Commandments: 
+        - Watch from the dark
+
+        - Take that which reveals
+
+        - Unravel chronology'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2692,8 +2713,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Zhule',
         'Deity',
-        '',
-        ''
+        'Bald pointed eared man with red eyes and pitch black skin and horns wearing black hooked plate armor wielding a flail covered in hooks.',
+        'Seek to dominate, enslave, and torture others, seek to rule over others, often mutilate others and do things out of spite.
+
+        Commandments:
+        - Cut their flesh
+
+        - Drink of hate
+
+        - Bind them in chains'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2704,8 +2732,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Rathak',
         'Deity',
-        '',
-        ''
+        'Brown furred beast that looks like a demonic minotaur in worn full plate armor covered in scars with tears of blood streaming down his face wielding a flaming two handed sword.',
+        'Followers are known to be savage fighters who show no mercy, they take what they want rather than ulterior methods, often hold grudges and seek vengeance.
+
+        Commandments:
+        - Annihilate the weak
+
+        - Collect your debts in blood
+
+        - Burn them to ash'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2716,8 +2751,15 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Guhluk',
         'Deity',
-        '',
-        ''
+        'A decaying corpse resting in an open grave with tentacles emerging from under it, has a male voice, or a headless six armed four legged humanoid carrying a decaying head.',
+        'Followers are often necromancers, some followers have been noted eating until death, seek to end life and devour it.
+
+        Commandments: 
+        - Devour all
+
+        - Master undeath
+
+        - Starve the others'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2728,8 +2770,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Aihurem',
         'Dragon',
-        '',
-        ''
+        'Aihurem has a long snake like body of platinum scales that extends for hundreds of feet, and though they have no wings they are capable of flight. A mane of silver hair frames their head and they have four claws about their body but rarely use them.',
+        'Aihurem is a platinum dragon and one of Iyla''s main servants who now resides within the Serenus Semita (Serene Path) at The Nubes Castellum watching over Iyla''s Ward. Aihurem has been watching over the artifact for millennia often sleeping for hundreds of years at a time.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2740,8 +2782,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Astarot',
         'Dragon',
-        '',
-        ''
+        'Astarot has a long snake like body of golden radiant scales that extends for hundreds of feet, and though they do not have wings they are capable of flight. Astarot''s head is shaped like an eagle with golden whiskers and antler like horns. Along the back of their body is a spine of straight golden hair.',
+        'Astarot served as one of Tamauht''s main servants, a celestial Sun Dragon charged with guarding Solis after the Schism War. During the war itself however Astarot fought as the second in command of the White Legion. During the Bannishment they were pulled into Astral Space and now reside around Solis acting as its guardian.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2752,8 +2794,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Geleondiril',
         'Dragon',
-        '',
-        ''
+        'Geleondiril is a massive prismatic dragon whose body would appear to be made from diamond. Their tail has a glaive like ending.',
+        'Geleondiril was the first soul to be forged from the Tree of Inheritors and was charged with the trees protection from the gods prior to their separation. Geleondiril now stands watch over the entrance to the chamber where the tree resides. Over the ages even the gods have been thwarted by Geleondiril when trying to destroy or reach the tree.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2764,8 +2806,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Lemanoth',
         'Celestial',
-        '',
-        ''
+        'Lemanoth is a large celestial clad in metal armor with an emotionless metal mask.',
+        'Lemanoth is a Curator charged with the protection of the Uhmbrid a structure on Lundus used to maintain the Sea of Stars.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2776,8 +2818,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Marut''Apor',
         'Construct',
-        '',
-        ''
+        'Marut''Apor is a hulking construct protected with metal armor and has a large central eye with a metal disk enscribed with their purpose on their chest.',
+        'Marut''Apor is a construct protecting the Lundus Gate on Lundus whoes goal is to keep corrupted souls from reentering the Anaran Plane.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2788,8 +2830,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Marut''Laban',
         'Construct',
-        '',
-        ''
+        'Marut''Laban is a hulking construct protected with metal armor and has a large central eye with a metal disk encribed with their purpose on their chest.',
+        'Marut''Laban is a construct charged with protecting the Lundus Gate on Anara and keeping corrupted souls on the Lundus side of the gate.'
 );
 
 INSERT INTO [Lore].[NPCs]
