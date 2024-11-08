@@ -20,8 +20,7 @@ Here is the tool bar for making maps and some samples:
 ![Map Sample2](AnaraScapeWeb/wwwroot/static/anaraSample2.png)
 ![Map Sample3](AnaraScapeWeb/wwwroot/static/anaraSample3.png)
 
-
-# Future Possible Additions
+## Future Possible Additions
 
 1. World map with integrated calendar
 
@@ -35,19 +34,9 @@ Here is the tool bar for making maps and some samples:
 
     - Shows Backstory etc.
 
-3. Map generator add ons
-    
-    - More styles
-    
-    - More Tile shapes
+3. Exp Calculator
 
-4. NPC database for DMs
-
-5. Exp Calculator
-
-6. Lore page
-
-7. Dice roller
+4. Dice roller
 
 
 ## Build & Dependencies
