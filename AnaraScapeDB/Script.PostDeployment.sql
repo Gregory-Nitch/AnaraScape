@@ -2842,8 +2842,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Xotlasihm',
         'Celestial',
-        '',
-        ''
+        'A being often depicted as nothing but a regal black robe from beneath which golden eyes shine through black cloth. They are normally seen with an amulet and an urn. Underneath their robes is a grey skinned celestial covered in geometric shapes with no hair, no mouth and no nose on an androgenous body.',
+        'Legends have it that Xotlasihm pulls souls into the urn they carry with the amulet and then take them into the afterlife. Many believe that they will take the dead to Lundus which is often thought of as being the realm of the dead. Xotlasihm is one of the few celestials to remain unaligned after the Schism War. They never speak, if they communicate with telepathy the recipient only understands its will and does not hear any words. Multiple souls can be stored in the urn at one time. When one dies on Anara, Xotlasihm escorts the soul of the dead back to Iennialaed, the Tree of Inheritors, unless the soul has been corrupted. When the soul is found unsuitable to be returned to the tree, they take them to Lundus and leave them there. In combat Xotlasihm will use the amulet they carry to blast foes at range and disrupt the movement of those around them, from the urn they will produce two short swords that act on their own like spiritrual weapons with a faint mist falling from them.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2854,8 +2854,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Nulth',
         'Dragon',
-        '',
-        ''
+        'Nulth is a blue adult shadow dragon with mat black scales that would almost appear like volcanic rock. From their body black mist trails down like smoke. Their eyes are a dark red and seated somewhat far back on the head. Two ram like horns emerge from the side of their head and curl back forwards towards the front of their mouth into points. Sharp spines jut out from the back of their head and a bit down their back. The leather of their wings break away from the dark black nature of their scales and hold a dark redish brown hue.',
+        'Nulth was spawned 187 years ago from a blue dragon that had long held hatred against the people of Aceis. Unlike the parent dragon however, Nulth was indoctrinated into the worship of Terasu. Due to their commitment they have been placed as the guardian of the Zara Mazallam in Tenbraz. However, at the awakening of Terasu''s Rahaslicon Nulth has been called upon to retrieve the book and return it to Ghuzalterok hands.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2866,8 +2866,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Tamteru',
         'Deity',
-        '',
-        ''
+        'Tamteru was often described as a being made of darkness that abosorbs or emits light. They had no particular facial features.',
+        'Tamteru had rule of over the combined domains of Tamauht and Terasu.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2878,8 +2878,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Veilrak',
         'Deity',
-        '',
-        ''
+        'Veilrak was normally depicted as a fully armored warrior that had no particular identity.',
+        'Veilrak held rule over the combined domains of Veilith and Rathak.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2891,7 +2891,7 @@ VALUES(
         'Ilzu',
         'Deity',
         '',
-        ''
+        'Ilzu had rule over the combined domains of Iyla and Zhule.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2903,7 +2903,7 @@ VALUES(
         'Gunaruk',
         'Deity',
         '',
-        ''
+        'Gunaruk had rule over the combined domains of Inaru and Ghuluk.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2914,8 +2914,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Balorok',
         'Primordial',
-        '',
-        ''
+        'A giant fiery serpent.',
+        'Balorok was known to be quick to anger and at odds with Water and Earth. It also always sought change via destruction of the old.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2926,8 +2926,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Atal',
         'Primordial',
-        '',
-        ''
+        'A giant crustation like humanoid.',
+        'Atal would be considered the most caring of the primordial titans as they always sought to cultivate life. Atal was flexible in their judgments but once ingrained they were resistant to stray from the status quo.'
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -2938,8 +2938,8 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Ehekator',
         'Primordial',
-        '',
-        ''
+        'Ehekator was said to be a massive bird made of storms.',
+        'Ehekator was known to often change in agenda following whatever impulse came to them and nominally remained neutral.'
 );
 
 
@@ -2951,6 +2951,6 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Xallax',
         'Primordial',
-        '',
-        ''
+        'Xallax was a giant stone elemental that had resembalances to humanoids.',
+        'Xallax was well known to despise Balorok the fire titan and Ehekator the air titan due to their impulsiveness. Xallax always saught to keep things as they were and to never change them as a means to maintain tradition.'
 );
