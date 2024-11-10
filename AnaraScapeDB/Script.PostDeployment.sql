@@ -2866,7 +2866,7 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Tamteru',
         'Deity',
-        'Tamteru was often described as a being made of darkness that abosorbs or emits light. They had no particular facial features.',
+        'Tamteru was often described as a being made of darkness that abosorbs or emits light with no particular facial features.',
         'Tamteru had rule of over the combined domains of Tamauht and Terasu.'
 );
 
@@ -2878,7 +2878,7 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Veilrak',
         'Deity',
-        'Veilrak was normally depicted as a fully armored warrior that had no particular identity.',
+        'Veilrak was normally depicted as a fully armored beastial warrior with a head that resembled a cross between a horse, jackal and bull along with a tail.',
         'Veilrak held rule over the combined domains of Veilith and Rathak.'
 );
 
@@ -2890,7 +2890,7 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Ilzu',
         'Deity',
-        '',
+        'Ilzu was often depicted as a grey skinned fey like being whose face and hair changed with their mood.',
         'Ilzu had rule over the combined domains of Iyla and Zhule.'
 );
 
@@ -2902,7 +2902,7 @@ INSERT INTO [Lore].[NPCs]
 VALUES(
         'Gunaruk',
         'Deity',
-        '',
+        'Gunaruk was often depicted as being with four arms each holding a different tool for building or embalming.',
         'Gunaruk had rule over the combined domains of Inaru and Ghuluk.'
 );
 
