@@ -376,7 +376,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Dirmil Kindgom')
+        WHERE [Name] = 'Dirmil Kingdom')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -1894,7 +1894,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Sea of Stars',
-        'Lapis is located after Lundus in distance from Solis in the Solis Sphere making it the third plane in orbit of the star. Other than the needle and spire like rocks and mountains the plane has scattered ruins from the past celestial civilizations that held station as Custodians until the Schism War. The ruins are old and weathered but the plane still has inhabitants. A few of the Custodians refused to take sides in the Schism War and remained but were ultimately locked on Lapis as punishment as the life of the plane slowly faded. These celestials that still remain hold a good amount of distain for the mortal races of Anara and their new set of gods.',
+        'Band of asteroids and nebula made to block the Anaran Sphere off from the rest of Xenturi, from the plane of Anara it can be seen for a month about once every 30 years. The nebula is actually artificial and powered by corrupted souls infused from the Uhmbrid on Lundus. From Anara it appears as a band of twinkling silvery mist, and turns red during Lundus.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
