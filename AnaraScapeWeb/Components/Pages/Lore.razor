@@ -11,10 +11,9 @@
 @inject LocationCache LocationCache
 @inject ICrud Crud
 
-<PageTitle>Lore</PageTitle>
+@layout Layout.LoreLayout
 
-@* Keep outside of article for proper positioning. *@
-<LoreSideBar OnErrorEvent="ShowError" OnReqLore="GoToLore" />
+<PageTitle>Lore</PageTitle>
 
 <article>
 
@@ -75,6 +74,10 @@
     public int? Id { get; set; }
     private static int AnaraId { get; set; } = 0;
 
+
+    /// <summary>
+    /// Initializes the lore page with Anara as the base location.
+    /// </summary>
     protected override void OnInitialized()
     {
         if (AnaraId == 0)
@@ -92,16 +95,25 @@
         }
     }
 
+    /// <summary>
+    /// Navigates to the lore page with a component based on the passed table and id.
+    /// </summary>
     public void GoToLore((string table, int id) req)
     {
         NavManager.NavigateTo($"/lore/{req.table}/{req.id}");
     }
 
+    /// <summary>
+    /// Navigates to the map displayed on the lore's page.
+    /// </summary>
     public void GoToMap(string mapName)
     {
         NavManager.NavigateTo($"/world-maps/{mapName}");
     }
 
+    /// <summary>
+    /// Navigates to the error page (such as bad request 500).
+    /// </summary>
     private void ShowError(int errCode)
     {
         NavManager.NavigateTo($"/Error/{errCode}");

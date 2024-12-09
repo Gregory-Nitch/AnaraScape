@@ -1,7 +1,7 @@
-using AnaraScapeWeb.Components;
 using DataAccess;
 using DataAccess.Models.DungeonModels;
 using DataAccess.Models.LoreModels;
+using AnaraScapeWeb.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +14,7 @@ builder.Services.AddTransient<ICrud, Crud>();
 builder.Services.AddSingleton<DungeonTileCache>();
 builder.Services.AddSingleton<LocationCache>();
 builder.Services.AddSingleton<GeoMapCache>();
+builder.Services.AddSingleton<LocationTree>();
 
 var app = builder.Build();
 

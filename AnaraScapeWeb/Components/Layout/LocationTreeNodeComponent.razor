@@ -1,0 +1,63 @@
+﻿@using DataAccess
+@using DataAccess.Models.LoggingModels
+@using DataAccess.Models.LoreModels
+
+@inject ICrud Crud
+@inject NavigationManager NavManager
+
+@if (LocationNode != null)
+{
+    <div id="@LocationNode?.LocationId" class="lore-side-bar-entry @VisibilityState">
+    @for (uint i = 0; i < LocationNode?.Depth; i++)
+        {
+            <p class="lore-side-bar-space">&nbsp;&nbsp;&nbsp;</p>
+        }
+        <p @onclick="() => GoToLocation(LocationNode!.LocationId)" class="lore-side-bar-text">@LocationNode?.Name
+        </p>
+        @if (LocationNode!.HasSubLocations)
+        {
+            <i @onclick="SubNodesReq" class="@CaretState lore-side-bar-caret"></i>
+        }
+    </div>
+}
+else
+{// Log and continue, null nodes will not be added to the page
+    Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, "Location tree node component received a null node"));
+}
+
+@code {
+    [Parameter]
+    public LocationTreeNode? LocationNode { get; set; }
+    [Parameter]
+    public string? VisibilityState { get; set; } = "hidden-node";
+    [Parameter]
+    public string? CaretState { get; set; } = "";
+    [Parameter]
+    public EventCallback<LocationTreeNodeComponent> OnHideSubNodesReq { get; set; }
+    [Parameter]
+    public EventCallback<LocationTreeNodeComponent> OnShowSubNodesReq { get; set; }
+
+
+    /// <summary>
+    /// A function that either requests subnodes be hidden or shown based on caret states.
+    /// </summary>
+    private Task SubNodesReq()
+    {
+        if (CaretState == "bi bi-caret-right")
+        {
+            return OnShowSubNodesReq.InvokeAsync(this);
+        }
+        else
+        {
+            return OnHideSubNodesReq.InvokeAsync(this);
+        }
+    }
+
+    /// <summary>
+    /// Navigates to the passed id in the locations table.
+    /// </summary>
+    private void GoToLocation(int id)
+    {
+        NavManager.NavigateTo($"/lore/locations/{id}");
+    }
+}

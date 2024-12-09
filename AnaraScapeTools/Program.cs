@@ -89,6 +89,12 @@ internal class Program
                     Console.WriteLine(_returnedToMainMsg);
                     break;
 
+                case "print-location-tree":
+                    PrintLocationTree locationTreePrinter = new(crud);
+                    locationTreePrinter.Job();
+                    Console.WriteLine(_returnedToMainMsg);
+                    break;
+
                 case "DELETE-ALL-tiles":
                     DeleteAllTiles deleteTiles = new(crud);
                     deleteTiles.Job();

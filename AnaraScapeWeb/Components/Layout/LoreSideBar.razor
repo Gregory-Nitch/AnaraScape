@@ -2,23 +2,29 @@
 @using DataAccess.Models.LoggingModels
 @using DataAccess.Models.LoreModels
 
-@inject LocationCache LocationCache
+@inject LocationTree LocationTree
 @inject NavigationManager NavManager
-@inject IJSRuntime JS
 @inject ICrud Crud
 
+@rendermode InteractiveServer
 
-<div id="lore-side-bar">
-    @foreach (var region in MainRegions)
+<div id="lore-side-bar" class="@SideBarToggleState">
+    @foreach (var node in LocationTree.LocationTreeNodes)
     {
-        <div id="@region.Id" class="lore-side-bar-entry">
-            <p class="lore-side-bar-txt">@region.Name</p>
-            <i class="bi bi-caret-right text-light lore-side-bar-caret"></i>
-        </div>
+        if (node.Depth == 0)
+        {
+            <LocationTreeNodeComponent LocationNode="node" VisibilityState="@VisibilityMap[node.LocationId]"
+                CaretState="@CaretMap[node.LocationId]" OnHideSubNodesReq="HideSubNodesAndRender"
+                OnShowSubNodesReq="ShowSubNodes" @ref="NodeComponent" />
+            continue;
+        }
+        <LocationTreeNodeComponent LocationNode=" node" VisibilityState="@VisibilityMap[node.LocationId]"
+            CaretState="@CaretMap[node.LocationId]" OnHideSubNodesReq="HideSubNodesAndRender"
+            OnShowSubNodesReq="ShowSubNodes" @ref="NodeComponent" />
     }
 </div>
 
-<div id="lore-side-bar-toggler-div">
+<div id="lore-side-bar-toggler-div" @onclick="ToggleSideBar">
     <button id="lore-side-bar-toggler" type="button" class="btn btn-outline-danger p-0">
         <i class="bi bi-grip-horizontal p-0"></i>
     </button>
@@ -26,76 +32,116 @@
 
 
 @code {
-    [Parameter]
-    public EventCallback<int> OnErrorEvent { get; set; }
-    [Parameter]
-    public EventCallback<(string table, int id)> OnReqLore { get; set; }
-    public List<LocationModel> MainRegions { get; set; } = [];
-    private DotNetObjectReference<LoreSideBar>? BCompRef;
+    private List<LocationTreeNodeComponent> ComponentNodes { get; set; } = [];
+    private LocationTreeNodeComponent NodeComponent { set { ComponentNodes.Add(value); } }
+    private Dictionary<int, string> VisibilityMap { get; set; } = [];
+    private Dictionary<int, string> CaretMap { get; set; } = [];
+    private string SideBarToggleState = "";
 
+    /// <summary>
+    /// Initializes the lore side bar by checking if the location tree is null. If its not null and
+    /// the location tree has not been built then populate the tree with nodes while setting their
+    /// visibility and caret states.
+    /// </summary>
     protected override void OnInitialized()
     {
-        LocationModel acies = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "Acies")).FirstOrDefault()!;
-
-        LocationModel cinallis = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "Cinallis")).FirstOrDefault()!;
-
-        LocationModel glaciem = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "Glaciem")).FirstOrDefault()!;
-
-        LocationModel krukiathu = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "Krukiathu")).FirstOrDefault()!;
-
-        LocationModel paleWastes = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "Pale Wastes")).FirstOrDefault()!;
-
-        LocationModel saltedTides = LocationCache.Locations.Where(loc =>
-        string.Equals(loc.Name, "Salted Tides")).FirstOrDefault()!;
-
-        MainRegions.AddRange([acies, cinallis, glaciem, krukiathu, paleWastes, saltedTides]);
-        foreach (var region in MainRegions)
+        if (LocationTree != null &&
+        LocationTree.LocationTreeNodes != null &&
+        LocationTree.LocationTreeNodes.Count > 0)
         {
-            if (region == null)
+            if (VisibilityMap.Count == 0)
             {
-                string err = $"ERR: Main region ended as null...";
-                Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, err));
-                OnErrorEvent.InvokeAsync(500);
+                foreach (var node in LocationTree.LocationTreeNodes)
+                {
+                    if (node.Depth == 0)
+                    {
+                        VisibilityMap.Add(node.LocationId, "");
+                    }
+                    else
+                    {
+                        VisibilityMap.Add(node.LocationId, "hidden-node");
+                    }
+                }
+            }
+
+            if (CaretMap.Count == 0)
+            {
+                foreach (var node in LocationTree.LocationTreeNodes)
+                {
+
+                    if (node.HasSubLocations)
+                    {
+                        CaretMap.Add(node.LocationId, "bi bi-caret-right");
+                    }
+                    else
+                    {
+                        CaretMap.Add(node.LocationId, "");
+                    }
+                }
             }
         }
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            BCompRef = DotNetObjectReference.Create(this);
-            await JS.InvokeVoidAsync("LoreSideBarComponent.getLoreSideBarCompReference", BCompRef);
-            await JS.InvokeVoidAsync("LoreSideBarComponent.initLoreSideBar");
+        else
+        {// Log event and show error for null or empty location node tree
+            Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, "Location tree object returned Null or count == 0"));
+            NavManager.NavigateTo($"/Error/{500}");
         }
     }
 
-    [JSInvokable]
-    public void GoToLocation(int id)
+    /// <summary>
+    /// recursively hides the sub nodes of the passed location tree node component.
+    /// </summary>
+    private void HideSubNodes(LocationTreeNodeComponent component)
     {
-        OnReqLore.InvokeAsync(("locations", id));
-    }
+        List<LocationTreeNodeComponent> subNodes = ComponentNodes.Where(
+        c => c.LocationNode?.ContainingLocationId == component.LocationNode?.LocationId)
+        .ToList();
+        CaretMap[(int)component.LocationNode?.LocationId!] = "bi bi-caret-right";
 
-    [JSInvokable]
-    public Task<Dictionary<int, dynamic>> GetSubLocationsAsync(int id)
-    {
-        Dictionary<int, dynamic> locationMap = [];
-
-        foreach (var loc in LocationCache.Locations.Where(loc => loc.ContainingLocationId == id))
+        foreach (var node in subNodes)
         {
-            locationMap[loc.Id] = new { loc.Name, loc.HasSubLocations };
+            HideSubNodes(node);
+            VisibilityMap[node.LocationNode!.LocationId] = "hidden-node";
         }
-
-        return Task.FromResult(locationMap);
     }
 
-    public void Dispose()
+    /// <summary>
+    /// Helper function to start recursive calls from for hiding sub nodes.
+    /// </summary>
+    private void HideSubNodesAndRender(LocationTreeNodeComponent component)
     {
-        BCompRef?.Dispose();
+        HideSubNodes(component);
+    }
+
+    /// <summary>
+    /// Show sub nodes of the past location tree node component (not recursive). Also changes caret
+    /// state.
+    /// </summary>
+    private void ShowSubNodes(LocationTreeNodeComponent component)
+    {
+        List<LocationTreeNodeComponent> subNodes = ComponentNodes.Where(
+        c => c.LocationNode?.ContainingLocationId == component.LocationNode?.LocationId)
+        .ToList();
+
+        CaretMap[(int)component.LocationNode?.LocationId!] = "bi bi-caret-down";
+
+        foreach (var node in subNodes)
+        {
+            VisibilityMap[node.LocationNode!.LocationId] = "";
+        }
+    }
+
+    /// <summary>
+    /// Toggles the side bar by adding css class styling.
+    /// </summary>
+    private void ToggleSideBar()
+    {
+        if (string.IsNullOrWhiteSpace(SideBarToggleState))
+        {
+            SideBarToggleState = "lore-side-bar-closed";
+        }
+        else
+        {
+            SideBarToggleState = "";
+        }
     }
 }

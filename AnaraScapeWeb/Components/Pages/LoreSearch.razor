@@ -10,9 +10,9 @@
 
 @rendermode InteractiveServer
 
-<PageTitle>Search Lore</PageTitle>
+@layout Layout.LoreLayout
 
-<LoreSideBar /> @* Keep outside of article for proper positioning. *@
+<PageTitle>Search Lore</PageTitle>
 
 <article>
 
@@ -74,6 +74,9 @@
     private List<(int id, string name)> Resources = [];
     private List<(int id, string name)> Terminologies = [];
 
+    /// <summary>
+    /// Once the table and search input has been input get the like items from the database.
+    /// </summary>
     protected override void OnParametersSet()
     {
         if (Enum.TryParse(Table, out LoreTable loreTable))
@@ -124,16 +127,25 @@
         }
     }
 
+    /// <summary>
+    /// Navigates to the requested table and id (only id is passed).
+    /// </summary>
     private void GoToLore(int id)
     {
         NavManager.NavigateTo($"/lore/{Table}/{id}");
     }
 
+    /// <summary>
+    /// Navigates to the world map with the given name.
+    /// </summary>
     private void GoToMap(string name)
     {
         NavManager.NavigateTo($"/world-maps/{name}");
     }
 
+    /// <summary>
+    /// Navigates to the error page with the passed error code displayed.
+    /// </summary>
     private void ShowError(int errCode)
     {
         NavManager.NavigateTo($"/Error/{errCode}");

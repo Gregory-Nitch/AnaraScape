@@ -1,0 +1,38 @@
+.lore-side-bar-entry {
+    display: flex;
+    padding-right: 5px;
+}
+
+.lore-side-bar-text {
+    font-size: 18px;
+    padding: 5px;
+    margin: 0px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.lore-side-bar-space {
+    padding: 0px;
+    margin: 0px;
+}
+
+.lore-side-bar-caret {
+    font-size: 16px;
+    padding: 0px;
+    line-height: 35px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lore-side-bar-caret:hover,
+.lore-side-bar-text:hover {
+    color: rgb(220, 53, 69);
+    transition: 0.3s;
+}
+
+
+.hidden-node {
+    display: none;
+}
