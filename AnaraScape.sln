@@ -22,9 +22,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnaraScapeWeb", "AnaraScape
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapDesignLibrary", "MapDesign\MapDesignLibrary.csproj", "{24305AD3-2D5E-4E1D-A36B-78F47F7FBAF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library59", "..\Library59\Library59\Library59.csproj", "{66DB37B0-8B39-4708-B102-14C22EF9FD61}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnaraScapeTests", "AnaraScapeTests\AnaraScapeTests.csproj", "{64186A83-70E3-45AC-8074-59F541FDCE11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library59", "Library59", "{264CEC3B-EFCE-4B21-ABD7-FED03A6E3F78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library59", "Library59\Library59\Library59.csproj", "{171C22D5-2266-4FDF-A183-53729ED2A352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,19 +56,22 @@ Global
 		{24305AD3-2D5E-4E1D-A36B-78F47F7FBAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24305AD3-2D5E-4E1D-A36B-78F47F7FBAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24305AD3-2D5E-4E1D-A36B-78F47F7FBAF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66DB37B0-8B39-4708-B102-14C22EF9FD61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66DB37B0-8B39-4708-B102-14C22EF9FD61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66DB37B0-8B39-4708-B102-14C22EF9FD61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66DB37B0-8B39-4708-B102-14C22EF9FD61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171C22D5-2266-4FDF-A183-53729ED2A352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171C22D5-2266-4FDF-A183-53729ED2A352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171C22D5-2266-4FDF-A183-53729ED2A352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171C22D5-2266-4FDF-A183-53729ED2A352}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09F127A7-F65E-4D4D-B9BA-11904189DB69}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{171C22D5-2266-4FDF-A183-53729ED2A352} = {264CEC3B-EFCE-4B21-ABD7-FED03A6E3F78}
 	EndGlobalSection
 EndGlobal
