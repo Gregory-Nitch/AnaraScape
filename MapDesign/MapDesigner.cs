@@ -62,6 +62,7 @@ public class MapDesigner
         NeedsStairs = needsStairs;
         this.DBTiles = DBTiles.Where(t => t.Style == style).ToList();
         _Random = new Random();
+        Design = new();
     }
 
     public int Height { get; }
@@ -84,7 +85,7 @@ public class MapDesigner
     /// or if a valid tile could not be found for a section</exception>
     public MapDesign Generate()
     {
-        Design = new();
+        Design ??= new();
 
         InitializeDataSets();
 
