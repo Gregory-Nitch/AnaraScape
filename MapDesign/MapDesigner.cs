@@ -85,7 +85,7 @@ public class MapDesigner
     /// or if a valid tile could not be found for a section</exception>
     public MapDesign Generate()
     {
-        Design ??= new();
+        Design = new();
 
         InitializeDataSets();
 

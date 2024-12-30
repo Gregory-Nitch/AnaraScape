@@ -21,9 +21,9 @@ public class LoadTiles(ICrud crud) : IToolCommand
         List<string> failures = [];
 
         for (int i = 0; i < images.Length; i++)
-        {
-            images[i] = images[i].Remove(0, 14); // remove ./TileStaging
-            images[i] = images[i].Replace(".jpg", ""); // remove ending .jpg
+        {// Directory path and filetype ext. cause problems -> replace with empty string
+            images[i] = images[i].Replace("./TileStaging", "")
+                .Replace(".jpg", "");
         }
 
         foreach (string image in images)
