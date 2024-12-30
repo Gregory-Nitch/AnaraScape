@@ -46,7 +46,7 @@ public class MapDesigner
         {
             throw new MapDesignException($"ERR: invalid MapDesigner level of: {level}...");
         }
-        if (needsStairs && (level != "top" && level != "middle"))
+        if (needsStairs && level == "bottom")
         {
             throw new MapDesignException($"ERR: invalid stair down state of: level={level} && needsStairs={needsStairs}...");
         }
