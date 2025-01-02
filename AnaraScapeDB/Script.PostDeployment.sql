@@ -416,7 +416,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'DeepStone Kingdom')
+        WHERE [Name] = 'Deepstone Kingdom')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -429,20 +429,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'DeepStone Kingdom')
-);
-
-INSERT INTO [Lore].[Locations]
-    ([Name],
-    [Description],
-    [ContainingLocationId])
-VALUES(
-        'Bruessix',
-        'Often overlooked due to its rustic nature, Bruessix stands out as one of the safest places in the Tamel Imperium. The people hold the duke in high regard due to his faithful efforts towards his subjects. The Jannis orchard also produces one of the more desireable wines in the kingdom.',
-        (SELECT TOP 1
-            [Id]
-        FROM [Lore].[Locations]
-        WHERE [Name] = 'Dirmil Kingdom')
+        WHERE [Name] = 'Deepstone Kingdom')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -469,6 +456,19 @@ VALUES(
             [Id]
         FROM [Lore].[Locations]
         WHERE [Name] = 'Deepstone Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Bruessix',
+        'Often overlooked due to its rustic nature, Bruessix stands out as one of the safest places in the Tamel Imperium. The people hold the duke in high regard due to his faithful efforts towards his subjects. The Jannis orchard also produces one of the more desireable wines in the Tamel Kingdom.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
 );
 
 INSERT INTO [Lore].[Locations]
@@ -633,6 +633,97 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Hera',
+        'Located just West of the 4th Pillar Hera is known as a nice quiet mountain side town in rolling hills.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Crois',
+        'Located just West of The Frillis Cartuae Crois is known for its country side of mixed trees, hills and flat land.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Monas',
+        'Located towards the center of the kingdom and just North East of Lendsberth, Monas is known for its various farms and frequent passing through travelers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Okens',
+        'Located on the North side of the Thendanril Woods between Lendsberth and the 5th Pillar, Okens is a busy lumbering town feeding wood into to the kingdom.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Kornith',
+        'Located South of Lendsberth and at the North West side of the Thendanril Woods, Kornith is known for its quiet wooded atmosphere.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Rueden',
+        'Located North West of Lendsberth near the edge of the Millis Lake, Rueden is often seen as the stop gap between the Dirmil Kingdom and the Tamel Kingdom.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Greenriver',
+        'Located South West of Lendsberth built on top of one of the large river crossings, Greenriver is known for its inns along the side of the river and its vibrant but tasteful night life.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         '5th Pillar',
         'Located East of Lendsberth the 5th Pillar is a small imperial fort built to protect a tower that watches over the surrounding forest, plains and nearby coast for invaders trying to cross imperial borders.',
         (SELECT TOP 1
@@ -672,8 +763,242 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Loina',
+        'Located on the Eastern river border of the kingdom North of Port Sod, Loina is built on top of the edge of the large river bridge and surround area and is known for its easy going and quiet populace.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Piet',
+        'Located just East of Gates Town Piet is known for its nearby woods and farming.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Julis',
+        'Located South of Gates Town on a large river crossing Julis is known for its river fishing and fortifications to the nearby bridge to help control the flow of naval vessels up the Tamel River.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Rhoane',
+        'Located just South of Wellsfort, Rhoane is regularly visted by Tamel Imperium soldiers on leave from the nearby fort and thus sports a reasonably sized community.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Madri',
+        'Located just North East of Tamel, Madri is known for its hunting and fishing along with people from Tamel trying to get away from the city for some time.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Barsis',
+        'Located just North of Tamel, Barsis is known for its hunting and nobles will often frequent the town to launch hunting parties into the woods.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Safea',
+        'Located between Tamel and the 1st Pillar, Safea is known as the last stop before entering the Mithmirelen woods and the populace often tells stories about the those seemingly haunted woods.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Azris',
+        'Located just South of Gates Town, Azris is hardly a day away. Soldiers often take leave from the nearby fort town and go to Azris where they find peaceful fishing along the nearby Tamel River.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Velia',
+        'Located just South of Tamel, Velia is known for its farming and flatland along with goods passing through North and South.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Aer',
+        'Located just South West of Tamel, Aer is known for its small nearby lake and surrounding wetlands. Aer is also the only town connecting the Banewright Kingdom and Tamel Kingdom on the Northen and central borders.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Cleo',
+        'Located between Tamel and Tamsberth, Cleo is a crossroads town with a fair amount of goods passing North and South between the capital and nearby port.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Brint',
+        'Located North of Tamsberth, Brint sits on the edge of a small wood where some lumbering and hunting takes place along side the passing shipments of goods between Tamsberth and Tamel.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Damas',
+        'Located North East of Tamsberth near the outlet of the Tamel River, Damas has a few ports for ships entering the large Tamel river but the town actually rarely gets travelers by land or sea and mostly fishes from the river while hailing the passing naval vessels.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Stola',
+        'Located West of Tamsberth on the Western river border between the Tamel Kingdom and the Banewright Kingdom, Stola serves as a stop gap on the Southern side of this border though does not see as many travelers pass through compared to Aer to the North.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         '8th Pillar',
         'Located on the Southern coast of the Banewright Kingdom the 8th Pillar is a small imperial fort built to protect a tower that watches over the nearby plains, and coast for invaders trying to cross imperial borders.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Banewright Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Gandel',
+        'Located North of Banesford, Gandel is a small riverside town with patches of woods around it. The town though is largely out of the way of normal travelers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Banewright Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Bellon',
+        'Located South of Banesford, and surrounded by mostly flatland, Bellon is the main source of crops within the kingdom.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Banewright Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Shollik',
+        'Shollik is located along the central Eastern river border between the Banewright Kingdom and the Tamel Kingdom but has no river crossing. As such not many people stop in the town unless they need to divert from the main road to Banesford for supplies or some other emergency. The town mostly provides some riverside fishing and farming for the kingdom.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Banewright Kingdom')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Melsward',
+        'Located just South of the 9th Pillar, Melsward is large out of the way for many travelers but the town prides itself in adding to the defence of the Western border. The town is lightly fortified and regularly has Banewright soldiers stationed to watch the river and assist the nearby pillar in thwarting any attacks in the area.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
