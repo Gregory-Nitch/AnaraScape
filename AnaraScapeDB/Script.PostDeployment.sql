@@ -1236,7 +1236,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Earrann Uaine',
-        'Earran Uaine (Verdent Wood) is located on the Western side of the Doaverine Junta and holds a border with the West Marches. This forest border is heavily patrolled by the clans of the junta. The rest of the region is dominated by open wilderness, hills, spotted trees, smaller towns and Mac''Tire its only major clan. The people of this region are highly territorial when it comes to the boarder and crossing can be perilous or if stopped it is not uncommon to be turned back.',
+        'Earrann Uaine (Verdent Wood) is located on the Western side of the Doaverine Junta and holds a border with the West Marches. This forest border is heavily patrolled by the clans of the junta. The rest of the region is dominated by open wilderness, hills, spotted trees, smaller towns and Mac''Tire its only major clan. The people of this region are highly territorial when it comes to the boarder and crossing can be perilous or if stopped it is not uncommon to be turned back.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1249,7 +1249,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Earrann Geal',
-        'Earran Geal (Jade Wood) is located in the center of the Doaverine Junta and holds the junta''s Capital Doaverhim. Spanning the from the center to the North of Cinallis this region has fair temperatures in the South and cold temperatures in the North. There are two major forests and a few major clans along with the junta''s capital Doaverhim.',
+        'Earrann Geal (Jade Wood) is located in the center of the Doaverine Junta and holds the junta''s Capital Doaverhim. Spanning the from the center to the North of Cinallis this region has fair temperatures in the South and cold temperatures in the North. There are two major forests and a few major clans along with the junta''s capital Doaverhim.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1262,7 +1262,7 @@ INSERT INTO [Lore].[Locations]
     [ContainingLocationId])
 VALUES(
         'Earrann Clach',
-        'Earran Clach (Stone Wood) is located on the Eastern side of the Doaverine Junta and harbors most of the countries dwarven population with its 3 dwarven cities. There are other clans beyond the dwarven led ones in the region but they have settled in the region''s forest or along its icy coast. In addition, this region has a small strip of ice and spotted snow covered islands that connect it to the Pale Wastes in the North. Some have ventured across it but it is normally seen as a worthless endevor due to the perils of the crossing and the numerous barbarian tribes and other dangers in the Pale Wastes.',
+        'Earrann Clach (Stone Wood) is located on the Eastern side of the Doaverine Junta and harbors most of the countries dwarven population with its 3 dwarven cities. There are other clans beyond the dwarven led ones in the region but they have settled in the region''s forest or along its icy coast. In addition, this region has a small strip of ice and spotted snow covered islands that connect it to the Pale Wastes in the North. Some have ventured across it but it is normally seen as a worthless endevor due to the perils of the crossing and the numerous barbarian tribes and other dangers in the Pale Wastes.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1313,6 +1313,84 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Gaeld',
+        'Located on the central Western shore of the Earrann, Gaeld is a quiet fishing town but due to their proximity to the West Marches the citizens are highly sceptical of any travelers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Tornda',
+        'Located on the North Western shore of the Earrann, Tornda is known for its nearby coastline that the town overlooks and the nearby hills. However, the town is not frequented by travelers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Bruchladen',
+        'Located at the center of the Earrann, Bruchladen is a crossroads town for people who are traveling within the Earrann. The surrounding area is mostly flat land with spotted trees and hills.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Taliskar',
+        'Located at the Norther border of the Earrann, Taliskar is known for its cold river fishing and whisky distillary.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Fidach',
+        'Located at the Eastern boarder of the Earrann towards the Cinallis Alps, Fidach is a bustling river town which often gets used as a stoping point when entering or exiting the Earrann.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Lophraid',
+        'Located on an Island of the Western coast of the Earrann, Lophraid is known for its isolated druidic practices and town structure that incorparates most of the island''s mountain.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         'Nathair',
         'Nathair is located along the central Northern cost of Cinallis though not as remote as Grain, Nathair still holds a certain level of independence due to is location. Its population takes part both in fishing and hunting in the nearby woods.',
         (SELECT TOP 1
@@ -1328,6 +1406,97 @@ INSERT INTO [Lore].[Locations]
 VALUES(
         'D''Larrawil',
         'D''Larrawil is located towards the Center of the Doaverine Junta on the Eastern side of a large lake and is placed in a very thick forest. Some of the surrounding trees trunks are as wide as 30 or 40 feet and are known to house small bridge connected communities. D''Larrawil was not one of the origial elven houses from the Southern part of Cinallis but came about as those houses fled North from the Tamel rebellion, as such the city''s populace is mostly elven.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Cladach',
+        'Located on the Western shore of the Earrann, Cladach like most other cost side towns participates in a good amount of fishing. Most of the immediate area around the town is flat tundra which gives ways to the spotted trees that dominate most of the Earrann.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Bathan',
+        'Located on the North shore of the Earrann between Grain and Nathair, Bathan is surrounded by spoted trees and a steep ridge costline which prevents any large amount of fishing. Most travelers are passing between Grain and Nathair which prevents the town from becoming to remote.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Lin',
+        'Located in the center of the Western landmass of the Earrann, Lin is a crossroads town with many travelers passing through from all sorts of clans in the area. The town is able to produce some crops during the warmer months but regularly hunts the nearby woods.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Tigleann',
+        'Located between D''Larrawil and the Cinallis Alps, Tigleann is regularly stoped at by travelers entering the Earrann or even the junta for the first time due to the fairer roads and weather. The town produces a good amount of crops from the surrounding land is known to be one of the more welcoming places in the junta.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Tri''Doigh',
+        'Located on the Eastern Earrann boarder near a large river fork, Tri''Doigh is one of the more traditional towns in the junta where drudic practices are favored over deity worship. Most of the few surviving refugees from Av''Naturen ended up settling here.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Oir',
+        'Located East of Doaverhim, Oir is a frosty crossroads town boardering the nearby forest. Heavily influenced by Clan Mithmirelen the town does not take kindly to non clan members.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Sealladh',
+        'Located on the North East shore of the Earrann, Sealladh is heavy secluded do the coast line with its freezing waters, the mountains to the South East and the thick woods with frozen marshes to the South West. Few people travel to the town due to the surrounding terrain.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1432,6 +1601,58 @@ INSERT INTO [Lore].[Locations]
 VALUES(
         'Orn',
         'Orn is located along the North Eastern edge of the Cinallis Alps and actually predates the formation of the Doaverine Junta. In the past Orn had a close relationship with the dwarves of Deepstone (known as Uskederth at the time) but has since cut off ties after the Tamel Rebellion. The dwarves of Orn hold great pride for their smithing and weapons, armor or other metal goods from Orn are well known in the junta. Much of the minerals and metals used by the city''s forges come from the mineral rich Cinallis Alps.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Clach')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Skye',
+        'Located of the Eastern shore of the Earrann, Skye is kown as the most scenic location in the junta with its small mountain range, woods and large beaches which form a small cove on the Eastern side of the island.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Clach')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Daol',
+        'Located on the Eastern shore line North of Iolaire, Daol is the most remote town in the junta, few crops are produced to the cold and thus the town does not get hardly any travelers, even for shipping.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Clach')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Shteach',
+        'Located at the center of a forest West of Ur''Thendanril, Shteach is known for its wooded atmosphere and hunting.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Clach')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Tarsainn',
+        'Located between Stal and Iomair, Tarsainn is a bridge city town where travelers often stop for rest. Most of the area around the town is flatland but quickly turns to hills to the North and South.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
