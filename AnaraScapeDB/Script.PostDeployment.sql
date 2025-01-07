@@ -1745,6 +1745,45 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Haman',
+        'Located south of Lacus on the Southern shore line of Acies, Hamas is a remote and easy going town surrounded by thin groups of trees and relatively flat land.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Xerci',
+        'Located East of Bullum along the main road to the Scalar Patha, Xerci is the last stop until reaching the great fortress wall city. Large amounts of travelers and goods pass through the town. The townsfolk make great effort to send off the soldiers before they leave town.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Xallan',
+        'Located North of Vita Nova along the mountains and a river, Xallan is blessed by bueatiful scenery but despite being somewhat out of the way the people of the town stay busy with various activities like mining, fishing, and farming in the surrounding areas.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         'Vita Nova',
         'Vita Nova is located on the Southern coast of Acies placed in an reaf like alcove of coastline. Vita Nova has the most active trade port on Acies and merchants flock from all over to sell their wares and enjoy the cove''s coastline. This has led the city to be one of the most vibrant cultural places on Acies (a stark contrast to the usual church led militaristic life style) and many people come to take part in many of the festivals which are used to honor the gods. ',
         (SELECT TOP 1
@@ -1773,6 +1812,71 @@ INSERT INTO [Lore].[Locations]
 VALUES(
         'Ziet',
         'Located at the center of Acies in the middle of a set of mountain ranges, Ziet is both the capital of the Itamevoth Theocracy and one of the very few cities that survived the Schism War. Though many parts of the city were destroyed it has since been rebuilt and is now home to the largest and most elaborate cathedrals. Daily life heavily revolves around worship and service to the defence of Acies.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Iter',
+        'Located just North of Ziet, Iter is known for its mix of farming, shipping and travellers, though it is not as lively as Xerci when it comes to troop send offs on the way to Kaled.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Faria',
+        'Located on the Southern shore of Acies East of Vita Nova, Faria is a sizeable fishing town positioned on a small outcroping of land. Due to the towns location however it does not recieve many travellers. The people of Faria are very traditional and mostly untouched by outside influences.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Hiatus',
+        'Located South East of Novum, Hiatus is seen as a stop gap along the way to the Frigus Domus to the East. Large amounts of crops pass through from Mazra in the East in addition to the crops and fish the town itself provides.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Musa',
+        'Located North East of Novum, Musa serves as a stop between cities in the Northern part of the Frigus Domus and the Western parts of Acies. Fair amounts of goods such as lumber pass through the town in addition to its farming of the surrounding flat land.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Calsahra',
+        'Located East of Mulad, Calsahra is a well fortified port city that often takes part in naval operations against the Guzalterok forces to the North.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -1825,6 +1929,58 @@ INSERT INTO [Lore].[Locations]
 VALUES(
         'Ormel',
         'Ormel is located in the North East of Acies at the center of a thick forest. The city is known for its heavy elven influences and large elven population. Rather than clearing out a area of forest the city is built in such a way to reduce its interference with it''s surrounding environment. While this make traversing the city take much more time it also gives it a certain level of natural beauty.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Yamal',
+        'Located North East of Ormel, Yamal sits on the North Eastern tip of Acies and serves as a base of naval operations and watch point for Ghuzalterok ships heading East. The town is well fortified and mostly surrounded by water.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Edom',
+        'Located South of Ormel along the Eastern coast line of Acies, Edom has the starting of forests to the North and flatland to the South. The town has some defences to protect itself from attack but is mostly known as a quiet beach town.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Nahir',
+        'Located North of Sharm, Nahir is situated against a river to the North and mountains to the West. The town is sometimes stopped at by travelers but is more well known for its mining conducted in the nearby mountains.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Parid',
+        'Located East of Astad, Parid is a remote town that survives of the nearby woods and shoreline. Many people will go out to Parid to disappear and though there are plenty of devout citizens, there is a large amount of people who do not conform to the Theocracy''s ideals.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
