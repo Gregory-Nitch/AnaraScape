@@ -2208,6 +2208,32 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Brak',
+        'Located West of Ostanovka, Brak is a town along the North side of the Kruth Jungle and assists in watching its Northern border. Additionally, the  town serves as a stopping point for shippments and travelers going South from the Western shore of Krukiathu.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Grun Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Gorm',
+        'Located North West of Jhilak, Gorm is a crossroads town that attempts to make use of its surrounding land for farming as best it can.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Grun Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         'Jhilak',
         'Jhilak is located on the North side of a large lake in Southern Krukiathu. Jhilak has a fort but is more along the lines of a regular Orc and Goblinoid village. The city heavily fishes out of the lake to the South so it has a decent amount of ports for small vessels.',
         (SELECT TOP 1
@@ -2260,6 +2286,32 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Lezna',
+        'Located West of Beheerla''Teph, Lezna is a forest side town serving as a crossroads in and out of the Blas Zustand. The town also provides some crops and game from the local farmland and forest hunts.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Blas Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Zaliv',
+        'Located South West of Beheerla''Teph, Zaliv is placed between moutains and forests at the end of a small gulf. The town provides a mixture of mining, farming, and hunting but is more well known for its ports that provide aid to Ghulzalterok Forces.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Blas Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         'Tlatelok',
         'Tlatelok is located on the North East coast of Krukiathu North of the Blas Zustand''s major forest. The surrouding landscape is spotted with hills but beyond that not much is found. At the center Tlatelok lies a massive temple to Ghuluk where countless undead are raised to work in the ports of the city. Since the population of the city is mostly undead the surrounding lands are not heavily farmed and the ports are used for ship production. Undead slaves are used to build ships day and night without end leading to a steady output of vessels for the Ghuzalterok Remnant navy.',
         (SELECT TOP 1
@@ -2301,6 +2353,84 @@ INSERT INTO [Lore].[Locations]
 VALUES(
         'Mahasagar',
         'Mahasagar is located halfway up the Western coast of Krukiathu at the edge of the barren lands of the Dunn Zustand. The city''s location is quite unusual considering its population is mostly Duergar. The city has a massive fort and large forges which are responsible for equiping the forces along the boarder of the Scalar Patha and the raiding vessels to the South. Most if not all of the Ghuzalterok Remnant battleships and other large naval vessels are built in Mahasagar.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Smert',
+        'Located on the North Eastern shore line of Krukiathu between Oshbiruk and Tlatelok, Smert is a costal town that survives off the ocean and the darkening landscape. Some travel between the two other costal cities remove some of the town''s remote nature but it remains a relatively remote area.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Gryaz',
+        'Located North East of Tephletan, Gryaz is a crossroad town that eeks out a living on its travelers and the surrounding wetlands of the Northern wastes.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Birgstal',
+        'Located North of Zult, Birgstal sees some travelers passing along the Kierstire Mountain range but is mostly known for its heavy industry that adds resources to the forges of Bralgoz.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Ugat',
+        'Located South of Zult, Ugat survives on shipments passing through from the South but provides for itself with whatever farming it can accomplish in the fading landscape around the town.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Azotaph',
+        'Located South West of Zult, Azotaph farms as much as it can from the wastening landscape but also serves as one of the many crossroad towns before entering the wasteland roads of the Dunn Zustand.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
+        'Foln',
+        'Located West of Zult, Foln provides a stopping point between and into the Kierstire Mountain range. The town survies the best it can from the wetlands to the South.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
