@@ -238,9 +238,6 @@
     <None Include="AnaraScapeDB.publish.xml" />
     <None Include="Schemas\Lore Schema Diagram.png" />
     <None Include="Lore\Scripts\LoreSchema_TEST_.sql" />
-    <None Include="..\AnaraScapeWeb\Components\Pages\LocationLore.razor">
-      <Link>LocationLore.razor</Link>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

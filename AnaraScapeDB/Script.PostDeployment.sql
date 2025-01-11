@@ -3434,6 +3434,201 @@ VALUES(
         'Tamel Imperium.jpg'
 );
 
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Doaverine Junta',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Doaverine Junta'),
+        'Doaverine Junta.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'West Marches',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'West Marches'),
+        'West Marches.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Banewright Kingdom',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Banewright Kingdom'),
+        'Banewright Kingdom.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Deepstone Kingdom',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone Kingdom'),
+        'Deepstone Kingdom.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Dirmil Kingdom',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dirmil Kingdom'),
+        'Dirmil Kingdom.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Tamel Kingdom',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel Kingdom'),
+        'Tamel Kingdom.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Blas Zustand',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Blas Zustand'),
+        'Blas Zustand.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Dunn Zustand',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Dunn Zustand'),
+        'Dunn Zustand.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Grun Zustand',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Grun Zustand'),
+        'Grun Zustand.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Earrann Clach',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Clach'),
+        'Earrann Clach.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Earrann Geal',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Geal'),
+        'Earrann Geal.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Earrann Uaine',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Earrann Uaine'),
+        'Earrann Uaine.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Frigus Domus',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Frigus Domus'),
+        'Frigus Domus.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Scalar Domus',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scalar Domus'),
+        'Scalar Domus.jpg'
+);
+
+INSERT INTO [Lore].[GeoMaps]
+    ([Name],
+    [LocationId],
+    [Filename])
+VALUES(
+        'Scutum Domus',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus'),
+        'Scutum Domus.jpg'
+);
+
 /*
 * Start of NPCs (Gods and other entities are included)
 */
