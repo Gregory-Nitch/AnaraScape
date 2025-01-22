@@ -27,6 +27,15 @@ public interface ICrud
     public List<StoredNPCModel> GetAllNPCs();
     public List<ResourceModel> GetAllResources();
     public List<StoredTerminologyModel> GetAllTerms();
+    public List<(int id, string name)> GetAllArtifactIdNameTuples();
+    public List<(int id, string name)> GetAllEventIdNameTuples();
+    public List<(int id, string name)> GetAllFactionIdNameTuples();
+    public List<(int id, string name)> GetAllGeoMapIdNameTuples();
+    public List<(int id, string name)> GetAllHistoricalAgesIdNameTuples();
+    public List<(int id, string name)> GetAllLocationIdNameTuples();
+    public List<(int id, string name)> GetAllNPCIdNameTuples();
+    public List<(int id, string name)> GetAllResourceIdNameTuples();
+    public List<(int id, string name)> GetAllTermIdNameTuples();
     public List<EventArtifactRelationModel> GetAllEventArtifactRelations();
     public List<EventFactionRelationModel> GetAllEventFactionRelations();
     public List<LocationEventRelationModel> GetAllLocationEventRelations();

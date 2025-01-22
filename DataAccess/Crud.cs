@@ -166,6 +166,86 @@ public class Crud(IDBAccess db) : ICrud
                                                               true);
     }
 
+    public List<(int id, string name)> GetAllArtifactIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spArtifacts_GetAllIdNameTuples",
+                                                      new { },
+                                                      ConnStringName,
+                                                      true);
+    }
+
+    public List<(int id, string name)> GetAllEventIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spEvents_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+
+    }
+
+    public List<(int id, string name)> GetAllFactionIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spFactions_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+
+    }
+
+    public List<(int id, string name)> GetAllGeoMapIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spGeoMaps_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+
+    }
+
+    public List<(int id, string name)> GetAllHistoricalAgesIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spHistoricalAges_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+
+    }
+
+    public List<(int id, string name)> GetAllLocationIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spLocations_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+
+    }
+
+    public List<(int id, string name)> GetAllNPCIdNameTuples()
+    {
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spNPCs_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+
+    }
+
+    public List<(int id, string name)> GetAllResourceIdNameTuples()
+    {
+
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spResources_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+    }
+
+    public List<(int id, string name)> GetAllTermIdNameTuples()
+    {
+
+        return _db.QueryDB<(int id, string name), dynamic>("Lore.spTerminologies_GetAllIdNameTuples",
+                                              new { },
+                                              ConnStringName,
+                                              true);
+    }
+
     public List<EventArtifactRelationModel> GetAllEventArtifactRelations()
     {
         return _db.QueryDB<EventArtifactRelationModel, dynamic>(

@@ -1,4 +1,5 @@
-﻿@page "/lore/search/{table}/{searchInput}"
+﻿@page "/lore/search/{table}"
+@page "/lore/search/{table}/{searchInput}"
 
 @using AnaraScapeWeb.Components.Layout
 @using DataAccess
@@ -29,6 +30,11 @@
         @foreach (var evt in Events)
         {
             <p class="lore-result" @onclick="() => GoToLore(evt.id)">@evt.name</p>
+        }
+
+        @foreach (var fac in Factions)
+        {
+            <p class="lore-result" @onclick="() => GoToLore(fac.id)">@fac.name</p>
         }
 
         @foreach (var map in GeoMaps)
@@ -81,44 +87,89 @@
     {
         if (Enum.TryParse(Table, out LoreTable loreTable))
         {
-            switch (loreTable)
-            {
-                case LoreTable.Artifacts:
-                    Artifacts = Crud.GetArtifactsLike(SearchInput);
-                    break;
+            if(string.IsNullOrWhiteSpace(SearchInput))
+            {// Empty input -> Get whole table
+                switch (loreTable)
+                {
+                    case LoreTable.Artifacts:
+                        Artifacts = Crud.GetAllArtifactIdNameTuples();
+                        break;
 
-                case LoreTable.Events:
-                    Events = Crud.GetEventsLike(SearchInput);
-                    break;
+                    case LoreTable.Events:
+                        Events = Crud.GetAllEventIdNameTuples();
+                        break;
 
-                case LoreTable.Factions:
-                    Factions = Crud.GetFactionsLike(SearchInput);
-                    break;
+                    case LoreTable.Factions:
+                        Factions = Crud.GetAllFactionIdNameTuples();
+                        break;
 
-                case LoreTable.GeoMaps:
-                    GeoMaps = Crud.GetGeoMapsLike(SearchInput);
-                    break;
+                    case LoreTable.GeoMaps:
+                        GeoMaps = Crud.GetAllGeoMapIdNameTuples();
+                        break;
 
-                case LoreTable.Locations:
-                    Locations = Crud.GetLocationsLike(SearchInput);
-                    break;
+                    case LoreTable.Locations:
+                        Locations = Crud.GetAllLocationIdNameTuples();
+                        break;
 
-                case LoreTable.NPCs:
-                    NPCs = Crud.GetNPCsLike(SearchInput);
-                    break;
+                    case LoreTable.NPCs:
+                        NPCs = Crud.GetAllNPCIdNameTuples();
+                        break;
 
-                case LoreTable.Resources:
-                    Resources = Crud.GetResourcesLike(SearchInput);
-                    break;
+                    case LoreTable.Resources:
+                        Resources = Crud.GetAllResourceIdNameTuples();
+                        break;
 
-                case LoreTable.Terminologies:
-                    Terminologies = Crud.GetTerminologiesLike(SearchInput);
-                    break;
+                    case LoreTable.Terminologies:
+                        Terminologies = Crud.GetAllTermIdNameTuples();
+                        break;
 
-                default:
-                    Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"Hit bottom of LoreSearch.razor table switch requested table = {loreTable}"));
-                    ShowError(500);
-                    break;
+                    default:
+                        Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"Hit bottom of LoreSearch.razor table switch requested table = {loreTable}"));
+                        ShowError(500);
+                        break;
+                }
+            }
+            else
+            {// Has search input to search with in table
+                switch (loreTable)
+                {
+                    case LoreTable.Artifacts:
+                        Artifacts = Crud.GetArtifactsLike(SearchInput);
+                        break;
+
+                    case LoreTable.Events:
+                        Events = Crud.GetEventsLike(SearchInput);
+                        break;
+
+                    case LoreTable.Factions:
+                        Factions = Crud.GetFactionsLike(SearchInput);
+                        break;
+
+                    case LoreTable.GeoMaps:
+                        GeoMaps = Crud.GetGeoMapsLike(SearchInput);
+                        break;
+
+                    case LoreTable.Locations:
+                        Locations = Crud.GetLocationsLike(SearchInput);
+                        break;
+
+                    case LoreTable.NPCs:
+                        NPCs = Crud.GetNPCsLike(SearchInput);
+                        break;
+
+                    case LoreTable.Resources:
+                        Resources = Crud.GetResourcesLike(SearchInput);
+                        break;
+
+                    case LoreTable.Terminologies:
+                        Terminologies = Crud.GetTerminologiesLike(SearchInput);
+                        break;
+
+                    default:
+                        Crud.InsertLogEvent(new LogEvent(DateTime.Now, LogLevel.Error, $"Hit bottom of LoreSearch.razor table switch requested table = {loreTable}"));
+                        ShowError(500);
+                        break;
+                }
             }
         }
         else

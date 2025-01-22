@@ -41,7 +41,7 @@
     public string TableSelection { get; set; } = "Lore Category";
     public string SearchEntry { get; set; } = "";
     public string[] LoreTables { get; set; } =
-    [
+        [
     "Artifacts",
 "Events",
 "Factions",
@@ -49,7 +49,7 @@
 "Locations",
 "NPCs",
 "Resources",
-"Terminology"
+"Terminologies"
     ];
 
     public string NoTableErr { get; set; } = "";
@@ -62,28 +62,31 @@
 
     public void SearchLore(string userInput)
     {
-        bool hasErr = false;
         NoTableErr = "";
         NoEntryErr = "";
-        try
-        {
-            userInput = StringSanitizer.CheckForSQLServer(userInput, 200, StringSanitizer.SQLServerWhiteList);
-        }
-        catch (Exception ex) when (ex is ArgumentNullException || ex is ArgumentOutOfRangeException)
-        {
-            NoEntryErr = "ERR: Enter a valid search entry! (Character limit = 200)";
-            hasErr = true;
-        }
-
 
         if (Equals(TableSelection, "Lore Category"))
         {
             NoTableErr = "ERR: Choose a valid lore type!";
-            hasErr = true;
+            return;
         }
 
-        if (!hasErr)
+        if (string.IsNullOrWhiteSpace(userInput))
+        {// Handle empty string first -> Allows whole table browsing without input in search bar
+            NavManager.NavigateTo($"/lore/search/{TableSelection}");
+        }
+        else
         {
+            try
+            {
+                userInput = StringSanitizer.CheckForSQLServer(userInput, 200, StringSanitizer.SQLServerWhiteList);
+            }
+            catch (Exception ex) when (ex is ArgumentNullException || ex is ArgumentOutOfRangeException)
+            {
+                NoEntryErr = "ERR: Enter a valid search entry! (Character limit = 200)";
+                return;
+            }
+
             NavManager.NavigateTo($"/lore/search/{TableSelection}/{userInput}");
         }
     }
