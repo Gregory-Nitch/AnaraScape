@@ -22,6 +22,8 @@
                         <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="style-drop-group">
                             <button type="button" class="dropdown-item"
                                 onclick="@(() => SetStyle("fort"))">Fort</button>
+                            <button type="button" class="dropdown-item" onclick="@(() => SetStyle("chorn loith"))">Chorn
+                                Loith</button>
                         </div>
                     </div>
                 </div>
@@ -129,7 +131,8 @@
     {
         try
         {
-            return OnGenerate.InvokeAsync(new(Height,
+            return OnGenerate.InvokeAsync(new(
+            Height,
             Width,
             Style,
             Level,
