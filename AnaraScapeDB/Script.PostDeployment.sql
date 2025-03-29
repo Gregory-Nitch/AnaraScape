@@ -1810,6 +1810,19 @@ INSERT INTO [Lore].[Locations]
     [Description],
     [ContainingLocationId])
 VALUES(
+        'Radix Sylva',
+        'Located on the North side of the Luk''Teph Dessert, it used to be a small thriving costal village of people who were wishing to separate from the Itamevoth Theocracy''s rigorus theology. However, it was eventually targeted by Alma and Cramwell Iriden by hiring mercinaries to destory the village and capture people for illegal experiments under the ruse of them being traitors to the Theocracy.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Scutum Domus')
+);
+
+INSERT INTO [Lore].[Locations]
+    ([Name],
+    [Description],
+    [ContainingLocationId])
+VALUES(
         'Ziet',
         'Located at the center of Acies in the middle of a set of mountain ranges, Ziet is both the capital of the Itamevoth Theocracy and one of the very few cities that survived the Schism War. Though many parts of the city were destroyed it has since been rebuilt and is now home to the largest and most elaborate cathedrals. Daily life heavily revolves around worship and service to the defence of Acies.',
         (SELECT TOP 1
@@ -3629,10 +3642,591 @@ VALUES(
         'Scutum Domus.jpg'
 );
 
+
 /*
-* Start of NPCs (Gods and other entities are included)
+* Start of NPCs
 */
 
+-- Acies
+-- Frigus Domus
+-- Scalar Domus
+-- Scutum Domus
+-- Radix Sylva
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Grathella Calidrad',
+        'Elf',
+        'Middle aged elf woman with dark brown hair, she wears plain clothing and looks like years of isolation have not been good for her.',
+        'Thornel''s mother, looked for years after the raid for Thornel but he does not know that she was able to escape and return. Her husband was also killed during the raid. Now resides secluded in the ruins of her old town.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Radix Sylva'),
+);
+
+-- Ziet
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Layna Thamonis',
+        'Elf',
+        'A 543 year old elven woman with straight blond hair that she keeps tightly wound up behind her head. Her robes are brilliant white that has a slight pearlecence to it with golden trimmings. She also wears a golden amulet to Tamauht that is so shiny it almost looks as if it was glowing. She carries herself with an air of self imposed high importance and is exremely prude.',
+        'She was the only Arch Priest in the Circulus Ellecies that did not vote for Solamir and thinks him to be much too easy going.',
+        'Arch Priest of Tamauht',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Ziet'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Rodrik Stalhand',
+        'Dwarf',
+        'A 342 year old dwarven man with long grey hair and long beard which is clasped with various metal rings. He wears the standard Inaru robes of the church with white and gold trimings but keeps them in very good condition along with a well made Inaru holy symbol around his neck. He believes in hard work and the importance of cooperation and community.',
+        'Currently holds the position of Arch Priest of Inaru in the Theocracy.',
+        'Arch Priest of Inaru',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Ziet'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Solamir "The Old"',
+        'Human',
+        'A 85 year old human man with unsually plain robes of a pale green brown color and a wooden staff with a gnarled top. He has short white hair that is starting to bald at the back and a closely shaven beard. Despite his age he looks about 20 years younger and carries a clam knowning additude at all times. The only standout iconography he carries is a amulet with a multipointed star surrounded by celestial runes which is the symbol of the Circulus Ellecies, the highest order of government for the Theocracy which includes the Arch Priests of each church and other high ranking officials.',
+        'Solamir was selected by the other Arch Priests of the Itamevoth Theocracy in a majority vote to serve as the Sage which is the highest position in the churches. He is a priest of Tamauht but knows the teachings of the other gods of Solis quiet well.',
+        'Sage of the Theocracy',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Ziet'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Vordeth Malrhaz',
+        'Dragonborn',
+        'A 45 year old silver dragonborn man of hulking size and fully plated armor from snout to tail when they are set for battle, otherwise they are normally found wearing armor that permits more dexterous movement but are regularly armed with a spear, longword and sheild. He holds an unwavering loyalty to the Theocracy and holds a very strong sence of justice but not without mercy and the chance for redemption.',
+        'Rather than a cleric to Veilith like many of her other followers Vordeth is a paladin and is a fearsome warrior. He currently holds the position of Arch Preist of Veilith but still regularly takes part in military operations against the remnant.',
+        'Arch Priest of Iyla',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Ziet'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Yamis Bost',
+        'Earth Genasi',
+        'A 67 year old Earth Genasi man with white crystals for hair and dark brown stone skin. He wears extravigant saphire blue robes which are quite airy and revealing. He is very easy going and loves conversation.',
+        'He is very good friends with Solamir and they often spend time together outside of offical functions. He currently holds the position of Arch Priest of Iyla in the Theocracy.',
+        'Arch Priest of Iyla',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Ziet'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Malik Kadhir',
+        'Aasimar',
+        'A 43 year old Aasimar with a thick build, short brown hear and bushy beard with gold eyes. He is a strong willed, fierce, zealous and draconian man often going to lengths of making examples out of wrong doers to make a point to his subordinates.',
+        'He was the former commander of Raziel and had him imprisioned because of his actions. He still commands the same unit and is more generally feared then respected.',
+        'Commander of the 13th Legion',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Ziet'),
+);
+
+-- Cinallis
+-- Doaverine Junta
+-- Earran Clach
+-- Earran Geal
+-- D'Larrawil
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Elise D''Larrawill',
+        'Elf',
+        '345 year old elven woman with green eyes and platium blond hair that has the top of her hair loosly pulled over the top of her head into a ponytail at the back. She wears set of green robes and mantle that extends out past her shoulders with white trimmings of a tree, and carries a white staff that conforms to the same shape. She is quite outwardly stern but holds an inner kindness.',
+        'She as been elected to serve as the Muintir of the Doaverine Junta and is daughter to Niergon D''Larrawil.',
+        'Muintir of the Doaverine Junta',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'D''Larrawil'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Luhto Wiryar',
+        'Dwarf',
+        '242 year old dwarven man with long dark brown hair in a loose ponytail and a medium lenght beard. He wears traditional dwarven clothing of well make but looks a bit to rough to be wearing them and a large fur mantel on his shoulders. He is brash man and will bluntly say what he thinks, but still follows the authority of those above him.',
+        'He currently serves as the Klan''heler which is the right hand to the Muintir and normally goes everywhere Elise goes, rather than out of aquaintance or exprience Elise chose Luhto because of his character and reputation as a folk hero from Iomair.',
+        'Klan''heler of the Doaverine Junta',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'D''Larrawil'),
+);
+
+-- Erran Uaine
+-- Gaeld
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Arkud Minebreaker',
+        'Dwarf',
+        'A 117 year old male hill dwarf. He has a bald head and brown eyes. He has rough white skin. He stands 117cm (3''10") tall and has a beefy build. He has a soft, very attractive face with a large braided mustache. He has 3 piercings on his left ear. He discretely worships Tamauht, He uses sarcasm and insults commonly. He disregards lazy people. He always does what he is told not to.',
+        'Elderman of Gaeld but a few beleive him to be incompitent due to his stubborness.',
+        'Elderman of Gaeld',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Gaeld'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Gorvenal Caskbow',
+        'Half-Elf',
+        'A 32 year old male half-elf Innkeeper of the Broken Wheel. He has very long, blond hairand brown eyes. He has veiny, dirty, golden skin. He stands 172cm (5''7") tall and has a skinny build. He has an oval, slightly forgettable face. He has an impressive limp. He rarely thinks ahead. He only talks loudly. He sporadically uses long words to sound smart. He is constantly flattering people he talks to.',
+        'His family opened the inn after the wheel broke on their cart when fleeing from Gandersheim.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Gaeld'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Cassius',
+        'Human',
+        'A 70 year old male human He has very long, wavy, blond hair and brown eyes. He has rugged pink skin. He stands 144cm (4''8") tall and has a muscular build. He has an oval, average face. He twitches sporadically from his left hand. He always plays fair. He constantly looks for the loophole. He has very little practical experience. He cares about his friends and will do anything for them.',
+        'General store owner, which is simply named General Store.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Gaeld'),
+);
+
+-- Lophraid
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Histix Sayur',
+        'Gnome',
+        'A 304 year old male forest gnome with short, straight, gray hair shaved on both side and blue eyes. He has rough white skin. He stands 91cm (2''11") tall and has a muscular build. He has a square, very beautiful face with a short spotty beard. He has a hunch. He quietly worships Iyla. He is kind and generous. He is very good at keeping secrets.',
+        'He is the  Elderman of Lophraid and well liked by the town but some see him as a little too soft for the clans. He inherited a manor. He collects old coppers.',
+        'Elderman of Lophraid',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lophraid'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Cottolm Chylle',
+        'A 18 year old male lightfoot halfling he has medium, curled, dirty blonde hair and hazel green eyes. He has soft white skin. He stands 117cm (3''10") tall and has a slight portly build. He has a round, sincere face. He has large hairy feet and doesn''t really wear shoes. He is kind and generous. He stands by what he thinks is right. He always carries food in his pockets or spices with him on trips.',
+        'Innkeeper of Deep Range Inn which descends into the ground under a mountain.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lophraid'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Sonetamar',
+        'A 53 year old male goliath he has a bald head with abstract tatoos and blue eyes. He has smooth white skin. He stands 225cm (7''4") tall and has a beefy build. He has an oblong, slightly innocent face. He has a small scar on his left eyebrow. Worships Veilith. He is very dedicated. He judges people by their actions, not their words. He occasionally uses long words to sound smart.',
+        'He is a general store owner and he sets up local dance clubs.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lophraid'),
+);
+
+-- Tamel Imperium
+-- Banewright Kingdom
+-- Banesford
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Leonen Banewright',
+        'Human',
+        '43 year old human man with short red brown hair and grey eyes. Leonen is a self centered man with a touch of what he would consider rightousness. He is a strict ruler for his kingdom but most of the populace welcome it as a fact of life due to the circumstances.',
+        'He is at odds with King Dirmil as he rules the kingdom neighboring Remnant contested land and also the first line of defense from the Doaverine Clans yet court nobles regularly applaud the Eastern kingdom for their produce contriubtions.',
+        'King Banewright',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Banesford'),
+);
+
+-- Bellon
+
+-- Deepstone Kingdom
+-- Dirmil Kingdom
+-- Tamel Kingdom
+
+-- The Abyss 
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Rathak',
+        'Deity',
+        'Brown furred beast that looks like a demonic minotaur in worn full plate armor covered in scars with tears of blood streaming down his face wielding a flaming two handed sword.',
+        'Followers are known to be savage fighters who show no mercy, they take what they want rather than ulterior methods, often hold grudges and seek vengeance.
+
+        Commandments:
+        - Annihilate the weak
+
+        - Collect your debts in blood
+
+        - Burn them to ash'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Terasu',
+        'Deity',
+        'Amorphous, black robed figure, or a grey skinned being without eyes.',
+        'Followers normally covet knowledge and secrets, are often completely crazy, often have elements of their face removed (eyelids, ears, lips, nose), use of illusions is also common.
+
+        Commandments: 
+        - Watch from the dark
+
+        - Take that which reveals
+
+        - Unravel chronology'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Guhluk',
+        'Deity',
+        'A decaying corpse resting in an open grave with tentacles emerging from under it, has a male voice, or a headless six armed four legged humanoid carrying a decaying head.',
+        'Followers are often necromancers, some followers have been noted eating until death, seek to end life and devour it.
+
+        Commandments: 
+        - Devour all
+
+        - Master undeath
+
+        - Starve the others'
+);
+
+-- Krukiathu NPCs
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Nulth',
+        'Dragon',
+        'Nulth is a blue adult shadow dragon with mat black scales that would almost appear like volcanic rock. From their body black mist trails down like smoke. Their eyes are a dark red and seated somewhat far back on the head. Two ram like horns emerge from the side of their head and curl back forwards towards the front of their mouth into points. Sharp spines jut out from the back of their head and a bit down their back. The leather of their wings break away from the dark black nature of their scales and hold a dark redish brown hue.',
+        'Nulth was spawned 187 years ago from a blue dragon that had long held hatred against the people of Aceis. Unlike the parent dragon however, Nulth was indoctrinated into the worship of Terasu. Due to their commitment they have been placed as the guardian of the Zara Mazallam in Tenbraz. However, at the awakening of Terasu''s Rahaslicon Nulth has been called upon to retrieve the book and return it to Ghuzalterok hands.'
+);
+
+-- Hells NPCs
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Zhule',
+        'Deity',
+        'Bald pointed eared man with red eyes and pitch black skin and horns wearing black hooked plate armor wielding a flail covered in hooks.',
+        'Seek to dominate, enslave, and torture others, seek to rule over others, often mutilate others and do things out of spite.
+
+        Commandments:
+        - Cut their flesh
+
+        - Drink of hate
+
+        - Bind them in chains'
+);
+
+-- Historic NPCs
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Tamteru',
+        'Deity',
+        'Tamteru was often described as a being made of darkness that abosorbs or emits light with no particular facial features.',
+        'Tamteru had rule of over the combined domains of Tamauht and Terasu.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Veilrak',
+        'Deity',
+        'Veilrak was normally depicted as a fully armored beastial warrior with a head that resembled a cross between a horse, jackal and bull along with a tail.',
+        'Veilrak held rule over the combined domains of Veilith and Rathak.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Ilzu',
+        'Deity',
+        'Ilzu was often depicted as a grey skinned fey like being whose face and hair changed with their mood.',
+        'Ilzu had rule over the combined domains of Iyla and Zhule.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Gunaruk',
+        'Deity',
+        'Gunaruk was often depicted as being with four arms each holding a different tool for building or embalming.',
+        'Gunaruk had rule over the combined domains of Inaru and Ghuluk.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Balorok',
+        'Primordial',
+        'A giant fiery serpent.',
+        'Balorok was known to be quick to anger and at odds with Water and Earth. It also always sought change via destruction of the old.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Atal',
+        'Primordial',
+        'A giant crustation like humanoid.',
+        'Atal would be considered the most caring of the primordial titans as they always sought to cultivate life. Atal was flexible in their judgments but once ingrained they were resistant to stray from the status quo.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Ehekator',
+        'Primordial',
+        'Ehekator was said to be a massive bird made of storms.',
+        'Ehekator was known to often change in agenda following whatever impulse came to them and nominally remained neutral.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Xallax',
+        'Primordial',
+        'Xallax was a giant stone elemental that had resembalances to humanoids.',
+        'Xallax was well known to despise Balorok the fire titan and Ehekator the air titan due to their impulsiveness. Xallax always saught to keep things as they were and to never change them as a means to maintain tradition.'
+
+);
+
+-- Lundus
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Lemanoth',
+        'Celestial',
+        'Lemanoth is a large celestial clad in metal armor with an emotionless metal mask.',
+        'Lemanoth is a Curator charged with the protection of the Uhmbrid a structure on Lundus used to maintain the Sea of Stars.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Marut''Apor',
+        'Construct',
+        'Marut''Apor is a hulking construct protected with metal armor and has a large central eye with a metal disk enscribed with their purpose on their chest.',
+        'Marut''Apor is a construct protecting the Lundus Gate on Lundus whoes goal is to keep corrupted souls from reentering the Anaran Plane.'
+);
+
+-- Pale Wastes
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Geleondiril',
+        'Dragon',
+        'Geleondiril is a massive prismatic dragon whose body would appear to be made from diamond. Their tail has a glaive like ending.',
+        'Geleondiril was the first soul to be forged from the Tree of Inheritors and was charged with the trees protection from the gods prior to their separation. Geleondiril now stands watch over the entrance to the chamber where the tree resides. Over the ages even the gods have been thwarted by Geleondiril when trying to destroy or reach the tree.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Marut''Laban',
+        'Construct',
+        'Marut''Laban is a hulking construct protected with metal armor and has a large central eye with a metal disk encribed with their purpose on their chest.',
+        'Marut''Laban is a construct charged with protecting the Lundus Gate on Anara and keeping corrupted souls on the Lundus side of the gate.'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Xotlasihm',
+        'Celestial',
+        'A being often depicted as nothing but a regal black robe from beneath which golden eyes shine through black cloth. They are normally seen with an amulet and an urn. Underneath their robes is a grey skinned celestial covered in geometric shapes with no hair, no mouth and no nose on an androgenous body.',
+        'Legends have it that Xotlasihm pulls souls into the urn they carry with the amulet and then take them into the afterlife. Many believe that they will take the dead to Lundus which is often thought of as being the realm of the dead. Xotlasihm is one of the few celestials to remain unaligned after the Schism War. They never speak, if they communicate with telepathy the recipient only understands its will and does not hear any words. Multiple souls can be stored in the urn at one time. When one dies on Anara, Xotlasihm escorts the soul of the dead back to Iennialaed, the Tree of Inheritors, unless the soul has been corrupted. When the soul is found unsuitable to be returned to the tree, they take them to Lundus and leave them there. In combat Xotlasihm will use the amulet they carry to blast foes at range and disrupt the movement of those around them, from the urn they will produce two short swords that act on their own like spiritrual weapons with a faint mist falling from them.'
+);
+
+-- Salted Tides
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Aihurem',
+        'Dragon',
+        'Aihurem has a long snake like body of platinum scales that extends for hundreds of feet, and though they have no wings they are capable of flight. A mane of silver hair frames their head and they have four claws about their body but rarely use them.',
+        'Aihurem is a platinum dragon and one of Iyla''s main servants who now resides within the Serenus Semita (Serene Path) at The Nubes Castellum watching over Iyla''s Ward. Aihurem has been watching over the artifact for millennia often sleeping for hundreds of years at a time.'
+);
+
+-- Solis NPCs
 INSERT INTO [Lore].[NPCs]
     ([Name],
     [Race],
@@ -3719,265 +4313,8 @@ INSERT INTO [Lore].[NPCs]
     [Description],
     [Biography])
 VALUES(
-        'Terasu',
-        'Deity',
-        'Amorphous, black robed figure, or a grey skinned being without eyes.',
-        'Followers normally covet knowledge and secrets, are often completely crazy, often have elements of their face removed (eyelids, ears, lips, nose), use of illusions is also common.
-
-        Commandments: 
-        - Watch from the dark
-
-        - Take that which reveals
-
-        - Unravel chronology'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Zhule',
-        'Deity',
-        'Bald pointed eared man with red eyes and pitch black skin and horns wearing black hooked plate armor wielding a flail covered in hooks.',
-        'Seek to dominate, enslave, and torture others, seek to rule over others, often mutilate others and do things out of spite.
-
-        Commandments:
-        - Cut their flesh
-
-        - Drink of hate
-
-        - Bind them in chains'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Rathak',
-        'Deity',
-        'Brown furred beast that looks like a demonic minotaur in worn full plate armor covered in scars with tears of blood streaming down his face wielding a flaming two handed sword.',
-        'Followers are known to be savage fighters who show no mercy, they take what they want rather than ulterior methods, often hold grudges and seek vengeance.
-
-        Commandments:
-        - Annihilate the weak
-
-        - Collect your debts in blood
-
-        - Burn them to ash'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Guhluk',
-        'Deity',
-        'A decaying corpse resting in an open grave with tentacles emerging from under it, has a male voice, or a headless six armed four legged humanoid carrying a decaying head.',
-        'Followers are often necromancers, some followers have been noted eating until death, seek to end life and devour it.
-
-        Commandments: 
-        - Devour all
-
-        - Master undeath
-
-        - Starve the others'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Aihurem',
-        'Dragon',
-        'Aihurem has a long snake like body of platinum scales that extends for hundreds of feet, and though they have no wings they are capable of flight. A mane of silver hair frames their head and they have four claws about their body but rarely use them.',
-        'Aihurem is a platinum dragon and one of Iyla''s main servants who now resides within the Serenus Semita (Serene Path) at The Nubes Castellum watching over Iyla''s Ward. Aihurem has been watching over the artifact for millennia often sleeping for hundreds of years at a time.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
         'Astarot',
         'Dragon',
         'Astarot has a long snake like body of golden radiant scales that extends for hundreds of feet, and though they do not have wings they are capable of flight. Astarot''s head is shaped like an eagle with golden whiskers and antler like horns. Along the back of their body is a spine of straight golden hair.',
         'Astarot served as one of Tamauht''s main servants, a celestial Sun Dragon charged with guarding Solis after the Schism War. During the war itself however Astarot fought as the second in command of the White Legion. During the Bannishment they were pulled into Astral Space and now reside around Solis acting as its guardian.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Geleondiril',
-        'Dragon',
-        'Geleondiril is a massive prismatic dragon whose body would appear to be made from diamond. Their tail has a glaive like ending.',
-        'Geleondiril was the first soul to be forged from the Tree of Inheritors and was charged with the trees protection from the gods prior to their separation. Geleondiril now stands watch over the entrance to the chamber where the tree resides. Over the ages even the gods have been thwarted by Geleondiril when trying to destroy or reach the tree.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Lemanoth',
-        'Celestial',
-        'Lemanoth is a large celestial clad in metal armor with an emotionless metal mask.',
-        'Lemanoth is a Curator charged with the protection of the Uhmbrid a structure on Lundus used to maintain the Sea of Stars.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Marut''Apor',
-        'Construct',
-        'Marut''Apor is a hulking construct protected with metal armor and has a large central eye with a metal disk enscribed with their purpose on their chest.',
-        'Marut''Apor is a construct protecting the Lundus Gate on Lundus whoes goal is to keep corrupted souls from reentering the Anaran Plane.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Marut''Laban',
-        'Construct',
-        'Marut''Laban is a hulking construct protected with metal armor and has a large central eye with a metal disk encribed with their purpose on their chest.',
-        'Marut''Laban is a construct charged with protecting the Lundus Gate on Anara and keeping corrupted souls on the Lundus side of the gate.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Xotlasihm',
-        'Celestial',
-        'A being often depicted as nothing but a regal black robe from beneath which golden eyes shine through black cloth. They are normally seen with an amulet and an urn. Underneath their robes is a grey skinned celestial covered in geometric shapes with no hair, no mouth and no nose on an androgenous body.',
-        'Legends have it that Xotlasihm pulls souls into the urn they carry with the amulet and then take them into the afterlife. Many believe that they will take the dead to Lundus which is often thought of as being the realm of the dead. Xotlasihm is one of the few celestials to remain unaligned after the Schism War. They never speak, if they communicate with telepathy the recipient only understands its will and does not hear any words. Multiple souls can be stored in the urn at one time. When one dies on Anara, Xotlasihm escorts the soul of the dead back to Iennialaed, the Tree of Inheritors, unless the soul has been corrupted. When the soul is found unsuitable to be returned to the tree, they take them to Lundus and leave them there. In combat Xotlasihm will use the amulet they carry to blast foes at range and disrupt the movement of those around them, from the urn they will produce two short swords that act on their own like spiritrual weapons with a faint mist falling from them.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Nulth',
-        'Dragon',
-        'Nulth is a blue adult shadow dragon with mat black scales that would almost appear like volcanic rock. From their body black mist trails down like smoke. Their eyes are a dark red and seated somewhat far back on the head. Two ram like horns emerge from the side of their head and curl back forwards towards the front of their mouth into points. Sharp spines jut out from the back of their head and a bit down their back. The leather of their wings break away from the dark black nature of their scales and hold a dark redish brown hue.',
-        'Nulth was spawned 187 years ago from a blue dragon that had long held hatred against the people of Aceis. Unlike the parent dragon however, Nulth was indoctrinated into the worship of Terasu. Due to their commitment they have been placed as the guardian of the Zara Mazallam in Tenbraz. However, at the awakening of Terasu''s Rahaslicon Nulth has been called upon to retrieve the book and return it to Ghuzalterok hands.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Tamteru',
-        'Deity',
-        'Tamteru was often described as a being made of darkness that abosorbs or emits light with no particular facial features.',
-        'Tamteru had rule of over the combined domains of Tamauht and Terasu.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Veilrak',
-        'Deity',
-        'Veilrak was normally depicted as a fully armored beastial warrior with a head that resembled a cross between a horse, jackal and bull along with a tail.',
-        'Veilrak held rule over the combined domains of Veilith and Rathak.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Ilzu',
-        'Deity',
-        'Ilzu was often depicted as a grey skinned fey like being whose face and hair changed with their mood.',
-        'Ilzu had rule over the combined domains of Iyla and Zhule.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Gunaruk',
-        'Deity',
-        'Gunaruk was often depicted as being with four arms each holding a different tool for building or embalming.',
-        'Gunaruk had rule over the combined domains of Inaru and Ghuluk.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Balorok',
-        'Primordial',
-        'A giant fiery serpent.',
-        'Balorok was known to be quick to anger and at odds with Water and Earth. It also always sought change via destruction of the old.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Atal',
-        'Primordial',
-        'A giant crustation like humanoid.',
-        'Atal would be considered the most caring of the primordial titans as they always sought to cultivate life. Atal was flexible in their judgments but once ingrained they were resistant to stray from the status quo.'
-);
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Ehekator',
-        'Primordial',
-        'Ehekator was said to be a massive bird made of storms.',
-        'Ehekator was known to often change in agenda following whatever impulse came to them and nominally remained neutral.'
-);
-
-
-INSERT INTO [Lore].[NPCs]
-    ([Name],
-    [Race],
-    [Description],
-    [Biography])
-VALUES(
-        'Xallax',
-        'Primordial',
-        'Xallax was a giant stone elemental that had resembalances to humanoids.',
-        'Xallax was well known to despise Balorok the fire titan and Ehekator the air titan due to their impulsiveness. Xallax always saught to keep things as they were and to never change them as a means to maintain tradition.'
 );
