@@ -3957,8 +3957,864 @@ VALUES(
 );
 
 -- Bellon
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Bali Brightmaster',
+        'Dwarf',
+        'A 306 year old male dwarf, 3''7" blonde hair brown eyes, lean build, very long beard, and a scar on his forehead (from falling off a horse). Kind, generous but normally only after being paid.',
+        'Is the village''s horse racing champion, sometimes talks to plants. Inn keeper in belon (has some plants in his inn that he talks to as he waters them).',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Brunhild Chaucer',
+        'Human',
+        'A 48 year old human woman, 5''5", extremely long black messy curly hair, green eyes. Pale and veiny skin, glass right eye. Selfish, always looks for a loophole, has a crude sense of humor.',
+        'General store owner. Related to the Lurkers (has a faint Lurker symbol above her store counter).',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Perenth',
+        'Dragonborn',
+        'A 50 year old Dragonborn male, 6''6" rugged red scales muscular build. Missing his right forefinger (lost it when he was a slave warrior for the remnant). Courageous to a fault but is incredibly selfish.',
+        'Smith that normally only deals with village orders but has expereince from his time with the remnant to make weapons and armor.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Doran Duststone',
+        'Human',
+        'A 68 year old human man, long grey hair and grey eyes, tall and thin, pockmarked face with a mustache. Pious, eats slowly, memory is failing him in his age.',
+        'Priest at Inaru Church.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+-- Gandel
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Thainarv Pebbleback',
+        'Dwarf',
+        'A 80 year old male hill dwarf  He has short, braided, auburn hair and brown eyes. He has soft, sunburned, white skin. He stands 149cm (4''10") tall and has a lean build. He has an oblong, ordinary face with a medium chin strap. He is lightly allergic to crab. He is very focused. He is very greedy. He reads every book he comes across.',
+        'Barron of Gandel.',
+        'Barron of Gandel.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Disanz Coalgrog',
+        'Dwarf',
+        'A 307 year old female hill dwarf with long, curled, brown hair and golden eyes. She has soft brown skin. She stands 124cm (4''0") tall and has an overweight build. She has a square, slightly asymmetrical face. She has slightly long fingers. She often spies on other people. she only talks in whispers. She cannot take a halfling seriously. She is haunted by horrible memories.',
+        'Inn keeper of the Gandel Byway Inn.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Angmar Feddich',
+        'Human',
+        'A 65 year old male human, with a bald head, green eyes, tan skin, stands 4''6" tall, with a muscular build. Quietly worships Iyla, and is quick to forgive, very optimistic, and trains every morning.',
+        'Riverside General Goods owner.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bellon'),
+);
+
+-- Melsward
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Geoff Vanden',
+        'Human',
+        'A 45 year old human man with red hair at shoulder''s length, is strong willed and has a strong distaste for politics, especially in matters of the court which inculdes members from the Dirmil Kingdom.',
+        'Barron of Melsward.',
+        'Barron of Melsward.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Melsward'),
+);
+
+-- Tharkad
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Althalos Farlight',
+        'Aasimar',
+        'A 38 year old Aasimar tan skin, brown eyes shaved head, 6ft tall, massive build. Righteous and loyal.',
+        'Marshal of Fort Tharkad and is well known for his skilled tactics despite his young age but some people claim its because of his Aasimar heritage.',
+        'Marshal of Fort Tharkad',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tharkad'),
+);
 
 -- Deepstone Kingdom
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Kril Deepstone',
+        'Dwarf',
+        'A 342 year old dwarf with a long grey beard, with multiple gold clasps engraved with runes, long grey hair and ice blue eyes. He is patient but stern. Loyal to Henrick Tamel but only because it serves his people.',
+        'As King of Deepstone he is well liked by his subjects, while some may claim he is a bit too slow to act most easily point out to events where his wisdom in waiting ended up being the best course of action.',
+        'King of Deepstone.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Torg Deepstone',
+        'Dwarf',
+        'A 133 year old Dwarf, bald head and red braided beard. Stubborn and arrogant, and he seeks to prove himself.',
+        'Son of Kril Deepstone.',
+        '1st Prince of Deepstone.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Ukhaiel Silverblood',
+        'Dwarf',
+        'A 437 year old dwarf, short grey hair, bushy beard with a long center braid and brown eyes. He is mute (when casting his voice comes out as a course whisper), goodwilled, calm, often gets sleepy and smells of baking.',
+        'Serves as Staff Sorcerer to Kril Deepstone and is well respected so much so that the King treats him more like a mentor than a subject in some circumstances.',
+        'Deepstone Staff Sorcerer',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Bori Brickbrow',
+        'Dwarf',
+        'A 281 year old dwarf short shaggy beard, grey eyes, smokes a pipe, eccentric, rarely thinks ahead, fascinated by elfs, likes to know how things work, heavy into tinkering (clockwork/golems).',
+        'Well known wizard in Deepstone, no real affliations but is sometimes called on by royalty or teaches at schools.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Dinain Pebbleback',
+        'Dwarf',
+        'A 178 year old male hill dwarf he has a bald head and blue eyes. He has veiny white skin. He stands 159cm (4''2") tall and has a lean build. He has an oval, average face with a very long spotty beard. He smokes the pipe frequently. He will always prioritize the needs of other people, even to his detriment. He judges people by their actions, not their words. He will constantly pray at inopportune moments. He occasionally thinks aloud.',
+        'Head priest of the Tamauht church.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Ganda Dondenth',
+        'Dwarf',
+        'A 153 year old female mountain dwarf peddler. She has short, curled, white hair and green eyes. She has soft white skin. She stands 124cm (4''0") tall and has a muscular build. She has an oval, bland face. She is severely allergic to sea fruits. She is very patient. She is not very obstinate. She sets up local dance clubs.',
+        'She serves as a low ranking spy for the Ordo Statera.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Hadrian Redstream',
+        'Human',
+        '54 year old human man with curled blonde hair and gray eyes standing at 5''3". Benevolent, very quick to trust other people, has a constant wanderlust and seeks to do any research he can regardless of the danger.',
+        'Serving as Librarian of the Scriptorium in Deepstone, but has gone into the temple found in the Flintspring Mine and has not returned. Was the former teacher of Quinton McDermit in Breussix and is still seen as a fatherly figure by him.',
+        'Deepstone Scriptorium Librarian.'
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Koril Brikfire',
+        'Dwarf',
+        'A 88 year old dwarf with orange red hair and beard that is clasped at into two ends with metal rings.',
+        'Local folk hero in Deepstone after having singlehandedly standing up to a vile monster. Unknowingly the current heir to Annveild and carries a neckless bearing the symbol of the Annveild royal family.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Kothar Balo',
+        'Dragonborn',
+        'A 62 year old male dragonborn  He has a ridged head and golden eyes. He has pointy bronze scales. He stands 202cm (6''7") tall and has a beefy build. He has an edgy, incredibly harsh face. He has slightly long nails. He is a very good diplomat and always works towards resolution of conflict. He is a perfectionist. He values his clan above anything else. He sees divine omens in everything. He is very paranoid.',
+        'Head priest at the Veilith church.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Oliver Hilless',
+        'Human',
+        'A 55 year old male human, he has cropped, braided, black hair and hazel eyes. He has rugged pink skin. He stands 177cm (5''9") tall and has a round build. He has a round, common face. He has slightly long nails. He is always serene. He is very pessimistic. He occasionally talks aloud to his god. He intermittently asks questions.',
+        'Head priest of the Iyla church.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Mertis Ziegelheim',
+        'Dwarf',
+        'A 123 year old dwarf has very long, straight, brown hair and brown eyes. He has silky white skin. He stands 4''11" tall and has a beefy build. He has a full, attractive face with a gigantic moustache. He carries around a coin from his families former kingdom. He quietly worships Inaru. He hates cheaters. He is very optimistic. He judges people on their fighting skills. He believes in destiny.',
+        'He is a knight of Deepstone and son of the Ziegelheim family which formerly ruled out in the Westmarches prior to the Remnant invasion.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Milar Ziegelheim',
+        'Dwarf',
+        'A 345 year old dwarf with a bald head and white braided beard. Once a proud and courageous man he has lost much of his vigor since loosing his kingdom to the Remnant.',
+        'Heir to the throne of Ziegelheim but is exiled by the remnant.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Susanna Cloudfang',
+        'Human',
+        'A 46 year old human woman with extremely long, braided, black hair and green eyes. Has OCD and is a perfectionist, doesn''t like change.',
+        'Assistant Scriptorium Librarian in Deepstone. Thinks Hadrian Redstream is a fool and wanders out in the mountains too much. But sent a letter to the Scriptorium in Tamel about his disappearance, which eventually made its way to Quinton McDermit in Bruessix.',
+        'Assistant Deepstone Scriptorium Librarian.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Thrinan Whitestone',
+        'Dwarf',
+        'A 108 year old female mountain dwarf with short, curled, auburn hair shaved on the right side and gray eyes. She stands 129cm (4''2") tall and has an athletic build. She has a round, hideous face. She has an impressive limp. She has an impressive lisp. She has a highly variable mood. She rarely speaks. She misses the world as she used to know it. She argues about everything. She believes in soulmates.',
+        'Head priest of the Inaru temple.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Bifda Stonegrip',
+        'Dwarf',
+        'A 140 year old female hill dwarf. She has long, straight, gray hair and green eyes. She has soft golden skin. She stands 127cm (4''1") tall and has a beefy build. She has a square, attractive face. She acts on impulse. She can''t keep a secret. She idolizes a religious hero. She sees fighting as a solution to any problem. She is a compulsive gambler.',
+        'Innkeeper of the Cavernway Bar.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Mili Merrymetal',
+        'Dwarf',
+        'A 172 year old female mountain dwarf  She has very long, curled, silver hair and black eyes. She has silky gray skin. She stands 119cm (3''10") tall and has a massive build. She has a diamond-shaped, slightly ordinary face. She has very long fingers. She acts on impulse. She is a perfectionist. She harbours a deep hatred of orcs and goblins. She frequently uses long words to sound smart.',
+        'She is constantly flattering people she talks to. Innkeeper of the Firey Goose.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Zaghak Wyvernflayer',
+        'Dwarf',
+        'A 123 year old female hill dwarf farmer. She has long, wavy, black hair and brown eyes. She has rugged white skin. She stands 109cm (3''6") tall and has a massive build. She has a square, bland face. She is allergic to red meat. She easily holds grudges. She only talks in whispers. She is a very proficient herbalist. She is totally oblivious to etiquette and social expectations. She gets very mad at any semblance of an insult.',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Tagis Forgemaul',
+        'Dwarf',
+        'A 182 year old male hill dwarf with short, braided, black hair andgreen eyes. He has smooth golden skin. He stands 144cm (4''8") tall and has a massive build. He has a square, forgettable face with a medium fu manchu moustache. He gestures profusely during a conversation. He is very patient. He judges people by their actions, not their words. He doesn''t like listening to jokes.',
+        'Innkeeper of the Stoneriver Tavern.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Thunda Stonelayer',
+        'Dwarf',
+        'A 192 year old male hill dwarf with long, braided, blond hair and brown eyes. He has smooth gray skin. He stands 137cm (4''5") tall and has a beefy build. He has a sharp, very magnificent face with a long moustache. He smells of dirt. He is deaf from the left ear. He easily holds grudges. He is not very obstinate. He considers everyone else as idiots. He constantly quotes his father.',
+        'Innkeeper of Stonelayers Stop.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Tanye Isilielenion',
+        'Elf',
+        'A 301 year old female Elf Enchanter, with very long strait blonde hair and blue eyes. She has pale porcelain like skin. She stands 164cm (5''4") tall and has a skinny build. She has a square, pretty face. She is allergic to gnomes. She is very good at defusing tensions. She is an example of modesty. She occasionally uses terms from a different language as she speaks. She always wears a fancy hat. She sporadically misquotes proverbs.',
+        'Owns Isilielenion Illicit Intricacies.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Kelfiz Ertix',
+        'Gnome',
+        'A 540 year old male rock gnome cleric. He has short straight, white hair and blue eyes. He has soft pink skin. He stands 114cm (3''8") tall and has a round build. He has an oblong, glamorous face. He is missing two fingers from his right hand. He quietly worships Iyla. He is very benevolent. He is secritive. He complicates simple situations. He spends a lot of time studying other religions.',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Gunni Stegrend',
+        'Dwarf',
+        'A 74 year old male mountain dwarf merchant. He has short, wavy, gray hair and cyan eyes. He has rough, sunburned, pink skin. He stands 137cm (4''5") tall and has a fat build. He has an edgy, bland face. He has a limp. He fidgets frequently. He openly worships Inaru. He is a pacifist. He is disorganized. He is more comfortable underground. He is not socially adept. He dreams of becoming rich and famous.',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Ahan Steelsinger',
+        'Dwarf',
+        'A 220 year old female hill dwarf she has short, wavy, brown hair and green eyes. She has rugged golden skin. She stands 124cm (4''0") tall and has a regular build. She has a round, slightly bland face. She has a piercing on her right ear. Woships Inaru. She is very cynical. She is very self-confident. She sporadically uses long words to sound smart. She has a beautiful singing voice.',
+        'Owner of the Singing Anvil.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Thrukad Greybelt',
+        'Dwarf',
+        'A 208 year old male mountain dwarf with a bald head and cyan eyes. He has soft, pockmarked, white skin. He stands 147cm (4''9") tall and has a beefy build. He has a sharp, typical face with a gigantic, braided squared beard. He is allergic to dragonborns. Openly worships Inaru. He will ponder the pros and cons before making a decision. He constantly looks for the loophole. He is more comfortable underground. He cannot tolerate rough living conditions. He falls in and out of love easily.',
+        'Owner of the Red Furnace Armory.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Thrammeath Windforge',
+        'Dwarf',
+        'A 453 year old dwarf with a skullet with long white hair and beard. He will always prioritize the needs of other people, even to his detriment. He is very slow to trust other people. He considers everyone else as idiots. He is very paranoid.',
+        'Head priest of Tamauht in Deepstone.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Deepstone'),
+);
+
+-- Halgarum
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Rainan Steelsmelter',
+        'Dwarf',
+        'A 135 year old male mountain dwarf, He has short, straight, white hair and green eyes. He has soft golden skin. He stands 144cm (4''8") tall and has a massive build. He has a sharp, bland face with a very long, braided beard. He rolls his "R"s profusely. He openly worships Inaru. He is kind and generous. He is an example of modesty. He doesn''t feel comfortable when away from his axe. He is a cross-dresser.',
+        'Duke of Halgarum.',
+        'Duke of Halgarum.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Orin Blackbender',
+        'Dwarf',
+        'A 261 year old male mountain dwarf He has long, braided, blond hair and brown eyes. He has silky gray skin. He stands 126cm (4''1") tall and has a muscular build. He has an oval, bulbous face with a long, braided squared beard. He is very nimble. He quietly worships Inaru. He is very focused. He rarely speaks. He thinks he''s seen it all. He believes in soulmates.',
+        'Marshall of Halgarum.',
+        'Marshall of Halgarum.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Dugan',
+        'Dwarf',
+        'A 192 year old male mountain dwarf with long, straight, black hair and brown eyes. He has rough golden skin. He stands 147cm (4''9") tall and has a beefy build. He has a round, average face with a very long pencil moustache. He has been driven mad from the contents of Chorn Loith. He harbors a deep hatred of orcs and goblins. He sporadically quotes his father. He twitches constantly, and is incredibly inconsistent and paranoid.',
+        'Before going mad he served as a squire, but in his maddness he killed his friend Flen after he saved him from Chorn Loith when they got back to Halgarum.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Luri Greystone',
+        'Dwarf',
+        'A 196 year old female hill dwarf with long, curled, silver hair and blue eyes. She has rough white skin. She stands 129cm (4''2") tall and has a muscular build. She has an edgy, forgettable face. She has a tiny piercing on her left ear. She is always very excited. She is very cowardly. She always has a good ale at hand. She always wears a fancy hat. She knows all the gossip around town.',
+        'Head priest in Halgarum.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Mina Whiterock',
+        'Dwarf',
+        'A 220 year old female mountain dwarf with cropped, wavy, blond hair and green eyes. She has veiny golden skin. She stands 137cm (4''5") tall and has a beefy build. She has a triangular, incredibly bland face. She intermittently squints. She quietly worships Inaru. She has a highly variable mood. She is non-materialistic. She is always covered in dirt. She loves discovering new mysteries and solving them.',
+        'Owner of Whiterock Digs mining group.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Rymis',
+        'Dwarf',
+        'A 98 Year old dwarf with red hair, and an average beard. Trapped in the mining outpost on the way to the Terasu Temple (Chorn Lioth “Black Library”). Somewhat mad and unpredictable.',
+        'Miner at Thunderhead Mining Co.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Werinn Avinfar',
+        'Dwarf',
+        'A 124 year old male dwarf secretary for the guard of Halgarum. He has very long, curled, dirty blonde hair and green eyes. He has smooth, pockmarked, white skin. He stands 139cm (4''6") tall and has a muscular build. He has an edgy, hideous face with a very short beard. He has 2 piercings on his left ear. He is very patient. He doesn''t care about risks or odds. He stretches the truth to tell a good story.',
+        'He serves as a low ranking spy for the Ordo Statera.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Ukhur Thunderhead',
+        'Dwarf',
+        'A 264 year old dwarf man with long wavy grey hair and green eyes, beard down to his belly which makes him look even thicker than he really is. He gestures profusely during a conversation. He is very pessimistic. He is more comfortable underground. He occasionally thinks aloud.',
+        'Owner of Thunderhead Mining Co. in Halgarum. Wanted to close the Flintspring mine at the recommendation of his workers when the temple was found but reluctantly followed the Scriptoriums request and kept it open for them to investigate. Contact was lost at the mine and so he hired some mercenaries to find out what happened to his men and Hadrian Redstream who went there, but they did not return either.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Zaghak Smeltmaster',
+        'Dwarf',
+        'A 432 year old dwarf man with a gray ponytail and average beard with brown eyes, rugged skin, he fidgets often, and is very superstitious.',
+        'Works as a miner at Thunderhead Mining Co. and was trapped at the front of the Flintspring mine by Orcs.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Dwali Stoutbrew',
+        'Dwarf',
+        'A 132 year old male mountain dwarf with short, wavy, dirty blond hair and brown eyes. He has silky, sunburned, gray skin. He stands 144cm (4''8") tall and has a muscular build. He has a sharp, ordinary face with a long soul patch. He smells heavily of sweat. He discretely worships Inaru. He is an hopeless romantic. He constantly looks for the loophole. He always has a good ale at hand. He sees insults as an art.',
+        'Innkeeper of the Stumbly Ducking',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Thrinarv Goldspire',
+        'Dwarf',
+        'A 143 year old female hill dwarf with short, red hair and brown eyes. She has smooth golden skin. She stands 114cm (3''8") tall and has a muscular build. She has an oval, unremarkable face and nose ring. She doesn''t worship any god. She is always prepared. She is incredibly conceited. She intermittently uses long words to sound smart. She has lost many friends.',
+        'Innkeeper of the Goldspire Inn.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Zaghain Frostmail',
+        'Dwarf',
+        'A 231 year old male hill dwarf with very long, straight, golden hair and green eyes. He has rugged, sunburned, gray skin. He stands 134cm (4''4") tall and has a beefy build. He has a diamond-shaped, stunning face with a gigantic, braided beard. He is very organized. He is not very obstinate. He makes anyone he speaks to feel like the most important person in the world.',
+        'Innkeeper of Gateview.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Enwenen Maerethar',
+        'Elf',
+        'A 193 year old female wood elf enchanter, she has long, wavy, auburn hair and green eyes. She has smooth copper skin. She stands 147cm (4''9") tall and has a lean build. She has a square, unremarkable face. She has a sunken breastbone. She doesn''t worship any god. She always goes straight to the point. She can''t stand laziness. She is haunted by horrible memories.',
+        'Owner of Maerethar Magica.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Randas Twoorb',
+        'Dwarf',
+        'A 344 year old male dwarf alchemist. He has long, braided, black hair and blue eyes. He has white skin,  stands 155cm (4''5") tall and has a fat build. He has an oval, average face. He wears an eyepatch on right eye. He doesn''t worship any god. He is always ironic. He is very greedy. He makes anyone he speaks to feel like the most important person in the world.',
+        'Owner of Tworbs.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Alwel Birdiir',
+        'Elf',
+        'A 241 year old female high elf gemcutter. She has short, wavy, gray hair and cyan eyes. She has smooth, golden skin. She stands 154cm (6''0") tall and has an athletic build. She has an oval, very glamorous face. She has a large piercings in her ears. She openly worships Iyla. She is very direct. She is very slow to trust other people. She is disgusted by human architecture. She refuses to rush.',
+        'Owner of Birdiir Gem Cutting Co.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum'),
+);
+
 -- Dirmil Kingdom
 -- Tamel Kingdom
 
