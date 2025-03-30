@@ -3666,7 +3666,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Radix Sylva'),
+        WHERE [Name] = 'Radix Sylva')
 );
 
 -- Ziet
@@ -3686,7 +3686,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Ziet'),
+        WHERE [Name] = 'Ziet')
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3705,7 +3705,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Ziet'),
+        WHERE [Name] = 'Ziet')
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3724,7 +3724,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Ziet'),
+        WHERE [Name] = 'Ziet')
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3743,7 +3743,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Ziet'),
+        WHERE [Name] = 'Ziet')
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3762,7 +3762,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Ziet'),
+        WHERE [Name] = 'Ziet')
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3781,7 +3781,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Ziet'),
+        WHERE [Name] = 'Ziet')
 );
 
 -- Cinallis
@@ -3805,7 +3805,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'D''Larrawil'),
+        WHERE [Name] = 'D''Larrawil') 
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3824,7 +3824,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'D''Larrawil'),
+        WHERE [Name] = 'D''Larrawil')  
 );
 
 -- Erran Uaine
@@ -3845,7 +3845,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Gaeld'),
+        WHERE [Name] = 'Gaeld')   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3862,7 +3862,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Gaeld'),
+        WHERE [Name] = 'Gaeld')    
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3879,7 +3879,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Gaeld'),
+        WHERE [Name] = 'Gaeld')     
 );
 
 -- Lophraid
@@ -3899,7 +3899,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Lophraid'),
+        WHERE [Name] = 'Lophraid')      
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3915,7 +3915,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Lophraid'),
+        WHERE [Name] = 'Lophraid')       
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3931,7 +3931,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Lophraid'),
+        WHERE [Name] = 'Lophraid')        
 );
 
 -- Tamel Imperium
@@ -3953,7 +3953,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Banesford'),
+        WHERE [Name] = 'Banesford')         
 );
 
 -- Bellon
@@ -3971,7 +3971,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')          
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -3988,7 +3988,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')           
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4005,7 +4005,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')            
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4022,7 +4022,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')             
 );
 
 -- Gandel
@@ -4042,7 +4042,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')              
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4059,7 +4059,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')               
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4076,7 +4076,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Bellon'),
+        WHERE [Name] = 'Bellon')                
 );
 
 -- Melsward
@@ -4096,7 +4096,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Melsward'),
+        WHERE [Name] = 'Melsward')                 
 );
 
 -- Tharkad
@@ -4116,7 +4116,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Tharkad'),
+        WHERE [Name] = 'Tharkad')                  
 );
 
 -- Deepstone Kingdom
@@ -4136,7 +4136,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4155,7 +4155,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                    
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4174,7 +4174,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                     
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4191,7 +4191,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                      
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4208,7 +4208,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                       
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4225,7 +4225,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                        
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4240,11 +4240,11 @@ VALUES(
         'Human',
         '54 year old human man with curled blonde hair and gray eyes standing at 5''3". Benevolent, very quick to trust other people, has a constant wanderlust and seeks to do any research he can regardless of the danger.',
         'Serving as Librarian of the Scriptorium in Deepstone, but has gone into the temple found in the Flintspring Mine and has not returned. Was the former teacher of Quinton McDermit in Breussix and is still seen as a fatherly figure by him.',
-        'Deepstone Scriptorium Librarian.'
+        'Deepstone Scriptorium Librarian.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4261,7 +4261,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                          
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4278,7 +4278,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                           
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4295,7 +4295,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                            
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4312,7 +4312,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                             
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4329,7 +4329,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                              
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4348,7 +4348,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                               
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4365,7 +4365,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4382,7 +4382,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                 
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4399,7 +4399,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                  
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4416,7 +4416,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4433,7 +4433,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                    
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4450,7 +4450,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                     
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4467,7 +4467,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                      
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4484,7 +4484,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                       
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4501,7 +4501,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                        
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4518,7 +4518,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                         
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4535,7 +4535,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                          
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4552,7 +4552,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Deepstone'),
+        WHERE [Name] = 'Deepstone')                                           
 );
 
 -- Halgarum
@@ -4572,7 +4572,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                            
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4591,7 +4591,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                             
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4608,7 +4608,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                              
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4625,7 +4625,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                               
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4642,7 +4642,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4659,7 +4659,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4676,7 +4676,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                 
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4693,7 +4693,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                  
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4710,7 +4710,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4727,7 +4727,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4744,7 +4744,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4761,7 +4761,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4778,7 +4778,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4795,7 +4795,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 INSERT INTO [Lore].[NPCs]
@@ -4812,7 +4812,7 @@ VALUES(
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
-        WHERE [Name] = 'Halgarum'),
+        WHERE [Name] = 'Halgarum')                                                   
 );
 
 -- Dirmil Kingdom
