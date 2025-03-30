@@ -4815,7 +4815,280 @@ VALUES(
         WHERE [Name] = 'Halgarum')                                                   
 );
 
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Brom Stonedelver',
+        'Dwarf',
+        'A 260 year old dwarf. He has long, braided, golden hair shaved on the left side and brown eyes. He has pockmarked, white skin. He stands 172cm (5''1") tall and has a regular build. He has an oblong, disgusting face with a short spotty beard. He twitches sporadically on the left side of his head. He quietly worships Inaru. He is quick tempered. He doesn''t care about risks or odds. He is always in a rush.',
+        'Owns Delver Goods',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum')                                                   
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Frasnia Hothammer',
+        'Dwarf',
+        'A 220 year old female hill dwarf with long, wavy, red hair and brown eyes. She has smooth golden skin. She stands 104cm (3''4") tall and has a muscular build. She has a sharp, slightly unremarkable face. She has 2 piercings on her right ear. She always goes straight to the point. She is very quick to trust other people. She likes to know how things work. She is constantly flattering people she talks to.',
+        'Owner of Frasnia''s Forge.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Halgarum')                                                   
+);
+
+-- Uskederth
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Aznar Brightmaker',
+        'Dwarf',
+        'A 209 year old mountain dwarf Has short wavy red hair and brown eyes, rought pale skin, 139cm (4''6") tall with a muscular build has an oblong face, has a medium length beard that is braided in 3 braids. Is always calm, optimistic, misses the world as he used to know it, doesn''t like change, always flatters people he talks to.',
+        'Gatekeeper of Uskederth.',
+        'Gatekeeper of Uskederth.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Uskederth')                                                   
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Tharki Reddigger',
+        'Dwarf',
+        'A 80 year old female mountain dwarf. She has cropped, straight, blond hair and green eyes. She has veiny golden skin. She stands 122cm (4''0") tall and has a regular build. She has a square, incredibly ordinary face. She is easily out of breath. She proudly worships Inaru. She is very empathic towards others. She is very good at keeping secrets. She doesn''t like parting with her money or possessions. She has a pet pidgeon companion named Smokey.',
+        'Innkeeper of the Entryway Inn',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Uskederth')                                                   
+);
+
 -- Dirmil Kingdom
+-- Frillis Cartaue
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Maria Francies',
+        'Human',
+        'A 49 year old human woman with short white hair in a bob with brown eyes. Somewhat pompous but holds good intentions.',
+        'Dutches of the Frillis Cartuae.',
+        'Dutches of the Frillis Cartuae.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Fillis Cartaue')                                                   
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Alana Verdis',
+        'Half Elf',
+        'A 58 year old  half elf with white hair and grey eyes 5''4" 120lbs, scars strewn about her body and face with short pointy ears. She is pragmatic but intents to keep the word of the Lurkers that are given to clients.',
+        'Lurker Handmaster for Frillis Cartuae.',
+        'Lurker Handmaster',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Fillis Cartaue')                                                   
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Alphonse De Rosas',
+        'Human',
+        'A 43 year old human man with short dark brown hair and beard with brown eyes. He is the Noble who acquired Ginger''s farm after she left but he doesn''t know about her husband being killed by the Lurkers due to a loan.',
+        'Well to do noble in the area seeking to start an orchard.',
+        '',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Fillis Cartaue')
+);
+
+-- Lendsberth
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Bran Dirmil',
+        'Human',
+        'A 55 year old man with short wavy dark brown hair and thick beard with streaks of grey. Despite comming from the Eastern part of the Imperium he has a rough look about him and some scaring on his face. He is a large tall man and while he can be stubborn he regularly gives way to sound reason from other parties and seeks to do the right thing for the kingdom he rules.',
+        'He is the current King of the Dirmil Kingdom and while most of the populace approve of him there is a lot of friction at court in the Imperium when the Banewright Kingdom is pressent and the two sides regularly do not see eye to eye.',
+        'King of The Dirmil Kingdom',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lendsberth')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Davus Ignum',
+        'Human',
+        'A 46 year old human man with severe scaring on one side of his face, he has shoulder length brown hair and wears a good amount of jewelry. Davus normally wears a mask over the left side of his face to cover his scaring but his one good eye is brown. He is temperamental and unpredictable, and just as secretive at the same time. Always scanning the room or area that he is in with his one good eye.',
+        'Runs a small crime ring in Lendsberth which is not related to the Lurkers. His scaring came from his temper overflowing at a younger age and causing his sorcerer power to set a fire which claimed the lives of his family and scared him in the process. He has mastered control over his power now and is a powerful mage especially when it comes to the element of fire.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lendsberth')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Rigo Del Vantana',
+        'Human',
+        'A 37 year old human man with short black hair and beard with streaks of white. He has a thick athletic build and is a skilled fighter with a sword.',
+        'He works for Davus Ignum and is a ruthless man, he is loyal to Davus but is mostly there for the money. When Asa was beaten for what they were, they were taken to Rigo who sold them into slavery at the brothel called La Ridaue Ecarlate which is one of Davus''s many operations.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Lendsberth')
+);
+
+-- Port Sod
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Kail Ironwright',
+        'Human',
+        'A 53 year old man of average high but big build. He wears clothes that have strong imagery of a naval uniform but is no longer in service. He has a shaved head and is always clean shaven. He wears his clothes like a uniform ready for inspection.',
+        'While in the past he was a repected Imperium Naval Admiral he has since retired and was apointed to a Duke position in Port Sod. He is well known for going out on escapades to correct things out in the dutchy without consaltation from his advisors.',
+        'Duke of The Sod Dutchy.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Port Sod')
+);
+
+-- Rueden
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Thori Goldback',
+        'Dwarf',
+        'A 170 year old female hill dwarf with long, wavy, blond hair and brown eyes. She has smooth, sunburned, golden skin. She stands 122cm (4''0") tall and has a beefy build. She has a sharp, typical face. She is polite and respectful. She is very self-confident. She harbours a deep hatred of orcs and goblins. She doesn''t like her post and wishes to return to the Deepstone Kingdom. She wears fancy spectacles. She smells lightly like a forest.',
+        'Currently serves as the Baron of Rueden.',
+        'Baron of Rueden.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Rueden')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Edmund Ashglade',
+        'Human',
+        'A 56 year old male human, he has a bald head and green eyes. He has rough golden skin. He stands 149cm (4''10") tall and has a muscular build. He has a square face with a short beard. He has a bar like piercing in his left ear. He is always ironic. He is very talkative. He has story about his god for every occasion. He believes in soulmates.',
+        'Head priest of Iyla church in Rueden.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Rueden')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Rose de Bolbec',
+        'Half Elf',
+        'A 53 year old female half-elf, She has long, wavy, red hair and brown eyes. She has smooth black skin. She stands 172cm (5''7") tall and has a regular build. She has an oval, unremarkable face. She has a tattoo of a longbow on her right hand. She is allergic to orcs. She always goes straight to the point. She can''t keep a secret. She is incredibly paranoid.',
+        'She is the innkeeper of the Pine Side Inn.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Rueden')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Wendy Commonbrook',
+        'Human',
+        'A 65 year old female human. She has short, curled, gray hair and brown eyes. She has veiny brown skin. She stands 144cm (4''8") tall and has a round build. She has a sharp, slightly average face. She has a low-toned voice. She is quick to forgive. She is very good at keeping secrets. She has a very regal look. She likes to swim.',
+        'Innkeeper of the Six Wheel Inn. ',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Rueden')
+);
+
 -- Tamel Kingdom
 
 -- The Abyss 
