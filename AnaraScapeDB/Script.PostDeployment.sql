@@ -5082,7 +5082,7 @@ VALUES(
         'Wendy Commonbrook',
         'Human',
         'A 65 year old female human. She has short, curled, gray hair and brown eyes. She has veiny brown skin. She stands 144cm (4''8") tall and has a round build. She has a sharp, slightly average face. She has a low-toned voice. She is quick to forgive. She is very good at keeping secrets. She has a very regal look. She likes to swim.',
-        'Innkeeper of the Six Wheel Inn. ',
+        'Innkeeper of the Six Wheel Inn.',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
@@ -5090,6 +5090,229 @@ VALUES(
 );
 
 -- Tamel Kingdom
+-- Bruessix
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Roland Bruessix',
+        'Human',
+        'A 48 year old man with streaks of white in is hair and goatee, and has a very stoic personallity.',
+        'He currently serves as Duke of Bruessix and is well liked by the people of the dutchy as he manages to keep it relatively safe and often chooses to improve the lives of its citizens rather than his own station.',
+        'Duke of Bruessix.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Lane Bruessix',
+        'Human',
+        'A 43 year old human woman with blonde hair, fair skin and green eyes. She has a pretty shy demenor, is very nice and speaks softly.',
+        'She leaves the operations of the dutchy to her husband while she focuses on her son. Unlike many of the other spouses of Tamel nobles she comes from the lower common class.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Lendan Bruessix',
+        'Human',
+        'A 5 year old human boy with brown hair, is very inquisitive, says what he is thinking and wants to play at all times.',
+        'See his father as too strict and does not really grasp that he will have to take over the position as duke in the future.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Olis of Millis',
+        'Aasimar',
+        'A 34 year old Aasimar with white hair and golden eyes, he has a very stern look about him and lacks any sense of humor. He hates laziness and works to improve those around him.',
+        'He got his knighthood when the defended the banks of the Millis lake from a monster that made the lake its home. He also has a good relationship with Lendan despite his roudiness and works to provide some mentorship to help the boy''s future.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Agdna',
+        'Human',
+        'A 87 year old human woman, nice old lady, short hair, good cook, memory is fading a little bit.',
+        'Servant of the Duke and Duchess, she served along side the Dukes grandfather as a young house servant and was the one who convinced the duke to marry his wife who was from the lower common class.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Aninyel Falavaul',
+        'Half Elf',
+        'A 44 year old female half-elf. She has cropped, curled, red hair shaved on the left side and very dark brown eyes. She has rough white skin. She stands 177cm (5''9") tall and has a lean build. She has a sharp, incredibly ordinary face. She smells heavily of roses. She is polite and respectful. She is very optimistic. She always has time to help others. She owns a box full of dead animals. She occasionally quotes proverbs.',
+        'Serves as a spy for the Ordo Statera.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Avery Montagu',
+        'Human',
+        'A 16 year old human girl with tan skin, dark brown hair and hazel eyes. Is very talkative and knows all about gossip around the town and is competitive. Worships Inaru.',
+        'Inherited Montagu''s Pets after the early death of her parents.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Bogak',
+        'Bugbear',
+        'A 23 year old bugbear with darkbrown fur and yellow eyes, with a large underbite and two tusks just come up from his bottom jaw.',
+        'Worked for goblinoids on the East side of the Millis Lake but was coerced into betraying them because of his past treatment by their leader.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Earl',
+        'Human',
+        'A 45 year old human man with mop light brown hair and thin build. He lives on the South side out side of town towards the forest.',
+        'His wife went missing months ago and has a drinking problem, he is Pete''s father but pet doesn''t hold much respect for him.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Iklal Thenderdelver',
+        'Dwarf',
+        'A 320 year old dwarf man with long wavy white hair that is pulled back in a loose ponytail and styled beard, with ice blue eyes. He has white sunbured skin is 4''1" and thickly built. He has an unsusually high-pitched voice. He harbors a deep hatred for Orcs and Goblins.',
+        'Serves as butler to the Bruessix Treasurer but doesn''t care about daggers one way or the other and isn''t involved and doesn''t want to be involved.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Jerard Longwalker',
+        'Human',
+        'A 34 year old human man with brown hair and blue eyes with scars on his face, he is 5''6" and has an athletic build. Arrogant and untrusting.',
+        'He is the Lurker handmaster in Bruessix and has an agenda against the Bruessix Daggers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'John Galinad',
+        'Human',
+        'A 37 year old man with short dark brown hair, long sidburns, mustache, and goatee. He is a well spoken man who tries to do what is best for the people at all times, and to keep things as fair and level as possible.',
+        'He is loyal to the Duke of Bruessix, and works as Quartermaster of the Dutchy.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Joseph Boulderdown',
+        'Half Elf',
+        'A 50 year old male half-elf. He has short, straight, auburn hair and blue eyes. He has veiny skin. He stands 150cm (4''11") tall and has a beefy build. He has a square, very unremarkable face. He is easily out of breath. He hates fair play. He is very generous. He occasionally misuses long words to sound smarter. He is a compulsive gambler.',
+        'He works as a messenger for the Ordo Statera.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
 
 -- The Abyss 
 INSERT INTO [Lore].[NPCs]
