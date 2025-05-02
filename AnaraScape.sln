@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.002.0
+VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E15A3A69-C5FC-4F2D-BC14-AFC6FA238C4E}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,9 +22,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapDesignLibrary", "MapDesi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnaraScapeTests", "AnaraScapeTests\AnaraScapeTests.csproj", "{64186A83-70E3-45AC-8074-59F541FDCE11}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library59", "Library59", "{264CEC3B-EFCE-4B21-ABD7-FED03A6E3F78}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LibraryCS59", "LibraryCS59", "{87BCABC9-380C-4641-9DE3-8FBA031BBD90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library59", "Library59\Library59\Library59.csproj", "{171C22D5-2266-4FDF-A183-53729ED2A352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library59", "LibraryCS59\Library59\Library59.csproj", "{CDB93C61-EEDF-464F-A573-A7D4AD36BBBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,12 +32,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66BC9A5D-F980-4945-9B43-00F6BCD967F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{4350647E-47F5-4A0F-A029-9B925A179793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4350647E-47F5-4A0F-A029-9B925A179793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4350647E-47F5-4A0F-A029-9B925A179793}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,10 +52,10 @@ Global
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64186A83-70E3-45AC-8074-59F541FDCE11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{171C22D5-2266-4FDF-A183-53729ED2A352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{171C22D5-2266-4FDF-A183-53729ED2A352}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{171C22D5-2266-4FDF-A183-53729ED2A352}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{171C22D5-2266-4FDF-A183-53729ED2A352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDB93C61-EEDF-464F-A573-A7D4AD36BBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB93C61-EEDF-464F-A573-A7D4AD36BBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB93C61-EEDF-464F-A573-A7D4AD36BBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB93C61-EEDF-464F-A573-A7D4AD36BBBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +64,6 @@ Global
 		SolutionGuid = {09F127A7-F65E-4D4D-B9BA-11904189DB69}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{171C22D5-2266-4FDF-A183-53729ED2A352} = {264CEC3B-EFCE-4B21-ABD7-FED03A6E3F78}
+		{CDB93C61-EEDF-464F-A573-A7D4AD36BBBA} = {87BCABC9-380C-4641-9DE3-8FBA031BBD90}
 	EndGlobalSection
 EndGlobal
