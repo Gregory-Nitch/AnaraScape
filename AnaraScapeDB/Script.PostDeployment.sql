@@ -3647,6 +3647,64 @@ VALUES(
 * Start of NPCs
 */
 
+-- The Abyss 
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Rathak',
+        'Deity',
+        'Brown furred beast that looks like a demonic minotaur in worn full plate armor covered in scars with tears of blood streaming down his face wielding a flaming two handed sword.',
+        'Followers are known to be savage fighters who show no mercy, they take what they want rather than ulterior methods, often hold grudges and seek vengeance.
+
+        Commandments:
+        - Annihilate the weak
+
+        - Collect your debts in blood
+
+        - Burn them to ash'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Terasu',
+        'Deity',
+        'Amorphous, black robed figure, or a grey skinned being without eyes.',
+        'Followers normally covet knowledge and secrets, are often completely crazy, often have elements of their face removed (eyelids, ears, lips, nose), use of illusions is also common.
+
+        Commandments: 
+        - Watch from the dark
+
+        - Take that which reveals
+
+        - Unravel chronology'
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Guhluk',
+        'Deity',
+        'A decaying corpse resting in an open grave with tentacles emerging from under it, has a male voice, or a headless six armed four legged humanoid carrying a decaying head.',
+        'Followers are often necromancers, some followers have been noted eating until death, seek to end life and devour it.
+
+        Commandments: 
+        - Devour all
+
+        - Master undeath
+
+        - Starve the others'
+);
+
 -- Acies
 -- Frigus Domus
 -- Scalar Domus
@@ -5314,75 +5372,191 @@ VALUES(
         WHERE [Name] = 'Bruessix')
 );
 
--- The Abyss 
 INSERT INTO [Lore].[NPCs]
     ([Name],
     [Race],
     [Description],
-    [Biography])
+    [Biography],
+    [LocationId])
 VALUES(
-        'Rathak',
-        'Deity',
-        'Brown furred beast that looks like a demonic minotaur in worn full plate armor covered in scars with tears of blood streaming down his face wielding a flaming two handed sword.',
-        'Followers are known to be savage fighters who show no mercy, they take what they want rather than ulterior methods, often hold grudges and seek vengeance.
-
-        Commandments:
-        - Annihilate the weak
-
-        - Collect your debts in blood
-
-        - Burn them to ash'
+        'Kregory Nedth',
+        'Human',
+        'A 45 year old human man with short curly hair and a short beard with large patches of grey. A relatively short and small man.',
+        'He runs a farm to the South West of Bruessix. He is well known for his work ethic and commitment to community well being.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
 );
 
 INSERT INTO [Lore].[NPCs]
     ([Name],
     [Race],
     [Description],
-    [Biography])
+    [Biography],
+    [LocationId])
 VALUES(
-        'Terasu',
-        'Deity',
-        'Amorphous, black robed figure, or a grey skinned being without eyes.',
-        'Followers normally covet knowledge and secrets, are often completely crazy, often have elements of their face removed (eyelids, ears, lips, nose), use of illusions is also common.
-
-        Commandments: 
-        - Watch from the dark
-
-        - Take that which reveals
-
-        - Unravel chronology'
+        'Ladore Bertanonel',
+        'Half-Elf',
+        'A 47 year old male half elf with long black hair, blue eyes, and pale skin with a 5''7 fit build. He has a scar on his left fot from a wolf attack that happened years earlier. He normally talks unnecessarily loud, and only wears expensive clothing, while also regularly argueing about everything.',
+        'He serves as the Bruessix Treasurer and holds no relation to the Bruessix Daggers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
 );
 
 INSERT INTO [Lore].[NPCs]
     ([Name],
     [Race],
     [Description],
-    [Biography])
+    [Biography],
+    [LocationId])
 VALUES(
-        'Guhluk',
-        'Deity',
-        'A decaying corpse resting in an open grave with tentacles emerging from under it, has a male voice, or a headless six armed four legged humanoid carrying a decaying head.',
-        'Followers are often necromancers, some followers have been noted eating until death, seek to end life and devour it.
-
-        Commandments: 
-        - Devour all
-
-        - Master undeath
-
-        - Starve the others'
+        'Marlette Jannis',
+        'Elf',
+        'A 432 year old elf woman with platinum blonde hair which is normally tightly placed up in a bun or some other hair style. She stands 5''9 and holds herself as proper as can be at all times and can be a bit shrewd.',
+        'She owns and manages the Jannis Orchards to the South East of the dutchy and has every remained loyal to the duke and his ancestors.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
 );
 
--- Krukiathu NPCs
 INSERT INTO [Lore].[NPCs]
     ([Name],
     [Race],
     [Description],
-    [Biography])
+    [Biography],
+    [LocationId])
 VALUES(
-        'Nulth',
-        'Dragon',
-        'Nulth is a blue adult shadow dragon with mat black scales that would almost appear like volcanic rock. From their body black mist trails down like smoke. Their eyes are a dark red and seated somewhat far back on the head. Two ram like horns emerge from the side of their head and curl back forwards towards the front of their mouth into points. Sharp spines jut out from the back of their head and a bit down their back. The leather of their wings break away from the dark black nature of their scales and hold a dark redish brown hue.',
-        'Nulth was spawned 187 years ago from a blue dragon that had long held hatred against the people of Aceis. Unlike the parent dragon however, Nulth was indoctrinated into the worship of Terasu. Due to their commitment they have been placed as the guardian of the Zara Mazallam in Tenbraz. However, at the awakening of Terasu''s Rahaslicon Nulth has been called upon to retrieve the book and return it to Ghuzalterok hands.'
+        '“Old” Lemma',
+        'Human',
+        'A 82 year old human female with a arched back and frail body. She has wirey hair that is normally loosely pulled back and slowly moves around with the help of a walking stick. She is very hard of hearing and speaking with her requires you to yell.',
+        'She owns a small cattle farm to the South West of Bruessix.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Quinton McDermit',
+        'Human',
+        'A 24 year old human man with short dirty blonde hair and a mustache with a soul patch. He has a thin build and holds himself quite respectfully while also always looking for loop holes. He cares for his friends but is often overly eager.',
+        'He serves as a scribe for the Scriptorium but also worships Tamauht. In the past he was mentored by Hadrian Redstream and they created a strong relationship during his time training for the Scriptorium.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Robin Rowntree',
+        'Human',
+        'A 41 year old human man with long straight auburn hair, brown eyes and rough white skin. He has a 5''5 lean build with angular facial features and a short goatee. He is quick to forgive and vain.',
+        'He serves as one of the guard sergeants in the dutchy. He suspects that Ladore Bertanonel is invloved with the Bruessix Daggers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Sven',
+        'Human',
+        'A 65 year old human man with a bald head, large arched nose and relatively long beard. He is a honest man but sometimes is known to be too easy going.',
+        'While he does not tend to a large farm, he assists the other farmers in the area with his experience and is often seen as the head farmer in the area.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Thea Kinon',
+        'Half-Elf',
+        'A 80 year old half elf woman with straight black hair, brown hazel eyes. She stands 5''4, is very bueatiful with pale skin and pointy ears. She figdets often by moving her fingers randomly. She is competitive and strict but fair and good intentioned.',
+        'She serves as the librarian of the Bruessix Scriptorium.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Fen',
+        'Human',
+        'A 27 year old human man with wavy black hair, he as an average build. His english accented voice is just as rough as he looks.',
+        'He is one of the captains in the Bruessix daggers and is Ved''s main contact in Bruessix.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Alexia Mistsplitter',
+        'Halfling',
+        'A 47 year old halfling female with long wavy brown hair and dark brown eyes, white skin, and a 4''0 skinny build. She has an oval bland face, doesn''t eat beef, is good at keeping secrets and hiding, and doesn''t like jokes.',
+        'She runs messages for Ameila Drake and other members of the Bruessix Daggers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Cavil Burren',
+        'Human',
+        'A 54 year old human man with a slender build, grey swept back hair. He is generally a cowardly man but is also greedy and seeks to build wealth, he is also a brown noser.',
+        'He serves as the Bruessix Treasurer but due to his disagreements with the duke of Bruessix he has started a smuggling ring employing the Bruessix Daggers to keep some of the money flowing into the local community for himself.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
 );
 
 -- Hells NPCs
@@ -5501,6 +5675,19 @@ VALUES(
         'Xallax was a giant stone elemental that had resembalances to humanoids.',
         'Xallax was well known to despise Balorok the fire titan and Ehekator the air titan due to their impulsiveness. Xallax always saught to keep things as they were and to never change them as a means to maintain tradition.'
 
+);
+
+-- Krukiathu NPCs
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography])
+VALUES(
+        'Nulth',
+        'Dragon',
+        'Nulth is a blue adult shadow dragon with mat black scales that would almost appear like volcanic rock. From their body black mist trails down like smoke. Their eyes are a dark red and seated somewhat far back on the head. Two ram like horns emerge from the side of their head and curl back forwards towards the front of their mouth into points. Sharp spines jut out from the back of their head and a bit down their back. The leather of their wings break away from the dark black nature of their scales and hold a dark redish brown hue.',
+        'Nulth was spawned 187 years ago from a blue dragon that had long held hatred against the people of Aceis. Unlike the parent dragon however, Nulth was indoctrinated into the worship of Terasu. Due to their commitment they have been placed as the guardian of the Zara Mazallam in Tenbraz. However, at the awakening of Terasu''s Rahaslicon Nulth has been called upon to retrieve the book and return it to Ghuzalterok hands.'
 );
 
 -- Lundus
