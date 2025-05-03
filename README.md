@@ -48,7 +48,7 @@ Here is the tool bar for making maps and some samples:
  - bootstrap 5.3.3 (MIT)
  - bootstrap-icons 1.11.3 (MIT)
  - Dapper 2.1.35 (Apache 2.0)
- - SkiaSharp via -> Microsoft.Maui.Graphics.Skia 8.0.60 (Library59.ImageProcessing) (MIT)
+ - SkiaSharp via -> Microsoft.Maui.Graphics.Skia 8.0.60 (LibraryCS59.ImageProcessing) (MIT)
 
 ## Resources 
 
