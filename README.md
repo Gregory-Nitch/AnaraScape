@@ -43,11 +43,12 @@ Here is the tool bar for making maps and some samples:
  Build: .NET 8.0
 
 ### Dependencies:
+(You should check the licenses below yourself)
 
- - bootstrap 5.3.3
- - bootstrap-icons 1.11.3
- - Dapper 2.1.35
- - SkiaSharp via -> Microsoft.Maui.Graphics.Skia 8.0.60 (Library59.ImageProcessing)
+ - bootstrap 5.3.3 (MIT)
+ - bootstrap-icons 1.11.3 (MIT)
+ - Dapper 2.1.35 (Apache 2.0)
+ - SkiaSharp via -> Microsoft.Maui.Graphics.Skia 8.0.60 (Library59.ImageProcessing) (MIT)
 
 ## Resources 
 
