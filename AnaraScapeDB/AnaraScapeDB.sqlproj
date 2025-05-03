@@ -244,6 +244,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AnaraScapeDB_1.publish.xml" />
     <None Include="Schemas\Lore Schema Diagram.png" />
     <None Include="Lore\Scripts\LoreSchema_TEST_.sql" />
   </ItemGroup>

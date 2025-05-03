@@ -3968,6 +3968,7 @@ INSERT INTO [Lore].[NPCs]
     [LocationId])
 VALUES(
         'Cottolm Chylle',
+        'Halfling',
         'A 18 year old male lightfoot halfling he has medium, curled, dirty blonde hair and hazel green eyes. He has soft white skin. He stands 117cm (3''10") tall and has a slight portly build. He has a round, sincere face. He has large hairy feet and doesn''t really wear shoes. He is kind and generous. He stands by what he thinks is right. He always carries food in his pockets or spices with him on trips.',
         'Innkeeper of Deep Range Inn which descends into the ground under a mountain.',
         (SELECT TOP 1
@@ -3984,6 +3985,7 @@ INSERT INTO [Lore].[NPCs]
     [LocationId])
 VALUES(
         'Sonetamar',
+        'Goliath',
         'A 53 year old male goliath he has a bald head with abstract tatoos and blue eyes. He has smooth white skin. He stands 225cm (7''4") tall and has a beefy build. He has an oblong, slightly innocent face. He has a small scar on his left eyebrow. Worships Veilith. He is very dedicated. He judges people by their actions, not their words. He occasionally uses long words to sound smart.',
         'He is a general store owner and he sets up local dance clubs.',
         (SELECT TOP 1
@@ -4995,7 +4997,6 @@ VALUES(
         'Human',
         'A 43 year old human man with short dark brown hair and beard with brown eyes. He is the Noble who acquired Ginger''s farm after she left but he doesn''t know about her husband being killed by the Lurkers due to a loan.',
         'Well to do noble in the area seeking to start an orchard.',
-        '',
         (SELECT TOP 1
             [Id]
         FROM [Lore].[Locations]
