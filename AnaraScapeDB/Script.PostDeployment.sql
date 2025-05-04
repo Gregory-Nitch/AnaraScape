@@ -5560,6 +5560,74 @@ VALUES(
         WHERE [Name] = 'Bruessix')
 );
 
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Ameila Drake',
+        'Human',
+        'A 45 year old human woman with long wavy, auburn hair and cyan eyes, smooth skin and a round stunning face, with long nails. She is regularly ironic and courageous.',
+        'She serves as the Treasurer secretary in Bruessix and works as a middle person between Cavil and the Bruessix Daggers. Secretly she wishes to replace Ved at the head of the Bruessix Daggers.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Matilada Mcray',
+        'Human',
+        'A 59 year old woman human with gray wavy hair and brown eyes. She is very short at 4''6 and has a small hunch and walks with a staff. She has very calm and slow movements. She strives to help those around here but would rather see them fix their problems themselves.',
+        'She serves as the Head priest of the Inaru church in Bruessix.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Ved',
+        'Human',
+        'A 54 year old human male with gray hair and beard with a scar across his left eye. He has a thick build and round rugged face.',
+        'He works as the head of the Bruessix Daggers which is located in the hills North East of Bruessix. He is working with Cavil Burren to smuggle goods and wealth in the area.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Borin Westgate',
+        'Human',
+        'A 49 year old human man with dark skin, salt and pepper hair and beard with glasses. He stands 5''9 and avoids conflict, is good hearted and admires the Duke of Bruessix.',
+        'He works as the owner of the Westgate Inn.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
 -- Hells NPCs
 INSERT INTO [Lore].[NPCs]
     ([Name],
