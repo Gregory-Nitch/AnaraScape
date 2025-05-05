@@ -5628,6 +5628,182 @@ VALUES(
         WHERE [Name] = 'Bruessix')
 );
 
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Cups',
+        'Tiefling',
+        'A 32 year old male tiefling standing 5''9 with slicked back black hair and horns like ram''s horns. He has dark red skin and is quite lanky with a pretty boy face. He does not like commitment and is cynical, as well as a lover of pranks.',
+        'He owns and runs the Snickering Wall, is bisexual and has a pet cat named noodle.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Elwindith Falalin',
+        'Elf',
+        'A 185 year old female elf standing 5''7 with long wavy brown hair and golden eyes with pale skin and long ears. She is quite pompus and vain and dresses really well.',
+        'She is the owner of the Azure Lofts and goes out of her way to gain favor with the duke when she can.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Fari Hillmaster',
+        'Dwarf',
+        'A 170 year old dwarf woman standing 4''1 with brown hair in a ponytail and a round face. She is a very traditional woman from the country.',
+        'Owns and runs the Woody Dog inn, has a motherly relationship with Avery Montagu.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Geoffrey Rinnis',
+        'Human',
+        'A 47 year old human man with salt and pepper hair undercut with a small beard. He likes his privacy and does not have any enthusiasm about much.',
+        'He owns and runs the Dark Abby Inn.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Erelmil Haelond',
+        'Half-Elf',
+        'A 70 year old half-elf standing 5''7 with short blonde hair and blue eyes with a slight tan. He has a scar on his left hand from a past tomb trap. He rambles and likes to learn secrets and riddles, along with collecting old elven pieces. He is somewhat of a diva and tries to use big words to show off how smart he is.',
+        'In the past he was an adventurer but now owns and runs a magic shop named the Arcane Artifactorium.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Hily Ohrin',
+        'Halfling',
+        'A 43 year old halfing man standing 3''7 with curly brown hair and round glasses. He is deaf in the left ear from a mixing accident explosion. He is easily suprised and likes to read books.',
+        'He is the owner of Hily''s Remedies and will pay for particular ingredients for potions from monsters or resources found in the wild.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Helena Mornfall',
+        'Human',
+        'A 34 year old woman with short wavy auburn hair and grey eyes standing 5''6. She is quite numble but spaces out often and is quite messy. She is more on the traditional country side of things despite owning a store in Bruessix.',
+        'She owns and runs Mornfall Goods the general store in Bruessix.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Lugo Fenwick',
+        'Human',
+        'A 43 year old human man with black hair and a mustache with a portly build.',
+        'He works as the weapon smith at Fenwick Hammers co and is looking for old armor and weapons that the family forge has made throughout the years and is brothers with Mern Fenwick.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Mern Fenwick',
+        'Human',
+        'A 45 year old human man with black hair and a mustache with a lanky build.',
+        'He works as the armorer at Fenwick Hammers co and is looking for old armor and weapons that the family forge has made throughout the years and is brothers with Lugo Fenwick.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Bruessix')
+);
+
+-- Gates Town
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Enir Larensel',
+        'Human',
+        'A 45 year old human man with short black hair and a scared face standing 5''8.',
+        'He serves as Warden of Gates Town and holds a secret loyalty to Cirilius Dorwin.',
+        'Warden of Gates Town',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Gates Town')
+);
+
+-- Tamel
+
+
 -- Hells NPCs
 INSERT INTO [Lore].[NPCs]
     ([Name],
