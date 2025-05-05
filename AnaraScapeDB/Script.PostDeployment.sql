@@ -5802,6 +5802,238 @@ VALUES(
 );
 
 -- Tamel
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Henrik Tamel',
+        'Human',
+        'A 39 year old human man With black wavy hair and a goatee with brown eyes. He looks quite deprived of sleep and most of his clothes are just a little bit too big because of the weight that he has lost lately. While generally good hearted his is often stifled by his indesisiveness and lack of military experience.',
+        'Henrik sits on the throne of the Tamel Imperium and has no current hiers. His wife Vila has gone missing and it has taken a large toll on him both mentally and physically.',
+        'Emporer of the Tamel Imperium',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Vila Tamel',
+        'Human',
+        'A 34 year old human woman with wavy brown hair with striking facial features spotted with light freckles. Her left eye is blue and her right eye is brown.',
+        'She is the Empress of Tamel but has since been missing for a month with her last known location being in her quarters under heavy gaurd. Posters seeking her where abouts have been placed throughout the Imperium but no significant evidence has been uncovered by the knights and search parties dispatched to look for her.',
+        'Empress of the Tamel Imperium',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Ilina Tamel',
+        'Human',
+        'A 28 year old human woman with vert long brown hair and brown eyes. She Is quite naive and innocent.',
+        'She is heir to the throne of the Tamel Imperium as Henrik''s sister but does not want the responsibilty and lacks in any amount of governing skill.',
+        'Heir to the throne of the Tamel Imperium',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Cirillius Dorwin',
+        'Human',
+        'A 56 year old human male with short wavy white hair and mustache and trimmed goatee. He has a very stern look about him and his clothes are regularly imaculate and well placed dispite their complexity.',
+        'He serves as the Praetor which is the Tamel Imperium''s highest ranking general. Cirillius is a well known for his military knowledge and tactical skill, as well as being a very capable fighter. If he had the authority he would want to invade the clans to the North as he would see it as a reunification of the entire Tamel Imperium.',
+        'Tamel Imperium Praetor',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Ulric',
+        'Human',
+        'A 65 year old human man with long white wavy hair and beard. He has a various assortment of jewelry on his hands and wears a very well made Scriptorium Robe. He is blunt, looks for loop holes, considers everyone else idiots, and seeks to gain more power.',
+        'He currently serves as The High Overseer of Tamel making him the highest ranking Scriptorium member. He is also loyal to Cirillius.',
+        'High Overseer of the Imperial Scriptorium',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [Title],
+    [LocationId])
+VALUES(
+        'Leo Stalean',
+        'Human',
+        'A 54 year old human man with long slicked back grey hair and a large mustache. He has an atheltic build and stands 5''9 with rough skin but atractive features. He regularly smokes a pipe, and believes in soul mates. He has a suprisingly easy going attitude despite his harsh exterior.',
+        'He serves as the Warden of Tamel.',
+        'Warden of Tamel',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Gavin Truegust',
+        'Human',
+        'A 82 year old human man standing 6''1 with brown eyes, pale skin and long white hair and beard. He is a crochity old man, stubborn and regularly cranky. He seaks to solve mysteries when he comes across them and is quite arrogant thinking he knows everything. He often smokes a pipe and always wears a hood around town.',
+        'He is an independent wizard in Tamel that the city officials or wealthy often employ when they successfuly convince him that the work is worth it. Formerly he was part of an adventuring group of decent renown until party decisions split the group after disagreements, on that adventure one of his friends was killed and now haunts him hoping to convince him to reconcile with one of the other party members Alagar Bialemen who used to be good friends but are now on bad terms and do not speak.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Kizenar Josarkett',
+        'Human',
+        'A 43 year old human man with short brown heair and beard with mixed in grey. He wears old plain robes of neutral colors. He has a staff with crystal at its head and longsword at his side. He often squints while talking or thinking and seems to always know the gossip about the town. He seeks to save as many people as possible.',
+        'He serves as the Inhaerent Custodium''s manager in Tamel and is only known as "Ledger" and holds information about the Tree of Inheritors. ',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Mert Falmeister',
+        'Human',
+        'A 58 year old human man with a balding head and long grey hair and a thick mustache. He normally only speaks a few words and is generally disapproving of other people but keeps it to himself. When asked however he speaks plainly and generally just wants to go about his day undisturbed. He has the old man doesn''t care aura and wants to keep his bar quiet and will stand his ground on principle even if its dangerous.',
+        'He is the owner of Mert''s a small seedy bar in the North part of Tamel.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Wit',
+        'Tiefling',
+        'A 37 year old tiefling man with dark red skin, golden eyes and shoulder length straight black hair.',
+        'He serves as the head of the Lurkers crime syndicate as the "Eye".',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Winfred Darkdraft',
+        'Human',
+        'A 47 year old human woman with straight raven black hair and brown eyes, she still holds a good amount of her bueaty from her youth and has smooth pale white skin. She wears well kept robes of the Scriptorium and earings on both ears shaped like 3d d8s. She has a variable mood and is very self confident but seeks to know the problem or every side of the story before coming to a conclusion. She secretly practices necromancy and hopes to prolong her life.',
+        'She is loyal to Ulric and has since replaced Noriso as Librarian in Tamel under Ulric''s recommendation.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'Xamyra Isona Rosikini Queyore',
+        'Human',
+        'A 43 year old female human with straight shoulder length blonde hair and ice blue eyes, she stands 5''8 and has a nicely shaped figure and face that is fading in her age. She normally is found wearing traditional Tamel atire that in white or red. She never knows the current time and date as her well funded lifestyle means it is of no concern to her. She doesn''t like parting with her money or possessions.',
+        'She owns the Lion''s Colosseum and any talk of her ancestors abandoning military duties to start a business in the capital is met with boiling contempt. Her business was inhereted from her forefathers that hailed from the west of Tamel and the Banewright Kingdom standard can be seen in the colossuem banners.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
+
+INSERT INTO [Lore].[NPCs]
+    ([Name],
+    [Race],
+    [Description],
+    [Biography],
+    [LocationId])
+VALUES(
+        'IC-0059',
+        'Warforged',
+        'A 5423 year old warforged. IC-59 is heavily damaged missing the lower half of their body and their right arm below the elbow, their head has also suffered a severe blow leaving a crater in the top right of their head. Due to this and their age their faculties are limited and often subject to ramblings or outbursts. Furthermore, they have been known to shutdown for hundreds of years only to reawake randomly. "59" is hung from servcing suspenders on their back and covered with a tattered dark brown cloak from which only their left arm and head can be seen. Their hardpoints are made from a reflective metal that has long lost it luster and the majority of their body is made of a dark synthetic hard fabric with outer and inner frames. Their chest gives off a flickering pale blue light through their robes from a hole that remains in the upper right side of their chest. Should their interior be inspected mutliple cables, mechanicals and crystals with arcane markings will be found with a large crystal at the center of the chest. When awake their left eye gives off a pale blue light as well. Their voice is that of a male but sounds slightly as if it is being spoken through a metal can. Only their left eye, arm and neck retain movement.',
+        'Only known as "59" by the Inherent Custodium IC-59 is a warforged pulled from the ruins of Aiel in the Pale Wastes. As the city crashed into the ground IC-59 was mangled and damaged leaving them in a commatose like state for thousands of years until they were found by Inherent Custodium members after news of the strange ruins in the area. IC-59 was then taken back South to avoid being lost in the reunification wars that were happening at the time on the North of Cinallis. IC-59 has then since been held in secret by the Inherent Custodium in Tamel. IC-59 was forged in section 4 of Aiel and was part of an Inhaerent Custodium project to archive and record events and information.',
+        (SELECT TOP 1
+            [Id]
+        FROM [Lore].[Locations]
+        WHERE [Name] = 'Tamel')
+);
 
 
 -- Hells NPCs
